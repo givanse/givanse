@@ -1,0 +1,12 @@
+{{#layout}}
+
+<h1>Articles</h1>
+
+{{#each page.articles}} 
+  {{#link-to url}}
+    {{title}}
+  {{/link-to}}
+  <br>
+{{/each}}
+
+{{/layout}}
