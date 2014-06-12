@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name="description" content="personal website">
+    <meta name="keywords" content="personal website">
+    <meta name="author" content="Gaston Ivan Silva Echegaray">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>givanse</title>
+    
+    <link href="style.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <table>
+        <tr id="top">
+            <td id="corner1"></td>
+            <td id="b-top"></td>
+            <td id="corner2"></td>
+        </tr>
+
+        <tr>
+            <td id="b-left"></td>
+
+            <td id="content">
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-xs-0 col-sm-0 col-md-2"></div>
+
+                        <div class="right">
+                            <div class="col-xs-12 col-sm-6 col-md-2">
+                                <a class="img-wrap" href="http://www.linkedin.com/profile/view?id=73354565" target="_blank">
+                                    <img id="linkedin" name="linkedin" alt="linkedin" src="img/givanse.png">
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="left">
+                            <div class="col-xs-12 col-sm-6 col-md-2">
+                                <a class="img-wrap" href="http://stackoverflow.com/users/7852/givanse" target="_blank">
+                                    <img id="stackoverflow" name="stackoverflow" alt="stackoverflow" src="img/givanse.png">
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="right">
+                            <div class="col-xs-12 col-sm-6 col-md-2">
+                                <a class="img-wrap" href="https://github.com/givanse" target="_blank">
+                                    <img id="github" name="github" alt="github" src="img/givanse.png">
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="left">
+                            <div class="col-xs-12 col-sm-6 col-md-2">
+                                <a class="img-wrap" href="https://twitter.com/givanse" target="_blank">
+                                    <img id="twitter" name="twitter" alt="twitter" src="img/givanse.png">
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-0 col-sm-0 col-md-2"></div>
+                    </div>
+
+                    <div class="row">
+                        <div id="givanse-wrap">
+                            <a id="contact-link" name="contact-link" 
+                               href="mailto:gaston@givan.se?Subject=Hola%20Gaston">
+                                <img id="givanse" name="givanse" alt="givanse" src="img/givanse.png">
+                            </a>
+
+                            <address id="contact-address" name="contact-address">
+                                GASTON@GIVAN.SE
+                            </address>                           
+                        </div>
+                    </div>
+
+                </div>
+            </td>
+
+            <td id="b-right"></td>
+        </tr>
+
+        <tr id="bottom">
+            <td id="corner4"></td>
+            <td id="b-bottom"></td>
+            <td id="corner3"></td>
+        </tr>
+    </table>
+
+    <!--[if IE]>
+        <script type="text/javascript" src="respond.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript">
+        function bindEvent(el, eventName, eventHandler) {
+            if (el.addEventListener) { /* other browsers */
+                el.addEventListener(eventName, eventHandler, false); 
+            } else if (el.attachEvent) { /* IE */
+                el.attachEvent('on'+eventName, eventHandler);
+            }
+        }
+
+        function resize() {
+            var img = document.getElementById("givanse");
+            var full_height = 288;
+            var social_percent = 46; /* 44.4444 */
+
+            var ignore_height = img.height * social_percent / 100;
+            //img.style["margin-top"] = "-" + ignore_height + "px";
+            //img.setAttribute("style", "margin-top: " + "-" + ignore_height + "px");
+            img.style.marginTop = "-" + ignore_height + "px";
+        }
+
+        bindEvent(window, "resize", function(event) {
+                resize();
+            });
+
+        bindEvent(window, "load", function(event) {
+                resize();
+
+                /* Make visible the images, after resize. 
+                   They start hidden to avoid the flash-arrange effect. */
+                document.getElementById("linkedin").style.display = "inline";
+                document.getElementById("stackoverflow").style.display = "inline";
+                document.getElementById("github").style.display = "inline";
+                document.getElementById("twitter").style.display = "inline";
+
+                /* Display the contact address as text. */
+                var contact_link = document.getElementById("contact-link");
+                bindEvent(contact_link, "click", function(event) {
+                        document.getElementById("contact-address")
+                                .style.display = "block";
+                    });
+            });
+
+    </script>
+</body>
+</html>
