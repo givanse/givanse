@@ -1,0 +1,74 @@
+{{partial 'post_header'}}
+
+mkdir ember-cli-devise
+cd ember-cli-devise
+
+rails new server
+cd server
+bundle update
+rails server
+
+# commit Step 1 - Create Rails project
+
+ember new client
+cd client
+bower update
+ember server
+
+ember generate template index
+ember generate template login
+# no logout template
+ember generate template register
+ember generate template profile
+
+# we get index route for free
+ember generate route login
+#ember generate route logout
+ember generate route register
+ember generate route profile
+
+# commit
+
+touch app/initializers/authentication.js
+bower.js
+    "ember-simple-auth": "https://github.com/simplabs/ember-simple-auth-component.git"
+Brocfile
+    app.import('vendor/ember-simple-auth/ember-simple-auth.js');
+    app.import('vendor/ember-simple-auth/ember-simple-auth-oauth2.js');
+bower update
+
+ember generate controller login # Choose: neither
+ember generate route application
+
+ember server
+POST http://localhost:4200/token 404 (Not Found)
+
+ember server --proxy http://0.0.0.0:3000
+POST http://localhost:4200/token 500 (Internal Server Error) 
+#wrong proxy, no server
+
+ember server --proxy http://localhost:3000
+POST http://localhost:4200/token 408 (Request Time-out)
+# needs a workaround
+https://github.com/stefanpenner/ember-cli/blob/master/blueprints/api-stub/files/server/index.js#L17
+
+POST http://localhost:4200/token 422 (Unprocessable Entity) 
+# ember-cli needs to keep track of the CSRF token
+https://github.com/abuiles/rails-csrf
+rails generate controller api/csrf
+
+#commit ember-simple-auth
+
+rails generate model user name:string password:string token:string
+
+rails generate controller session
+
+rake db:migrate
+
+rake db:seed
+
+# commit build backend
+
+rails generate controller static
+
+{{partial 'post_footer'}}

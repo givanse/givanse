@@ -1,0 +1,24 @@
+html, body {
+  height: 100%;
+  margin: 0px;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+#header {
+  width: 100%;
+}
+
+#menu {
+  max-width: 800px;
+  padding: 10px 0px;
+  text-align: right;
+}
+
+#content {
+  max-width: 900px;
+  margin: auto;
+}
