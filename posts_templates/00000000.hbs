@@ -1,0 +1,343 @@
+<style>
+    .column {
+        margin: 0px;
+        padding: 0px 4px;
+    }
+    #content {
+        max-width: 900px;
+    }
+</style>
+
+{{partial 'post_header'}}
+
+We will build a Rails project and an Ember project from scratch. The backend 
+will provide the means to `log in` with the gem Devise. The frontend will
+be able to `login`, using the Rails backend, with ember-simple-auth.
+
+<h2>Tools</h2>
+<pre class="brush: bash">
+    node -v
+    v0.10.26
+    npm -v
+    1.4.3
+    ember -v
+    version: 0.0.34
+</pre>
+
+Create a project folder:
+<pre class="brush: bash">
+    mkdir ember-cli-simple-auth-devise
+    cd ember-cli-simple-auth-devise
+</pre>
+
+The backend and the frontend will be two separate projects, like this:
+<pre class="brush: bash">
+    ember-cli-simple-auth-devise/
+    ├── my-backend
+    └── my-frontend
+</pre>
+
+<div class="column">
+    <h2>Rails</h2>
+
+    <h3>Create a Rails project</h3>
+    <pre class="brush: bash">
+        rails new my-backend
+        cd my-backend
+        rails generate controller static
+    </pre>
+    edit: config/routes.rb
+    <pre class="brush: ruby">
+        root to: "static#index"
+    </pre>
+
+    <h3>Install Devise</h3>
+    <pre class="brush: bash">
+        echo "gem 'devise'" >> Gemfile
+        bundle install
+        rails generate devise:install
+        rails generate devise User
+    </pre>
+    edit: app/views/layouts/application.html.erb
+    <pre class="brush: ruby">
+        <h1>Backend</h1>
+        <!-- buttons -->
+        <% if user_signed_in? %>                                                            
+            <%= current_user.email %>
+            <%= link_to t('.log_out'), destroy_user_session_path, method: :delete %>
+        <% else %>                                                                       
+            <%= link_to t('.sign_up'), new_user_registration_path %> |
+            <%= link_to t('.log_in'), new_user_session_path %>        
+        <% end %>
+
+        <!-- messages -->
+        <% if notice %>
+            <p class="alert alert-notice"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+            <p class="alert alert-error"><%= alert %></p>
+        <% end %>
+    </pre>
+    Check it out
+    <pre class="brush: bash">
+        rake db:migrate
+        rake db:seed
+        rails server
+    </pre>
+
+    <h3>Add a token to the User model</h3>
+    <pre class="brush: bash">
+        rails generate migration add_authentication_token_to_users \
+                                 authentication_token:string
+        rake db:migrate
+    </pre>
+    edit: app/models/user.rb
+    <pre class="brush: ruby">
+        before_save :ensure_authentication_token
+        def ensure_authentication_token
+          if authentication_token.blank?
+            self.authentication_token = generate_authentication_token
+          end
+        end
+
+        private
+
+        def generate_authentication_token
+          loop do
+            token = Devise.friendly_token
+            break token unless User.where(authentication_token: token).first
+          end
+        end
+    </pre>
+
+    <h3>Handle ember-simple-auth requests</h3>
+    create: app/controllers/sessions_controller.rb
+    <pre class="brush: ruby">
+        class SessionsController < Devise::SessionsController
+          def create
+            respond_to do |format|
+              format.html { super }
+              format.json do
+                self.resource = warden.authenticate!(auth_options)
+                sign_in(resource_name, resource)
+                data = {
+                  user_token: self.resource.authentication_token,
+                  user_email: self.resource.email
+                }
+                render json: data, status: 201
+              end
+            end
+          end
+        end
+    </pre>
+    edit:: config/routes.rb
+    <pre class="brush: ruby">
+        devise_for :users, controllers: { sessions: 'sessions' }
+    </pre>
+    edit: app/controllers/application_controller.rb
+    <pre class="brush: ruby">
+        before_filter :authenticate_user_from_token!
+
+        private
+
+          def authenticate_user_from_token!
+            authenticate_with_http_token do |token, options|
+              user_email = options[:user_email].presence
+              user       = user_email && User.find_by_email(user_email)
+
+              if user && Devise.secure_compare(user.authentication_token, token)
+                sign_in user, store: false
+              end
+            end
+          end
+    </pre>
+
+</div><!-- left, rails -->
+
+<div class="column">
+    <h2>Ember CLI</h2>
+
+    Now we will build the front end, start from the root <b>ember-cli-simple-auth-devise/</b>
+
+    <h3>Create an Ember project</h3>
+    <pre class="brush: bash">
+        ember new my-frontend
+        cd my-frontend
+        ember generate template index
+        ember generate template login
+        ember generate template protected
+        ember generate route login
+        ember generate route protected
+    </pre>
+    edit: app/router.js
+    <pre class="brush: js">
+        this.route('login');
+        this.route('signup');
+        this.route('protected');
+    </pre>
+    edit: app/templates/application.hbs
+    <pre class="brush: js">
+        <h2 id='title'>Frontend</h2>
+
+        \{{#link-to 'index'}}Home\{{/link-to}}
+        \{{#link-to 'protected'}}Protected\{{/link-to}}
+    </pre>
+
+    <h3>Install ember-simple-auth-devise</h3>
+    edit: bower.js
+    <pre class="brush: js">
+        "ember-simple-auth": "https://github.com/simplabs/ember-simple-auth-component.git"
+    </pre>
+    <pre class="brush: bash">
+        bower update
+    </pre>
+    edit: Brocfile
+    <pre class="brush: js">
+        app.import('vendor/ember-simple-auth/ember-simple-auth.js');
+        app.import('vendor/ember-simple-auth/ember-simple-auth-devise.js');
+    </pre>
+    create app/initializers/simple-auth.js
+    <pre class="brush: js">
+        export default {
+            name: 'authentication',
+            initialize: function(container, application) {
+                Ember.SimpleAuth.setup(container, application, {
+                    authorizerFactory: 'ember-simple-auth-authorizer:devise'
+                });
+            }
+        };
+    </pre>
+
+    <h3>Use ember-simple-auth helpers</h3>
+    edit: app/templates/login.hbs
+    <pre class="brush: ruby">
+        <form {{action 'authenticate' on='submit'}}>
+        <label for="identification">Login</label>
+        {{input id='identification' placeholder='Enter Login' value=identification}}
+        <label for="password">Password</label>
+        {{input id='password' placeholder='Enter Password' type='password' value=password}}
+        <button type="submit">Login</button>
+        </form>
+    </pre>
+    <pre class="brush: bash">
+        ember generate controller login
+        # choose neither
+    </pre>
+    edit: app/controllers/login.js 
+    <pre class="brush: bash">
+        var LoginController = Ember.Controller.extend(Ember.SimpleAuth.LoginControllerMixin, {
+            authenticatorFactory: 'ember-simple-auth-authenticator:devise'
+        });
+
+        export default LoginController;
+    </pre>
+    And finally test it:
+    <pre class="brush: bash">
+        ember server --proxy http://0.0.0.0:3000
+        # You will encounter a couple of errors that will be solved below.
+    </pre>
+</div><!-- right, ember -->
+
+<h2>Errors<h2>
+
+<h3>Time-out<h3>
+In the console you get a 408 error:
+<pre class="brush: js">
+    POST http://localhost:4200/token 408 (Request Time-out)
+</pre>
+Or a 500 error accompanied by an ember server error:
+<pre class="brush: js">
+   POST http://localhost:4200/token 500 (Internal Server Error) 
+</pre>
+<pre class="brush: bash">
+Error: socket hang up
+   at createHangUpError
+</pre>
+<h4>Solution</h4>
+edit: server/index.js
+<pre class="brush: js">
+    //app.use(bodyParser());
+</pre>
+To know more about this: 
+<a href="https://github.com/stefanpenner/ember-cli/issues/723">ember-cli#723</a>
+
+<h3>Unprocessable Entity</h3>
+In the console you get a 422 error accompanied by a rails server error:
+<pre class="brush: js">
+    POST http://localhost:4200/token 422 (Unprocessable Entity) 
+</pre>
+<pre class="brush: bash">
+    Cross
+</pre>
+<h4>Solution</h4>
+ember-cli needs to keep track of the CSRF token, 
+this can be solved with <a href="https://github.com/abuiles/rails-csrf">rails-csrf</a>.
+<h5>Rails</h5>
+<pre class="brush: bash">
+    cd my-backend/
+    rails generate controller api/csrf
+</pre>
+edit: config/routes.rb
+<pre class="brush: ruby">
+  namespace :api do
+    get :csrf, to: 'csrf#index'
+  end
+</pre>
+<pre class="brush: bash">
+    rails server 
+</pre>
+<h5>Ember</h5>
+edit: bower.js
+<pre class="brush: js">
+    "rails-csrf": "abuiles/rails-csrf"
+</pre>
+<pre class="brush: bash">
+    bower update
+</pre>
+edit: Brocfile
+<pre class="brush: js">
+app.import('vendor/rails-csrf/dist/named-amd/main.js', {
+  'rails-csrf': [
+    'service'
+  ]
+});
+</pre>
+edit: app/app.js
+<pre class="brush: js">
+loadInitializers(App, 'frontend');
+loadInitializers(App, 'rails-csrf');
+
+export default App;
+</pre>
+edit: app/routes/application.js
+<pre class="brush: js">
+    beforeModel: function() {
+        return this.csrf.fetchToken();
+    }
+</pre>
+edit: config/environment.js
+<pre class="brush: js">
+module.exports = function(environment) {
+  var ENV = {
+    railsCsrf: {
+      csrfURL: 'api/csrf'
+    }
+  };
+</pre>
+Everything should be working now:
+<pre class="brush: js">
+    ember server --proxy http://0.0.0.0:3000
+</pre>
+
+<h2>Other errors</h2>
+<pre class="brush: bash">
+    POST http://localhost:4200/token 404 (Not Found)
+    # chances are you didn't specify a proxy when starting the ember server
+</pre>
+
+<pre class="brush: bash">
+    POST http://localhost:4200/token 500 (Internal Server Error)
+    # chances are you specified the wrong proxy address when starting the ember server
+</pre>
+
+{{partial 'post_footer'}}

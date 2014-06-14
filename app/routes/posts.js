@@ -1,7 +1,7 @@
-var PostsRoute = Ember.Route.extend({
+import Ember from 'ember';
+
+export default Ember.Route.extend({
     model: function () {
         return this.store.all('post');
     }
 });
-
-export default PostsRoute;

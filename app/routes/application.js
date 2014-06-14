@@ -1,15 +1,18 @@
-var ApplicationRoute = Ember.Route.extend({
+import Ember from 'ember';
+
+export default Ember.Route.extend({
     init: function () {
         this._super();
 
-        // has a limit for 256 posts, should be enough 
         var posts = [
-            {id: '00000000', title: 'ember-cli & ember-simple-auth-devise', date: '12 / Jun / 2014'}
+            {id: '00000000', title: 'foobar 1', date: '12 / Jun / 2014',
+             description: 'lorem ipsum'},
+            {id: '00000001', title: 'foobar 2', date: '12 / Jun / 2014',
+             description: 'lorem ipsum'}
         ];
+
         for (var i = 0; i < posts.length; i++) {
             this.store.createRecord('post', posts[i]);
         }
     }
 });
-
-export default ApplicationRoute;

@@ -1,9 +1,10 @@
+import Ember from 'ember';
+
 var Router = Ember.Router.extend({
-  location: ENV.locationType
+  location: GivanseENV.locationType
 });
 
 Router.map(function() {
-
     this.route('about');
 
     this.route('post', {path: 'p/:post_id'});

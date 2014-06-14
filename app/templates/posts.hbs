@@ -1,4 +1,8 @@
 {{#each}}
-    {{#link-to 'post' id}}{{date}} - {{title}}{{/link-to}}
-    <br>
+    <div class="post">
+        {{#link-to 'post' id}}{{title}}{{/link-to}}
+        <span class="post_date">~ {{date}}</span>
+        <br>
+        <span class="post_description">{{description}}</span>
+    </div>
 {{/each}}
