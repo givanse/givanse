@@ -1,6 +1,8 @@
 /* global require, module */
 
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var mergeTrees = require('broccoli-merge-trees');
+var pickFiles = require('broccoli-static-compiler');
 
 var app = new EmberApp({
   name: require('./package.json').name,
@@ -54,4 +56,17 @@ app.import('vendor/SyntaxHighlighter/pkg/scripts/shBrushJScript.js');
 app.import('vendor/SyntaxHighlighter/pkg/scripts/shBrushBash.js');
 app.import('vendor/SyntaxHighlighter/pkg/scripts/shBrushRuby.js');
 
-module.exports = app.toTree();
+app.import('vendor/fontello/css/fontello.css');
+app.import('vendor/fontello/css/fontello-codes.css');
+app.import('vendor/fontello/css/fontello-embedded.css');
+
+var fontAssets = pickFiles('vendor/fontello/font', {
+   srcDir: '/',
+   files: ['fontello.eot',
+           'fontello.svg',
+           'fontello.ttf', 
+           'fontello.woff'],
+   destDir: '/font'
+});
+
+module.exports = mergeTrees([app.toTree(), fontAssets]);
