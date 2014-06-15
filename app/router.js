@@ -10,6 +10,8 @@ Router.map(function() {
     this.route('post', {path: 'p/:post_id'});
 
     this.route('posts');
+
+    this.route('error');
 });
 
 export default Router;

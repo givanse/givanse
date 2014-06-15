@@ -240,7 +240,9 @@ The backend and the frontend will be two separate projects, like this:
 
 <h2>Errors<h2>
 
-<h3>Time-out<h3>
+This are errors that you'll encounter, read on, the solutions are here too.
+
+<h3>Time-out</h3>
 In the console you get a 408 error:
 <pre class="brush: js">
     POST http://localhost:4200/token 408 (Request Time-out)
@@ -291,9 +293,6 @@ edit: bower.js
 <pre class="brush: js">
     "rails-csrf": "abuiles/rails-csrf"
 </pre>
-<pre class="brush: bash">
-    bower update
-</pre>
 edit: Brocfile
 <pre class="brush: js">
 app.import('vendor/rails-csrf/dist/named-amd/main.js', {
@@ -326,10 +325,14 @@ module.exports = function(environment) {
 </pre>
 Everything should be working now:
 <pre class="brush: js">
+    bower update
     ember server --proxy http://0.0.0.0:3000
 </pre>
 
 <h2>Other errors</h2>
+
+This are errors that should't be appearing.
+
 <pre class="brush: bash">
     POST http://localhost:4200/token 404 (Not Found)
     # chances are you didn't specify a proxy when starting the ember server

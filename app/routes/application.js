@@ -5,10 +5,8 @@ export default Ember.Route.extend({
         this._super();
 
         var posts = [
-            {id: '00000000', title: 'foobar 1', date: '12 / Jun / 2014',
-             description: 'lorem ipsum'},
-            {id: '00000001', title: 'Lorem ipsum dolor', date: '12 / Jun / 2014',
-             description: 'lorem ipsum dolor amet si'}
+            {id: '00000000', title: 'ember-cli & ember-simple-auth-devise', date: '12 / Jun / 2014',
+             description: 'Authenticate to a Rails-Devise server from an Ember CLI app.'}
         ];
 
         for (var i = 0; i < posts.length; i++) {
