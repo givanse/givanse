@@ -18,11 +18,6 @@
 @color-secondary-2-3: #562C23;
 @color-secondary-2-4: #33130B;
 
-@menu_link_active_border_width: 0.35em;
-@menu_link_line_height: 3em;
-
-@content_padding_top: 6em;
-
 html, body {
   height: 100%;
   margin: 0px;
@@ -30,6 +25,23 @@ html, body {
   font-family: monospace;
   font-size: 1.1em;
   color: @color-secondary-1-4;
+}
+
+body > .ember-view,
+#layout {
+  height: 100%;
+  width: 100%;
+}
+
+#layout,
+#layout tr,
+#layout tr td {
+  margin: 0px;
+  padding: 0px;
+}
+
+#layout tr {
+  vertical-align: top;
 }
 
 a {
@@ -60,6 +72,18 @@ h1 {
   margin-bottom: 0;
 }
 
+@menu_link_active_border_width: 0.35em;
+@menu_link_line_height: 3em;
+@header_placeholder_height: @menu_link_line_height +
+                            @menu_link_active_border_width +
+                            @menu_link_active_border_width +
+                            0.2em +
+                            2em; /* white space */
+
+#layout tr:first-child {
+  height: @header_placeholder_height;
+}
+
 #header, #header_0, #header_1, #header_2 {
   width: 100%;
 }
@@ -84,18 +108,34 @@ h1 {
   background-color: @color-secondary-1-1;
 }
 
-#menu {
+#header_0 #menu {
   height: @menu_link_line_height;
   max-width: 800px;
   margin: auto;
+  padding: 0 1em;
   padding-top: @menu_link_active_border_width;
   text-align: right;
 }
 
 #content {
   margin: auto;
-  padding-top: @content_padding_top;
   max-width: 800px;
+  padding: 1em;
+  padding-top: 0px;
+}
+
+@footer_height: 10em;
+
+#layout tr:nth-child(3) {
+  height: @footer_height;
+}
+
+#footer {
+  background-color: @color-primary-0;
+  height: @footer_height;
+  border-color: @color-secondary-1-4;
+  border-style: solid;
+  border-width: 0.1em 0 0 0;
 }
 
 .post {
@@ -114,11 +154,11 @@ h1 {
   color: @color-secondary-2-2;
 }
 
-div#about_footer {
+#about_footer {
   color: @color-secondary-2-1;
 }
 
-span.alabel {
+.alabel {
   color: @color-secondary-1-2;
 }
 

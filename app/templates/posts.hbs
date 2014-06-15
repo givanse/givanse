@@ -4,14 +4,14 @@
     }
 </style>
 
-<div style="display: inline-block; text-align: left;">
+<article style="display: inline-block; text-align: left;">
 {{#each}}
-    <div class="post">
+    <class="post">
         {{#link-to 'post' id}}{{title}}{{/link-to}}
-        <span class="post_date">~ {{date}}</span>
+        <time class="post_date">~ {{date}}</time>
         <br>
-        <span class="post_description">{{description}}</span>
+        <summary class="post_description">{{description}}</summary>
     </div>
     <br>
 {{/each}}
-</div>
+</article>
