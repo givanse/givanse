@@ -1,0 +1,8 @@
+[
+    {
+        "id": "00000000",
+        "title": "ember-cli & ember-simple-auth-devise",
+        "date": "16/Jun/2014",
+        "description": "Authenticate to a Rails/Devise server from an Ember CLI app."
+    }
+]

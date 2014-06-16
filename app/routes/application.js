@@ -1,16 +1,32 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-    init: function () {
-        this._super();
-
-        var posts = [
-            {id: '00000000', title: 'ember-cli & ember-simple-auth-devise', date: '12 / Jun / 2014',
-             description: 'Authenticate to a Rails-Devise server from an Ember CLI app.'}
-        ];
-
-        for (var i = 0; i < posts.length; i++) {
-            this.store.createRecord('post', posts[i]);
+    actions: {
+        error: function (error, transition) {
+            this.transitionTo('error');
         }
+    },
+
+    isPostsListLoaded: false,
+
+    beforeModel: function () {
+        if ( this.get('isPostsListLoaded') ) {
+            return;
+        }
+
+        var _this = this;
+
+        var url = GivanseENV.APP.path.posts;
+        return Ember.$.getJSON(url)
+                      .done(function (data) {
+                          for (var i = 0; i < data.length; i++) {
+                              var post = data[i];
+                              //TODO: Uncaught #<error>
+                              _this.store.createRecord('post', post);
+                          }
+
+                          //TODO: Uncaught #<error>
+                          _this.set("isPostsListLoaded", true);
+                      });
     }
 });

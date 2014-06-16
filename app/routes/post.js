@@ -17,7 +17,8 @@ export default Ember.Route.extend({
         } else {
             var _this = this;
 
-            return Ember.$.ajax('posts_templates/' + templateName + '.hbs')
+            var url = GivanseENV.APP.path.templates + templateName + '.hbs';
+            return Ember.$.ajax(url)
                    .done(function (data) {
                        tptsArr[templateName] = Ember.Handlebars.compile( data );
                        _this.set('templateName', templateName);
