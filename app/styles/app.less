@@ -34,8 +34,10 @@ body > .ember-view,
 }
 
 #layout,
-#layout tr,
-#layout tr td {
+#layout tbody,
+#layout tbody tr,
+#layout tbody tr td {
+  border-width: 0px;
   margin: 0px;
   padding: 0px;
 }
@@ -50,6 +52,7 @@ a {
 
 #menu a {
   background-color: @color-secondary-1-1;
+  color: @color-secondary-1-4;
   display: inline-block;
   font-weight: bold;
   line-height: @menu_link_line_height;
@@ -69,7 +72,7 @@ a {
 }
 
 h1 {
-  margin-bottom: 0;
+  margin-bottom: 0px;
 }
 
 @menu_link_active_border_width: 0.35em;
@@ -112,7 +115,7 @@ h1 {
   height: @menu_link_line_height;
   max-width: 800px;
   margin: auto;
-  padding: 0 1em;
+  padding: 0em 1em;
   padding-top: @menu_link_active_border_width;
   text-align: right;
 }
@@ -135,7 +138,7 @@ h1 {
   height: @footer_height;
   border-color: @color-secondary-1-4;
   border-style: solid;
-  border-width: 0.1em 0 0 0;
+  border-width: 0.1em 0px 0px 0px;
 }
 
 .post {
@@ -168,4 +171,9 @@ h1 {
 .icon-twitter {
   font-size: 2em;
   color: @color-secondary-1-4;
+}
+
+/* override Syntax Highligher styles */
+.syntaxhighlighter {
+  overflow: hidden !important;
 }
