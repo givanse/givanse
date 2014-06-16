@@ -50,7 +50,7 @@ app.import('vendor/ic-ajax/dist/named-amd/main.js', {
   ]
 });
 
-app.import('vendor/SyntaxHighlighter/pkg/styles/shCoreEclipse.css');
+app.import('vendor/SyntaxHighlighter/pkg/styles/shCoreDefault.css');
 app.import('vendor/SyntaxHighlighter/pkg/scripts/shCore.js');
 app.import('vendor/SyntaxHighlighter/pkg/scripts/shBrushJScript.js');
 app.import('vendor/SyntaxHighlighter/pkg/scripts/shBrushBash.js');
