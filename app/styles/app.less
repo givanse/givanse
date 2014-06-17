@@ -18,6 +18,9 @@
 @color-secondary-2-3: #562C23;
 @color-secondary-2-4: #33130B;
 
+@links_color: @color-secondary-2-3;
+@header_footer_background_color: @color-primary-0;
+
 html, body {
   height: 100%;
   margin: 0px;
@@ -47,7 +50,7 @@ body > .ember-view,
 }
 
 a {
-  color: @color-secondary-2-0;
+  color: @links_color;
 }
 
 #menu a {
@@ -98,7 +101,7 @@ h1 {
 }
 
 #header_0 {
-  background-color: @color-primary-0;
+  background-color: @header_footer_background_color;
 }
 
 #header_1 {
@@ -134,11 +137,11 @@ h1 {
 }
 
 #footer {
-  background-color: @color-primary-0;
+  background-color: @header_footer_background_color;
   height: @footer_height;
-  border-color: @color-secondary-1-4;
+  border-color: @color-secondary-1-0;
   border-style: solid;
-  border-width: 0.1em 0px 0px 0px;
+  border-width: 0.5em 0px 0px 0px;
 }
 
 .post {
@@ -158,7 +161,7 @@ h1 {
 }
 
 #about_footer {
-  color: @color-secondary-2-1;
+  color: @color-secondary-2-2;
 }
 
 .about_label {
@@ -170,7 +173,7 @@ h1 {
 .icon-linkedin,
 .icon-twitter {
   font-size: 2em;
-  color: @color-secondary-1-4;
+  color: @links_color;
 }
 
 /* override Syntax Highligher styles */
