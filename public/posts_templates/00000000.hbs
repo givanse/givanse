@@ -16,6 +16,16 @@ will manage authentication with the gem <a href="https://github.com/plataformate
 be able to `login`, to the Rails backend, using <a href="https://github.com/simplabs/ember-simple-auth/tree/master/packages/ember-simple-auth-devise" target="_blank">ember-simple-auth-devise.</a>
 </p>
 
+<p>
+You can find the complete source code for the app built here in Github:
+<a href="https://github.com/givanse/ember-cli-simple-auth-devise" target="_blank">
+    ember-cli-simple-auth-devise</a>
+</p>
+
+<p>
+Note that you'll be able to sign up new users only from the Rails pages.
+</p>
+
 Tools needed:
 <pre class="brush: bash">
 node -v
@@ -317,9 +327,13 @@ cd ember-cli-simple-auth-devise
             Ember.SimpleAuth.AuthenticatedRouteMixin);
     </pre>
 
-    And finally test it:
+    Test it:
     <pre class="brush: bash">
         ember server --proxy http://0.0.0.0:3000
+
+        # Don't forget to have the rails server running too.
+
+        # Visit http://0.0.0.0:4200 and try to login.
         # You will encounter a 422 error, but that will be solved below.
     </pre>
 </div><!-- right, ember -->
@@ -431,6 +445,8 @@ edit: app/index.html
 
 Everything should be working now:
 <pre class="brush: js">
+    # start both servers
+    rails server
     ember server --proxy http://0.0.0.0:3000
     # visit http://0.0.0.0:4200
 </pre>
