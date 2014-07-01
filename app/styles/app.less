@@ -21,28 +21,30 @@
 @links_color: @color-secondary-2-3;
 @header_footer_background_color: @color-primary-0;
 
-html, body {
-  height: 100%;
-  margin: 0px;
-  width: 100%;
+html, body,
+body > .ember-view,
+table#layout {
+  color: @color-secondary-1-4;
+  border-width: 0px;
   font-family: monospace;
   font-size: 1.1em;
-  color: @color-secondary-1-4;
-}
-
-body > .ember-view,
-#layout {
   height: 100%;
+  margin: 0px;
+  padding: 0px;
   width: 100%;
 }
 
-#layout,
-#layout tbody,
-#layout tbody tr,
-#layout tbody tr td {
+table#layout tbody,
+table#layout tbody tr,
+table#layout tbody tr td {
+  width: 100%;
+}
+
+table, tbody, tr, td {
   border-width: 0px;
   margin: 0px;
   padding: 0px;
+  border-spacing: 0px;
 }
 
 #layout tr {
@@ -86,10 +88,6 @@ h1 {
                             0.2em +
                             2em; /* white space */
 
-#layout tr:first-child {
-  height: @header_placeholder_height;
-}
-
 #header, #header_0, #header_1, #header_2 {
   width: 100%;
 }
@@ -119,12 +117,14 @@ h1 {
   max-width: 800px;
   margin: auto;
   padding: 0em 1em;
-  padding-top: @menu_link_active_border_width;
+  padding-top: @menu_link_active_border_width + 0.2em;/* 0.2 for error safety */
   text-align: right;
 }
 
 #content {
   margin: auto;
+  margin-top: @header_placeholder_height;
+  margin-bottom: @header_placeholder_height / 2;
   max-width: 800px;
   padding: 1em;
   padding-top: 0px;
@@ -132,7 +132,7 @@ h1 {
 
 @footer_height: 10em;
 
-#layout tr:nth-child(3) {
+#layout tr#footer {
   height: @footer_height;
 }
 
