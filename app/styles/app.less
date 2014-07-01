@@ -27,7 +27,7 @@ table#layout {
   color: @color-secondary-1-4;
   border-width: 0px;
   font-family: monospace;
-  font-size: 1.1em;
+  font-size: 1.1rem;
   height: 100%;
   margin: 0px;
   padding: 0px;
@@ -47,7 +47,7 @@ table, tbody, tr, td {
   border-spacing: 0px;
 }
 
-#layout tr {
+table, tbody, tr, td {
   vertical-align: top;
 }
 
@@ -55,38 +55,18 @@ a {
   color: @links_color;
 }
 
-#menu a {
-  background-color: @color-secondary-1-1;
-  color: @color-secondary-1-4;
-  display: inline-block;
-  font-weight: bold;
-  line-height: @menu_link_line_height;
-  padding: 0px 1em;
-  text-decoration: none;
-}
-
-#menu a:visited {
-  color: @color-secondary-1-4;
-}
-
-#menu a.active {
-  border-style: solid;
-  border-color: @color-secondary-1-0;
-  border-width: 0px;
-  border-bottom-width: @menu_link_active_border_width;
-}
-
 h1 {
   margin-bottom: 0px;
 }
 
-@menu_link_active_border_width: 0.35em;
-@menu_link_line_height: 3em;
-@header_placeholder_height: @menu_link_line_height +
-                            @menu_link_active_border_width +
-                            @menu_link_active_border_width +
-                            0.2em +
-                            2em; /* white space */
+@menu_active_link_border_bottom_w: 6px;
+@menu_link_line_height: 3rem;
+/* 3 header sections */
+/* can't add rem + px, use the most significant */
+                            //@menu_active_link_border_bottom_w +
+                            //4px +
+@header_placeholder_height: @menu_link_line_height + 
+                            3rem; /* white space */
 
 #header, #header_0, #header_1, #header_2 {
   width: 100%;
@@ -103,22 +83,44 @@ h1 {
 }
 
 #header_1 {
-  height: @menu_link_active_border_width;
+  height: @menu_active_link_border_bottom_w;
   background-color: @color-secondary-2-1;
 }
 
 #header_2 {
-  height: 0.2em;
+  height: 4px;
   background-color: @color-secondary-1-1;
 }
 
 #header_0 #menu {
-  height: @menu_link_line_height;
-  max-width: 800px;
+  height: @menu_link_line_height; /* cut short */
   margin: auto;
-  padding: 0em 1em;
-  padding-top: @menu_link_active_border_width + 0.2em;/* 0.2 for error safety */
+  max-width: 800px;
+  padding: 0rem 1rem;
+  padding-top: @menu_active_link_border_bottom_w + 2px; /* +2 magic number */
   text-align: right;
+}
+
+#menu a {
+  background-color: @color-secondary-1-1;
+  color: @color-secondary-1-4;
+  display: inline-block;
+  font-weight: bold;
+  height: @menu_link_line_height; /* parent height, border overflows */
+  line-height: @menu_link_line_height;
+  padding: 0px 1rem;
+  text-decoration: none;
+}
+
+#menu a:visited {
+  color: @color-secondary-1-4;
+}
+
+#menu a.active {
+  border-style: solid;
+  border-color: @color-secondary-1-0;
+  border-width: 0px;
+  border-bottom-width: @menu_active_link_border_bottom_w;
 }
 
 #content {
@@ -126,11 +128,11 @@ h1 {
   margin-top: @header_placeholder_height;
   margin-bottom: @header_placeholder_height / 2;
   max-width: 800px;
-  padding: 1em;
+  padding: 1rem;
   padding-top: 0px;
 }
 
-@footer_height: 10em;
+@footer_height: 10rem;
 
 #layout tr#footer {
   height: @footer_height;
@@ -141,12 +143,12 @@ h1 {
   height: @footer_height;
   border-color: @color-secondary-1-0;
   border-style: solid;
-  border-width: 0.5em 0px 0px 0px;
+  border-width: 0.5rem 0px 0px 0px;
 }
 
 .post {
   display: inline-block;
-  line-height: 2em;
+  line-height: 2rem;
   text-align: left;
 }
 
@@ -172,7 +174,7 @@ h1 {
 .icon-github,
 .icon-linkedin,
 .icon-twitter {
-  font-size: 2em;
+  font-size: 2rem;
   color: @links_color;
 }
 
