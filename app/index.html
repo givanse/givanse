@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Givanse</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{BASE_TAG}}
+
+    <link rel="stylesheet" src="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css" />
+    <link rel="stylesheet" href="assets/vendor.css">
+    <link rel="stylesheet" href="assets/givanse.css">
+  </head>
+  <body>
+    <script>
+      window.GivanseENV = {{ENV}};
+      window.EmberENV = window.GivanseENV.EmberENV;
+    </script>
+    <script src="assets/vendor.js"></script>
+    <script src="assets/givanse.js"></script>
+    <script>
+      window.Givanse = require('givanse/app')['default'].create(GivanseENV.APP);
+    </script>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47511141-1', 'givan.se');
+  ga('send', 'pageview');
+  </script>
+
+  </body>
+</html>
