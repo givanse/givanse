@@ -68,6 +68,10 @@ h1 {
 @header_placeholder_height: @menu_link_line_height + 
                             3rem; /* white space */
 
+tr#header_placeholder {
+  height: @header_placeholder_height;
+}
+
 #header, #header_0, #header_1, #header_2 {
   width: 100%;
 }
@@ -125,7 +129,6 @@ h1 {
 
 #content {
   margin: auto;
-  margin-top: @header_placeholder_height;
   margin-bottom: @header_placeholder_height / 2;
   max-width: 800px;
   padding: 1rem;
