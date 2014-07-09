@@ -2,11 +2,15 @@
 
 set -e
 
+# Place everything outside the project folder.
+# That allows me to setup the $dist folder as a new git project.
 dist=../hg-www
-
+#ember build --environment='production' --output-path $dist
 ember build --output-path $dist
 
 cd $dist
+
+echo '<!-- '`date`' -->' >> index.html
 
 git init
 
