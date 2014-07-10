@@ -17,10 +17,12 @@ export default Ember.Route.extend({
     } else {
       var _this = this;
 
-      var url = GivanseENV.APP.path.templates + templateName + '.hbs';
-      return Ember.$.ajax(url)
-                    .done(function (data) {
-                       templatesArr[templateName] = Ember.Handlebars.compile(data);
+      var urlPreCmpTmplt = GivanseENV.APP.path.templates + 
+                           templateName + '.js';
+      return Ember.$.ajax(urlPreCmpTmplt)
+                    .done(function (template) {
+                       // The pre-compiled template was found and
+                       // now it is loaded. 
                        _this.set('templateName', templateName);
                      });
     } 
