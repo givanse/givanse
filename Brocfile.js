@@ -58,6 +58,7 @@ app.import('vendor/SyntaxHighlighter/pkg/styles/shCoreDefault.css');
 app.import('vendor/SyntaxHighlighter/pkg/scripts/shCore.js');
 app.import('vendor/SyntaxHighlighter/pkg/scripts/shBrushJScript.js');
 app.import('vendor/SyntaxHighlighter/pkg/scripts/shBrushBash.js');
+app.import('vendor/SyntaxHighlighter/pkg/scripts/shBrushDiff.js');
 app.import('vendor/SyntaxHighlighter/pkg/scripts/shBrushRuby.js');
 
 app.import('vendor/fontello/css/fontello.css');
