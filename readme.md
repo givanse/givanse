@@ -1,4 +1,5 @@
 
+```
 npm install
 bower install
 npm install --save-dev broccoli-less-single
@@ -11,3 +12,4 @@ cd components
 git clone https://github.com/slevithan/xregexp.git
 cd -
 grunt build
+```
