@@ -1,0 +1,26 @@
+<header id="header">
+    <div id="header_0">
+        <nav id="menu">
+            {{link-to 'Posts' 'posts'}}
+            {{link-to 'About' 'about'}}
+        </nav>
+    </div>
+    <div id="header_1"></div>
+    <div id="header_2"></div>
+</header>
+
+<table id="layout">
+    <tr id="header_placeholder"></tr>
+    <tr>
+        <td>
+            <main id="content">
+                {{outlet}}
+            </main>
+        </td>
+    </tr>
+    <tr id="footer">
+        <td>
+            <footer id="footer"></footer>
+        </td>
+    </tr>
+</table>

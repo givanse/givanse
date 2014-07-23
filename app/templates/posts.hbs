@@ -1,0 +1,20 @@
+<style>
+    #content {
+        text-align: center;
+    }
+</style>
+
+<article style="display: inline-block; text-align: left;">
+{{#each}}
+    <div class="post">
+        <time class="post_date">{{date}} ~</time>
+        {{#link-to 'post' id}}{{title}}{{/link-to}}
+
+        <br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <summary class="post_description">{{description}}</summary>
+    </div>
+    <br>
+{{/each}}
+</article>

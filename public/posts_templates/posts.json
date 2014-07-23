@@ -1,0 +1,16 @@
+[
+    {
+        "id": "00000000",
+        "title": "Ember CLI & ember-simple-auth-devise",
+        "date": "16/Jun/2014",
+        "update": "",
+        "description": "Authenticate to a Rails/Devise server from an Ember CLI app."
+    },
+    {
+        "id": "00000001",
+        "title": "Ember CLI & Phonegap",
+        "date": "09/Jul/2014",
+        "update": "",
+        "description": "Wrap with Phonegap an Ember CLI app"
+    }
+]
