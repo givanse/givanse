@@ -14,6 +14,10 @@ var app = new EmberApp({
     enabled: true,
     options: {}
   },
+  
+  fingerprint: {
+    exclude: ['posts_templates'],
+  },
 
   getEnvJSON: require('./config/environment')
 });
