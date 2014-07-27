@@ -22,33 +22,17 @@
 @header_footer_background_color: @color-primary-0;
 
 html, body,
-body > .ember-view,
-table#layout {
-  color: @color-secondary-1-4;
+body > .ember-view {
   border-width: 0px;
-  font-family: monospace;
-  font-size: 1.1rem;
   height: 100%;
   margin: 0px;
   padding: 0px;
-  width: 100%;
 }
 
-table#layout tbody,
-table#layout tbody tr,
-table#layout tbody tr td {
-  width: 100%;
-}
-
-table, tbody, tr, td {
-  border-width: 0px;
-  margin: 0px;
-  padding: 0px;
-  border-spacing: 0px;
-}
-
-table, tbody, tr, td {
-  vertical-align: top;
+body {
+  color: @color-secondary-1-4;
+  font-family: monospace;
+  font-size: 1.2rem;
 }
 
 a {
@@ -63,58 +47,47 @@ i {
   color: @color-secondary-2-2; 
 }
 
-@menu_active_link_border_bottom_w: 6px;
 @menu_link_line_height: 3rem;
-/* 3 header sections */
-/* can't add rem + px, use the most significant */
-                            //@menu_active_link_border_bottom_w +
-                            //4px +
-@header_placeholder_height: @menu_link_line_height + 
-                            3rem; /* white space */
-
-tr#header_placeholder {
-  height: @header_placeholder_height;
-}
-
-#header, #header_0, #header_1, #header_2 {
-  width: 100%;
-}
+@menu_active_link_border_bottom_w: 0.5rem;
+@menu_total_h: @menu_link_line_height +
+               @menu_active_link_border_bottom_w;
+@header_placeholder_total_h: @menu_total_h + 
+                             3rem; /* white space, functions as a margin */
 
 #header {
   position: fixed;
   top: 0px;
+  width: 100%;
   z-index: 10000;
 }
 
 #header_0 {
   background-color: @header_footer_background_color;
+  height: @menu_total_h;
 }
 
 #header_1 {
-  height: @menu_active_link_border_bottom_w;
   background-color: @color-secondary-2-1;
+  height: @menu_active_link_border_bottom_w;
 }
 
 #header_2 {
-  height: 4px;
   background-color: @color-secondary-1-1;
+  height: @menu_active_link_border_bottom_w * 0.60;
 }
 
 #header_0 #menu {
   height: @menu_link_line_height; /* cut short */
-  margin: auto;
-  max-width: 800px;
-  padding: 0rem 1rem;
-  padding-top: @menu_active_link_border_bottom_w + 2px; /* +2 magic number */
+  padding-top: @menu_active_link_border_bottom_w;
   text-align: right;
 }
 
 #menu a {
   background-color: @color-secondary-1-1;
+  border: 0px solid @color-secondary-1-0;
   color: @color-secondary-1-4;
   display: inline-block;
   font-weight: bold;
-  height: @menu_link_line_height; /* parent height, border overflows */
   line-height: @menu_link_line_height;
   padding: 0px 1rem;
   text-decoration: none;
@@ -125,45 +98,56 @@ tr#header_placeholder {
 }
 
 #menu a.active {
-  border-style: solid;
-  border-color: @color-secondary-1-0;
-  border-width: 0px;
   border-bottom-width: @menu_active_link_border_bottom_w;
 }
 
-#content {
-  margin: auto;
-  margin-bottom: @header_placeholder_height / 2;
-  max-width: 800px;
-  padding: 1rem;
-  padding-top: 0px;
+#menu a:hover {
+  border-bottom-width: @menu_active_link_border_bottom_w;
 }
 
+#header_placeholder {
+  height: @header_placeholder_total_h;
+}
+
+@footer_border_top_width: 1rem;
 @footer_height: 10rem;
+@footer_margin_top: 1rem;
+@footer_total_h: @footer_border_top_width +
+                 @footer_height;
 
-#layout tr#footer {
-  height: @footer_height;
+#layout {
+  margin-bottom: -@footer_total_h;
+  min-height: 100%;
 }
 
-#footer {
+#sticky_footer_push {
+  height: @footer_total_h;
+}
+
+#sticky_footer {
   background-color: @header_footer_background_color;
-  height: @footer_height;
   border-color: @color-secondary-1-0;
   border-style: solid;
-  border-width: 0.5rem 0px 0px 0px;
+  border-width: 0px;
+  border-top-width: @footer_border_top_width;
+  height: @footer_height;
+  margin-top: 1rem;
+  width: 100%;
 }
 
 .post {
-  display: inline-block;
   line-height: 2rem;
-  margin-bottom: 20px;
-  text-align: left;
 }
 
 .post a {
   color: @color-secondary-1-4;
   font-weight: bold;
+  background-color: @color-secondary-2-1;  
   text-decoration: none;
+}
+
+.post a:hover {
+  background-color: @color-secondary-2-2;  
 }
 
 .post_date {
@@ -182,12 +166,45 @@ tr#header_placeholder {
   color: @color-secondary-1-2;
 }
 
-.icon-stackoverflow,
-.icon-github,
-.icon-linkedin,
-.icon-twitter {
-  font-size: 2rem;
+.post_content_wrapper {
+  max-width: 1101px;
+  margin: auto;
+}
+
+.findme_at {
+  border: 2px solid transparent;
+  border-radius: 7px;
+  display: inline-block;
+}
+
+.findme_at:hover {
+  border-color: @color-primary-1;
+}
+
+.findme_at i {
   color: @links_color;
+  font-size: 4rem;
+}
+
+@media screen and (min-width: 320px) {
+  html { font-size: 12px; }
+}
+
+@media screen and (min-width: 480px) {
+  html { font-size: 14px; }
+}
+
+@media screen and (min-width: 768px) {
+  html { font-size: 16px; }
+}
+
+// https://github.com/alexgorbatrchev/SyntaxHighlighter/issues/167
+div.syntaxhighlighter .container {
+  width: auto;
+}
+div.syntaxhighlighter .container::before,
+div.syntaxhighlighter .container::after {
+  content: none;
 }
 
 /*EOF*/

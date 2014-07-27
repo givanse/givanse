@@ -3,6 +3,7 @@
 set -e
 
 cd public/posts_templates/
+ls
 
 for filename in *.hbs
 do

@@ -196,7 +196,7 @@ cd ember-cli-simple-auth-devise
     <pre class="brush: bash">
         ember new my-frontend
         cd my-frontend
-        ember generate route application 
+        ember generate route application
         # when prompt choose any option, doesn't matter
         ember generate route protected
         ember generate route login
@@ -211,11 +211,11 @@ cd ember-cli-simple-auth-devise
 
         \{{#link-to 'index'}}Home\{{/link-to}}
         \{{#link-to 'protected'}}Protected\{{/link-to}}
-        
+
         &lt;hr>
         \{{outlet}}
     </pre>
-    
+
     You may test the app.
     <pre class="brush: bash">
         ember server
@@ -224,7 +224,7 @@ cd ember-cli-simple-auth-devise
     <h3>Install ember-simple-auth-devise</h3>
     edit: bower.js
     <pre class="brush: js">
-        // add this line to the dependencies 
+        // add this line to the dependencies
         "ember-simple-auth": "https://github.com/simplabs/ember-simple-auth-component.git#0.5.3"
     </pre>
     edit: Brocfile
@@ -237,9 +237,9 @@ cd ember-cli-simple-auth-devise
 
     download the dependencies
     <pre class="brush: bash">
-        bower update 
+        bower update
     </pre>
-    
+
     add an initializer for ember-simple-auth:
     <pre class="brush: js">
        ember generate initializer simple-auth
@@ -258,7 +258,7 @@ cd ember-cli-simple-auth-devise
             }
         };
     </pre>
-    
+
     edit: app/routes/application.js
     <pre class="brush: js">
         import Ember from 'ember';
@@ -281,10 +281,10 @@ cd ember-cli-simple-auth-devise
     <pre class="brush: js">
         &lt;form \{{action 'authenticate' on='submit'}}>
             &lt;label for='identification'>Login&lt;/label>
-            \{{input id='identification' placeholder='Enter Login' 
+            \{{input id='identification' placeholder='Enter Login'
                     value=identification}}
             &lt;label for='password'>Password&lt;/label>
-            \{{input id='password' placeholder='Enter Password' 
+            \{{input id='password' placeholder='Enter Password'
                     type='password' value=password}}
             &lt;button type='submit'>Login&lt;/button>
         &lt;/form>
@@ -339,7 +339,7 @@ In the console you get a 422 error accompanied by a rails server error:
 <h4>Solution</h4>
 
 ember-cli needs to keep track of the CSRF token,
-this can be solved with 
+this can be solved with
 <a href="https://github.com/abuiles/rails-csrf" target="_blank">
     rails-csrf</a>. We will make changes to both the backend and the frontend.
 <h5>Rails</h5>
@@ -391,14 +391,14 @@ download the dependency
 
 edit: app/app.js
 <pre class="brush: js">
-    // add this line before the one below 
+    // add this line before the one below
     loadInitializers(App, 'rails-csrf');
 
     //export default App;
 </pre>
 edit: app/routes/application.js
 <pre class="brush: js">
-    import Ember from 'ember'; 
+    import Ember from 'ember';
 
     export default Ember.Route.extend(
         Ember.SimpleAuth.ApplicationRouteMixin, {
@@ -419,7 +419,7 @@ edit: config/environment.js
   //};
 </pre>
 
-We need to add a little change until 
+We need to add a little change until
 <a href="https://github.com/abuiles/rails-csrf/issues/4" target="_blank">
     rails-csrf#4</a> is resolved.<br>
 edit: app/index.html
@@ -472,8 +472,8 @@ edit: server/index.js
     //app.use(bodyParser());
 </pre>
 
-This error appeared in previous versions of ember-cli, but no longer does. 
-To know more see 
+This error appeared in previous versions of ember-cli, but no longer does.
+To know more see
 <a href="https://github.com/stefanpenner/ember-cli/issues/723" target="_blank">
     ember-cli#723</a>.<br>
 

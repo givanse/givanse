@@ -54,6 +54,16 @@ app.import('vendor/ic-ajax/dist/named-amd/main.js', {
   }
 });
 
+app.import({
+  development: 'vendor/bootstrap/css/bootstrap-theme.css',
+  production: 'vendor/bootstrap/css/bootstrap-theme.min.css'
+});
+
+app.import({
+  development: 'vendor/bootstrap/css/bootstrap.css',
+  production: 'vendor/bootstrap/css/bootstrap.min.css'
+});
+
 app.import('vendor/SyntaxHighlighter/pkg/styles/shCoreDefault.css');
 app.import('vendor/SyntaxHighlighter/pkg/scripts/shCore.js');
 app.import('vendor/SyntaxHighlighter/pkg/scripts/shBrushJScript.js');
@@ -75,3 +85,5 @@ var fontAssets = pickFiles('vendor/fontello/font', {
 });
 
 module.exports = mergeTrees([app.toTree(), fontAssets]);
+
+/*EOF*/

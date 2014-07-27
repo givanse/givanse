@@ -24,12 +24,12 @@
 
 Copy from <i>ember-cool-app/dist/index.html</i> to <i>www/index.html</i>
 <pre class="brush: diff">
-  -&lt;div class="app">                                                        
-  -  &lt;h1>PhoneGap&lt;/h1>                                                    
-  -  &lt;div id="deviceready" class="blink">                                 
-  -    &lt;p class="event listening">Connecting to Devic&lt;/p>              
-  -    &lt;p class="event received">Device is Read&lt;/p>                    
-  -  &lt;/div>                                                               
+  -&lt;div class="app">
+  -  &lt;h1>PhoneGap&lt;/h1>
+  -  &lt;div id="deviceready" class="blink">
+  -    &lt;p class="event listening">Connecting to Devic&lt;/p>
+  -    &lt;p class="event received">Device is Read&lt;/p>
+  -  &lt;/div>
   -&lt;div>
   +&lt;script src="assets/vendor-0815f45d85c20b590175f7a4e843eb21.js">&lt;/script>
   +&lt;script src="assets/ember-cool-app-201c7a50ebb6db2e54e2d5bc2b255762.js">&lt;/script>
@@ -39,16 +39,16 @@ Copy from <i>ember-cool-app/dist/index.html</i> to <i>www/index.html</i>
 
 Copy from <i>ember-cool-app/dist/index.html</i> to <i>www/js/index.js</i>
 <pre class="brush: diff">
-  - var parentElement = document.getElementById(id);                         
-  - var listeningElement = parentElement.querySelector('.listening');        
-  - var receivedElement = parentElement.querySelector('.received');          
-  - 
-  - listeningElement.setAttribute('style', 'display:none;');                 
-  - receivedElement.setAttribute('style', 'display:block;');                 
-  - 
+  - var parentElement = document.getElementById(id);
+  - var listeningElement = parentElement.querySelector('.listening');
+  - var receivedElement = parentElement.querySelector('.received');
+  -
+  - listeningElement.setAttribute('style', 'display:none;');
+  - receivedElement.setAttribute('style', 'display:block;');
+  -
   - console.log('Received Event: ' + id);
   + window.EmberCoolAppENV = {"environment":"production","baseURL":"/","locationType":"auto","EmberENV":{"FEATURES":{}},"APP":{}};
-  + window.EmberENV = window.EmberCoolAppENV.EmberENV;                         
+  + window.EmberENV = window.EmberCoolAppENV.EmberENV;
   + window.EmberCoolApp = require('ember-cool-app/app')['default'].create(EmberCoolAppENV.APP);
 </pre>
 

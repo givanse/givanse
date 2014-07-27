@@ -1,26 +1,23 @@
-<header id="header">
-    <div id="header_0">
-        <nav id="menu">
-            {{link-to 'Posts' 'posts'}}
-            {{link-to 'About' 'about'}}
+<header id="header" class="container">
+    <div id="header_0" class="row">
+        <div class="col-xs-3"></div>
+        <nav id="menu" class="col-xs-8">
+            {{link-to 'posts' 'posts'}}
+            {{link-to 'about' 'about'}}
         </nav>
     </div>
-    <div id="header_1"></div>
-    <div id="header_2"></div>
+    <div id="header_1" class="row"></div>
+    <div id="header_2" class="row"></div>
 </header>
 
-<table id="layout">
-    <tr id="header_placeholder"></tr>
-    <tr>
-        <td>
-            <main id="content">
-                {{outlet}}
-            </main>
-        </td>
-    </tr>
-    <tr id="footer">
-        <td>
-            <footer id="footer"></footer>
-        </td>
-    </tr>
-</table>
+<div id="layout">
+
+  <div class="container">
+    <div id="header_placeholder" class="row"></div>
+    {{outlet}}
+  </div>
+
+  <div id="sticky_footer_push"></div>
+</div>
+
+<div id="sticky_footer"></div>
