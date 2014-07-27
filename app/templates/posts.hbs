@@ -4,7 +4,13 @@
     </div>
 
     <div class="col-xs-4 col-sm-3 col-md-2">
-      <time class="post_date">{{created}}</time>
+      {{#if updated}}
+        <s>
+      {{/if}}
+        <time class="post_date">{{created}}</time>
+      {{#if updated}}
+        </s>
+      {{/if}}
     </div>
 
     <div class="col-xs-8 col-sm-7">

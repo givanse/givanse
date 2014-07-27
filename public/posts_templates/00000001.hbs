@@ -2,15 +2,15 @@
 
 <h2>Creating two projects</h2>
 
+Create an Ember project and inside create the Phonegap project.
 <pre class="brush: bash">
-  # Phonegap
-  phonegap create cool-app/ com.companyname.cool-app cool-app
-  cd cool-app/
   # Ember
-  ember new ember-cool-app
-  cd ember-cool-app/
+  ember new cool-app
+  cd cool-app/
   ember build --environment='production'
-  cd ..
+
+  # Phonegap
+  phonegap create phonegap/ com.companyname.cool-app cool-app
 </pre>
 
 <p>If you want to debug the Ember app within Phonegap, remove the --environment flag, it will default to "development".</p>
@@ -19,11 +19,16 @@
 
 <p>Copy your assets to Phonegap.</p>
 <pre class="brush: bash">
-  cp -vR ember-cool-app/dist/assets/ www/
+  cp -vR dist/assets/ phonegap/www/
 </pre>
 
-Copy from <i>ember-cool-app/dist/index.html</i> to <i>www/index.html</i>
+Copy from <i>dist/index.html</i> to <i>phonegap/www/index.html</i>
 <pre class="brush: diff">
+  -&lt;link rel="stylesheet" type="text/css" href="css/index.css" />
+  +&lt;link rel="stylesheet" href="assets/vendor-d41d8cd98f00b204e9800998ecf8427e.css">
+  +&lt;link rel="stylesheet" href="assets/cool-app-de3c495d5da3bffcdc865aaa60f76ab3.css">
+  &lt;title>Hello World&lt;/title>
+  ...
   -&lt;div class="app">
   -  &lt;h1>PhoneGap&lt;/h1>
   -  &lt;div id="deviceready" class="blink">
@@ -32,12 +37,12 @@ Copy from <i>ember-cool-app/dist/index.html</i> to <i>www/index.html</i>
   -  &lt;/div>
   -&lt;div>
   +&lt;script src="assets/vendor-0815f45d85c20b590175f7a4e843eb21.js">&lt;/script>
-  +&lt;script src="assets/ember-cool-app-201c7a50ebb6db2e54e2d5bc2b255762.js">&lt;/script>
+  +&lt;script src="assets/cool-app-201c7a50ebb6db2e54e2d5bc2b255762.js">&lt;/script>
   &lt;script type="text/javascript" src="cordova.js">&lt;/script>
   &lt;script type="text/javascript" src="js/index.js">&lt;/script>
 </pre>
 
-Copy from <i>ember-cool-app/dist/index.html</i> to <i>www/js/index.js</i>
+Copy from <i>dist/index.html</i> to <i>phonegap/www/js/index.js</i>
 <pre class="brush: diff">
   - var parentElement = document.getElementById(id);
   - var listeningElement = parentElement.querySelector('.listening');
@@ -47,30 +52,36 @@ Copy from <i>ember-cool-app/dist/index.html</i> to <i>www/js/index.js</i>
   - receivedElement.setAttribute('style', 'display:block;');
   -
   - console.log('Received Event: ' + id);
-  + window.EmberCoolAppENV = {"environment":"production","baseURL":"/","locationType":"auto","EmberENV":{"FEATURES":{}},"APP":{}};
-  + window.EmberENV = window.EmberCoolAppENV.EmberENV;
-  + window.EmberCoolApp = require('ember-cool-app/app')['default'].create(EmberCoolAppENV.APP);
+  + window.CoolAppENV = {"environment":"production","baseURL":"/","locationType":"auto","EmberENV":{"FEATURES":{}},"APP":{}};
+  + window.EmberENV = window.CoolAppENV.EmberENV;
+  + window.CoolApp = require('cool-app/app')['default'].create(CoolAppENV.APP);
 </pre>
 
 <p>
-The real trick comes here, we have to change the way Ember will look for routes and assets, the file <i>www/js/index.js</i> needs a change.
+The real trick comes here, we have to change the way Ember will look for routes and assets.
+In the file <i>phonegap/www/js/index.js</i> delete <b>baseURL</b> and change <b>locationType</b> to "none".
 </p>
 <pre class="brush: diff">
-  - window.EmberCoolAppENV = {"environment":"production","baseURL":"/","locationType":"auto","EmberENV":{"FEATURES":{}},"APP":{}};
-  + window.EmberCoolAppENV = {"environment":"production","locationType":"none","EmberENV":{"FEATURES":{}},"APP":{}};
+  - window.CoolAppENV = {"environment":"production","baseURL":"/","locationType":"auto","EmberENV":{"FEATURES":{}},"APP":{}};
+  + window.CoolAppENV = {"environment":"production","locationType":"none","EmberENV":{"FEATURES":{}},"APP":{}};
 </pre>
 
 <h2>Testing it</h2>
 
 <p>
-Test the app. Note that I haven't covered how to install an SDK. You'll have to do that or connect an actual device, depending on how you want to test the app.
+Note that I haven't covered how to install an SDK. 
+You'll have to do that or connect an actual device, depending on how you want to test the app.
 </p>
 <pre class="brush: bash">
+  cd phonegap/
   phonegap run android
 </pre>
 
 <p>
-You should see now, in the upper left corner, a tiny message: <b>Welcome to Ember.js</b>
+You should see now, in the upper left corner, a tiny message: 
+</p>
+<p>
+  <b>Welcome to Ember.js</b>
 </p>
 
 {{partial 'post_footer'}}

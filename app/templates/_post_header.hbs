@@ -9,8 +9,16 @@
 
   <header>
     <h1>{{title}}</h1>
-    <time class='post_date'>{{created}}</time>
+
+    {{#if updated}}
+      <s>
+    {{/if}}
+      <time class='post_date'>{{created}}</time>
+    {{#if updated}}
+      </s>
+    {{/if}}
     <br>
+
     <time class='post_date'>{{updated}}</time>
     <br>
     <br>
