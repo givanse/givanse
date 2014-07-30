@@ -2,6 +2,9 @@
 
 set -e
 
+npm installi -g grunt-cli
+npm install -g ember-precompile
+
 npm install
 bower install
 
@@ -14,12 +17,6 @@ cd components
 git clone https://github.com/slevithan/xregexp.git
 cd -
 grunt build
-
-# bootstrap
-mkdir vendor/bootstrap
-cd vendor/bootstrap/
-mv ~/Downloads/bootstrap.zip . 
-unzip bootstrap.zip
 
 exit
 #EOF
