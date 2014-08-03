@@ -43,10 +43,6 @@ h1 {
   margin-bottom: 0px;
 }
 
-i {
-  color: @color-secondary-2-2; 
-}
-
 @menu_link_line_height: 3rem;
 @menu_active_link_border_bottom_w: 0.5rem;
 @menu_total_h: @menu_link_line_height +
@@ -199,12 +195,20 @@ i {
 }
 
 // https://github.com/alexgorbatrchev/SyntaxHighlighter/issues/167
-div.syntaxhighlighter .container {
-  width: auto;
-}
 div.syntaxhighlighter .container::before,
 div.syntaxhighlighter .container::after {
   content: none;
+}
+
+// Bootstrap overrides
+
+.panel-default > .panel-heading {
+  color: @color-secondary-2-3; 
+}
+
+blockquote {
+  color: #696969;
+  border-left-color: #bebebe;
 }
 
 /*EOF*/
