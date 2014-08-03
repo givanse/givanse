@@ -1,25 +1,11 @@
 /* global require, module */
 
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
-var mergeTrees = require('broccoli-merge-trees');
-var pickFiles = require('broccoli-static-compiler');
 
 var app = new EmberApp({
-  name: require('./package.json').name,
-
-  // for some large projects, you may want to uncomment this (for now)
-  es3Safe: true,
-
-  minifyCSS: {
-    enabled: true,
-    options: {}
-  },
-  
   fingerprint: {
-    exclude: ['posts_templates'],
-  },
-
-  getEnvJSON: require('./config/environment')
+    exclude: ['posts_templates']
+  }
 });
 
 // Use `app.import` to add additional libraries to the generated
@@ -46,18 +32,6 @@ app.import({
   }
 });
 
-app.import('vendor/ic-ajax/dist/named-amd/main.js', {
-  exports: {
-    'ic-ajax': [
-      'default',
-      'defineFixture',
-      'lookupFixture',
-      'raw',
-      'request',
-    ]
-  }
-});
-
 app.import({
   development: 'vendor/bootstrap/css/bootstrap-theme.css',
   production: 'vendor/bootstrap/css/bootstrap-theme.min.css'
@@ -78,6 +52,9 @@ app.import('vendor/SyntaxHighlighter/pkg/scripts/shBrushRuby.js');
 app.import('vendor/fontello/css/fontello.css');
 app.import('vendor/fontello/css/fontello-codes.css');
 app.import('vendor/fontello/css/fontello-embedded.css');
+
+var pickFiles = require('broccoli-static-compiler');
+var mergeTrees = require('broccoli-merge-trees');
 
 var fontAssets = pickFiles('vendor/fontello/font', {
    srcDir: '/',

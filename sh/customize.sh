@@ -2,7 +2,7 @@
 
 set -e
 
-npm installi -g grunt-cli
+npm install -g grunt-cli
 npm install -g ember-precompile
 
 npm install
