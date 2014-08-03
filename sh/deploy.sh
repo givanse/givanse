@@ -2,34 +2,31 @@
 
 set -e
 
-# Needs:
-# ~/.ssh/config
-# Host your-domain.com
-#   Port 2222
-#   PreferredAuthentications publickey
+# Setup an Ember project in Hostgator and push changes with git
+# https://gist.github.com/givanse/85d5f520e9e6bfbdfbc2
 
 ./sh/precompile-templates.sh
 
 # Place everything outside the project folder.
 # That allows me to setup the $dist folder as a new git project.
-dist=../hg-www
+dist=../givanseProd
 ember build --environment='production' --output-path $dist
 
 cd $dist
 
-echo '<!-- '`date`' -->' >> index.html
+timestamp=`date` 
+echo '<!-- '$timestamp' -->' >> index.html
 
 git init
 
-git remote add hostgator-www givanse@givan.se:www/
+git remote add origin givanse@givan.se:www/
 
 echo 'posts_templates/*.hbs' >> .gitignore
 
 git add .
-
 git commit -m 'automated deploy'
 
-git push -u -f hostgator-www master
+git push -u origin master
 
 exit
 #EOF
