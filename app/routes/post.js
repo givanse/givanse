@@ -1,11 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  actions: {
-    error: function (error, transition) {
-      this.transitionTo('error');
-    }
-  },
 
   beforeModel: function (transition, queryParams) {
     var templateName = transition.params.post.post_id;

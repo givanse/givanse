@@ -5,13 +5,15 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-    this.route('about');
+  this.route('404', {path: '*path'});
 
-    this.route('post', {path: 'p/:post_id'});
+  this.route('about');
 
-    this.route('posts');
+  this.route('post', {path: 'p/:post_id'});
 
-    this.route('error');
+  this.route('posts');
+
+  this.route('route-error', {path: 'error/:status'});
 });
 
 export default Router;
