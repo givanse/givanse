@@ -2,6 +2,12 @@
 
 set -e
 
+# Needs:
+# ~/.ssh/config
+# Host your-domain.com
+#   Port 2222
+#   PreferredAuthentications publickey
+
 ./sh/precompile-templates.sh
 
 # Place everything outside the project folder.

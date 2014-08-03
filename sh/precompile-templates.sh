@@ -7,9 +7,12 @@ ls
 
 for filename in *.hbs
 do
-  outputf=`echo $filename | cut -d '.' -f 1`'.js'
-  echo $filename ' => ' $outputf
-  ember-precompile $filename -f $outputf
+  # generate the output file name
+  output_file=`echo $filename | cut -d '.' -f 1`'.js'
+  echo $filename ' => ' $output_file
+
+  # precompile
+  ember-precompile $filename -f $output_file
 done
 
 exit
