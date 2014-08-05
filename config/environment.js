@@ -14,8 +14,8 @@ module.exports = function(environment) {
 
     APP: {
       path: {
-        posts: 'posts_templates/posts.json',
-        templates: 'posts_templates/'
+        posts: 'posts/',
+        posts_list: 'posts/posts.json'
       }
     }
   };

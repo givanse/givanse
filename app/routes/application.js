@@ -21,9 +21,10 @@ export default Ember.Route.extend({
 
     var _this = this;
 
-    var url = GivanseENV.APP.path.posts;
+    var url = GivanseENV.APP.path.posts_list;
     return Ember.$.getJSON(url)
                   .done(function (data) {
+                     // sort elements by iterating backwards
                      for (var i = data.length-1; i >= 0; i--) {
                        var post = data[i];
                        //TODO: Uncaught #<error>

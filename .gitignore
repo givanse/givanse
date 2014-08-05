@@ -3,7 +3,7 @@
 # compiled output
 /dist
 /tmp
-/public/posts_templates/*.js
+/public/posts/*.js
 
 # dependencies
 /node_modules

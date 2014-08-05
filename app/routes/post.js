@@ -12,7 +12,7 @@ export default Ember.Route.extend({
     } else {
       var _this = this;
 
-      var urlPreCmpTmplt = GivanseENV.APP.path.templates + 
+      var urlPreCmpTmplt = GivanseENV.APP.path.posts + 
                            templateName + '.js';
       return Ember.$.ajax(urlPreCmpTmplt)
                     .done(function (template) {

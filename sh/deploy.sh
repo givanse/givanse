@@ -21,12 +21,10 @@ git init
 
 git remote add origin givanse@givan.se:www/
 
-echo 'posts_templates/*.hbs' >> .gitignore
-
 git add .
 git commit -m 'automated deploy'
 
-git push -u origin master
+git push -u -f origin master
 
 exit
 #EOF
