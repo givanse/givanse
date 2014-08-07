@@ -5,6 +5,8 @@ set -e
 # Setup an Ember project in Hostgator and push changes with git
 # https://gist.github.com/givanse/85d5f520e9e6bfbdfbc2
 
+killall -9 ember || true
+
 ./sh/precompile-templates.sh
 
 # Place everything outside the project folder.

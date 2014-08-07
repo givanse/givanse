@@ -1,0 +1,289 @@
+{{partial 'post_header'}}
+<div class="row wrap_900">
+  <div class="col-xs-12">
+
+    <p>
+      Today is common to see employment opportunities listing MVC as required knowledge.
+      Also, almost every web-related framework or library uses it as a sign of neat design; and, it is.
+      MVC has become a buzzword and is being used as a catchphrase; however, much misinterpretation
+      surrounds it. 
+      Lack of clarity on this topic is a leading source of frustration when trying to learn new MVC tools.
+      Where the confusion comes from?
+    </p>
+
+    <h2>Misinterpretation</h2>
+
+    <p>
+      In many cases undergraduates of a 
+      <a href="http://www.joelonsoftware.com/articles/ThePerilsofJavaSchools.html">JavaSchool</a>,
+      at some point, are required to build GUIs with swing.
+      Soon enough they'll hear somewhere that swing is built with MVC in mind,
+      which is partially correct.
+      A quick internet search shows them a few, easy to remember, diagrams and they learn the basics of the pattern.
+    </p>
+
+    <p>
+      Eventually web technologies will be introduced and since Java is so popular;
+      the obvious choice is to learn Java EE. You'll learn about Servlets, JSPs and how MVC is used with them.
+      Many will think:
+        <blockquote>Duh! it is just like swing, I already know what I'm dealing with.</blockquote> 
+      and proceed to do other things like write megabytes of XML.
+      Even if you didn't walk the Java path; the behavior repeats regardless of the technology. 
+    </p>
+
+    <p>
+      In your first contact with MVC 
+      a shallow internet search shows you a few diagrams; and, you hastily grasp 
+      the general reasonings and benefits behind the pattern.
+      <blockquote>
+        So, no big deal, I get it! It is so obvious, this pattern is easy. 
+      </blockquote>
+      Indeed, it is easy. 
+      So, you go on to work thinking that you covered the generals of MVC and hours later you are banging your head 
+      against the wall because not everything is tied as you read it was supposed to be.
+    </p>
+
+    <h2>Classic MVC</h2>
+
+    <p>
+      MVC was first described by Trygve Reenskaug with Smalltalk-79; later, the pattern was described in
+      a paper by Krasner and Pope with Smalltalk-80, which included a few minimal changes of terminology. 
+      Since the beginning MVC has been conceptualized in different forms; 
+      through time, an ever changing nature has furthered the confusion among new comers.
+    </p>
+
+    <p>
+      You can dig deeper about the history of MVC in the following, cleverly named, blog posts: 
+      <ul>
+        <li>
+          <a href="http://www.sicpers.info/2014/01/meaningless-vapid-catchphrase/">Meaningless Vapid Catchphrase</a>
+        </li>
+        <li>
+          <a href="http://www.sicpers.info/2014/02/moderately-valuable-cliche/">Moderately Valuable Cliché</a>
+        </li>
+        <li>
+          <a href="http://www.sicpers.info/2014/02/missing-vital-content/">Missing Vital Content</a>
+        </li>
+      </ul>
+    </p>
+
+    <p>
+      For many, in their first encounter with MVC, 
+      the point of reference that is acquaired is what was described with either Smalltalk-79 or Smalltalk-80;
+      the common triangle diagram.
+      This version is a good resource to learn how MVC came to be; 
+      but, if used as an actual reference, it will mislead you. 
+    </p>
+</div>
+
+<div class="row wrap_900 text-center">
+  <div class="col-xs-12">
+    <img class="img-responsive" alt="MVC by Krasner and Pope" src="img/mvc_krasner_pope.png">
+    <small>MVC by Krasner and Pope, the triangle diagram.</small>
+  </div>
+</div>
+
+<div class="row wrap_900">
+    <p>
+      To make matters worse; 
+      some try to bring the original concepts, that are part of GUI development, web application development.
+      This causes a lot of confusion because:
+      <ul>
+        <li>The classical pattern is not used in any modern project.</li>
+        <li>Architecture designs for GUIs can't be applied directly to web applications.</li>
+      </ul>
+    </p>
+
+    <blockquote>
+      <p>
+        Indeed one could almost say that MVC disappeared... 
+      </p>
+      <footer>
+        Martin Fowler in 
+        <a href="http://martinfowler.com/eaaDev/uiArchs.html#ModelViewController">
+          <cite title="Model View Controller">Model View Controller</cite>
+        </a>
+      </footer>
+    </blockquote>
+
+    <h2>MVC Family Rundown</h2>
+
+    <p>
+      The purpose of the information below is to show design patterns
+      that are classified as MVC;
+      it is presented in chronological lists and the patterns are grouped by similarity.
+    </p>
+
+    <p>
+      Be aware that the relationships between them are more complex than what is presented here.
+    </p>
+
+    <ul>
+      <li>1976 TMVE - Thing Model View Editor</li>
+      <li>1979 MVC - Trygve Reenskaug revamp of his TMVE</li>
+      <li>1980 MVC - Krasner and Pope paper</li>
+    </ul>
+    <br>
+
+    <ul>
+      <li>1987 PAC - Presentation Abstraction Controll</li>
+      <li>2000 HMVC - Hierarchical MVC</li>
+    </ul>
+    <br>
+
+    <ul>
+      <li>1987 AM - Application Model</li>
+      <li>1996 MVP - Model View Presenter</li>
+      <li>2004 PM - Presentation Model</li>
+      <li>2005 MVVM - Model View View Model</li>
+    </ul>
+    <br>
+
+    <ul>
+      <li>1999 Model 2 - Sun's Java Model 2</li>
+    </ul>
+
+    <h2>Context</h2>
+
+    <p>
+      A key point, that is not mentioned often enough, is that:
+      <b>MVC patterns must be understood within a context.</b>
+      Design considerations like development environment and platform specific motivations produce different flavors of MVC.
+    </p>
+
+    <p>
+      Going back to the Java scenario; 
+      The <a href="http://www.oracle.com/technetwork/java/architecture-142923.html">
+      Swing architecture</a> uses a modified MVC tailored to the design goals of the toolkit and 
+      the characteristics of its environment (Beans, IDEs, AWT). 
+      Likewise, Java EE doesn't use classical MVC;
+      neither the version that Swing produced. It uses what we'll call server side MVC.
+    </p>
+
+    <h2>Server MVC</h2>
+
+    <p>
+      This variation of the pattern was the one that actually made popular MVC, mainly through Rails and Struts.
+    </p>
+
+    <p>
+      Server side MVC is different because its context and design goals are different.
+      A fundamental characteristic of server side applications is that they are built to respond to 
+      remote requests. 
+      All user input and interaction have a single point of entry to the system; and, 
+      it is done through HTTP requests. Since HTTP is a 
+      <a href="http://en.wikipedia.org/wiki/Stateless_protocol">stateless protocol</a>
+      , the environment is different; thus, MVC is applied according to it.
+      That scenario is very different from the GUI arena where we have state and multiple entry points (peripherals).
+    </p>
+
+    <p>
+      The server side approach is based on what is known as 
+      <a href="http://en.wikipedia.org/wiki/Model_2">Java Model 2</a>.
+      This design shares the same philosophy as MVC and most of its components resemble it,
+      so we all call it MVC.
+    </p>
+
+    <p>
+      As far as I know, every popular server framework is based on this model and it is clear
+      how it contributes to the cloudiness of the slogan: MVC.
+    </p>
+
+    <h2>Client MVC</h2>
+    <p>
+      Modern web applications have evolved to be huge projects with lots of functionality in the client side.
+      We need to add, remove or hide elements from the DOM; trigger animations; validate and process data etc.
+      This resulted in files stuffed with JQuery code and functions over 9000 lines long.
+    <p>
+
+    </p>
+      Code like that is not easy to modify or share. 
+      The natural thing to do is to apply software design patterns to organize the mess; and,
+      you'll be right to guess that the set of patterns used for it is MVC.
+      That is part of the solution that libraries like Backbone and Angular provide.
+    </p>
+
+    <p>
+      Just as before, the client context and design goals are different, which gives us a different breed of MVCs.
+      Interestingly, even within client MVC we find different variations; 
+      each provider adds its own touch to the pattern.
+      For example, 
+      Angular has been declared as
+      <a href="https://plus.google.com/+AngularJS/posts/aZNVhj355G2">MVW</a>,
+      Ember is close to
+      <a href="http://www.wekeroad.com/2014/05/28/the-frustratingly-lovable-crazy-making-huggable-ball-of-whack-that-is-ember-js/">MVVM</a>,
+      Backbone seems to be closer to
+      <a href="http://addyosmani.com/blog/understanding-mvc-and-mvp-for-javascript-and-backbone-developers/">MVP</a>.
+      It is good to know this as generalities; but, if you try to define with precision what is each; 
+      you'll end up being part of a holy war.
+    </p>
+
+    <h2>Server MVC vs Client MVC?</h2>
+
+    <blockquote>    
+      Should I use MVC in the client or will I be fine just using it in the server?
+    </blockquote>    
+
+    <p>
+      I'm allowing a brief digression here because this is a question that comes up frequently;
+      the answer is: <b>That is the wrong question to ask</b>.
+    </p>
+
+    <p>
+      In a single word, what MVC gives you is <b>structure</b> and you want that sprinkled everywhere;
+      every project, in any platform, can benefit from it.
+      What you actually have to worry about is performance and how much work you do in the server and the client.
+      This concern is usually stated as:
+      <blockquote>Server rendering vs Client rendering?</blockquote>
+      And that is a topic of long discussion, that in my opinion, doesn't have a clear cut answer.
+    </p>
+
+    <h2>Be Ready</h2>
+
+    <p>
+      Just recently a new pattern has been proposed, 
+      <a href="http://mutualmobile.github.io/blog/2013/12/04/viper-introduction/">VIPER</a>
+      for View Interactor Presenter Entity Router.
+      Although no direct appeals to MVC have been made; I wouldn't be surprised to see it tagged as such.
+    </p>
+
+    <blockquote>
+      VIPER is an application of 
+      <a href="http://blog.8thlight.com/uncle-bob/2012/08/13/the-clean-architecture.html">Clean Architecture</a>
+      to iOS apps.
+    </blockquote>
+
+    <p>
+      We must be aware that new and better designs are yet to come.
+      We have built, with a great degree of success, modular applications that 
+      separate business logic from presentation and user interaction;
+      but, we are not done yet.
+      Ever larger applications and new technologies will keep demanding from us new architectures.
+    </p>
+
+    <p>
+      If I want to keep synchronized my mobile phone, social media underpants and flexible screen t-shirt;
+      do I send everything to the cloud or do I add a layer that connects them locally and treats all of them as a single app?
+      Where will I process the data coming from my 100-biosensors device?
+      What about the code that handles holographic projection, is that still a view?
+      Sooner than later, I hope, we'll be coming up with new designs tailored to new needs.
+    </p>
+
+    <h2>Conclusion</h2>
+
+    <p>
+      MVC is not an off-the-shelf design pattern that you can apply mindlessly to a project.
+      The next time you hear MVC, think marketing blurb.
+    </p>
+
+    <p>
+      My suggestion is, when learning a new MVC tool, be aware of the context and its platform.
+      Try to find out the actual pattern used as the base design (MVP, MVVM, etc.), 
+      but just to give you a closer point of reference; don't take it to the letter.
+      More likely than not, design choices had to be made and might have caused a deviation from the original pattern.
+      Ultimately, your application should dictate what design surfaces.
+    </p>
+
+  </div>
+</div>
+{{partial 'post_footer'}}
