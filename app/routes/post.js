@@ -2,28 +2,23 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 
-  beforeModel: function (transition, queryParams) {
-    var templateName = transition.params.post.post_id;
-    var templatesArr = Ember.TEMPLATES;
+  model: function (params) {
+    this.set('templateName', params.post_id);
 
-    if ( templatesArr[templateName] ) {
-      this.set('templateName', templateName);
-      return;
+    if ( Ember.TEMPLATES[params.post_id] ) {
+      return this.store.find('post', params.post_id);
     } else {
+      var urlPreCmpTmplt = GivanseENV.APP.path.posts + params.post_id + '.js';
       var _this = this;
 
-      var urlPreCmpTmplt = GivanseENV.APP.path.posts + 
-                           templateName + '.js';
-      return Ember.$.ajax(urlPreCmpTmplt)
-                    .done(function (template) {
-                       // The pre-compiled template was found and
-                       // now it is loaded. 
-                       _this.set('templateName', templateName);
-                     });
-    } 
-  },
+      // the template self-registers to Ember.TEMPLATES
+      return Ember.
+      $.ajax(urlPreCmpTmplt)
+       .then(function(template) {
+         return _this.store.find('post', params.post_id);
+       });
+    }
 
-  model: function (params) {
-    return this.store.find('post', params.post_id);
   }
+
 });

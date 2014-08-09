@@ -10,14 +10,14 @@
     "id": "00000001",
     "title": "Ember CLI & Phonegap",
     "created": "09/Jul/2014",
-    "update": "",
+    "updated": "",
     "description": "Place an Ember CLI app inside Phonegap."
   },
   {
     "id": "00000010",
     "title": "MVC past, present and future.",
     "created": "07/Aug/2014",
-    "update": "",
-    "description": "MVC untangled as a desgin pattern, popular jargon and a family of designs."
+    "updated": "",
+    "description": "MVC untangled as a design pattern, popular jargon and a family of designs."
   }
 ]
