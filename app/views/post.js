@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.View.extend({
   classNames:  ["row post"],
 
-  didInsertElement: function () {
+  didRenderTemplate: function () {
     SyntaxHighlighter.highlight({toolbar: false});
   }
 });
