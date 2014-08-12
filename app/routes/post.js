@@ -10,7 +10,7 @@ export default Ember.Route.extend({
     return this.store.find('post')
       .then(function() {
         if ( ! Ember.TEMPLATES[params.post_id] ) {
-          Ember.Logger.debug("Fetch template.");
+          Ember.Logger.debug("Fetch precompiled template.");
 
           // the template self-registers to Ember.TEMPLATES
           var urlPreCmpTmplt = GivanseENV.APP.path.posts + params.post_id + '.js';
@@ -26,6 +26,13 @@ export default Ember.Route.extend({
           return _this.store.find('post', params.post_id);
         }
       });
+  },
+
+  actions: {
+    didTransition: function() {
+      var title = this.get('controller.title');
+      Ember.$('title').text('givanse :: ' + title);
+    }
   }
 
 });

@@ -11,7 +11,7 @@ Router.map(function() {
 
   this.route('post', {path: 'p/:post_id'});
 
-  this.route('posts');
+  this.route('posts', {path: 'articles'});
 
   this.route('route-error', {path: 'error/:status'});
 });

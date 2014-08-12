@@ -14,6 +14,10 @@ export default Ember.Route.extend({
         url: transition.intent.url
       };
       this.transitionTo('route-error', model);
+    },
+
+    didTransition: function() {
+      Ember.$('title').text('givanse');
     }
   }
 });

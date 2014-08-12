@@ -16,7 +16,7 @@ module('posts integration tests', {
 test("list all the available posts", function() {
   expect(1);
 
-  visit('/posts').then(function() {
+  visit('/articles').then(function() {
     equal(find('div.post').length, 6, 'listed 6 posts');
   });
 
