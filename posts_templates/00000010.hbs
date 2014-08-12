@@ -1,17 +1,24 @@
+<div class="row wrap_900">
+  <div class="col-xs-12">
+    <img class="img-responsive" alt="controller tower" src="img/control_tower.jpg">
+  </div>
+</div>
+
 {{partial 'post_header'}}
+
 <div class="row wrap_900">
   <div class="col-xs-12">
 
     <p>
       Today is common to see employment opportunities listing MVC as required knowledge.
-      Also, almost every web-related framework or library uses it as a sign of neat design; and, it is.
+      Also, almost every web-related framework or library uses it as a sign of neat design and it is.
       MVC has become a buzzword and is being used as a catchphrase; however, much misinterpretation
       surrounds it. 
       Lack of clarity on this topic is a leading source of frustration when trying to learn new MVC tools.
-      Where the confusion comes from?
+      So, where the confusion comes from?
     </p>
 
-    <h2>Misinterpretation</h2>
+    <h2>Misconception</h2>
 
     <p>
       In many cases undergraduates of a 
@@ -26,14 +33,16 @@
       Eventually web technologies will be introduced and since Java is so popular;
       the obvious choice is to learn Java EE. You'll learn about Servlets, JSPs and how MVC is used with them.
       Many will think:
-        <blockquote>Duh! it is just like swing, I already know what I'm dealing with.</blockquote> 
-      and proceed to do other things like write megabytes of XML.
-      Even if you didn't walk the Java path; the behavior repeats regardless of the technology. 
+      <blockquote>
+        Duh! it is just like swing, I already know what MVC is. 
+      </blockquote> 
+      And proceed to do other things like write megabytes of XML.
     </p>
 
     <p>
-      In your first contact with MVC 
-      a shallow internet search shows you a few diagrams; and, you hastily grasp 
+      Even if you didn't walk the Java path; the behavior repeats regardless of the technology. 
+      In your first contact with MVC, 
+      a shallow internet search shows you a few diagrams and you hastily grasp 
       the general reasonings and benefits behind the pattern.
       <blockquote>
         So, no big deal, I get it! It is so obvious, this pattern is easy. 
@@ -82,12 +91,16 @@
 
     <p>
       To make matters worse; 
-      some try to bring the original concepts, that are part of GUI development, web application development.
-      This causes a lot of confusion because:
+      some try to bring the original concepts, that are part of GUI development, to web applications.
+      This causes confusion because:
       <ul>
         <li>The classical pattern is not used in any modern project.</li>
         <li>Architecture designs for GUIs can't be applied directly to web applications.</li>
       </ul>
+    </p>
+
+    <p>
+      When reading about a project or tool, if you see a triangle diagram, you are likely to be looking at the wrong diagram.
     </p>
 
     <blockquote>
@@ -102,12 +115,31 @@
       </footer>
     </blockquote>
 
+    <h2>Context</h2>
+
+    <p>
+      A key point, that is not mentioned often enough, is that:
+      <b>MVC patterns must be understood within a context.</b>
+      Design considerations like development environment and platform specific motivations produce different flavors of MVC.
+    </p>
+
+    <p>
+      Going back to the Java scenario; 
+      The <a href="http://www.oracle.com/technetwork/java/architecture-142923.html">
+      Swing architecture</a> uses a modified MVC tailored to the design goals of the toolkit and 
+      the characteristics of its environment (Beans, IDEs, AWT). 
+      Likewise, Java EE doesn't use classical MVC;
+      neither the version that Swing produced.
+      It uses what we'll call server side MVC, more about that will follow below.
+    </p>
+
     <h2>MVC Family Rundown</h2>
 
     <p>
       The purpose of the information below is to show design patterns
-      that are classified as MVC;
+      that sprouted from MVC;
       it is presented in chronological lists and the patterns are grouped by similarity.
+      Some of them will be briefly mentioned in the next sections.
     </p>
 
     <p>
@@ -139,21 +171,9 @@
       <li>1999 Model 2 - Sun's Java Model 2</li>
     </ul>
 
-    <h2>Context</h2>
-
     <p>
-      A key point, that is not mentioned often enough, is that:
-      <b>MVC patterns must be understood within a context.</b>
-      Design considerations like development environment and platform specific motivations produce different flavors of MVC.
-    </p>
-
-    <p>
-      Going back to the Java scenario; 
-      The <a href="http://www.oracle.com/technetwork/java/architecture-142923.html">
-      Swing architecture</a> uses a modified MVC tailored to the design goals of the toolkit and 
-      the characteristics of its environment (Beans, IDEs, AWT). 
-      Likewise, Java EE doesn't use classical MVC;
-      neither the version that Swing produced. It uses what we'll call server side MVC.
+      As you can see, there are several variations from which you can choose from.
+      But don't feel overwhelmed, they all have a lot in common, so it is easy to learn about them.
     </p>
 
     <h2>Server MVC</h2>
@@ -177,7 +197,7 @@
       The server side approach is based on what is known as 
       <a href="http://en.wikipedia.org/wiki/Model_2">Java Model 2</a>.
       This design shares the same philosophy as MVC and most of its components resemble it,
-      so we all call it MVC.
+      so we all call it MVC. Which is not incorrect, although inexact too.
     </p>
 
     <p>
@@ -194,9 +214,9 @@
 
     </p>
       Code like that is not easy to modify or share. 
-      The natural thing to do is to apply software design patterns to organize the mess; and,
-      you'll be right to guess that the set of patterns used for it is MVC.
-      That is part of the solution that libraries like Backbone and Angular provide.
+      The natural thing to do is to apply software design patterns to organize the mess,
+      of course MVC was chosen.
+      That code-clean-up is part of the solution that libraries like Backbone and Angular provide.
     </p>
 
     <p>
@@ -221,7 +241,7 @@
     </blockquote>    
 
     <p>
-      I'm allowing a brief digression here because this is a question that comes up frequently;
+      I'm allowing a brief digression here because this is a question that comes up frequently,
       the answer is: <b>That is the wrong question to ask</b>.
     </p>
 
@@ -240,7 +260,7 @@
       Just recently a new pattern has been proposed, 
       <a href="http://mutualmobile.github.io/blog/2013/12/04/viper-introduction/">VIPER</a>
       for View Interactor Presenter Entity Router.
-      Although no direct appeals to MVC have been made; I wouldn't be surprised to see it tagged as such.
+      Although no direct appeals to MVC have been made, I wouldn't be surprised to see it tagged as such.
     </p>
 
     <blockquote>
@@ -268,8 +288,8 @@
     <h2>Conclusion</h2>
 
     <p>
-      MVC is not an off-the-shelf design pattern that you can apply mindlessly to a project.
-      The next time you hear MVC, think marketing blurb.
+      MVC is not an off-the-shelf design pattern that you can apply directly to a project.
+      The next time you hear MVC, think: marketing blurb.
     </p>
 
     <p>
