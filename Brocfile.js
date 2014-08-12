@@ -49,18 +49,14 @@ app.import('vendor/SyntaxHighlighter/pkg/scripts/shBrushBash.js');
 app.import('vendor/SyntaxHighlighter/pkg/scripts/shBrushDiff.js');
 app.import('vendor/SyntaxHighlighter/pkg/scripts/shBrushRuby.js');
 
+var pickFiles = require('broccoli-static-compiler');
+var mergeTrees = require('broccoli-merge-trees');
 app.import('vendor/fontello/css/fontello.css');
 app.import('vendor/fontello/css/fontello-codes.css');
 app.import('vendor/fontello/css/fontello-embedded.css');
-
-var pickFiles = require('broccoli-static-compiler');
-var mergeTrees = require('broccoli-merge-trees');
-
 var fontAssets = pickFiles('vendor/fontello/font', {
    srcDir: '/',
-   files: ['fontello.eot',
-           'fontello.svg',
-           'fontello.ttf', 
+   files: ['fontello.svg',
            'fontello.woff'],
    destDir: '/font'
 });
