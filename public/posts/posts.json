@@ -1,25 +1,36 @@
 {
 "posts": [
   {
+    "id": "00000011",
+    "title": "DRAFT: The MVC family tree",
+    "created": "9/Sep/2014",
+    "updated": "",
+    "description": "Analysis of the MVC family history.",
+    "published": false
+  },
+  {
     "id": "00000010",
     "title": "MVC past, present and future.",
     "created": "07/Aug/2014",
     "updated": "",
-    "description": "Untangling MVC as popular jargon, a design pattern and a family of designs."
+    "description": "Untangling MVC as popular jargon, a design pattern and a family of designs.",
+    "published": true
   },
   {
     "id": "00000001",
     "title": "Ember CLI & Phonegap",
     "created": "09/Jul/2014",
     "updated": "",
-    "description": "Place an Ember CLI app inside Phonegap."
+    "description": "Place an Ember CLI app inside Phonegap.",
+    "published": true
   },
   {
     "id": "00000000",
     "title": "Ember CLI & ember-simple-auth-devise",
     "created": "16/Jun/2014",
     "updated": "02/Aug/2014",
-    "description": "Authenticate to a Rails/Devise server from an Ember CLI app."
+    "description": "Authenticate to a Rails/Devise server from an Ember CLI app.",
+    "published": true 
   }
 ]
 }
