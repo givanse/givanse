@@ -7,8 +7,6 @@ set -e
 
 killall -9 ember || true
 
-./sh/precompile-templates.sh
-
 # Place everything outside the project folder.
 # That allows me to setup the $dist folder as a new git project.
 dist=../givanseProd
