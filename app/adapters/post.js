@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import config from '../config/environment';
 
 export default DS.RESTAdapter.extend({
 
@@ -7,7 +8,7 @@ export default DS.RESTAdapter.extend({
     if (sinceToken) {
       query = { since: sinceToken };
     }
-    var url = GivanseENV.APP.path.posts_list;
+    var url = config.APP.path.posts_list;
     return this.ajax(url, 'GET', { data: query });
   }
 

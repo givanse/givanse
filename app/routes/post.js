@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import config from '../config/environment';
 
 export default Ember.Route.extend({
 
@@ -13,7 +14,7 @@ export default Ember.Route.extend({
           Ember.Logger.debug("Fetch precompiled template.");
 
           // the template self-registers to Ember.TEMPLATES
-          var urlPreCmpTmplt = GivanseENV.APP.path.posts + params.post_id + '.js';
+          var urlPreCmpTmplt = config.APP.path.posts + params.post_id + '.js';
           return Ember.
           $.ajax(urlPreCmpTmplt)
            .then(function() {

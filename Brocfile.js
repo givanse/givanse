@@ -21,17 +21,7 @@ var app = new EmberApp({
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
-app.import({
-  development: 'vendor/ember-data/ember-data.js',
-  production:  'vendor/ember-data/ember-data.prod.js'
-}, {
-  exports: {
-    'ember-data': [
-      'default'
-    ]
-  }
-});
-
+// Bootstrap
 app.import({
   development: 'vendor/bootstrap/css/bootstrap-theme.css',
   production: 'vendor/bootstrap/css/bootstrap-theme.min.css'
@@ -42,13 +32,15 @@ app.import({
   production: 'vendor/bootstrap/css/bootstrap.min.css'
 });
 
-app.import('vendor/SyntaxHighlighter/pkg/styles/shCoreDefault.css');
-app.import('vendor/SyntaxHighlighter/pkg/scripts/shCore.js');
-app.import('vendor/SyntaxHighlighter/pkg/scripts/shBrushJScript.js');
-app.import('vendor/SyntaxHighlighter/pkg/scripts/shBrushBash.js');
-app.import('vendor/SyntaxHighlighter/pkg/scripts/shBrushDiff.js');
-app.import('vendor/SyntaxHighlighter/pkg/scripts/shBrushRuby.js');
+// Syntax Highlighter
+app.import('bower_components/SyntaxHighlighter/pkg/styles/shCoreDefault.css');
+app.import('bower_components/SyntaxHighlighter/pkg/scripts/shCore.js');
+app.import('bower_components/SyntaxHighlighter/pkg/scripts/shBrushJScript.js');
+app.import('bower_components/SyntaxHighlighter/pkg/scripts/shBrushBash.js');
+app.import('bower_components/SyntaxHighlighter/pkg/scripts/shBrushDiff.js');
+app.import('bower_components/SyntaxHighlighter/pkg/scripts/shBrushRuby.js');
 
+// Fonts
 var pickFiles = require('broccoli-static-compiler');
 var mergeTrees = require('broccoli-merge-trees');
 app.import('vendor/fontello/css/fontello.css');

@@ -9,7 +9,7 @@ npm install
 bower install
 
 # syntax highlight
-cd vendor/SyntaxHighlighter/
+cd bower_components/SyntaxHighlighter/
 npm install
 bower install
 mkdir components
