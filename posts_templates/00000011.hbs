@@ -1,14 +1,34 @@
+<b>DRAFT, Do not share yet please.</b><br>
+
+<style>
+  #mvctree {
+    height: 100%;
+    /* 
+    TODO: 
+    Review why Raphael.js picks up on this value for Element.attr.stroke-width.
+    */
+    border: 0px solid #000; 
+  }
+  svg { 
+    height: 100%;
+    width: 100%; 
+  }
+  .text_box_info {
+    padding-top: 70px; // Equal to header height
+  } 
+</style>
+
 {{partial 'post_header'}}
 
 <div class="row row_max_w">
   <div class="col-xs-12">
+    <div id="mvctree"></div>
+  </div>
+</div>
 
-    <div style="overflow: auto;">
-      <img src="img/MVC family tree.svg" onerror="this.src=your.png" style="min-width: 500px;">
-    </div>
-
-    <h2>Acronyms</h2>
-
+<div id="tmve" class="text_box_info">
+<div class="row row_max_w">
+  <div class="col-xs-12">
       <h3>TMVE - Thing Model View Editor</h3>
         Trygve Reenskaug writes a memo, 
         <a href="papers/a-note-on-dynabook-requirements.pdf">
@@ -16,67 +36,346 @@
         </a>
         , that describes his design for a project management task.
         A couple of months later in another memo the 
-        <a href="">thing-model-view-editor</a>
+        <a href="papers/tmve.pdf">thing-model-view-editor</a>
         metaphor is explored. 
+  </div>
+</div>
+</div>
 
+<div id="mvc79" class="text_box_info">
+<div class="row row_max_w">
+  <div class="col-xs-12">
       <h3>MVC - Model View Controller</h3>
-        Trygve Reenskaug revamps TMVE into 
-        <a href="papers/mvc.pdf">
-          MVC  
-        </a>.
-        Years later Glenn E. Krasner and Stephen T. Pope publish a slight variation in
+        Trygve Reenskaug revamps TMVE into <a href="papers/mvc.pdf">MVC</a>.
+  </div>
+</div>
+</div>
+
+<div id="mvc88" class="text_box_info">
+<div class="row row_max_w">
+  <div class="col-xs-12">
+      <h3>MVC - Krasner & Pope</h3>
+        Years later Glenn E. Krasner and Stephen T. Pope published a variation of MVC in
         <a href="papers/krasner-pope-88.pdf">
           A Cookbook for Using the Model-View-Controller User Interface Paradigm in Smalltalk-80
         </a>.
+  </div>
+</div>
+</div>
 
-        <b>AM</b> - Application Model, used by VisualWorks (ParcPlace implementation of Smalltalk)
+<div id="am" class="text_box_info">
+<div class="row row_max_w">
+  <div class="col-xs-12">
+      <h3>AM - Application Model</h3>
+        Used in VisualWorks, a Smalltalk implementation done by ParcPlace. 
 
-      <h3>MVP - Model View Presenter</h3>
-        First described by Mike Potel from Taligent Inc. and known as
-        <a href="papers/mvp-taligent.pdf">Taligent MVP</a>;
-        later, it was redefined by Andy Bower and Blair McGlashan from Object Arts Ltd, known as
-        <a href="papers/mvp-dolphin.pdf">Dolphin MVP</a>
+  </div>
+</div>
+</div>
 
+<div id="pm" class="text_box_info">
+<div class="row row_max_w">
+  <div class="col-xs-12">
       <h3>PM - Presentation Model</h3>
         Described by Martin Fowler in
         <a href="http://martinfowler.com/eaaDev/PresentationModel.html">
           Development of Further Patterns of Enterprise Application Architecture.
         </a>
 
+  </div>
+</div>
+</div>
+
+<div id="mvptaligent" class="text_box_info">
+<div class="row row_max_w">
+  <div class="col-xs-12">
+      <h3>MVP - Model View Presenter</h3>
+        First described by Mike Potel from Taligent Inc. and known as
+        <a href="papers/mvp-taligent.pdf">Taligent MVP</a>.
+
+  </div>
+</div>
+</div>
+
+<div id="mvpdolphin" class="text_box_info">
+<div class="row row_max_w">
+  <div class="col-xs-12">
+      <h3>MVP - Model View Presenter</h3>
+        Redefined by Andy Bower and Blair McGlashan from Object Arts Ltd, known as
+        <a href="papers/mvp-dolphin.pdf">Dolphin MVP</a>
+
+  </div>
+</div>
+</div>
+
+<div id="mvvm" class="text_box_info">
+<div class="row row_max_w">
+  <div class="col-xs-12">
       <h3>MVVM - Model View ViewModel</h3>
         Described by John Gossman from Microsoft in his blog post:
         <a href="http://blogs.msdn.com/b/johngossman/archive/2005/10/08/478683.aspx">
           Introduction to Model/View/ViewModel pattern for building WPF apps
         </a> 
 
+  </div>
+</div>
+</div>
+
+<div id="pac" class="text_box_info">
+<div class="row row_max_w">
+  <div class="col-xs-12">
       <h3>PAC - Presentation Abstraction Control</h3>
         Developed independently from MVC by Joëlle Coutaz in:
         <a href="papers/pac.pdf">
           PAC, an Object Oriented Model for Dialog Design.
         </a>
 
+  </div>
+</div>
+</div>
+
+<div id="model2" class="text_box_info">
+<div class="row row_max_w">
+  <div class="col-xs-12">
       <h3>Model 2</h3>
         A design pattern used in Java Web applications described in
         <a href="http://www.kirkdorffer.com/jspspecs/jsp092.html#model">
           JavaServer Pages - Specification 0.92
         </a>. A year later after release it was associated with MVC.
 
-    <h2>Color codes</h2>
-
-    <p>
-      Different boxes have different colors, each color corresponds to a 
-      definition of the term <b>Controller</b>.
-      Model and View, although their definitions sometimes vary a little, they are usually well understood.
-      The Controller is the one that can be confusing.
-    </p>
-
-    <ul>
-      <li>
-        TODO: definitions by color code
-      </li>
-    </ul>
-
   </div>
+</div>
 </div>
 
 {{partial 'post_footer'}}
+
+<script>
+
+var T = {
+  colW: 130 + 10,
+  paddingH: 10,
+  paddingV: 20,
+  rowH: 50 + 20,
+
+  attr: {
+    arrowHead: {
+      'fill': '#CCA89F',
+      'stroke': '#CCA89F', 
+      'stroke-width': 0
+    },
+    dashedLine: {
+      'stroke': '#464646', 
+      'stroke-dasharray': '-',
+      'stroke-width': 1.5
+    },
+    line: {
+      'fill': '#CCA89F',
+      'stroke': '#CCA89F', 
+      'stroke-width': 1.8
+    },
+    textBox: {
+      'fill': '#ACD2FF', 
+      'stroke': '#1d0822', 
+      'stroke-width': 1
+    },
+    textBoxText: {
+      'font-size': 14
+    }
+  },
+
+  draw: null, // drawing functions, redefined below
+
+  site: {
+    root: $('html, body')
+  }
+};
+
+T.draw = {
+
+textBox: function(paper, x, y, text, elemId) {
+  var strokeW = T.attr.textBox['stroke-width'];
+  x = x + strokeW + T.paddingH/2;
+  y = y + strokeW + T.paddingV/2;
+  var width = 130 - (strokeW * 2);
+  var height = 50 - (strokeW * 2);
+
+  var box = paper.rect(x, y, width, height, 7)
+                 .attr(T.attr.textBox);
+  var text = paper.text(x + width/2, y + height / 2, text)
+       .attr(T.attr.textBoxText)
+       .toFront();
+
+  box.node.style.cursor = 'pointer';
+  text.node.style.cursor = 'pointer';
+
+  box.node.onclick = function() {
+    T.site.root.animate({
+      scrollTop: $(elemId).offset().top
+    }, 300);
+    window.location.hash = elemId;
+  };
+  text.node.onclick = box.node.onclick;
+},
+
+yearLine: function(paper, x, y, length, year) {
+  var fontS = 12;
+  paper.text(x + fontS, y, year)
+       .attr({'font-size': fontS});
+  x = 4 * fontS; // 4 chars
+  paper.path('M '+x+' '+y+' H ' + length);
+}
+
+}; // T.draw
+
+function lineH(paper, attr, x, y, colsCount) {
+  y += T.rowH / 2;
+  var pos = x + (colsCount * T.colW)
+  paper.path('M '+x+' '+y+' H' + pos)
+       .attr(attr);
+}
+
+function lineV(paper, attr, x, y, rowsCount) {
+  x += T.colW / 2;
+  var pos = y + (rowsCount * T.rowH);
+  paper.path('M '+x+' '+y+' V' + pos)
+       .attr(attr);
+}
+
+/* bind a row with the one below it */
+function bindRows(paper, attr, x, y) {
+  x += T.colW / 2;
+  var hp = T.paddingV / 2;
+  y += T.rowH - hp; 
+  return 'M ' + x + ' '+ y +' V ' + (y + hp) + ' ';
+}
+
+function arrowV(paper, attr, x, y) {
+  x += T.colW / 2;
+  var hp = T.paddingV / 2;
+  var px1 = (x-hp),
+      px2 = px1 + T.paddingV,
+      y2 = y + hp;
+  return 'M ' + px1 + ' ' + y +
+         ' H ' + px2 + ' ' +
+         ' L ' + x + ' ' + y2 + 'Z ';
+}
+
+$(function() {
+
+  var col0 = T.paddingH;
+  var col1 = col0 + T.colW;
+  var col2 = col1 + T.colW;
+  var col3 = col2 + T.colW;
+  var col4 = col3 + T.colW;
+  var col5 = col4 + T.colW;
+
+  var row0 = T.paddingV;
+  var row1 = row0 + T.rowH;
+  var row2 = row1 + T.rowH;
+  var row3 = row2 + T.rowH;
+  var row4 = row3 + T.rowH;
+  var row5 = row4 + T.rowH;
+  var row6 = row5 + T.rowH;
+  var row7 = row6 + T.rowH;
+  var row8 = row7 + T.rowH;
+  var row9 = row8 + T.rowH;
+  var row10 = row9 + T.rowH;
+
+  var w = col5 + T.colW;
+  var h = row10 + T.rowH;
+
+  // Raphael (at least as of 2.1.0) always sets a fixed width/height i
+  // *on canvas creation* (reflected in 'width' and 'height' HTML attributes) - 
+  // if you don't specify width and height, the canvas will be sized to fully 
+  // fill its container. Fortunately, though, CSS-based width/height 
+  // specifications take precedence (see 'svg' style) and thus allow for dynamic resizing.
+  var HTMLElement = $('#mvctree')[0];
+  var paper = Raphael(HTMLElement);
+
+  // Set the view box, which effectively activates scaling.
+  paper.setViewBox(0, 0, w, h, false);
+
+  // !! As of Raphael 2.1.0, specifying true as the `fit` parameter to `setViewBox()` 
+  // translates into an invalid value for the SVG `preserveAspectRatio` attribute: "meet". 
+  // To rule out this problem, we set that attribute directly.
+  // always scale to fill container, without preserving aspect ratio.
+  //paper.canvas.setAttribute('preserveAspectRatio', 'true'); 
+
+  /*
+  for (var x = 0 + T.paddingH; x < w; x += T.colW) {
+    paper.path('M '+x+' 0 V ' + h)
+         .attr({'stroke': '#909090'});
+  }
+  for (var y = 0 + T.paddingV; y < h; y += T.rowH) {
+    paper.path('M 0 '+y+' H ' + w)
+         .attr({'stroke': '#909090'});
+  }
+  */
+
+  T.draw.yearLine(paper, col0, row2, w, '1980');
+  T.draw.yearLine(paper, col0, row4, w, '1990');
+  T.draw.yearLine(paper, col0, row7, w, '2000');
+  T.draw.yearLine(paper, col0, row10, w, '2010');
+
+  T.draw.textBox(paper, col0, row0, 'TMVE\n1979 - Reenskaug', '#tmve');
+  T.draw.textBox(paper, col0, row1, 'MVC\n1979 - Reenskaug', '#mvc79');
+  T.draw.textBox(paper, col0, row3, 'MVC\n1988 - K. & P.', '#mvc88');
+
+  T.draw.textBox(paper, col1, row5, 'MVP\n1996 - Taligent', '#mvptaligent');
+  T.draw.textBox(paper, col1, row7, 'MVP\n2000 - Dolphin', '#mvpdolphin');
+
+  T.draw.textBox(paper, col2, row4, 'AM\n1993 - VisualWorks', '#am');
+  T.draw.textBox(paper, col2, row8, 'PM\n2004 - Fowler', '#pm');
+
+  T.draw.textBox(paper, col3, row9, 'MVVM\n2006 - Microsoft', '#mvvm');
+
+  T.draw.textBox(paper, col4, row2, 'PAC\n1987 - Coutaz', '#pac');
+
+  T.draw.textBox(paper, col5, row6, 'Model 2\n1998 - J2EE', '#model2');
+
+  var attr = T.attr.line;
+  var path = bindRows(paper, attr, col0, row0);
+  paper.path(path).attr(attr);
+
+  attr = T.attr.arrowHead;
+  path = arrowV(paper, attr, col0, row1);
+  paper.path(path).attr(attr);
+
+  path += arrowV(paper, attr, col0, row3);
+  paper.path(path).attr(attr);
+
+  path += arrowV(paper, attr, col1, row5);
+  paper.path(path).attr(attr);
+
+  path += arrowV(paper, attr, col1, row7);
+  paper.path(path).attr(attr);
+
+  path += arrowV(paper, attr, col2, row4);
+  paper.path(path).attr(attr);
+
+  path += arrowV(paper, attr, col2, row8);
+  paper.path(path).attr(attr);
+
+  path += arrowV(paper, attr, col3, row9);
+  paper.path(path).attr(attr);
+
+  attr = T.attr.line;
+  lineV(paper, attr, col0, row2, 1);
+
+  lineH(paper, attr, col1, row3, 2.515);
+  lineV(paper, attr, col1, row4, 1);
+  lineV(paper, attr, col1, row3 + T.rowH/2, 0.5);
+  lineV(paper, attr, col2, row3 + T.rowH/2, 0.5);
+  lineV(paper, attr, col3, row3 + T.rowH/2, 0.5);
+
+  lineV(paper, attr, col1, row6, 1);
+
+  lineV(paper, attr, col2, row5, 3);
+  lineV(paper, attr, col3, row4, 5);
+
+  attr = T.attr.dashedLine;
+  path = lineV(paper, attr, col2, row9, 0.5);
+  path += lineH(paper, attr, col2 + T.colW/2, row9, 0.5);
+  //paper.path(path).attr(attr);
+});
+</script>
