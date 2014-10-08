@@ -22,7 +22,7 @@
 
 <div class="row row_max_w">
   <div class="col-xs-12">
-    <div id="mvctree"></div>
+    <div id="mvctree"> <!-- SVG container --> </div>
   </div>
 </div>
 
@@ -150,7 +150,6 @@
 {{partial 'post_footer'}}
 
 <script>
-
 var T = {
   colW: 130 + 10,
   paddingH: 10,
@@ -183,11 +182,11 @@ var T = {
     }
   },
 
-  draw: null, // drawing functions, redefined below
-
   site: {
     root: $('html, body')
-  }
+  },
+
+  draw: null // drawing helpers, redefined below
 };
 
 T.draw = {
@@ -223,33 +222,31 @@ yearLine: function(paper, x, y, length, year) {
        .attr({'font-size': fontS});
   x = 4 * fontS; // 4 chars
   paper.path('M '+x+' '+y+' H ' + length);
-}
+},
 
-}; // T.draw
-
-function lineH(paper, attr, x, y, colsCount) {
+lineH: function(paper, attr, x, y, colsCount) {
   y += T.rowH / 2;
   var pos = x + (colsCount * T.colW)
   paper.path('M '+x+' '+y+' H' + pos)
        .attr(attr);
-}
+},
 
-function lineV(paper, attr, x, y, rowsCount) {
+lineV: function(paper, attr, x, y, rowsCount) {
   x += T.colW / 2;
   var pos = y + (rowsCount * T.rowH);
   paper.path('M '+x+' '+y+' V' + pos)
        .attr(attr);
-}
+},
 
-/* bind a row with the one below it */
-function bindRows(paper, attr, x, y) {
+/* bind, with a line, a row with the one below it */
+bindRows: function(paper, attr, x, y) {
   x += T.colW / 2;
   var hp = T.paddingV / 2;
   y += T.rowH - hp; 
   return 'M ' + x + ' '+ y +' V ' + (y + hp) + ' ';
-}
+},
 
-function arrowV(paper, attr, x, y) {
+arrowV: function(paper, attr, x, y) {
   x += T.colW / 2;
   var hp = T.paddingV / 2;
   var px1 = (x-hp),
@@ -260,7 +257,9 @@ function arrowV(paper, attr, x, y) {
          ' L ' + x + ' ' + y2 + 'Z ';
 }
 
-$(function() {
+}; // T.draw, drawing helpers
+
+$(function() { // Draw the tree
 
   var col0 = T.paddingH;
   var col1 = col0 + T.colW;
@@ -320,62 +319,47 @@ $(function() {
   T.draw.textBox(paper, col0, row0, 'TMVE\n1979 - Reenskaug', '#tmve');
   T.draw.textBox(paper, col0, row1, 'MVC\n1979 - Reenskaug', '#mvc79');
   T.draw.textBox(paper, col0, row3, 'MVC\n1988 - K. & P.', '#mvc88');
-
   T.draw.textBox(paper, col1, row5, 'MVP\n1996 - Taligent', '#mvptaligent');
   T.draw.textBox(paper, col1, row7, 'MVP\n2000 - Dolphin', '#mvpdolphin');
-
   T.draw.textBox(paper, col2, row4, 'AM\n1993 - VisualWorks', '#am');
   T.draw.textBox(paper, col2, row8, 'PM\n2004 - Fowler', '#pm');
-
   T.draw.textBox(paper, col3, row9, 'MVVM\n2006 - Microsoft', '#mvvm');
-
   T.draw.textBox(paper, col4, row2, 'PAC\n1987 - Coutaz', '#pac');
-
   T.draw.textBox(paper, col5, row6, 'Model 2\n1998 - J2EE', '#model2');
 
   var attr = T.attr.line;
-  var path = bindRows(paper, attr, col0, row0);
+  var path = T.draw.bindRows(paper, attr, col0, row0);
   paper.path(path).attr(attr);
 
   attr = T.attr.arrowHead;
-  path = arrowV(paper, attr, col0, row1);
+  path = T.draw.arrowV(paper, attr, col0, row1);
   paper.path(path).attr(attr);
-
-  path += arrowV(paper, attr, col0, row3);
+  path += T.draw.arrowV(paper, attr, col0, row3);
   paper.path(path).attr(attr);
-
-  path += arrowV(paper, attr, col1, row5);
+  path += T.draw.arrowV(paper, attr, col1, row5);
   paper.path(path).attr(attr);
-
-  path += arrowV(paper, attr, col1, row7);
+  path += T.draw.arrowV(paper, attr, col1, row7);
   paper.path(path).attr(attr);
-
-  path += arrowV(paper, attr, col2, row4);
+  path += T.draw.arrowV(paper, attr, col2, row4);
   paper.path(path).attr(attr);
-
-  path += arrowV(paper, attr, col2, row8);
+  path += T.draw.arrowV(paper, attr, col2, row8);
   paper.path(path).attr(attr);
-
-  path += arrowV(paper, attr, col3, row9);
+  path += T.draw.arrowV(paper, attr, col3, row9);
   paper.path(path).attr(attr);
 
   attr = T.attr.line;
-  lineV(paper, attr, col0, row2, 1);
-
-  lineH(paper, attr, col1, row3, 2.515);
-  lineV(paper, attr, col1, row4, 1);
-  lineV(paper, attr, col1, row3 + T.rowH/2, 0.5);
-  lineV(paper, attr, col2, row3 + T.rowH/2, 0.5);
-  lineV(paper, attr, col3, row3 + T.rowH/2, 0.5);
-
-  lineV(paper, attr, col1, row6, 1);
-
-  lineV(paper, attr, col2, row5, 3);
-  lineV(paper, attr, col3, row4, 5);
+  T.draw.lineV(paper, attr, col0, row2, 1);
+  T.draw.lineH(paper, attr, col1, row3, 2.515);
+  T.draw.lineV(paper, attr, col1, row4, 1);
+  T.draw.lineV(paper, attr, col1, row3 + T.rowH/2, 0.5);
+  T.draw.lineV(paper, attr, col2, row3 + T.rowH/2, 0.5);
+  T.draw.lineV(paper, attr, col3, row3 + T.rowH/2, 0.5);
+  T.draw.lineV(paper, attr, col1, row6, 1);
+  T.draw.lineV(paper, attr, col2, row5, 3);
+  T.draw.lineV(paper, attr, col3, row4, 5);
 
   attr = T.attr.dashedLine;
-  path = lineV(paper, attr, col2, row9, 0.5);
-  path += lineH(paper, attr, col2 + T.colW/2, row9, 0.5);
-  //paper.path(path).attr(attr);
+  path = T.draw.lineV(paper, attr, col2, row9, 0.5);
+  path += T.draw.lineH(paper, attr, col2 + T.colW/2, row9, 0.5);
 });
 </script>
