@@ -11,8 +11,6 @@ export default Ember.Route.extend({
     return this.store.find('post')
       .then(function() {
         if ( ! Ember.TEMPLATES[params.post_id] ) {
-          Ember.Logger.debug("Fetch precompiled template.");
-
           // the template self-registers to Ember.TEMPLATES
           var urlPreCmpTmplt = config.APP.path.posts + params.post_id + '.js';
           return Ember.
