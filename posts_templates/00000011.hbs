@@ -21,6 +21,13 @@
   } 
   .text_box_tech {
   }
+  .chbox_overlay {
+    transform: scale(2);
+    -webkit-transform: scale(2);
+  }
+  .labels {
+    fonts-size: 1rem;
+  }
 </style>
 
 {{partial 'post_header'}}
@@ -30,7 +37,37 @@
     <p>
       Click on each element to learn more about it.
     </p>
-    <input type='button' value='Tech Overlay' onclick='T.toggleTech();'></input>
+  </div>
+</div>
+
+<div class="row row_max_w">
+  <div class="col-xs-6 col-sm-3">
+    <input class='chbox_overlay' type='checkbox' onclick="T.toggleTech('te_sig');" checked>
+    Most Significant 
+  </div>
+  <div class="col-xs-6 col-sm-3">
+    <input class='chbox_overlay' type='checkbox' onclick="T.toggleTech('te_java');" checked>
+    Java
+  </div>
+  <div class="col-xs-6 col-sm-3">
+    <input class='chbox_overlay' type='checkbox' onclick="T.toggleTech('te_js');" checked>
+    JavaScript
+  </div>
+  <div class="col-xs-6 col-sm-3">
+    <input class='chbox_overlay' type='checkbox' onclick="T.toggleTech('te_ms');" checked>
+    Microsoft
+  </div>
+  <div class="col-xs-6 col-sm-3">
+    <input class='chbox_overlay' type='checkbox' onclick="T.toggleTech('te_php');" checked>
+    PHP
+  </div>
+  <div class="col-xs-6 col-sm-3">
+    <input class='chbox_overlay' type='checkbox' onclick="T.toggleTech('te_python');" checked>
+    Python
+  </div>
+  <div class="col-xs-6 col-sm-3">
+    <input class='chbox_overlay' type='checkbox' onclick="T.toggleTech('te_ruby');" checked>
+    Ruby
   </div>
 </div>
 
@@ -98,7 +135,7 @@
 <div id="am" class="text_box_info">
 <div class="row row_max_w">
   <div class="col-xs-12">
-      <h3>1993 AM - Application Model</h3>
+      <h3>1993 Application Model</h3>
         Used in VisualWorks, a Smalltalk implementation done by ParcPlace. 
 
   </div>
@@ -158,7 +195,7 @@
 <div id="pm" class="text_box_info">
 <div class="row row_max_w">
   <div class="col-xs-12">
-      <h3>2004 PM - Presentation Model</h3>
+      <h3>2004 Presentation Model</h3>
         Described by Martin Fowler in
         <a href="http://martinfowler.com/eaaDev/PresentationModel.html">
           Development of Further Patterns of Enterprise Application Architecture.
@@ -190,13 +227,22 @@
 
 <br>
 <br>
-<h2>Pioneering Technologies</h2>
+<h2>Technologies</h2>
 
 <!-- 1995 -->
 <div id="msaccess" class="text_box_info">
 <div class="row row_max_w">
   <div class="col-xs-12">
       <h3>1995 MS Access</h3>
+  </div>
+</div>
+</div>
+
+<!-- 1998 -->
+<div id="swing" class="text_box_info">
+<div class="row row_max_w">
+  <div class="col-xs-12">
+      <h3>1998 SWING</h3>
   </div>
 </div>
 </div>
@@ -210,11 +256,29 @@
 </div>
 </div>
 
+<!-- 2000 -->
+<div id="struts" class="text_box_info">
+<div class="row row_max_w">
+  <div class="col-xs-12">
+      <h3>2000 Struts</h3>
+  </div>
+</div>
+</div>
+
 <!-- 2005 -->
 <div id="rails" class="text_box_info">
 <div class="row row_max_w">
   <div class="col-xs-12">
       <h3>2005 Rails</h3>
+  </div>
+</div>
+</div>
+
+<!-- 2007 -->
+<div id="aspnet" class="text_box_info">
+<div class="row row_max_w">
+  <div class="col-xs-12">
+      <h3>2007 ASP.NET MVC</h3>
   </div>
 </div>
 </div>
@@ -248,8 +312,8 @@ var T = {
 
   attr: {
     arrowHead: {
-      'fill': '#FF9780',
-      'stroke': '#FF9780', 
+      'fill': '#663c4d',
+      'stroke': '#663c4d', 
       'stroke-width': 0
     },
     dashedLine: {
@@ -258,22 +322,21 @@ var T = {
       'stroke-width': 1.5
     },
     line: {
-      'fill': '#FF9780',
-      'stroke': '#FF9780', 
-      'stroke-width': 1.8
+      'fill': '#663c4d',
+      'stroke': '#663c4d', 
+      'stroke-width': 1.2
     },
-    textBox: {
-      'fill': '#9BCAFF', 
-      'stroke': '#1d0822', 
+    textRect: {
+      'fill': '#FFF', 
+      'stroke': '#663c4d', 
       'stroke-width': 1
     },
-    textBoxTech: {
+    textEllipse: {
       'fill': '#CCFF9B', 
-      'stroke': '#1d0822', 
-      'stroke-width': 1,
-      'className': 'text_box_tech'
+      'stroke': '#663c4d', 
+      'stroke-width': 1
     },
-    textBoxText: {
+    textBox: {
       'font-size': 14
     }
   },
@@ -282,11 +345,12 @@ var T = {
     root: $('html, body')
   },
 
-  toggleTech: function() {
-    var elems = $('.text_box_tech'),
+  toggleTech: function(className) {
+    var selector = '.' + className;
+    var elems = $(selector),
         className = elems.attr('class');
 
-    className = (/hidden/).test(className) ? className.replace(/hidden/, '') :
+    className = (/ hidden/).test(className) ? className.replace(/hidden/, '') :
                                              className + ' hidden';
 
     elems.attr('class', className);
@@ -297,35 +361,68 @@ var T = {
 
 T.draw = {
 
-textBox: function(paper, x, y, text, elemId, attr) {
-  attr = attr ? attr : T.attr.textBox;
+_textRect: function(containerNode, textNode, elemId) {
+
+  containerNode.style.cursor = 'pointer';
+  textNode.style.cursor = 'pointer';
+
+  containerNode.onclick = function() {
+    T.site.root.animate({
+      scrollTop: $(elemId).offset().top
+    }, 300);
+    window.location.hash = elemId;
+  };
+  textNode.onclick = containerNode.onclick;
+},
+
+textEllipse: function(paper, x, y, text, elemId, className) {
+  var attr = T.attr.textEllipse;
+  var strokeW = attr['stroke-width'];
+  x = x + T.colW / 2;
+  y = y + T.rowH - (T.paddingV / 2);
+  var width = (130 - (strokeW * 2)) / 2;
+  var height = (50 - (strokeW * 2)) / 2;
+
+  if ( className ) {
+    var fillColor = null;
+    switch ( className ) {
+      case 'te_sig': fillColor = '#a184a7'; break;
+      case 'te_java': fillColor = '#6AF4FF'; break;
+      case 'te_js': fillColor = '#FFFD6A'; break;
+      case 'te_ms': fillColor = '#7CC2FF'; break;
+      case 'te_php': fillColor = '#A89BFF'; break;
+      case 'te_python': fillColor = '#9BFFA4'; break;
+      case 'te_ruby': fillColor = '#FF9BC2'; break;
+    }
+    attr.fill = fillColor;
+  }
+  var ellipse = paper.ellipse(x, y, width, height)
+                     .attr(attr);
+  var text = paper.text(x, y, text)
+                  .attr(T.attr.textBox)
+                  .toFront();
+  if ( className ) {
+    $(ellipse.node).attr('class', className);
+    $(text.node).attr('class', className);
+  }
+  this._textRect(ellipse.node, text.node, elemId);
+},
+
+textRect: function(paper, x, y, text, elemId) {
+  var attr = T.attr.textRect;
   var strokeW = attr['stroke-width'];
   x = x + strokeW + T.paddingH/2;
   y = y + strokeW + T.paddingV/2;
   var width = 130 - (strokeW * 2);
   var height = 50 - (strokeW * 2);
 
-  var box = paper.rect(x, y, width, height, 7)
-                 .attr(attr);
+  var rect = paper.rect(x, y, width, height, 7)
+                  .attr(attr);
   var text = paper.text(x + width/2, y + height / 2, text)
-       .attr(T.attr.textBoxText)
-       .toFront();
+                  .attr(T.attr.textBox)
+                  .toFront();
 
-  box.node.style.cursor = 'pointer';
-  text.node.style.cursor = 'pointer';
-
-  box.node.onclick = function() {
-    T.site.root.animate({
-      scrollTop: $(elemId).offset().top
-    }, 300);
-    window.location.hash = elemId;
-  };
-  text.node.onclick = box.node.onclick;
-
-  if ( attr.className ) {
-    $(box.node).attr('class', attr.className);
-    $(text.node).attr('class', attr.className);
-  }
+  this._textRect(rect.node, text.node, elemId);
 },
 
 yearLine: function(paper, x, y, length, year) {
@@ -379,6 +476,7 @@ $(function() { // Draw the tree
   var col3 = col2 + T.colW;
   var col4 = col3 + T.colW;
   var col5 = col4 + T.colW;
+  var col6 = col5 + T.colW;
 
   var row0 = T.paddingV;
   var row1 = row0 + T.rowH;
@@ -395,7 +493,7 @@ $(function() { // Draw the tree
   var row12 = row11 + T.rowH;
   var row13 = row12 + T.rowH;
 
-  var w = col5 + T.colW;
+  var w = col6 + T.colW;
   var h = row13 + T.rowH;
 
   // Raphael (at least as of 2.1.0) always sets a fixed width/height i
@@ -415,7 +513,7 @@ $(function() { // Draw the tree
   // always scale to fill container, without preserving aspect ratio.
   //paper.canvas.setAttribute('preserveAspectRatio', 'true'); 
 
-  /*
+  
   for (var x = 0 + T.paddingH; x < w; x += T.colW) {
     paper.path('M '+x+' 0 V ' + h)
          .attr({'stroke': '#909090'});
@@ -424,36 +522,42 @@ $(function() { // Draw the tree
     paper.path('M 0 '+y+' H ' + w)
          .attr({'stroke': '#909090'});
   }
-  */
+  
 
   T.draw.yearLine(paper, col0, row2, w, '1980');
   T.draw.yearLine(paper, col0, row4, w, '1990');
   T.draw.yearLine(paper, col0, row8, w, '2000');
   T.draw.yearLine(paper, col0, row13, w, '2010');
 
-  T.draw.textBox(paper, col0, row0, 'TMVE\n1979 - Reenskaug', '#tmve');
-  T.draw.textBox(paper, col0, row1, 'MVC\n1979 - Reenskaug', '#mvc79');
-  T.draw.textBox(paper, col0, row3, 'MVC\n1988 - K. & P.', '#mvc88');
-  T.draw.textBox(paper, col1, row6, 'MVP\n1996 - Taligent', '#mvptaligent');
-  T.draw.textBox(paper, col1, row8, 'MVP\n2000 - Dolphin', '#mvpdolphin');
-  T.draw.textBox(paper, col2, row4, 'AM\n1993 - VisualWorks', '#am');
-  T.draw.textBox(paper, col2, row9, 'PM\n2004 - Fowler', '#pm');
-  T.draw.textBox(paper, col3, row10, 'MVVM\n2005 - Microsoft', '#mvvm');
+  T.draw.textRect(paper, col0, row0, 'TMVE\n1979 - Reenskaug', '#tmve');
+  T.draw.textRect(paper, col0, row1, 'MVC\n1979 - Reenskaug', '#mvc79');
+  T.draw.textRect(paper, col0, row3, 'MVC\n1988 - K. & P.', '#mvc88');
+  T.draw.textRect(paper, col1, row6, 'MVP\n1996 - Taligent', '#mvptaligent');
+  T.draw.textRect(paper, col1, row8, 'MVP\n2000 - Dolphin', '#mvpdolphin');
+  T.draw.textRect(paper, col2, row4, 'Application Model\n1993 - VisualWorks', '#am');
+  T.draw.textRect(paper, col2, row9, 'Presentation Model\n2004 - Fowler', '#pm');
+  T.draw.textRect(paper, col3, row10, 'MVVM\n2005 - Microsoft', '#mvvm');
+  T.draw.textRect(paper, col4, row2, 'PAC\n1987 - Coutaz', '#pac');
+  T.draw.textRect(paper, col0, row7, 'Model 2\n1998 - J2EE', '#model2');
+  T.draw.textRect(paper, col4, row9, 'MVVP\n2004??', '');
+  T.draw.textRect(paper, col5, row4, 'Data Binding\n1995??', '');
+  T.draw.textRect(paper, col6, row5, 'Observer Pattern\n1995 - GoF', '#observer');
 
-  T.draw.textBox(paper, col4, row2, 'PAC\n1987 - Coutaz', '#pac');
-  T.draw.textBox(paper, col4, row7, 'Model 2\n1998 - J2EE', '#model2');
-  T.draw.textBox(paper, col4, row9, 'MVVP\n2004??', '');
+  /* Technologies */
 
-  T.draw.textBox(paper, col5, row4, 'Data Binding\n1995??', '');
-  T.draw.textBox(paper, col5, row5, 'Observer Pattern\n1995 - GoF', '#observer');
+  T.draw.textEllipse(paper, col5, row4, 'MS-Access\n1995', '#msaccess', 'te_ms');
+  T.draw.textEllipse(paper, col3, row10, 'Silverlight\n2007', '#silverlight', 'te_ms');
+  T.draw.textEllipse(paper, col0, row8, 'Struts\n2000', '#struts', 'te_java');
+  T.draw.textEllipse(paper, col0, row10, 'Django\n2005', '#struts', 'te_python');
+  T.draw.textEllipse(paper, col0, row10, 'ASP.NET MVC\n2007', '#aspnet', 'te_ms');
 
-  var offsetV = (T.rowH - T.paddingV) / 2;
-  var offsetH = (T.colW - T.paddingH) / 2;
-  T.draw.textBox(paper, col5, row4 + offsetV, 'MS-Access\n1995', '#msaccess', T.attr.textBoxTech);
-  T.draw.textBox(paper, col4, row7 + offsetV, 'J2EE 1.2\n1999', '#j2ee', T.attr.textBoxTech);
-  T.draw.textBox(paper, col5, row7 + offsetV, 'Rails\n2005', '#rails', T.attr.textBoxTech);
-  T.draw.textBox(paper, col3, row10 + offsetV, 'Silverlight\n2007', '#silverlight', T.attr.textBoxTech);
-  T.draw.textBox(paper, col2 + offsetH, row11 + offsetV, 'Angular.js\n2009', '#angular', T.attr.textBoxTech);
+  T.draw.textEllipse(paper, col0, row9, 'Rails\n2003', '#rails', 'te_ruby');
+  T.draw.textEllipse(paper, col2, row11, 'Angular.js\n2009', '#angular', 'te_js');
+  T.draw.textEllipse(paper, col0, row6, 'SWING\n1998', '#swing', 'te_java');
+
+  T.draw.textEllipse(paper, col0, row9, 'Rails\n2003', '#rails', 'te_sig');
+  T.draw.textEllipse(paper, col2, row11, 'Angular.js\n2009', '#angular', 'te_sig');
+  T.draw.textEllipse(paper, col0, row6, 'SWING\n1998', '#swing', 'te_sig');
 
   var attr = T.attr.line;
   var path = T.draw.bindRows(paper, attr, col0, row0);
