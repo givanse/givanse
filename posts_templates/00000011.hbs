@@ -5,12 +5,13 @@
     max-width: 1024px;
   }
   #mvctree {
-    height: 100%;
     /* 
     TODO: 
     Review why Raphael.js picks up on this value for Element.attr.stroke-width.
     */
     border: 0px solid #000; 
+    min-width: 640px;
+    height: 100%;
   }
   svg { 
     height: 150%;
@@ -22,8 +23,9 @@
   .text_box_tech {
   }
   .chbox_overlay {
-    transform: scale(2);
     -webkit-transform: scale(2);
+    transform: scale(2);
+    margin: 8px;
   }
   .labels {
     fonts-size: 1rem;
@@ -43,7 +45,7 @@
 <div class="row row_max_w">
   <div class="col-xs-6 col-sm-3">
     <input class='chbox_overlay' type='checkbox' onclick="T.toggleTech('te_sig');" checked>
-    Most Significant 
+    Significant 
   </div>
   <div class="col-xs-6 col-sm-3">
     <input class='chbox_overlay' type='checkbox' onclick="T.toggleTech('te_java');" checked>
@@ -442,8 +444,9 @@ lineH: function(paper, attr, x, y, colsCount) {
 
 lineV: function(paper, attr, x, y, rowsCount) {
   x += T.colW / 2;
-  var pos = y + (rowsCount * T.rowH);
-  paper.path('M '+x+' '+y+' V' + pos)
+  var y1 = y - (T.paddingV/2),
+      y2 = y + (rowsCount * T.rowH);
+  paper.path('M ' + x + ' ' + y1 + ' V' + y2)
        .attr(attr);
 },
 
@@ -564,9 +567,11 @@ $(function() { // Draw the tree
   paper.path(path).attr(attr);
 
   attr = T.attr.arrowHead;
-  path = T.draw.arrowV(paper, attr, col0, row1);
+  path = T.draw.arrowV(paper, attr, col0, row1); // mvc
   paper.path(path).attr(attr);
-  path += T.draw.arrowV(paper, attr, col0, row3);
+  path += T.draw.arrowV(paper, attr, col0, row3); // mvc k&p
+  paper.path(path).attr(attr);
+  path += T.draw.arrowV(paper, attr, col0, row5); // mvc continues
   paper.path(path).attr(attr);
   path += T.draw.arrowV(paper, attr, col1, row6); // mvp taligent
   paper.path(path).attr(attr);
@@ -581,11 +586,13 @@ $(function() { // Draw the tree
 
   attr = T.attr.line;
   T.draw.lineV(paper, attr, col0, row2, 1);
+  T.draw.lineV(paper, attr, col0, row4, 1); // mvc continues
   T.draw.lineH(paper, attr, col1, row3, 2.515);
   T.draw.lineV(paper, attr, col1, row4, 2); // mvp taligent
-  T.draw.lineV(paper, attr, col1, row3 + T.rowH/2, 0.5);
-  T.draw.lineV(paper, attr, col2, row3 + T.rowH/2, 0.5);
-  T.draw.lineV(paper, attr, col3, row3 + T.rowH/2, 0.5);
+  var halfOff = T.rowH/2 + (T.paddingV/2);
+  T.draw.lineV(paper, attr, col1, row3 + halfOff, 0.5);
+  T.draw.lineV(paper, attr, col2, row3 + halfOff, 0.5);
+  T.draw.lineV(paper, attr, col3, row3 + halfOff, 0.5);
   T.draw.lineV(paper, attr, col1, row7, 1);
   T.draw.lineV(paper, attr, col2, row5, 4);
   T.draw.lineV(paper, attr, col3, row4, 6);
