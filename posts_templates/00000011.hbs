@@ -22,13 +22,14 @@
   } 
   .text_box_tech {
   }
+  #chbox_overlay_all,
   .chbox_overlay {
     -webkit-transform: scale(2);
     transform: scale(2);
     margin: 8px;
   }
-  .labels {
-    fonts-size: 1rem;
+  #overlays {
+    font-size: 1rem;
   }
 </style>
 
@@ -37,39 +38,49 @@
 <div class="row row_max_w">
   <div class="col-xs-12">
     <p>
-      Click on each element to learn more about it.
+      Click on each element to learn more about it and you can use the checkboxes below to show or hide different overlays.
     </p>
+
+    <h2>Overlays</h2>
   </div>
 </div>
 
-<div class="row row_max_w">
+<div id="overlays" class="row row_max_w">
   <div class="col-xs-6 col-sm-3">
-    <input class='chbox_overlay' type='checkbox' onclick="T.toggleTech('te_sig');" checked>
+    <input id='chbox_overlay_all' type='checkbox' value='all'>
+    All 
+  </div>
+  <div class="col-xs-6 col-sm-3">
+    <input id='te_sig' class='chbox_overlay' type='checkbox' value='te_sig'>
     Significant 
   </div>
   <div class="col-xs-6 col-sm-3">
-    <input class='chbox_overlay' type='checkbox' onclick="T.toggleTech('te_java');" checked>
+    <input class='chbox_overlay' type='checkbox' value='te_java'>
     Java
   </div>
   <div class="col-xs-6 col-sm-3">
-    <input class='chbox_overlay' type='checkbox' onclick="T.toggleTech('te_js');" checked>
+    <input class='chbox_overlay' type='checkbox' value='te_js'>
     JavaScript
   </div>
   <div class="col-xs-6 col-sm-3">
-    <input class='chbox_overlay' type='checkbox' onclick="T.toggleTech('te_ms');" checked>
+    <input class='chbox_overlay' type='checkbox' value='te_ms'>
     Microsoft
   </div>
   <div class="col-xs-6 col-sm-3">
-    <input class='chbox_overlay' type='checkbox' onclick="T.toggleTech('te_php');" checked>
+    <input class='chbox_overlay' type='checkbox' value='te_php'>
     PHP
   </div>
   <div class="col-xs-6 col-sm-3">
-    <input class='chbox_overlay' type='checkbox' onclick="T.toggleTech('te_python');" checked>
+    <input class='chbox_overlay' type='checkbox' value='te_python'>
     Python
   </div>
   <div class="col-xs-6 col-sm-3">
-    <input class='chbox_overlay' type='checkbox' onclick="T.toggleTech('te_ruby');" checked>
+    <input class='chbox_overlay' type='checkbox' value='te_ruby'>
     Ruby
+  </div>
+  <div class="col-xs-6 col-sm-3">
+    <input class='chbox_overlay' type='checkbox' value='te_smalltalk'>
+    Smalltalk 
   </div>
 </div>
 
@@ -79,7 +90,11 @@
   </div>
 </div>
 
-<h2>Design Patterns</h2>
+<div class="row row_max_w">
+  <div class="col-xs-12">
+    <h2>Design Patterns</h2>
+  </div>
+</div>
 
 <div id="tmve" class="text_box_info">
 <div class="row row_max_w">
@@ -182,18 +197,6 @@
 </div>
 </div>
 
-<!-- 2000 -->
-<div id="mvpdolphin" class="text_box_info">
-<div class="row row_max_w">
-  <div class="col-xs-12">
-      <h3>2000 MVP - Model View Presenter</h3>
-        Redefined by Andy Bower and Blair McGlashan from Object Arts Ltd, known as
-        <a href="papers/mvp-dolphin.pdf">Dolphin MVP</a>
-
-  </div>
-</div>
-</div>
-
 <div id="pm" class="text_box_info">
 <div class="row row_max_w">
   <div class="col-xs-12">
@@ -229,7 +232,11 @@
 
 <br>
 <br>
-<h2>Technologies</h2>
+<div class="row row_max_w">
+  <div class="col-xs-12">
+    <h2>Technologies</h2>
+  </div>
+</div>
 
 <!-- 1995 -->
 <div id="msaccess" class="text_box_info">
@@ -254,6 +261,28 @@
 <div class="row row_max_w">
   <div class="col-xs-12">
       <h3>1999 J2EE</h3>
+  </div>
+</div>
+</div>
+
+<!-- 2000 -->
+<div id="dolphin" class="text_box_info">
+<div class="row row_max_w">
+  <div class="col-xs-12">
+      <h3>2000 Dolphin</h3>
+      <p>
+        Dolphin, the Object Arts Ltd implementation of Smalltalk, used MVP as its UI model. 
+        The research and reasonings behind that decision are found in a paper by Andy Bower and Blair McGlashan called: 
+        <a href="papers/mvp-dolphin.pdf">Twisting the triad</a>, published in 2000.
+      </p>
+      <p>
+        In their research about MVC, they used VisualWorks 2.5 which actually refers to Application Model 
+        and in their paper both terms are used interchangeably.
+      </p>
+      <p>
+        A detailed timeline about Dolphin can be fount at:
+        <a href="http://www.idb.me.uk/idb/about.html">Ian's Dolphin Smalltalk Pages</a>
+      </p>
   </div>
 </div>
 </div>
@@ -335,30 +364,39 @@ var T = {
     },
     textEllipse: {
       'fill': '#CCFF9B', 
-      'stroke': '#663c4d', 
-      'stroke-width': 1
+      'stroke': '#663c4d',
+      'stroke-width': 1 
     },
     textBox: {
-      'font-size': 14
+      'font-size': 14,
+      'font-style': 'italic'
     }
   },
 
   site: {
-    root: $('html, body')
+    root: $('html, body'),
+    checkboxes: $('.chbox_overlay'),
+    overlays: null // will populate after all the drawing is done
   },
 
-  toggleTech: function(className) {
-    var selector = '.' + className;
-    var elems = $(selector),
-        className = elems.attr('class');
+  toggleTech: function(checkbox, className) {
+    var elems = T.site.overlays[className],
+        classes = elems.attr('class');
 
-    className = (/ hidden/).test(className) ? className.replace(/hidden/, '') :
-                                             className + ' hidden';
+    if ( elems.length === 0) {
+      return;
+    }
 
-    elems.attr('class', className);
+    classes = checkbox.checked ? classes.replace(/hidden/, '') :
+                                 classes + ' hidden';
+    elems.attr('class', classes);
+
+    //elems.toggleClass('hidden'); // doesn't work
   },
 
-  draw: null // drawing helpers, redefined below
+  draw: null, // drawing helpers, redefined below
+ 
+  init: null
 };
 
 T.draw = {
@@ -388,13 +426,14 @@ textEllipse: function(paper, x, y, text, elemId, className) {
   if ( className ) {
     var fillColor = null;
     switch ( className ) {
-      case 'te_sig': fillColor = '#a184a7'; break;
+      case 'te_sig': fillColor = '#FF96F7'; break;
       case 'te_java': fillColor = '#6AF4FF'; break;
       case 'te_js': fillColor = '#FFFD6A'; break;
       case 'te_ms': fillColor = '#7CC2FF'; break;
-      case 'te_php': fillColor = '#A89BFF'; break;
+      case 'te_php': fillColor = '#a184a7'; break;
       case 'te_python': fillColor = '#9BFFA4'; break;
-      case 'te_ruby': fillColor = '#FF9BC2'; break;
+      case 'te_ruby': fillColor = '#FF2E5C'; break;
+      case 'te_smalltalk': fillColor = '#FF8F65'; break;
     }
     attr.fill = fillColor;
   }
@@ -404,6 +443,7 @@ textEllipse: function(paper, x, y, text, elemId, className) {
                   .attr(T.attr.textBox)
                   .toFront();
   if ( className ) {
+    className += ' hidden';
     $(ellipse.node).attr('class', className);
     $(text.node).attr('class', className);
   }
@@ -471,8 +511,7 @@ arrowV: function(paper, attr, x, y) {
 
 }; // T.draw, drawing helpers
 
-$(function() { // Draw the tree
-
+T.init = function() {
   var col0 = T.paddingH;
   var col1 = col0 + T.colW;
   var col2 = col1 + T.colW;
@@ -516,7 +555,7 @@ $(function() { // Draw the tree
   // always scale to fill container, without preserving aspect ratio.
   //paper.canvas.setAttribute('preserveAspectRatio', 'true'); 
 
-  
+  /* 
   for (var x = 0 + T.paddingH; x < w; x += T.colW) {
     paper.path('M '+x+' 0 V ' + h)
          .attr({'stroke': '#909090'});
@@ -525,6 +564,7 @@ $(function() { // Draw the tree
     paper.path('M 0 '+y+' H ' + w)
          .attr({'stroke': '#909090'});
   }
+  */
   
 
   T.draw.yearLine(paper, col0, row2, w, '1980');
@@ -536,7 +576,6 @@ $(function() { // Draw the tree
   T.draw.textRect(paper, col0, row1, 'MVC\n1979 - Reenskaug', '#mvc79');
   T.draw.textRect(paper, col0, row3, 'MVC\n1988 - K. & P.', '#mvc88');
   T.draw.textRect(paper, col1, row6, 'MVP\n1996 - Taligent', '#mvptaligent');
-  T.draw.textRect(paper, col1, row8, 'MVP\n2000 - Dolphin', '#mvpdolphin');
   T.draw.textRect(paper, col2, row4, 'Application Model\n1993 - VisualWorks', '#am');
   T.draw.textRect(paper, col2, row9, 'Presentation Model\n2004 - Fowler', '#pm');
   T.draw.textRect(paper, col3, row10, 'MVVM\n2005 - Microsoft', '#mvvm');
@@ -549,10 +588,11 @@ $(function() { // Draw the tree
   /* Technologies */
 
   T.draw.textEllipse(paper, col5, row4, 'MS-Access\n1995', '#msaccess', 'te_ms');
-  T.draw.textEllipse(paper, col3, row10, 'Silverlight\n2007', '#silverlight', 'te_ms');
+  T.draw.textEllipse(paper, col1, row8, 'Dolphin\n2000', '#dolphin', 'te_smalltalk');
   T.draw.textEllipse(paper, col0, row8, 'Struts\n2000', '#struts', 'te_java');
   T.draw.textEllipse(paper, col0, row10, 'Django\n2005', '#struts', 'te_python');
   T.draw.textEllipse(paper, col0, row10, 'ASP.NET MVC\n2007', '#aspnet', 'te_ms');
+  T.draw.textEllipse(paper, col3, row10, 'Silverlight\n2007', '#silverlight', 'te_ms');
 
   T.draw.textEllipse(paper, col0, row9, 'Rails\n2003', '#rails', 'te_ruby');
   T.draw.textEllipse(paper, col2, row11, 'Angular.js\n2009', '#angular', 'te_js');
@@ -575,8 +615,6 @@ $(function() { // Draw the tree
   paper.path(path).attr(attr);
   path += T.draw.arrowV(paper, attr, col1, row6); // mvp taligent
   paper.path(path).attr(attr);
-  path += T.draw.arrowV(paper, attr, col1, row8); // mvp dolphin
-  paper.path(path).attr(attr);
   path += T.draw.arrowV(paper, attr, col2, row4); // am 
   paper.path(path).attr(attr);
   path += T.draw.arrowV(paper, attr, col2, row9); // pm
@@ -593,12 +631,52 @@ $(function() { // Draw the tree
   T.draw.lineV(paper, attr, col1, row3 + halfOff, 0.5);
   T.draw.lineV(paper, attr, col2, row3 + halfOff, 0.5);
   T.draw.lineV(paper, attr, col3, row3 + halfOff, 0.5);
-  T.draw.lineV(paper, attr, col1, row7, 1);
   T.draw.lineV(paper, attr, col2, row5, 4);
   T.draw.lineV(paper, attr, col3, row4, 6);
 
   attr = T.attr.dashedLine;
   path = T.draw.lineV(paper, attr, col2, row10, 0.5);
   path += T.draw.lineH(paper, attr, col2 + T.colW/2, row10, 0.5);
-});
+
+  T.site.overlays = { // populated after all the drawing was done
+      'te_sig': $('.te_sig'),  
+      'te_java': $('.te_java'), 
+      'te_js': $('.te_js'), 
+      'te_ms': $('.te_ms'), 
+      'te_php': $('.te_php'), 
+      'te_python': $('.te_python'), 
+      'te_ruby': $('.te_ruby'), 
+      'te_smalltalk': $('.te_smalltalk') 
+  };
+
+  T.site.checkboxes.each(function(index, element) {
+    var elem$ = $(element), 
+        className = elem$.attr('value');
+
+    elem$.on('click', function () {
+      T.toggleTech(this, className);
+    });
+  });
+
+  $('#chbox_overlay_all').change(function() {
+    var isChecked = this.checked;
+  
+    T.site.checkboxes.each(function(index, element) {
+      var chbox$ = $(element); 
+      if ( isChecked !== element.checked ) {
+        chbox$.click();
+      }
+    });
+
+  });
+
+  $('#te_sig').click();
+
+  $('#chbox_overlay_all').click();
+
+}; // T.init
+
+$(document).ready(function() {
+  T.init();
+}); 
 </script>
