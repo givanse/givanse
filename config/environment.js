@@ -18,6 +18,21 @@ module.exports = function(environment) {
         posts: 'posts/',
         posts_list: 'posts/posts.json'
       }
+    },
+
+    contentSecurityPolicy: {
+      'report-uri': ["http://localhost:4200"],
+      // Raphael uses unsafe-eval
+      'script-src': [
+        "'self'",
+        "'unsafe-eval'", 
+        "'unsafe-inline'", 
+        "http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js",
+        "http://www.google-analytics.com/analytics.js",
+        "http://givanse.disqus.com/embed.js",
+        "http://a.disquscdn.com/embed.js"],
+      'style-src': ["'self'", "'unsafe-inline'"],
+      'frame-src': ["'self'", "http://disqus.com"]
     }
   };
 

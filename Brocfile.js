@@ -45,7 +45,8 @@ var pickFiles = require('broccoli-static-compiler');
 var mergeTrees = require('broccoli-merge-trees');
 app.import('vendor/fontello/css/fontello.css');
 app.import('vendor/fontello/css/fontello-codes.css');
-app.import('vendor/fontello/css/fontello-embedded.css');
+// http://help.typekit.com/customer/portal/articles/1265956-content-security-policy-and-typekit
+//app.import('vendor/fontello/css/fontello-embedded.css'); // fonts as data URIs
 var fontAssets = pickFiles('vendor/fontello/font', {
    srcDir: '/',
    files: ['fontello.svg',
