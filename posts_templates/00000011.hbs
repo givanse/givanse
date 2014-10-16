@@ -4,6 +4,7 @@
   .row_max_w {
     max-width: 1024px;
   }
+
   #mvctree {
     /* 
     TODO: 
@@ -11,21 +12,35 @@
     */
     border: 0px solid #000; 
     position: relative;
-    width: 100%;
+    width: 250%;
   }
-  #mvctree svg { 
+  @media all and (min-width: 360px) {
+    #mvctree {
+      width: 220%;
+    }
   }
+  @media all and (min-width: 480px) {
+    #mvctree {
+      width: 150%;
+    }
+  }
+  @media all and (min-width: 768px) {
+    #mvctree {
+      width: 100%;
+    }
+  }
+
   .text_box_info {
-    padding-top: 70px; // Equal to header height
+    padding-top: 70px; // Equal to page header height
   } 
-  .text_box_tech {
-  }
+
   #chbox_overlay_all,
   .chbox_overlay {
     -webkit-transform: scale(2);
     transform: scale(2);
     margin: 8px;
   }
+
   #overlays {
     font-size: 1rem;
   }
@@ -559,6 +574,7 @@ T.init = function() {
 
   var w = T.getColPos(T.maxCols) + T.colW;
   var h = T.getRowPos(T.maxRows) + T.rowH;
+  console.log('width: ' + w + ' height: ' + h);
 
   // Raphael (at least as of 2.1.0) always sets a fixed width/height i
   // *on canvas creation* (reflected in 'width' and 'height' HTML attributes) - 
@@ -575,8 +591,12 @@ T.init = function() {
   // translates into an invalid value for the SVG `preserveAspectRatio` attribute: "meet". 
   // To rule out this problem, we set that attribute directly.
   // always scale to fill container, without preserving aspect ratio.
-  paper.canvas.setAttribute('preserveAspectRatio', 'xMinYMin meet'); 
+  //paper.canvas.setAttribute('preserveAspectRatio', true); 
 
+  paper.canvas.setAttribute('width', '100%'); 
+  paper.canvas.setAttribute('height', '100%'); 
+
+  /*
   for (var x = 0 + T.paddingH; x < w; x += T.colW) {
     paper.path('M '+x+' 0 V ' + h)
          .attr({'stroke': '#909090'});
@@ -585,6 +605,7 @@ T.init = function() {
     paper.path('M 0 '+y+' H ' + w)
          .attr({'stroke': '#909090'});
   }
+  */
 
   T.draw.yearLine(paper, 0, 2, w, '1980');
   T.draw.yearLine(paper, 0, 4, w, '1990');
