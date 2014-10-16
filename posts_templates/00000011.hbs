@@ -10,12 +10,10 @@
     Review why Raphael.js picks up on this value for Element.attr.stroke-width.
     */
     border: 0px solid #000; 
-    min-width: 640px;
-    height: 100%;
+    position: relative;
+    width: 100%;
   }
-  svg { 
-    height: 150%;
-    width: 100%; 
+  #mvctree svg { 
   }
   .text_box_info {
     padding-top: 70px; // Equal to header height
@@ -50,10 +48,13 @@
     <input id='chbox_overlay_all' type='checkbox' value='all'>
     All 
   </div>
-  <div class="col-xs-6 col-sm-3">
+  <div class="col-xs-6 col-sm-9">
     <input id='te_sig' class='chbox_overlay' type='checkbox' value='te_sig'>
     Significant 
   </div>
+
+  <div>&nbsp;</div>
+
   <div class="col-xs-6 col-sm-3">
     <input class='chbox_overlay' type='checkbox' value='te_java'>
     Java
@@ -574,7 +575,7 @@ T.init = function() {
   // translates into an invalid value for the SVG `preserveAspectRatio` attribute: "meet". 
   // To rule out this problem, we set that attribute directly.
   // always scale to fill container, without preserving aspect ratio.
-  //paper.canvas.setAttribute('preserveAspectRatio', 'true'); 
+  paper.canvas.setAttribute('preserveAspectRatio', 'xMinYMin meet'); 
 
   for (var x = 0 + T.paddingH; x < w; x += T.colW) {
     paper.path('M '+x+' 0 V ' + h)
