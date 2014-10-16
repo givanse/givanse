@@ -38,7 +38,7 @@
 <div class="row row_max_w">
   <div class="col-xs-12">
     <p>
-      Click on each element to learn more about it and you can use the checkboxes below to show or hide different overlays.
+      Click on each element to learn more about it. Also, you can use the checkboxes below to show or hide different overlays.
     </p>
 
     <h2>Overlays</h2>
@@ -336,10 +336,24 @@
 
 <script>
 var T = {
-  colW: 130 + 10,
-  paddingH: 10,
+  paddingH: 16,
   paddingV: 20,
-  rowH: 50 + 20,
+  colW: 130 + 16, // TODO: hardcoded padding
+  rowH: 50 + 20, // TODO: hardcoded padding
+  maxCols: 6,
+  maxRows: 13,
+  getColPos: function(colNum) {
+    if ( colNum > this.maxCols ) {
+      console.log('COL: null pointer exception, self destruct in 3 2 1');
+    }
+    return T.paddingH + colNum * T.colW;
+  },
+  getRowPos: function(rowNum) {
+    if ( rowNum > this.maxRows ) {
+      console.log('ROW: null pointer exception, self destruct in 3 2 1');
+    }
+    return T.paddingV + rowNum * T.rowH;
+  },
 
   attr: {
     arrowHead: {
@@ -415,13 +429,13 @@ _textRect: function(containerNode, textNode, elemId) {
   textNode.onclick = containerNode.onclick;
 },
 
-textEllipse: function(paper, x, y, text, elemId, className) {
-  var attr = T.attr.textEllipse;
-  var strokeW = attr['stroke-width'];
-  x = x + T.colW / 2;
-  y = y + T.rowH - (T.paddingV / 2);
-  var width = (130 - (strokeW * 2)) / 2;
-  var height = (50 - (strokeW * 2)) / 2;
+textEllipse: function(paper, col, row, text, elemId, className) {
+  var attr = T.attr.textEllipse,
+      strokeW = attr['stroke-width'],
+      x = T.getColPos(col) + T.colW / 2,
+      y = T.getRowPos(row) + T.rowH - (T.paddingV / 2),
+      width = (130 - (strokeW * 2)) / 2,
+      height = (50 - (strokeW * 2)) / 2;
 
   if ( className ) {
     var fillColor = null;
@@ -450,13 +464,13 @@ textEllipse: function(paper, x, y, text, elemId, className) {
   this._textRect(ellipse.node, text.node, elemId);
 },
 
-textRect: function(paper, x, y, text, elemId) {
-  var attr = T.attr.textRect;
-  var strokeW = attr['stroke-width'];
-  x = x + strokeW + T.paddingH/2;
-  y = y + strokeW + T.paddingV/2;
-  var width = 130 - (strokeW * 2);
-  var height = 50 - (strokeW * 2);
+textRect: function(paper, col, row, text, elemId) {
+  var attr = T.attr.textRect,
+      strokeW = attr['stroke-width'],
+      x = T.getColPos(col) + strokeW + T.paddingH/2,
+      y = T.getRowPos(row) + strokeW + T.paddingV/2,
+      width = 130 - (strokeW * 2),
+      height = 50 - (strokeW * 2);
 
   var rect = paper.rect(x, y, width, height, 7)
                   .attr(attr);
@@ -467,76 +481,83 @@ textRect: function(paper, x, y, text, elemId) {
   this._textRect(rect.node, text.node, elemId);
 },
 
-yearLine: function(paper, x, y, length, year) {
-  var fontS = 12;
+yearLine: function(paper, col, row, length, year) {
+  var x = T.getColPos(col),
+      y = T.getRowPos(row),
+      fontS = 12;
   paper.text(x + fontS, y, year)
        .attr({'font-size': fontS});
+
   x = 4 * fontS; // 4 chars
   paper.path('M '+x+' '+y+' H ' + length);
 },
 
-lineH: function(paper, attr, x, y, colsCount) {
-  y += T.rowH / 2;
-  var pos = x + (colsCount * T.colW)
+lineH: function(paper, attr, col, row, colsCount) {
+  var x = T.getColPos(col),
+      y = T.getRowPos(row) + T.rowH / 2,
+      pos = x + (colsCount * T.colW);
   paper.path('M '+x+' '+y+' H' + pos)
        .attr(attr);
 },
 
-lineV: function(paper, attr, x, y, rowsCount) {
-  x += T.colW / 2;
-  var y1 = y - (T.paddingV/2),
+lineV: function(paper, attr, col, row, rowsCount) {
+  var x = T.getColPos(col) + T.colW / 2,
+      y = T.getRowPos(row),
       y2 = y + (rowsCount * T.rowH);
-  paper.path('M ' + x + ' ' + y1 + ' V' + y2)
+  paper.path('M ' + x + ' ' + y + ' V' + y2)
        .attr(attr);
 },
 
 /* bind, with a line, a row with the one below it */
-bindRows: function(paper, attr, x, y) {
-  x += T.colW / 2;
-  var hp = T.paddingV / 2;
-  y += T.rowH - hp; 
+bindRows: function(paper, attr, col, row) {
+  var hp = T.paddingV / 2,
+      x = T.getColPos(col) + T.colW / 2,
+      y = T.getRowPos(row) + T.rowH - hp;
   return 'M ' + x + ' '+ y +' V ' + (y + hp) + ' ';
 },
 
-arrowV: function(paper, attr, x, y) {
-  x += T.colW / 2;
-  var hp = T.paddingV / 2;
-  var px1 = (x-hp),
+arrowV: function(paper, attr, col, row) {
+  var x = T.getColPos(col) + T.colW / 2,
+      y = T.getRowPos(row),
+      hp = T.paddingV / 2,
+      px1 = x - hp,
       px2 = px1 + T.paddingV,
       y2 = y + hp;
   return 'M ' + px1 + ' ' + y +
          ' H ' + px2 + ' ' +
          ' L ' + x + ' ' + y2 + 'Z ';
+},
+
+/*
+  Asumes the second cell is always to the right.
+*/
+bindTwoCells: function(paper, col1, row1, col2, row2) {
+  var attr = T.attr.dashedLine,
+      halfPaddingH = T.paddingH / 2,
+      halfRow = T.rowH / 2,
+      x1 = T.getColPos(col1) + T.colW, 
+      y1 = T.getRowPos(row1) + halfRow, 
+      vDir = row1 < row2 ? 1 : -1,
+      hDelta = col2 - col1 - 1,
+      vDelta = Math.abs(row1 - row2),
+      h1 = x1 + T.colW * hDelta,
+      v1 = y1 + ((T.rowH * vDelta - halfRow) * vDir); 
+  paper.path('M' + (x1 - halfPaddingH) + ' ' + y1 +
+             'H' + x1 +
+             'V' + v1 +
+             'H' + h1 +
+             'V' + (v1 + halfRow * vDir) +
+             'H' + (h1 + halfPaddingH)
+            ) 
+       .attr(attr);
 }
 
 }; // T.draw, drawing helpers
 
 T.init = function() {
-  var col0 = T.paddingH;
-  var col1 = col0 + T.colW;
-  var col2 = col1 + T.colW;
-  var col3 = col2 + T.colW;
-  var col4 = col3 + T.colW;
-  var col5 = col4 + T.colW;
-  var col6 = col5 + T.colW;
 
-  var row0 = T.paddingV;
-  var row1 = row0 + T.rowH;
-  var row2 = row1 + T.rowH;
-  var row3 = row2 + T.rowH;
-  var row4 = row3 + T.rowH;
-  var row5 = row4 + T.rowH;
-  var row6 = row5 + T.rowH;
-  var row7 = row6 + T.rowH;
-  var row8 = row7 + T.rowH;
-  var row9 = row8 + T.rowH;
-  var row10 = row9 + T.rowH;
-  var row11 = row10 + T.rowH;
-  var row12 = row11 + T.rowH;
-  var row13 = row12 + T.rowH;
-
-  var w = col6 + T.colW;
-  var h = row13 + T.rowH;
+  var w = T.getColPos(T.maxCols) + T.colW;
+  var h = T.getRowPos(T.maxRows) + T.rowH;
 
   // Raphael (at least as of 2.1.0) always sets a fixed width/height i
   // *on canvas creation* (reflected in 'width' and 'height' HTML attributes) - 
@@ -555,7 +576,6 @@ T.init = function() {
   // always scale to fill container, without preserving aspect ratio.
   //paper.canvas.setAttribute('preserveAspectRatio', 'true'); 
 
-  /* 
   for (var x = 0 + T.paddingH; x < w; x += T.colW) {
     paper.path('M '+x+' 0 V ' + h)
          .attr({'stroke': '#909090'});
@@ -564,79 +584,83 @@ T.init = function() {
     paper.path('M 0 '+y+' H ' + w)
          .attr({'stroke': '#909090'});
   }
-  */
-  
 
-  T.draw.yearLine(paper, col0, row2, w, '1980');
-  T.draw.yearLine(paper, col0, row4, w, '1990');
-  T.draw.yearLine(paper, col0, row8, w, '2000');
-  T.draw.yearLine(paper, col0, row13, w, '2010');
+  T.draw.yearLine(paper, 0, 2, w, '1980');
+  T.draw.yearLine(paper, 0, 4, w, '1990');
+  T.draw.yearLine(paper, 0, 8, w, '2000');
+  T.draw.yearLine(paper, 0, 13, w, '2010');
 
-  T.draw.textRect(paper, col0, row0, 'TMVE\n1979 - Reenskaug', '#tmve');
-  T.draw.textRect(paper, col0, row1, 'MVC\n1979 - Reenskaug', '#mvc79');
-  T.draw.textRect(paper, col0, row3, 'MVC\n1988 - K. & P.', '#mvc88');
-  T.draw.textRect(paper, col1, row6, 'MVP\n1996 - Taligent', '#mvptaligent');
-  T.draw.textRect(paper, col2, row4, 'Application Model\n1993 - VisualWorks', '#am');
-  T.draw.textRect(paper, col2, row9, 'Presentation Model\n2004 - Fowler', '#pm');
-  T.draw.textRect(paper, col3, row10, 'MVVM\n2005 - Microsoft', '#mvvm');
-  T.draw.textRect(paper, col4, row2, 'PAC\n1987 - Coutaz', '#pac');
-  T.draw.textRect(paper, col0, row7, 'Model 2\n1998 - J2EE', '#model2');
-  T.draw.textRect(paper, col4, row9, 'MVVP\n2004??', '');
-  T.draw.textRect(paper, col5, row4, 'Data Binding\n1995??', '');
-  T.draw.textRect(paper, col6, row5, 'Observer Pattern\n1995 - GoF', '#observer');
+  T.draw.textRect(paper, 0, 0, 'TMVE\n1979 - Reenskaug', '#tmve');
+  T.draw.textRect(paper, 0, 1, 'MVC\n1979 - Reenskaug', '#mvc79');
+  T.draw.textRect(paper, 0, 3, 'MVC\n1988 - K. & P.', '#mvc88');
+  T.draw.textRect(paper, 1, 6, 'MVP\n1996 - Taligent', '#mvptaligent');
+  T.draw.textRect(paper, 2, 9, 'Presentation Model\n2004 - Fowler', '#pm');
+  T.draw.textRect(paper, 4, 2, 'PAC\n1987 - Coutaz', '#pac');
+  T.draw.textRect(paper, 0, 7, 'Model 2\n1998 - J2EE', '#model2');
+  T.draw.textRect(paper, 4, 9, 'MVVP\n2004??', '');
+  T.draw.textRect(paper, 6, 5, 'Observer Pattern\n1995 - GoF', '#observer');
+
+  T.draw.textRect(paper, 2, 4, 'Application Model\n1993 - VisualWorks', '#am');
+  T.draw.bindTwoCells(paper, 2, 9, 3, 10);
+
+  T.draw.textRect(paper, 3, 10, 'MVVM\n2005 - Microsoft', '#mvvm');
+  T.draw.textRect(paper, 5, 4, 'Data Binding\n1995??', '');
+  T.draw.bindTwoCells(paper, 3, 10, 5, 4);
 
   /* Technologies */
 
-  T.draw.textEllipse(paper, col5, row4, 'MS-Access\n1995', '#msaccess', 'te_ms');
-  T.draw.textEllipse(paper, col1, row8, 'Dolphin\n2000', '#dolphin', 'te_smalltalk');
-  T.draw.textEllipse(paper, col0, row8, 'Struts\n2000', '#struts', 'te_java');
-  T.draw.textEllipse(paper, col0, row10, 'Django\n2005', '#struts', 'te_python');
-  T.draw.textEllipse(paper, col0, row10, 'ASP.NET MVC\n2007', '#aspnet', 'te_ms');
-  T.draw.textEllipse(paper, col3, row10, 'Silverlight\n2007', '#silverlight', 'te_ms');
+  T.draw.textEllipse(paper, 5, 4, 'MS-Access\n1995', '#msaccess', 'te_ms');
+  T.draw.textEllipse(paper, 1, 8, 'Dolphin\n2000', '#dolphin', 'te_smalltalk');
+  T.draw.textEllipse(paper, 0, 8, 'Struts\n2000', '#struts', 'te_java');
+  T.draw.textEllipse(paper, 0, 10, 'Django\n2005', '#struts', 'te_python');
+  T.draw.textEllipse(paper, 0, 10, 'ASP.NET MVC\n2007', '#aspnet', 'te_ms');
+  T.draw.textEllipse(paper, 3, 10, 'Silverlight\n2007', '#silverlight', 'te_ms');
 
-  T.draw.textEllipse(paper, col0, row9, 'Rails\n2003', '#rails', 'te_ruby');
-  T.draw.textEllipse(paper, col2, row11, 'Angular.js\n2009', '#angular', 'te_js');
-  T.draw.textEllipse(paper, col0, row6, 'SWING\n1998', '#swing', 'te_java');
+  T.draw.textEllipse(paper, 0, 9, 'Rails\n2003', '#rails', 'te_ruby');
+  T.draw.textEllipse(paper, 2, 11, 'Angular.js\n2009', '#angular', 'te_js');
+  T.draw.textEllipse(paper, 0, 6, 'SWING\n1998', '#swing', 'te_java');
 
-  T.draw.textEllipse(paper, col0, row9, 'Rails\n2003', '#rails', 'te_sig');
-  T.draw.textEllipse(paper, col2, row11, 'Angular.js\n2009', '#angular', 'te_sig');
-  T.draw.textEllipse(paper, col0, row6, 'SWING\n1998', '#swing', 'te_sig');
+  T.draw.textEllipse(paper, 0, 9, 'Rails\n2003', '#rails', 'te_sig');
+  T.draw.textEllipse(paper, 2, 11, 'Angular.js\n2009', '#angular', 'te_sig');
+  T.draw.textEllipse(paper, 0, 6, 'SWING\n1998', '#swing', 'te_sig');
 
   var attr = T.attr.line;
-  var path = T.draw.bindRows(paper, attr, col0, row0);
+  var path = T.draw.bindRows(paper, attr, 0, 0);
   paper.path(path).attr(attr);
 
   attr = T.attr.arrowHead;
-  path = T.draw.arrowV(paper, attr, col0, row1); // mvc
+  path = T.draw.arrowV(paper, attr, 0, 1); // mvc
   paper.path(path).attr(attr);
-  path += T.draw.arrowV(paper, attr, col0, row3); // mvc k&p
+  path += T.draw.arrowV(paper, attr, 0, 3); // mvc k&p
   paper.path(path).attr(attr);
-  path += T.draw.arrowV(paper, attr, col0, row5); // mvc continues
+  path += T.draw.arrowV(paper, attr, 0, 5); // mvc continues
   paper.path(path).attr(attr);
-  path += T.draw.arrowV(paper, attr, col1, row6); // mvp taligent
+  path += T.draw.arrowV(paper, attr, 1, 6); // mvp taligent
   paper.path(path).attr(attr);
-  path += T.draw.arrowV(paper, attr, col2, row4); // am 
+  path += T.draw.arrowV(paper, attr, 2, 4); // am 
   paper.path(path).attr(attr);
-  path += T.draw.arrowV(paper, attr, col2, row9); // pm
+  path += T.draw.arrowV(paper, attr, 2, 9); // pm
   paper.path(path).attr(attr);
-  path += T.draw.arrowV(paper, attr, col3, row10); // mvvm
+  path += T.draw.arrowV(paper, attr, 3, 10); // mvvm
   paper.path(path).attr(attr);
 
   attr = T.attr.line;
-  T.draw.lineV(paper, attr, col0, row2, 1);
-  T.draw.lineV(paper, attr, col0, row4, 1); // mvc continues
-  T.draw.lineH(paper, attr, col1, row3, 2.515);
-  T.draw.lineV(paper, attr, col1, row4, 2); // mvp taligent
-  var halfOff = T.rowH/2 + (T.paddingV/2);
-  T.draw.lineV(paper, attr, col1, row3 + halfOff, 0.5);
-  T.draw.lineV(paper, attr, col2, row3 + halfOff, 0.5);
-  T.draw.lineV(paper, attr, col3, row3 + halfOff, 0.5);
-  T.draw.lineV(paper, attr, col2, row5, 4);
-  T.draw.lineV(paper, attr, col3, row4, 6);
+  T.draw.lineV(paper, attr, 0, 2, 1); // mvc
+  path = T.draw.bindRows(paper, attr, 0, 1);
+  paper.path(path).attr(attr);
 
-  attr = T.attr.dashedLine;
-  path = T.draw.lineV(paper, attr, col2, row10, 0.5);
-  path += T.draw.lineH(paper, attr, col2 + T.colW/2, row10, 0.5);
+  T.draw.lineV(paper, attr, 0, 4, 1); // mvc continues
+  T.draw.lineH(paper, attr, 1, 3, 2.515);
+  T.draw.lineV(paper, attr, 1, 4, 2); // mvp taligent
+
+  T.draw.lineV(paper, attr, 1, 3.5, 0.5);
+  T.draw.lineV(paper, attr, 2, 3.5, 0.5);
+  path = T.draw.bindRows(paper, attr, 2, 4); // application model
+  paper.path(path).attr(attr);
+
+  T.draw.lineV(paper, attr, 3, 3.5, 0.5);
+  T.draw.lineV(paper, attr, 2, 5, 4);
+  T.draw.lineV(paper, attr, 3, 4, 6);
 
   T.site.overlays = { // populated after all the drawing was done
       'te_sig': $('.te_sig'),  
