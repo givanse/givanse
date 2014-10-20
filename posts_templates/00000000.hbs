@@ -360,6 +360,21 @@ First step, create a project folder:
       </div>
     </div>
 
+    <div class="panel panel-default">   
+      <div class="panel-heading">   
+        my-frontend/config/environment.js     
+      </div>    
+      <div class="panel-body">  
+        <pre class="brush: js">   
+          module.exports = function(environment) {  
+            ENV['simple-auth'] = {    
+              authorizer: 'simple-auth-authorizer:devise'   
+            };    
+          }     
+        </pre>
+      </div>
+    </div>
+
     <h4>Edit routes</h4>
 
     <p>We will use the route mixins provided by Ember Simple Auth.</p>
