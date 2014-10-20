@@ -26,12 +26,13 @@ Tools needed:
   <div class="panel-body">
     <pre class="brush: bash">
       ember -v
-      version: 0.0.40
+      version: 0.1.1
       node: 0.10.29
-      npm: 1.4.21
+      npm: 2.1.2
+      # ember-simple-auth 0.6.7
 
       rails -v
-      Rails 4.1.1
+      Rails 4.0.2
     </pre>
   </div>
 </div>
@@ -77,7 +78,7 @@ First step, create a project folder:
 
     <p>
     Devise dropped token support, so we are adding it back to our backend.
-    We will also add a controller that will handle ESA requests.
+    We will also add a controller that will handle Ember Simple Auth requests.
     </p>
 
     <div class="panel panel-default">
@@ -134,7 +135,8 @@ First step, create a project folder:
       </div>
       <div class="panel-body">
         <pre class="brush: ruby">
-          # Note that we are extending from Devise::SessionsController
+          # Note that we are extending 
+          # from: Devise::SessionsController
           class SessionsController < Devise::SessionsController
             def create
               respond_to do |format|
@@ -202,7 +204,7 @@ First step, create a project folder:
   <h3>Disable sessions and cookies</h3>    
 
     <p>
-      When using ESA with a Devise backend, it doesn't make sense to
+      When using Ember Simple Auth with a Devise backend, it doesn't make sense to
       keep the server side session active as it will send cookies to the client 
       which are actually redundant when using the authentication token mechanism.
     </p>
@@ -237,7 +239,7 @@ First step, create a project folder:
 
   <h3>Dummy data</h3>
 
-    <p>We will register two users to the database, so we can test `logging in` later.</p>
+    <p>We will register two users to the database, so we can test logging-in later.</p>
 
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -273,8 +275,19 @@ First step, create a project folder:
   <h3>Ember CLI</h3>
 
     <p>
-    Create a very simple Ember application with links to three pages: index, protected and log in.
+    Create a very simple Ember application with links to three pages:
     </p>
+    <ul>
+      <li>
+        index
+      </li>
+      <li>
+        protected
+      </li>
+      <li>
+        login
+      </li>
+    </ul>
 
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -331,6 +344,8 @@ First step, create a project folder:
 
     <h4>Install</h4>
 
+    <p>We will be using Ember Simple Auth packaged as an ember cli addon.</p>
+
     <div class="panel panel-default">
       <div class="panel-heading">
         my-frontend>_
@@ -339,28 +354,15 @@ First step, create a project folder:
         <pre class="brush: bash">
           npm install --save-dev ember-cli-simple-auth
           npm install --save-dev ember-cli-simple-auth-devise
-        </pre>
-      </div>
-    </div>
-
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        my-frontend/config/environment.js
-      </div>
-      <div class="panel-body">
-        <pre class="brush: js">
-          module.exports = function(environment) {
-            ENV['simple-auth'] = {
-              authorizer: 'simple-auth-authorizer:devise'
-            };
-          }
+          ember generate ember-cli-simple-auth
+          ember generate ember-cli-simple-auth-devise
         </pre>
       </div>
     </div>
 
     <h4>Edit routes</h4>
 
-    <p>We will use the route mixins provided by ESA.</p>
+    <p>We will use the route mixins provided by Ember Simple Auth.</p>
 
     <p>The ApplicationRouteMixin provides the authenticate and invalidate actions.</p>
     <div class="panel panel-default">
@@ -410,7 +412,7 @@ First step, create a project folder:
       </div>
     </div>
 
-    <h4>Templates and ESA helpers</h4>
+    <h4>Templates and Ember Simple Auth helpers</h4>
 
   <div class="panel panel-default">
     <div class="panel-heading">
@@ -418,12 +420,12 @@ First step, create a project folder:
     </div>
     <div class="panel-body">
           <pre class="brush: js">
-            # add this lines to the menu
             \{{#if session.isAuthenticated}}
               &lt;button \{{ action 'invalidateSession' }}>Logout&lt;/button>
             \{{else}}
               \{{#link-to 'login'}}Login\{{/link-to}}
             \{{/if}}
+            #&lt;hr>
           </pre>
       </div>
     </div>
@@ -463,14 +465,18 @@ First step, create a project folder:
     </div>
 
     <p>
-    That is all, `logging in` should be working now.
+    That is all, logging-in should be working now.
     </p>
+
+<br>
+<br>
+<br>
 
 <h2>Errors</h2>
 
   <p>This are errors that, if you followed all the instructions, should not be appearing.</p>
 
-  <h3>422 - Unprocessable Entity</h3>
+  <h3>Error 422 - Unprocessable Entity</h3>
 
     In the console you get a 422 error accompanied by a rails server error:
     <blockquote>
@@ -610,19 +616,19 @@ First step, create a project folder:
 
         Everything should be working now, start both servers.
 
-  <h3>404</h3>
+  <h3>Error 404</h3>
     <pre class="brush: bash">
       POST http://localhost:4200/token 404 (Not Found)
       # chances are you didn't specify a proxy when starting the ember server
     </pre>
 
-  <h3>500</h3>
+  <h3>Error 500</h3>
     <pre class="brush: bash">
       POST http://localhost:4200/token 500 (Internal Server Error)
       # chances are you specified the wrong proxy when starting the ember server
     </pre>
 
-  <h3>408 or 500 - Time out</h3>
+  <h3>Error 408 or 500 - Time out</h3>
     In the console you get a 408 error:
     <pre class="brush: js">
       POST http://localhost:4200/token 408 (Request Time-out)
