@@ -175,6 +175,16 @@
 </div>
 </div>
 
+<!-- 1995?? -->
+<div id="data_binding" class="text_box_info">
+<div class="row row_max_w">
+  <div class="col-xs-12">
+      <h3>1995?? Data Binding</h3>
+
+  </div>
+</div>
+</div>
+
 <!-- 1995 -->
 <div id="observer" class="text_box_info">
 <div class="row row_max_w">
@@ -192,9 +202,24 @@
 <div class="row row_max_w">
   <div class="col-xs-12">
       <h3>1996 MVP - Model View Presenter</h3>
-        First described by Mike Potel from Taligent Inc. and known as
-        <a href="papers/mvp-taligent.pdf">Taligent MVP</a>.
+        <p>
+        First described by Mike Potel from Taligent Inc. in 
+        <a href="papers/mvp-taligent.pdf">
+          MVP: Model-View-Presenter, The Taligent Programming Model for C++ and Java
+        </a>.
+        </p>
 
+        <p>
+        Key features:
+        <ul>
+          <li>
+          The classic controller faded in into the view and now is called an interactor.
+          </li>
+          <li>
+          The Presenter is a controller, but elevated to the application level.
+          </li>
+        </ul>
+        </p>
   </div>
 </div>
 </div>
@@ -231,6 +256,7 @@
 <div class="row row_max_w">
   <div class="col-xs-12">
       <h3>2005 MVVM - Model View ViewModel</h3>
+        <p>
         Described by John Gossman from Microsoft in his blog post:
         <a href="http://blogs.msdn.com/b/johngossman/archive/2005/10/08/478683.aspx">
           Introduction to Model/View/ViewModel pattern for building WPF apps
@@ -241,7 +267,47 @@
         <blockquote>
         My opinion at this point is the Model-View-ViewModel pattern is a WPF-specific version of the PresentationModel pattern.
         </blockquote>
+        </p>
 
+        <p>
+        Key features:
+        <ul>
+          <li>
+            Data binding gives you boilerplate synchronization code.
+          </li>
+          <li>
+            The ViewModel is easier to unit test compared to code-behind or event-driven code.
+          </li>
+        </ul>
+        </p>
+
+        <p>
+        Flaws:
+        <ul>
+          <li>
+            Declarative data binding can be harder to debug.
+          </li>
+          <li>
+            In very large apps, data binding can result in considerable memory consumption.
+          </li>
+          <li>
+            It can be overkill for simple UIs.
+          </li>
+        </ul>
+        </p>
+
+  </div>
+</div>
+</div>
+
+<!-- 2012 -->
+<div id="mvw" class="text_box_info">
+<div class="row row_max_w">
+  <div class="col-xs-12">
+      <h3>1998 MV*/MVW - Model View Whatever</h3>
+      <p>
+        Its the term used when a technology can't clearly be identified as MVC or MVVM.
+      </p>
   </div>
 </div>
 </div>
@@ -339,11 +405,69 @@
 </div>
 </div>
 
+<!-- 2007 -->
+<div id="sproutcore" class="text_box_info">
+<div class="row row_max_w">
+  <div class="col-xs-12">
+      <h3>2007 SproutCore</h3>
+        <p>
+          Developed by Apple and claims to have kicked off the JS-MVC movement, its inspired by Cocoa.
+        </p>
+  </div>
+</div>
+</div>
+
 <!-- 2009 -->
 <div id="angular" class="text_box_info">
 <div class="row row_max_w">
   <div class="col-xs-12">
-      <h3>2009 Angular.js</h3>
+    <h3>2009 Angular.js</h3>
+    <p>
+      AngularJS is a tool set for building the framework most suited to your application development.
+      It is maintained by Google and the community.
+      <blockquote>
+        <p>
+          Angular is not a framework, it's an HTML compiler
+        </p>
+        <footer>
+          Misko Hevery, creator of Angular
+        </footer>
+      </blockquote>
+    </p>
+    <p>
+      In 2012 was declared a Model View Whatever library, in the 
+      <a href="https://plus.google.com/+AngularJS/posts/aZNVhj355G2">AngularJS G+</a> account.
+      It wasn't a very formal declaration, but got the term going.
+    </p>
+  </div>
+</div>
+</div>
+
+<!-- 2010 -->
+<div id="knockout" class="text_box_info">
+<div class="row row_max_w">
+  <div class="col-xs-12">
+      <h3>2010 Knockout.js</h3>
+        <p>
+        JavaScript library developed by Microsoft that uses the MVVM pattern.
+        Some call it a data binding library and is not wrong since that is a key feature of MVVM.
+        </p>
+  </div>
+</div>
+</div>
+
+<!-- 2011 -->
+<div id="ember" class="text_box_info">
+<div class="row row_max_w">
+  <div class="col-xs-12">
+      <h3>2011 Ember.js</h3>
+        <p>
+        Its an opinionated JavaScript framework that embraces the concept of convention over configuration.
+        It was originally being developed as SproutCore 2.0, but it changed course, the announcement:
+        <a href="http://yehudakatz.com/2011/12/12/amber-js-formerly-sproutcore-2-0-is-now-ember-js/">
+          Amber.js (formerly SproutCore 2.0) is now Ember.js
+        </a>
+        </p>
   </div>
 </div>
 </div>
@@ -357,7 +481,7 @@ var T = {
   colW: 130 + 16, // TODO: hardcoded padding
   rowH: 50 + 20, // TODO: hardcoded padding
   maxCols: 6,
-  maxRows: 13,
+  maxRows: 16,
   getColPos: function(colNum) {
     if ( colNum > this.maxCols ) {
       console.log('COL: null pointer exception, self destruct in 3 2 1');
@@ -379,8 +503,8 @@ var T = {
     },
     dashedLine: {
       'stroke': '#464646', 
-      'stroke-dasharray': '-',
-      'stroke-width': 1.5
+      'stroke-dasharray': '- ',
+      'stroke-width': 1.1
     },
     line: {
       'fill': '#663c4d',
@@ -398,8 +522,7 @@ var T = {
       'stroke-width': 1 
     },
     textBox: {
-      'font-size': 14,
-      'font-style': 'italic'
+      'font-size': 14
     }
   },
 
@@ -532,7 +655,8 @@ bindRows: function(paper, attr, col, row) {
   return 'M ' + x + ' '+ y +' V ' + (y + hp) + ' ';
 },
 
-arrowV: function(paper, attr, col, row) {
+arrowV: function(paper, col, row) {
+  var attr = T.attr.arrowHead;
   var x = T.getColPos(col) + T.colW / 2,
       y = T.getRowPos(row),
       hp = T.paddingV / 2,
@@ -610,79 +734,87 @@ T.init = function() {
   T.draw.yearLine(paper, 0, 2, w, '1980');
   T.draw.yearLine(paper, 0, 4, w, '1990');
   T.draw.yearLine(paper, 0, 8, w, '2000');
-  T.draw.yearLine(paper, 0, 13, w, '2010');
+  T.draw.yearLine(paper, 0, 14, w, '2010');
 
   T.draw.textRect(paper, 0, 0, 'TMVE\n1979 - Reenskaug', '#tmve');
   T.draw.textRect(paper, 0, 1, 'MVC\n1979 - Reenskaug', '#mvc79');
   T.draw.textRect(paper, 0, 3, 'MVC\n1988 - K. & P.', '#mvc88');
-  T.draw.textRect(paper, 1, 6, 'MVP\n1996 - Taligent', '#mvptaligent');
-  T.draw.textRect(paper, 2, 9, 'Presentation Model\n2004 - Fowler', '#pm');
   T.draw.textRect(paper, 4, 2, 'PAC\n1987 - Coutaz', '#pac');
   T.draw.textRect(paper, 0, 7, 'Model 2\n1998 - J2EE', '#model2');
   T.draw.textRect(paper, 4, 9, 'MVVP\n2004??', '');
   T.draw.textRect(paper, 6, 5, 'Observer Pattern\n1995 - GoF', '#observer');
 
-  T.draw.textRect(paper, 2, 4, 'Application Model\n1993 - VisualWorks', '#am');
-  T.draw.bindTwoCells(paper, 2, 9, 3, 10);
 
   T.draw.textRect(paper, 3, 10, 'MVVM\n2005 - Microsoft', '#mvvm');
-  T.draw.textRect(paper, 5, 4, 'Data Binding\n1995??', '');
+  T.draw.textRect(paper, 5, 4, 'Data Binding\n1995??', '#data_binding');
   T.draw.bindTwoCells(paper, 3, 10, 5, 4);
 
   /* Technologies */
 
   T.draw.textEllipse(paper, 5, 4, 'MS-Access\n1995', '#msaccess', 'te_ms');
-  T.draw.textEllipse(paper, 1, 8, 'Dolphin\n2000', '#dolphin', 'te_smalltalk');
+  T.draw.textEllipse(paper, 2, 8, 'Dolphin\n2000', '#dolphin', 'te_smalltalk');
   T.draw.textEllipse(paper, 0, 8, 'Struts\n2000', '#struts', 'te_java');
   T.draw.textEllipse(paper, 0, 10, 'Django\n2005', '#struts', 'te_python');
   T.draw.textEllipse(paper, 0, 10, 'ASP.NET MVC\n2007', '#aspnet', 'te_ms');
   T.draw.textEllipse(paper, 3, 10, 'Silverlight\n2007', '#silverlight', 'te_ms');
+  T.draw.textEllipse(paper, 3, 12, 'Angular.js\n2009', '#angular', 'te_js');
+  T.draw.bindTwoCells(paper, 3, 12.5, 4, 15);
+  T.draw.textEllipse(paper, 3, 13, 'Knockout.js\n2010', '#knockout', 'te_js');
+  T.draw.textEllipse(paper, 3, 14, 'Ember.js\n2011', '#ember', 'te_js');
+  T.draw.bindTwoCells(paper, 3, 14.5, 4, 15);
 
   T.draw.textEllipse(paper, 0, 9, 'Rails\n2003', '#rails', 'te_ruby');
-  T.draw.textEllipse(paper, 2, 11, 'Angular.js\n2009', '#angular', 'te_js');
+  T.draw.textEllipse(paper, 0, 11, 'SproutCore\n2007', '#sproutcore', 'te_js');
+  T.draw.bindTwoCells(paper, 0, 11.5, 3, 14.5);
   T.draw.textEllipse(paper, 0, 6, 'SWING\n1998', '#swing', 'te_java');
 
   T.draw.textEllipse(paper, 0, 9, 'Rails\n2003', '#rails', 'te_sig');
-  T.draw.textEllipse(paper, 2, 11, 'Angular.js\n2009', '#angular', 'te_sig');
+  T.draw.textEllipse(paper, 0, 11, 'SproutCore\n2007', '#sproutcore', 'te_sig');
   T.draw.textEllipse(paper, 0, 6, 'SWING\n1998', '#swing', 'te_sig');
 
   var attr = T.attr.line;
+
   var path = T.draw.bindRows(paper, attr, 0, 0);
   paper.path(path).attr(attr);
 
-  attr = T.attr.arrowHead;
-  path = T.draw.arrowV(paper, attr, 0, 1); // mvc
-  paper.path(path).attr(attr);
-  path += T.draw.arrowV(paper, attr, 0, 3); // mvc k&p
-  paper.path(path).attr(attr);
-  path += T.draw.arrowV(paper, attr, 0, 5); // mvc continues
-  paper.path(path).attr(attr);
-  path += T.draw.arrowV(paper, attr, 1, 6); // mvp taligent
-  paper.path(path).attr(attr);
-  path += T.draw.arrowV(paper, attr, 2, 4); // am 
-  paper.path(path).attr(attr);
-  path += T.draw.arrowV(paper, attr, 2, 9); // pm
-  paper.path(path).attr(attr);
-  path += T.draw.arrowV(paper, attr, 3, 10); // mvvm
-  paper.path(path).attr(attr);
-
   attr = T.attr.line;
+
+  path = T.draw.arrowV(paper, 0, 1); // mvc
+  paper.path(path).attr(T.attr.arrowHead);
+  path += T.draw.arrowV(paper, 0, 3); // mvc k&p
+  paper.path(path).attr(T.attr.arrowHead);
+
+  T.draw.textRect(paper, 2, 6, 'MVP\n1996 - Taligent', '#mvptaligent');
+  T.draw.lineH(paper, attr, 1, 1, 1.512);
+  T.draw.lineV(paper, attr, 2, 1.5, 4.5);
+  path += T.draw.arrowV(paper, 2, 6);
+  paper.path(path).attr(T.attr.arrowHead);
+
+  T.draw.textRect(paper, 1, 4, 'Application Model\n1993 - VisualWorks', '#am');
+  T.draw.bindTwoCells(paper, 1, 9, 3, 10);
+  T.draw.lineH(paper, attr, 1, 3, 0.515);
+  T.draw.lineV(paper, attr, 1, 3.5, 0.5);
+  path += T.draw.arrowV(paper, 1, 4); 
+  paper.path(path).attr(T.attr.arrowHead);
+
+  path = T.draw.bindRows(paper, attr, 1, 4);
+  paper.path(path).attr(attr);
+  T.draw.lineV(paper, attr, 1, 5, 4);
+  T.draw.textRect(paper, 1, 9, 'Presentation Model\n2004 - Fowler', '#pm');
+  path += T.draw.arrowV(paper, 1, 9);
+  paper.path(path).attr(T.attr.arrowHead);
+
   T.draw.lineV(paper, attr, 0, 2, 1); // mvc
   path = T.draw.bindRows(paper, attr, 0, 1);
   paper.path(path).attr(attr);
 
-  T.draw.lineV(paper, attr, 0, 4, 1); // mvc continues
-  T.draw.lineH(paper, attr, 1, 3, 2.515);
-  T.draw.lineV(paper, attr, 1, 4, 2); // mvp taligent
-
-  T.draw.lineV(paper, attr, 1, 3.5, 0.5);
-  T.draw.lineV(paper, attr, 2, 3.5, 0.5);
-  path = T.draw.bindRows(paper, attr, 2, 4); // application model
+  path = T.draw.bindRows(paper, attr, 0, 3); // mvc continues
   paper.path(path).attr(attr);
+  T.draw.lineV(paper, attr, 0, 4, 1); 
+  path += T.draw.arrowV(paper, 0, 5); 
+  paper.path(path).attr(T.attr.arrowHead);
 
-  T.draw.lineV(paper, attr, 3, 3.5, 0.5);
-  T.draw.lineV(paper, attr, 2, 5, 4);
-  T.draw.lineV(paper, attr, 3, 4, 6);
+  T.draw.textRect(paper, 4, 15, 'MV*/MVW\n~2012', '#mvw');
 
   T.site.overlays = { // populated after all the drawing was done
       'te_sig': $('.te_sig'),  
