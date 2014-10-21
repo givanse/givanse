@@ -518,7 +518,7 @@ var T = {
   paddingH: 24,
   paddingV: 20,
   colW: 130 + 24, // TODO: hardcoded padding
-  rowH: 50 + 20, // TODO: hardcoded padding
+  rowH: 64 + 20, // TODO: hardcoded padding
   maxCols: 6,
   maxRows: 16,
   getColPos: function(colNum) {
@@ -593,10 +593,7 @@ var T = {
 
 T.draw = {
 
-_textRect: function(containerNode, textNode, elemId) {
-
-  containerNode.style.cursor = 'pointer';
-  textNode.style.cursor = 'pointer';
+_textRect: function(containerNode, elemId, textNode1, textNode2) {
 
   containerNode.onclick = function() {
     T.site.root.animate({
@@ -604,7 +601,15 @@ _textRect: function(containerNode, textNode, elemId) {
     }, 300);
     window.location.hash = elemId;
   };
-  textNode.onclick = containerNode.onclick;
+
+  containerNode.style.cursor = 'pointer';
+  textNode1.style.cursor = 'pointer';
+  textNode1.onclick = containerNode.onclick;
+
+  if ( textNode2 ) {
+    textNode2.style.cursor = 'pointer';
+    textNode2.onclick = containerNode.onclick;
+  }
 },
 
 textEllipse: function(paper, col, row, text, elemId, className) {
@@ -639,24 +644,34 @@ textEllipse: function(paper, col, row, text, elemId, className) {
     $(ellipse.node).attr('class', className);
     $(text.node).attr('class', className);
   }
-  this._textRect(ellipse.node, text.node, elemId);
+  this._textRect(ellipse.node, elemId, text.node);
 },
 
-textRect: function(paper, col, row, text, elemId) {
+textRect: function(paper, col, row, elemId, text1, text2) {
   var attr = T.attr.textRect,
       strokeW = attr['stroke-width'],
       x = T.getColPos(col) + strokeW + T.paddingH/2,
       y = T.getRowPos(row) + strokeW + T.paddingV/2,
-      width = 130 - (strokeW * 2),
-      height = 50 - (strokeW * 2);
+      text1 = text1 + '\n\u00a0', // save the space for text2
+      text2 = text2 ? text2 : '',
+      width = 130 - (strokeW * 2), // TODO: hardcoded
+      height = 64 - (strokeW * 2), // TODO: hardcoded
+      txtAttr = T.attr.textBox,
+      xTxt = x + width / 2,
+      yTxt1 = y + (height / 2),
+      yTxt2 = yTxt1 + txtAttr['font-size'] + 2; // +2 for line space
 
   var rect = paper.rect(x, y, width, height, 7)
                   .attr(attr);
-  var text = paper.text(x + width/2, y + height / 2, text)
-                  .attr(T.attr.textBox)
-                  .toFront();
+  var text1 = paper.text(xTxt, yTxt1, text1)
+                   .attr(txtAttr)
+                   .toFront();
+  var text2 = paper.text(xTxt, yTxt2, text2)
+                   .attr(txtAttr)
+                   .attr({'font-style': 'italic'})
+                   .toFront();
 
-  this._textRect(rect.node, text.node, elemId);
+  this._textRect(rect.node, elemId, text1.node, text2.node);
 },
 
 yearLine: function(paper, col, row, length, year) {
@@ -783,23 +798,23 @@ T.init = function() {
 
   var attr = T.attr.line;
 
-  T.draw.textRect(paper, 4, 2, 'PAC\n1987 - J. Coutaz', '#pac');
-  T.draw.textRect(paper, 0, 7, 'Model 2\n1998 - J2EE', '#model2');
-  T.draw.textRect(paper, 4, 9, 'MVVP\n2004??', '');
-  T.draw.textRect(paper, 6, 5, 'Observer Pattern\n1994 - GoF', '#observer');
+  T.draw.textRect(paper, 4, 2, '#pac', 'PAC\n1987', 'J. Coutaz');
+  T.draw.textRect(paper, 0, 7, '#model2', 'Model 2\n1998', 'J2EE');
+  T.draw.textRect(paper, 4, 9, '', 'MVVP\n2004??');
+  T.draw.textRect(paper, 6, 5, '#observer', 'Observer Pattern\n1994', 'GoF');
 
-  T.draw.textRect(paper, 0, 0, 'TMVE\n1979 - T. Reenskaug', '#tmve');
+  T.draw.textRect(paper, 0, 0, '#tmve', 'TMVE\n1979', 'T. Reenskaug');
   var path = T.draw.bindRows(paper, attr, 0, 0);
   paper.path(path).attr(attr);
   path = T.draw.arrowV(paper, 0, 1);
   paper.path(path).attr(T.attr.arrowHead);
 
-  T.draw.textRect(paper, 0, 1, 'MVC\n1979 - T. Reenskaug', '#mvc79');
+  T.draw.textRect(paper, 0, 1, '#mvc79', 'MVC\n1979', 'T. Reenskaug');
   T.draw.lineV(paper, attr, 0, 2, 1); // mvc
   path = T.draw.bindRows(paper, attr, 0, 1);
   paper.path(path).attr(attr);
 
-  T.draw.textRect(paper, 0, 3, 'MVC\n1988 - K. & P.', '#mvc88');
+  T.draw.textRect(paper, 0, 3, '#mvc88', 'MVC\n1988', 'Krasner & Pope');
   path += T.draw.arrowV(paper, 0, 3);
   paper.path(path).attr(T.attr.arrowHead);
   path = T.draw.bindRows(paper, attr, 0, 3);
@@ -808,13 +823,13 @@ T.init = function() {
   path += T.draw.arrowV(paper, 0, 5); 
   paper.path(path).attr(T.attr.arrowHead);
 
-  T.draw.textRect(paper, 2, 6, 'MVP\n1996 - Taligent', '#mvptaligent');
+  T.draw.textRect(paper, 2, 6, '#mvptaligent', 'MVP\n1996', 'Taligent');
   T.draw.lineH(paper, attr, 1, 1, 1.512);
   T.draw.lineV(paper, attr, 2, 1.5, 4.5);
   path += T.draw.arrowV(paper, 2, 6);
   paper.path(path).attr(T.attr.arrowHead);
 
-  T.draw.textRect(paper, 1, 4, 'Application Model\n1993 - VisualWorks', '#am');
+  T.draw.textRect(paper, 1, 4, '#am', 'Application Model\n1993', 'VisualWorks');
   T.draw.bindTwoCells(paper, 1, 9, 3, 10);
   T.draw.lineH(paper, attr, 1, 3, 0.515);
   T.draw.lineV(paper, attr, 1, 3.5, 0.5);
@@ -824,14 +839,14 @@ T.init = function() {
   path = T.draw.bindRows(paper, attr, 1, 4);
   paper.path(path).attr(attr);
   T.draw.lineV(paper, attr, 1, 5, 4);
-  T.draw.textRect(paper, 1, 9, 'Presentation Model\n2004 - M. Fowler', '#pm');
+  T.draw.textRect(paper, 1, 9, '#pm', 'Presentation Model\n2004', 'M. Fowler');
   path += T.draw.arrowV(paper, 1, 9);
   paper.path(path).attr(T.attr.arrowHead);
 
-  T.draw.textRect(paper, 4, 15, 'MV*/MVW\n~2012', '#mvw');
+  T.draw.textRect(paper, 4, 15, '#mvw', 'MV*/MVW\n~2012');
 
-  T.draw.textRect(paper, 3, 10, 'MVVM\n2005 - Microsoft', '#mvvm');
-  T.draw.textRect(paper, 5, 4, 'Data Binding\n1995??', '#data_binding');
+  T.draw.textRect(paper, 3, 10, '#mvvm', 'MVVM\n2005', 'Microsoft');
+  T.draw.textRect(paper, 5, 4, '#data_binding', 'Data Binding\n1995??');
   T.draw.bindTwoCells(paper, 3, 10, 5, 4);
 
   /* Technologies */
