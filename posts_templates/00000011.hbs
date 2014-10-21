@@ -313,7 +313,7 @@
   <div class="col-xs-12">
       <h3>2012 MV*/MVW - Model View Whatever</h3>
       <p>
-        Its the term used when a technology can't clearly be identified as MVC or MVVM.
+        It is the term used when a technology can't clearly be identified as MVC, MVP or MVVM.
       </p>
   </div>
 </div>
@@ -494,9 +494,9 @@
 
 <script>
 var T = {
-  paddingH: 16,
+  paddingH: 24,
   paddingV: 20,
-  colW: 130 + 16, // TODO: hardcoded padding
+  colW: 130 + 24, // TODO: hardcoded padding
   rowH: 50 + 20, // TODO: hardcoded padding
   maxCols: 6,
   maxRows: 16,
@@ -738,7 +738,6 @@ T.init = function() {
   paper.canvas.setAttribute('width', '100%'); 
   paper.canvas.setAttribute('height', '100%'); 
 
-  /*
   for (var x = 0 + T.paddingH; x < w; x += T.colW) {
     paper.path('M '+x+' 0 V ' + h)
          .attr({'stroke': '#909090'});
@@ -747,12 +746,11 @@ T.init = function() {
     paper.path('M 0 '+y+' H ' + w)
          .attr({'stroke': '#909090'});
   }
-  */
 
   T.draw.yearLine(paper, 0, 2, w, '1980');
   T.draw.yearLine(paper, 0, 4, w, '1990');
   T.draw.yearLine(paper, 0, 8, w, '2000');
-  T.draw.yearLine(paper, 0, 14, w, '2010');
+  T.draw.yearLine(paper, 0, 13, w, '2010');
 
   T.draw.textRect(paper, 0, 0, 'TMVE\n1979 - Reenskaug', '#tmve');
   T.draw.textRect(paper, 0, 1, 'MVC\n1979 - Reenskaug', '#mvc79');
@@ -775,16 +773,17 @@ T.init = function() {
   T.draw.textEllipse(paper, 0, 10, 'Django\n2005', '#struts', 'te_python');
   T.draw.textEllipse(paper, 0, 10, 'ASP.NET MVC\n2007', '#aspnet', 'te_ms');
   T.draw.textEllipse(paper, 3, 10, 'Silverlight\n2007', '#silverlight', 'te_ms');
-  T.draw.textEllipse(paper, 3, 12, 'Angular.js\n2009', '#angular', 'te_js');
-  T.draw.bindTwoCells(paper, 3, 12.5, 4, 15);
-  T.draw.textEllipse(paper, 2, 13, 'Backbone.js\n2010', '#backbone', 'te_js');
-  T.draw.textEllipse(paper, 3, 13, 'Knockout.js\n2010', '#knockout', 'te_js');
-  T.draw.textEllipse(paper, 3, 14, 'Ember.js\n2011', '#ember', 'te_js');
-  T.draw.bindTwoCells(paper, 3, 14.5, 4, 15);
+  T.draw.textEllipse(paper, 3, 11.65, 'Angular.js\n2009', '#angular', 'te_js');
+  T.draw.bindTwoCells(paper, 3, 12, 4, 15);
+  T.draw.textEllipse(paper, 2, 12.65, 'Backbone.js\n2010', '#backbone', 'te_js');
+  T.draw.bindTwoCells(paper, 2, 13, 4, 15);
+  T.draw.textEllipse(paper, 3, 12.65, 'Knockout.js\n2010', '#knockout', 'te_js');
+  T.draw.textEllipse(paper, 3, 13.65, 'Ember.js\n2011', '#ember', 'te_js'); // TODO, hack rows .65
+  T.draw.bindTwoCells(paper, 3, 14, 4, 15);
 
   T.draw.textEllipse(paper, 0, 9, 'Rails\n2003', '#rails', 'te_ruby');
   T.draw.textEllipse(paper, 0, 11, 'SproutCore\n2007', '#sproutcore', 'te_js');
-  T.draw.bindTwoCells(paper, 0, 11.5, 3, 14.5);
+  T.draw.bindTwoCells(paper, 0, 11.5, 3, 14);
   T.draw.textEllipse(paper, 0, 6, 'SWING\n1998', '#swing', 'te_java');
 
   T.draw.textEllipse(paper, 0, 9, 'Rails\n2003', '#rails', 'te_sig');
