@@ -403,6 +403,22 @@
 </div>
 </div>
 
+<!-- 2001 -->
+<div id="drupal" class="text_box_info">
+<div class="row row_max_w">
+  <div class="col-xs-12">
+      <h3>2001 Drupal</h3>
+      <p>
+        Drupal is a content management framework and the core installation can serve as a simple web site, a single or multi-user blog, an Internet forum, or a community web site providing for user-generated content.
+      </p>
+      <p>
+        The framework has been around for a long time and different versions will reflect different MVC designs.
+        It has been described a couple of times as a PAC architecture.
+      </p>
+  </div>
+</div>
+</div>
+
 <!-- 2005 -->
 <div id="rails" class="text_box_info">
 <div class="row row_max_w">
@@ -519,7 +535,7 @@ var T = {
   paddingV: 20,
   colW: 130 + 24, // TODO: hardcoded padding
   rowH: 64 + 20, // TODO: hardcoded padding
-  maxCols: 6,
+  maxCols: 7,
   maxRows: 16,
   getColPos: function(colNum) {
     if ( colNum > this.maxCols ) {
@@ -800,8 +816,7 @@ T.init = function() {
 
   T.draw.textRect(paper, 4, 2, '#pac', 'PAC\n1987', 'J. Coutaz');
   T.draw.textRect(paper, 0, 7, '#model2', 'Model 2\n1998', 'J2EE');
-  T.draw.textRect(paper, 4, 9, '', 'MVVP\n2004??');
-  T.draw.textRect(paper, 6, 5, '#observer', 'Observer Pattern\n1994', 'GoF');
+  T.draw.textRect(paper, 7, 5, '#observer', 'Observer Pattern\n1994', 'GoF');
 
   T.draw.textRect(paper, 0, 0, '#tmve', 'TMVE\n1979', 'T. Reenskaug');
   var path = T.draw.bindRows(paper, attr, 0, 0);
@@ -836,6 +851,9 @@ T.init = function() {
   path += T.draw.arrowV(paper, 1, 4); 
   paper.path(path).attr(T.attr.arrowHead);
 
+  T.draw.textRect(paper, 6, 4, '#data_binding', 'Data Binding\n1995??');
+  T.draw.bindTwoCells(paper, 3, 10, 6, 4);
+
   path = T.draw.bindRows(paper, attr, 1, 4);
   paper.path(path).attr(attr);
   T.draw.lineV(paper, attr, 1, 5, 4);
@@ -843,15 +861,11 @@ T.init = function() {
   path += T.draw.arrowV(paper, 1, 9);
   paper.path(path).attr(T.attr.arrowHead);
 
-  T.draw.textRect(paper, 4, 15, '#mvw', 'MV*/MVW\n~2012');
-
-  T.draw.textRect(paper, 3, 10, '#mvvm', 'MVVM\n2005', 'Microsoft');
-  T.draw.textRect(paper, 5, 4, '#data_binding', 'Data Binding\n1995??');
-  T.draw.bindTwoCells(paper, 3, 10, 5, 4);
+  T.draw.textRect(paper, 5, 15, '#mvw', 'MV*/MVW\n~2012');
 
   /* Technologies */
 
-  T.draw.textEllipse(paper, 5, 4, 'MS-Access\n1995', '#msaccess', 'te_ms');
+  T.draw.textEllipse(paper, 6, 4, 'MS-Access\n1995', '#msaccess', 'te_ms');
 
   T.draw.textEllipse(paper, 0, 6, 'SWING\n1998', '#swing', 'te_java');
   T.draw.textEllipse(paper, 0, 6, 'SWING\n1998', '#swing', 'te_sig');
@@ -859,11 +873,16 @@ T.init = function() {
   T.draw.textEllipse(paper, 2, 8, 'Dolphin\n2000', '#dolphin', 'te_smalltalk');
 
   T.draw.textEllipse(paper, 0, 8, 'Struts\n2000', '#struts', 'te_java');
+  T.draw.textEllipse(paper, 0, 8, 'Struts\n2000', '#struts', 'te_sig');
+
+  T.draw.textEllipse(paper, 4, 8, 'Drupal\n2001', '#drupal', 'te_php');
 
   T.draw.textEllipse(paper, 0, 9, 'Rails\n2003', '#rails', 'te_ruby');
   T.draw.textEllipse(paper, 0, 9, 'Rails\n2003', '#rails', 'te_sig');
 
   T.draw.textEllipse(paper, 0, 10, 'Django\n2005', '#struts', 'te_python');
+
+  T.draw.textRect(paper, 3, 10, '#mvvm', 'MVVM\n2005', 'Microsoft');
 
   T.draw.textEllipse(paper, 0, 10, 'ASP.NET MVC\n2007', '#aspnet', 'te_ms');
 
@@ -874,15 +893,15 @@ T.init = function() {
   T.draw.textEllipse(paper, 0, 11, 'SproutCore\n2007', '#sproutcore', 'te_sig');
 
   T.draw.textEllipse(paper, 3, 11.65, 'Angular.js\n2009', '#angular', 'te_js');
-  T.draw.bindTwoCells(paper, 3, 12, 4, 15, 'te_js');
+  T.draw.bindTwoCells(paper, 3, 12, 5, 15, 'te_js');
 
   T.draw.textEllipse(paper, 2, 12.65, 'Backbone.js\n2010', '#backbone', 'te_js');
-  T.draw.bindTwoCells(paper, 2, 13, 4, 15, 'te_js');
+  T.draw.bindTwoCells(paper, 2, 13, 5, 15, 'te_js');
 
   T.draw.textEllipse(paper, 3, 12.65, 'Knockout.js\n2010', '#knockout', 'te_js');
 
   T.draw.textEllipse(paper, 3, 13.65, 'Ember.js\n2011', '#ember', 'te_js'); // TODO, hack rows .65
-  T.draw.bindTwoCells(paper, 3, 14, 4, 15, 'te_js');
+  T.draw.bindTwoCells(paper, 3, 14, 5, 15, 'te_js');
 
   T.site.overlays = { // populated after all the drawing was done
       'te_sig': $('.te_sig'),  
