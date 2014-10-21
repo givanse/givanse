@@ -276,21 +276,38 @@
         My opinion at this point is the Model-View-ViewModel pattern is a WPF-specific version of the PresentationModel pattern.
         </blockquote>
         </p>
+        <p>
+          An interesting observation made about MVVM is that it maps quite well to PAC.
+          You can read about that in:
+          <a href="http://blogs.msdn.com/b/johngossman/archive/2005/10/09/478894.aspx">
+            100 Model/View/ViewModels of Mt. Fuji
+          </a>
+        </p>
 
         <p>
-        Key features:
+        MVVM Key features:
         <ul>
           <li>
             Data binding gives you boilerplate synchronization code.
           </li>
           <li>
             The ViewModel is easier to unit test compared to code-behind or event-driven code.
+            <blockquote>
+              <p>
+              The ViewModel, though it sounds View-ish is really more Model-ish, and that means you can test it without awkward UI automation and interaction.
+              </p>
+              <footer>
+                <a href="http://blogs.msdn.com/b/johngossman/archive/2006/03/04/543695.aspx">
+                  Advantages and disadvantages of M-V-VM
+                </a>
+              </footer>
+            </blockquote>
           </li>
         </ul>
         </p>
 
         <p>
-        Flaws:
+        MVVM Issues:
         <ul>
           <li>
             Declarative data binding can be harder to debug.
@@ -495,6 +512,9 @@
 
 <script>
 var T = {
+ 
+  grid: false,
+ 
   paddingH: 24,
   paddingV: 20,
   colW: 130 + 24, // TODO: hardcoded padding
@@ -743,13 +763,15 @@ T.init = function() {
   paper.canvas.setAttribute('width', '100%'); 
   paper.canvas.setAttribute('height', '100%'); 
 
-  for (var x = 0 + T.paddingH; x < w; x += T.colW) {
-    paper.path('M '+x+' 0 V ' + h)
-         .attr({'stroke': '#909090'});
-  }
-  for (var y = 0 + T.paddingV; y < h; y += T.rowH) {
-    paper.path('M 0 '+y+' H ' + w)
-         .attr({'stroke': '#909090'});
+  if ( T.grid ) {
+    for (var x = 0 + T.paddingH; x < w; x += T.colW) {
+      paper.path('M '+x+' 0 V ' + h)
+           .attr({'stroke': '#909090'});
+    }
+    for (var y = 0 + T.paddingV; y < h; y += T.rowH) {
+      paper.path('M 0 '+y+' H ' + w)
+           .attr({'stroke': '#909090'});
+    }
   }
 
   T.draw.yearLine(paper, 0, 2, w, '1980');
@@ -761,18 +783,18 @@ T.init = function() {
 
   var attr = T.attr.line;
 
-  T.draw.textRect(paper, 4, 2, 'PAC\n1987 - Coutaz', '#pac');
+  T.draw.textRect(paper, 4, 2, 'PAC\n1987 - J. Coutaz', '#pac');
   T.draw.textRect(paper, 0, 7, 'Model 2\n1998 - J2EE', '#model2');
   T.draw.textRect(paper, 4, 9, 'MVVP\n2004??', '');
   T.draw.textRect(paper, 6, 5, 'Observer Pattern\n1994 - GoF', '#observer');
 
-  T.draw.textRect(paper, 0, 0, 'TMVE\n1979 - Reenskaug', '#tmve');
+  T.draw.textRect(paper, 0, 0, 'TMVE\n1979 - T. Reenskaug', '#tmve');
   var path = T.draw.bindRows(paper, attr, 0, 0);
   paper.path(path).attr(attr);
   path = T.draw.arrowV(paper, 0, 1);
   paper.path(path).attr(T.attr.arrowHead);
 
-  T.draw.textRect(paper, 0, 1, 'MVC\n1979 - Reenskaug', '#mvc79');
+  T.draw.textRect(paper, 0, 1, 'MVC\n1979 - T. Reenskaug', '#mvc79');
   T.draw.lineV(paper, attr, 0, 2, 1); // mvc
   path = T.draw.bindRows(paper, attr, 0, 1);
   paper.path(path).attr(attr);
@@ -802,7 +824,7 @@ T.init = function() {
   path = T.draw.bindRows(paper, attr, 1, 4);
   paper.path(path).attr(attr);
   T.draw.lineV(paper, attr, 1, 5, 4);
-  T.draw.textRect(paper, 1, 9, 'Presentation Model\n2004 - Fowler', '#pm');
+  T.draw.textRect(paper, 1, 9, 'Presentation Model\n2004 - M. Fowler', '#pm');
   path += T.draw.arrowV(paper, 1, 9);
   paper.path(path).attr(T.attr.arrowHead);
 
