@@ -142,10 +142,16 @@
 <div class="row row_max_w">
   <div class="col-xs-12">
       <h3>1987 PAC - Presentation Abstraction Control</h3>
+      <p>
         Developed independently from MVC by Joëlle Coutaz in:
         <a href="papers/pac.pdf">
           PAC, an Object Oriented Model for Dialog Design.
         </a>
+      </p>
+      <h4>Control</h4>
+      <p>
+        
+      </p>
 
   </div>
 </div>
@@ -175,24 +181,25 @@
 </div>
 </div>
 
+<!-- 1994 -->
+<div id="observer" class="text_box_info">
+<div class="row row_max_w">
+  <div class="col-xs-12">
+      <h3>1994 Observer Pattern</h3>
+        Although the technique had been in use since the early days of MVC, it was
+        first described in the book <b>Design Patterns: Elements of Reusable Object-Oriented Software</b> by
+        Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides.
+        The authors are often referred to as the Gang of Four (GoF).
+  </div>
+</div>
+</div>
+
 <!-- 1995?? -->
 <div id="data_binding" class="text_box_info">
 <div class="row row_max_w">
   <div class="col-xs-12">
       <h3>1995?? Data Binding</h3>
 
-  </div>
-</div>
-</div>
-
-<!-- 1995 -->
-<div id="observer" class="text_box_info">
-<div class="row row_max_w">
-  <div class="col-xs-12">
-      <h3>1995 Observer Pattern</h3>
-        First described in the book Design Patterns: Elements of Reusable Object-Oriented Software by
-        Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides.
-        The authors are often referred to as the Gang of Four (GoF).
   </div>
 </div>
 </div>
@@ -304,7 +311,7 @@
 <div id="mvw" class="text_box_info">
 <div class="row row_max_w">
   <div class="col-xs-12">
-      <h3>1998 MV*/MVW - Model View Whatever</h3>
+      <h3>2012 MV*/MVW - Model View Whatever</h3>
       <p>
         Its the term used when a technology can't clearly be identified as MVC or MVVM.
       </p>
@@ -439,6 +446,17 @@
       <a href="https://plus.google.com/+AngularJS/posts/aZNVhj355G2">AngularJS G+</a> account.
       It wasn't a very formal declaration, but got the term going.
     </p>
+  </div>
+</div>
+</div>
+
+<!-- 2010 -->
+<div id="backbone" class="text_box_info">
+<div class="row row_max_w">
+  <div class="col-xs-12">
+      <h3>2010 Backbone.js</h3>
+        <p>
+        </p>
   </div>
 </div>
 </div>
@@ -742,7 +760,7 @@ T.init = function() {
   T.draw.textRect(paper, 4, 2, 'PAC\n1987 - Coutaz', '#pac');
   T.draw.textRect(paper, 0, 7, 'Model 2\n1998 - J2EE', '#model2');
   T.draw.textRect(paper, 4, 9, 'MVVP\n2004??', '');
-  T.draw.textRect(paper, 6, 5, 'Observer Pattern\n1995 - GoF', '#observer');
+  T.draw.textRect(paper, 6, 5, 'Observer Pattern\n1994 - GoF', '#observer');
 
 
   T.draw.textRect(paper, 3, 10, 'MVVM\n2005 - Microsoft', '#mvvm');
@@ -759,6 +777,7 @@ T.init = function() {
   T.draw.textEllipse(paper, 3, 10, 'Silverlight\n2007', '#silverlight', 'te_ms');
   T.draw.textEllipse(paper, 3, 12, 'Angular.js\n2009', '#angular', 'te_js');
   T.draw.bindTwoCells(paper, 3, 12.5, 4, 15);
+  T.draw.textEllipse(paper, 2, 13, 'Backbone.js\n2010', '#backbone', 'te_js');
   T.draw.textEllipse(paper, 3, 13, 'Knockout.js\n2010', '#knockout', 'te_js');
   T.draw.textEllipse(paper, 3, 14, 'Ember.js\n2011', '#ember', 'te_js');
   T.draw.bindTwoCells(paper, 3, 14.5, 4, 15);
