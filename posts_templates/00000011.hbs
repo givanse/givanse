@@ -690,7 +690,7 @@ arrowV: function(paper, col, row) {
 /*
   Asumes the second cell is always to the right.
 */
-bindTwoCells: function(paper, col1, row1, col2, row2) {
+bindTwoCells: function(paper, col1, row1, col2, row2, classNames) {
   var attr = T.attr.dashedLine,
       halfPaddingH = T.paddingH / 2,
       halfRow = T.rowH / 2,
@@ -701,14 +701,18 @@ bindTwoCells: function(paper, col1, row1, col2, row2) {
       vDelta = Math.abs(row1 - row2),
       h1 = x1 + T.colW * hDelta,
       v1 = y1 + ((T.rowH * vDelta - halfRow) * vDir); 
-  paper.path('M' + (x1 - halfPaddingH) + ' ' + y1 +
-             'H' + x1 +
-             'V' + v1 +
-             'H' + h1 +
-             'V' + (v1 + halfRow * vDir) +
-             'H' + (h1 + halfPaddingH)
-            ) 
-       .attr(attr);
+  var line = paper.path('M' + (x1 - halfPaddingH) + ' ' + y1 +
+                        'H' + x1 +
+                        'V' + v1 +
+                        'H' + h1 +
+                        'V' + (v1 + halfRow * vDir) +
+                        'H' + (h1 + halfPaddingH)
+                       ) 
+                  .attr(attr);
+
+  if ( classNames ) {
+    $(line.node).attr('class', classNames);
+  }
 }
 
 }; // T.draw, drawing helpers
@@ -753,54 +757,33 @@ T.init = function() {
   T.draw.yearLine(paper, 0, 8, w, '2000');
   T.draw.yearLine(paper, 0, 13, w, '2010');
 
-  T.draw.textRect(paper, 0, 0, 'TMVE\n1979 - Reenskaug', '#tmve');
-  T.draw.textRect(paper, 0, 1, 'MVC\n1979 - Reenskaug', '#mvc79');
-  T.draw.textRect(paper, 0, 3, 'MVC\n1988 - K. & P.', '#mvc88');
+  /* Design Patterns */
+
+  var attr = T.attr.line;
+
   T.draw.textRect(paper, 4, 2, 'PAC\n1987 - Coutaz', '#pac');
   T.draw.textRect(paper, 0, 7, 'Model 2\n1998 - J2EE', '#model2');
   T.draw.textRect(paper, 4, 9, 'MVVP\n2004??', '');
   T.draw.textRect(paper, 6, 5, 'Observer Pattern\n1994 - GoF', '#observer');
 
-
-  T.draw.textRect(paper, 3, 10, 'MVVM\n2005 - Microsoft', '#mvvm');
-  T.draw.textRect(paper, 5, 4, 'Data Binding\n1995??', '#data_binding');
-  T.draw.bindTwoCells(paper, 3, 10, 5, 4);
-
-  /* Technologies */
-
-  T.draw.textEllipse(paper, 5, 4, 'MS-Access\n1995', '#msaccess', 'te_ms');
-  T.draw.textEllipse(paper, 2, 8, 'Dolphin\n2000', '#dolphin', 'te_smalltalk');
-  T.draw.textEllipse(paper, 0, 8, 'Struts\n2000', '#struts', 'te_java');
-  T.draw.textEllipse(paper, 0, 10, 'Django\n2005', '#struts', 'te_python');
-  T.draw.textEllipse(paper, 0, 10, 'ASP.NET MVC\n2007', '#aspnet', 'te_ms');
-  T.draw.textEllipse(paper, 3, 10, 'Silverlight\n2007', '#silverlight', 'te_ms');
-  T.draw.textEllipse(paper, 3, 11.65, 'Angular.js\n2009', '#angular', 'te_js');
-  T.draw.bindTwoCells(paper, 3, 12, 4, 15);
-  T.draw.textEllipse(paper, 2, 12.65, 'Backbone.js\n2010', '#backbone', 'te_js');
-  T.draw.bindTwoCells(paper, 2, 13, 4, 15);
-  T.draw.textEllipse(paper, 3, 12.65, 'Knockout.js\n2010', '#knockout', 'te_js');
-  T.draw.textEllipse(paper, 3, 13.65, 'Ember.js\n2011', '#ember', 'te_js'); // TODO, hack rows .65
-  T.draw.bindTwoCells(paper, 3, 14, 4, 15);
-
-  T.draw.textEllipse(paper, 0, 9, 'Rails\n2003', '#rails', 'te_ruby');
-  T.draw.textEllipse(paper, 0, 11, 'SproutCore\n2007', '#sproutcore', 'te_js');
-  T.draw.bindTwoCells(paper, 0, 11.5, 3, 14);
-  T.draw.textEllipse(paper, 0, 6, 'SWING\n1998', '#swing', 'te_java');
-
-  T.draw.textEllipse(paper, 0, 9, 'Rails\n2003', '#rails', 'te_sig');
-  T.draw.textEllipse(paper, 0, 11, 'SproutCore\n2007', '#sproutcore', 'te_sig');
-  T.draw.textEllipse(paper, 0, 6, 'SWING\n1998', '#swing', 'te_sig');
-
-  var attr = T.attr.line;
-
+  T.draw.textRect(paper, 0, 0, 'TMVE\n1979 - Reenskaug', '#tmve');
   var path = T.draw.bindRows(paper, attr, 0, 0);
   paper.path(path).attr(attr);
-
-  attr = T.attr.line;
-
-  path = T.draw.arrowV(paper, 0, 1); // mvc
+  path = T.draw.arrowV(paper, 0, 1);
   paper.path(path).attr(T.attr.arrowHead);
-  path += T.draw.arrowV(paper, 0, 3); // mvc k&p
+
+  T.draw.textRect(paper, 0, 1, 'MVC\n1979 - Reenskaug', '#mvc79');
+  T.draw.lineV(paper, attr, 0, 2, 1); // mvc
+  path = T.draw.bindRows(paper, attr, 0, 1);
+  paper.path(path).attr(attr);
+
+  T.draw.textRect(paper, 0, 3, 'MVC\n1988 - K. & P.', '#mvc88');
+  path += T.draw.arrowV(paper, 0, 3);
+  paper.path(path).attr(T.attr.arrowHead);
+  path = T.draw.bindRows(paper, attr, 0, 3);
+  paper.path(path).attr(attr);
+  T.draw.lineV(paper, attr, 0, 4, 1); 
+  path += T.draw.arrowV(paper, 0, 5); 
   paper.path(path).attr(T.attr.arrowHead);
 
   T.draw.textRect(paper, 2, 6, 'MVP\n1996 - Taligent', '#mvptaligent');
@@ -823,17 +806,46 @@ T.init = function() {
   path += T.draw.arrowV(paper, 1, 9);
   paper.path(path).attr(T.attr.arrowHead);
 
-  T.draw.lineV(paper, attr, 0, 2, 1); // mvc
-  path = T.draw.bindRows(paper, attr, 0, 1);
-  paper.path(path).attr(attr);
-
-  path = T.draw.bindRows(paper, attr, 0, 3); // mvc continues
-  paper.path(path).attr(attr);
-  T.draw.lineV(paper, attr, 0, 4, 1); 
-  path += T.draw.arrowV(paper, 0, 5); 
-  paper.path(path).attr(T.attr.arrowHead);
-
   T.draw.textRect(paper, 4, 15, 'MV*/MVW\n~2012', '#mvw');
+
+  T.draw.textRect(paper, 3, 10, 'MVVM\n2005 - Microsoft', '#mvvm');
+  T.draw.textRect(paper, 5, 4, 'Data Binding\n1995??', '#data_binding');
+  T.draw.bindTwoCells(paper, 3, 10, 5, 4);
+
+  /* Technologies */
+
+  T.draw.textEllipse(paper, 5, 4, 'MS-Access\n1995', '#msaccess', 'te_ms');
+
+  T.draw.textEllipse(paper, 0, 6, 'SWING\n1998', '#swing', 'te_java');
+  T.draw.textEllipse(paper, 0, 6, 'SWING\n1998', '#swing', 'te_sig');
+
+  T.draw.textEllipse(paper, 2, 8, 'Dolphin\n2000', '#dolphin', 'te_smalltalk');
+
+  T.draw.textEllipse(paper, 0, 8, 'Struts\n2000', '#struts', 'te_java');
+
+  T.draw.textEllipse(paper, 0, 9, 'Rails\n2003', '#rails', 'te_ruby');
+  T.draw.textEllipse(paper, 0, 9, 'Rails\n2003', '#rails', 'te_sig');
+
+  T.draw.textEllipse(paper, 0, 10, 'Django\n2005', '#struts', 'te_python');
+
+  T.draw.textEllipse(paper, 0, 10, 'ASP.NET MVC\n2007', '#aspnet', 'te_ms');
+
+  T.draw.textEllipse(paper, 3, 10, 'Silverlight\n2007', '#silverlight', 'te_ms');
+
+  T.draw.textEllipse(paper, 0, 11, 'SproutCore\n2007', '#sproutcore', 'te_js');
+  T.draw.bindTwoCells(paper, 0, 11.5, 3, 14, 'te_js');
+  T.draw.textEllipse(paper, 0, 11, 'SproutCore\n2007', '#sproutcore', 'te_sig');
+
+  T.draw.textEllipse(paper, 3, 11.65, 'Angular.js\n2009', '#angular', 'te_js');
+  T.draw.bindTwoCells(paper, 3, 12, 4, 15, 'te_js');
+
+  T.draw.textEllipse(paper, 2, 12.65, 'Backbone.js\n2010', '#backbone', 'te_js');
+  T.draw.bindTwoCells(paper, 2, 13, 4, 15, 'te_js');
+
+  T.draw.textEllipse(paper, 3, 12.65, 'Knockout.js\n2010', '#knockout', 'te_js');
+
+  T.draw.textEllipse(paper, 3, 13.65, 'Ember.js\n2011', '#ember', 'te_js'); // TODO, hack rows .65
+  T.draw.bindTwoCells(paper, 3, 14, 4, 15, 'te_js');
 
   T.site.overlays = { // populated after all the drawing was done
       'te_sig': $('.te_sig'),  
