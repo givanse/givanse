@@ -1,4 +1,5 @@
 <b>DRAFT, Do not share yet please.</b><br>
+<b>Tue Oct 21 19:21:19 CDT 2014</b><br>
 
 <style>
   .row_max_w {
@@ -345,6 +346,25 @@
   </div>
 </div>
 
+<!-- 1988 -->
+<div id="nextstep" class="text_box_info">
+<div class="row row_max_w">
+  <div class="col-xs-12">
+      <h3>1988 NeXTstep</h3>
+      <p>
+        NextSTEP is an object-oriented, multitasking operating system which was developed by NeXT Computer, Inc.
+      </p>
+      <p>
+        Tim Berners Lee once commented that his pioneering World-Wide-Web application was only feasible at the time because of NeXTstep.
+      </p>
+      <p>
+        NeXTstep was later modified to separate the underlying operating system from the higher-level object libraries.
+        The result was the OpenStep API, a predecesor of Mac OS X and the Cocoa API.
+      </p>
+  </div>
+</div>
+</div>
+
 <!-- 1995 -->
 <div id="msaccess" class="text_box_info">
 <div class="row row_max_w">
@@ -419,11 +439,38 @@
 </div>
 </div>
 
-<!-- 2005 -->
+<!-- 2004 -->
+<div id="jsf" class="text_box_info">
+<div class="row row_max_w">
+  <div class="col-xs-12">
+      <h3>2004 JSF</h3>
+  </div>
+</div>
+</div>
+
+<!-- 2004 -->
 <div id="rails" class="text_box_info">
 <div class="row row_max_w">
   <div class="col-xs-12">
-      <h3>2005 Rails</h3>
+      <h3>2004 Rails</h3>
+  </div>
+</div>
+</div>
+
+<!-- 2005 -->
+<div id="cakephp" class="text_box_info">
+<div class="row row_max_w">
+  <div class="col-xs-12">
+      <h3>2005 Cake PHP</h3>
+  </div>
+</div>
+</div>
+
+<!-- 2006 -->
+<div id="zend" class="text_box_info">
+<div class="row row_max_w">
+  <div class="col-xs-12">
+      <h3>2006 Zend</h3>
   </div>
 </div>
 </div>
@@ -476,9 +523,9 @@
       </blockquote>
     </p>
     <p>
-      In 2012 was declared a Model View Whatever library, in the 
-      <a href="https://plus.google.com/+AngularJS/posts/aZNVhj355G2">AngularJS G+</a> account.
-      It wasn't a very formal declaration, but got the term going.
+      In 2012 Angular was declared a Model View Whatever library through a post made in the
+      <a href="https://plus.google.com/+AngularJS/posts/aZNVhj355G2">AngularJS G+ account</a>.
+      It wasn't a very formal declaration, but it helped the term to take off.
     </p>
   </div>
 </div>
@@ -536,7 +583,7 @@ var T = {
   colW: 130 + 24, // TODO: hardcoded padding
   rowH: 64 + 20, // TODO: hardcoded padding
   maxCols: 7,
-  maxRows: 18,
+  maxRows: 20,
   getColPos: function(colNum) {
     if ( colNum > this.maxCols ) {
       console.log('COL: null pointer exception, self destruct in 3 2 1');
@@ -807,7 +854,7 @@ T.init = function() {
   T.draw.yearLine(paper, 0, 2, w, '1980');
   T.draw.yearLine(paper, 0, 4, w, '1990');
   T.draw.yearLine(paper, 0, 9, w, '2000');
-  T.draw.yearLine(paper, 0, 16, w, '2010');
+  T.draw.yearLine(paper, 0, 17, w, '2010');
 
   /**
    * Design Patterns
@@ -866,11 +913,13 @@ T.init = function() {
   T.draw.textRect(paper, 3, 13, '#mvvm', 'MVVM\n2005', 'Microsoft');
   T.draw.bindTwoCells(paper, 3, 13, 6, 6);
 
-  T.draw.textRect(paper, 5, 18, '#mvw', 'MV*/MVW\n~2012');
+  T.draw.textRect(paper, 5, 19, '#mvw', 'MV*/MVW\n~2012');
 
   /**
    * Technologies 
    */
+
+  T.draw.textEllipse(paper, 0, 3, 'NeXTstep\n1988', '#nextstep', 'te_sig');
 
   T.draw.textEllipse(paper, 6, 6, 'MS-Access\n1995', '#msaccess', 'te_ms');
 
@@ -884,29 +933,35 @@ T.init = function() {
 
   T.draw.textEllipse(paper, 4, 10, 'Drupal\n2001', '#drupal', 'te_php');
 
-  T.draw.textEllipse(paper, 0, 11, 'Rails\n2003', '#rails', 'te_ruby');
-  T.draw.textEllipse(paper, 0, 11, 'Rails\n2003', '#rails', 'te_sig');
+  T.draw.textEllipse(paper, 0, 12, 'Rails\n2004', '#rails', 'te_ruby');
+  T.draw.textEllipse(paper, 0, 12, 'Rails\n2004', '#rails', 'te_sig');
+
+  T.draw.textEllipse(paper, 0, 12, 'JSF\n2004', '#jsf', 'te_java');
 
   T.draw.textEllipse(paper, 0, 13, 'Django\n2005', '#struts', 'te_python');
 
-  T.draw.textEllipse(paper, 0, 13, 'ASP.NET MVC\n2007', '#aspnet', 'te_ms');
+  T.draw.textEllipse(paper, 0, 13, 'Cake PHP\n2005', '#cakephp', 'te_php');
 
-  T.draw.textEllipse(paper, 3, 13, 'Silverlight\n2007', '#silverlight', 'te_ms');
+  T.draw.textEllipse(paper, 0, 14, 'Zend\n2006', '#zend', 'te_php');
 
-  T.draw.textEllipse(paper, 0, 14, 'SproutCore\n2007', '#sproutcore', 'te_js');
-  T.draw.bindTwoCells(paper, 0, 14.5, 3, 17, 'te_js');
-  T.draw.textEllipse(paper, 0, 14, 'SproutCore\n2007', '#sproutcore', 'te_sig');
+  T.draw.textEllipse(paper, 0, 15, 'ASP.NET MVC\n2007', '#aspnet', 'te_ms');
 
-  T.draw.textEllipse(paper, 3, 14.65, 'Angular.js\n2009', '#angular', 'te_js');
-  T.draw.bindTwoCells(paper, 3, 15, 5, 18, 'te_js');
+  T.draw.textEllipse(paper, 3, 15, 'Silverlight\n2007', '#silverlight', 'te_ms');
 
-  T.draw.textEllipse(paper, 2, 15.65, 'Backbone.js\n2010', '#backbone', 'te_js');
-  T.draw.bindTwoCells(paper, 2, 16, 5, 18, 'te_js');
+  T.draw.textEllipse(paper, 0, 15, 'SproutCore\n2007', '#sproutcore', 'te_js');
+  T.draw.bindTwoCells(paper, 0, 15.5, 3, 17, 'te_js');
+  T.draw.textEllipse(paper, 0, 15, 'SproutCore\n2007', '#sproutcore', 'te_sig');
 
-  T.draw.textEllipse(paper, 3, 15.65, 'Knockout.js\n2010', '#knockout', 'te_js');
+  T.draw.textEllipse(paper, 3, 15.65, 'Angular.js\n2009', '#angular', 'te_js');
+  T.draw.bindTwoCells(paper, 3, 16, 5, 19, 'te_js');
 
-  T.draw.textEllipse(paper, 3, 16.65, 'Ember.js\n2011', '#ember', 'te_js'); // TODO, hack rows .65
-  T.draw.bindTwoCells(paper, 3, 17, 5, 18, 'te_js');
+  T.draw.textEllipse(paper, 2, 16.65, 'Backbone.js\n2010', '#backbone', 'te_js');
+  T.draw.bindTwoCells(paper, 2, 17, 5, 19, 'te_js');
+
+  T.draw.textEllipse(paper, 3, 16.65, 'Knockout.js\n2010', '#knockout', 'te_js');
+
+  T.draw.textEllipse(paper, 3, 17.65, 'Ember.js\n2011', '#ember', 'te_js'); // TODO, hack rows .65
+  T.draw.bindTwoCells(paper, 3, 18, 5, 19, 'te_js');
 
   T.site.overlays = { // populated after all the drawing was done
       'te_sig': $('.te_sig'),  
