@@ -12,6 +12,7 @@
     "broccoli-taco": "0.0.7"
   },
   "devDependencies": {
-    "handlebars": "^3.0.0"
+    "handlebars": "^3.0.0",
+    "marked": "^0.3.3"
   }
 }
