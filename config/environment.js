@@ -14,6 +14,9 @@ module.exports = function(environment) {
     },
 
     APP: {
+      disqus: {
+        shortname: 'givanse'
+      },
       path: {
         posts: 'posts/',
         posts_list: 'posts/posts.json'
