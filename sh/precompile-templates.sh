@@ -11,7 +11,7 @@ destination='public/posts/'
 
 
 rx_path='\(.*\/\)'
-rx_name='\([0-9]*\)'
+rx_name='\([0-9a-zA-Z-]*\)'
 rx_ext='\(\.hbs\)'
 
 function precompile_file {

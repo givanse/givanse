@@ -9,7 +9,7 @@
     "published": false
   },
   {
-    "id": "00000010",
+    "id": "mvc-past-present-and-future",
     "title": "MVC past, present and future.",
     "created": "07/Aug/2014",
     "updated": "",
@@ -17,7 +17,7 @@
     "published": true
   },
   {
-    "id": "00000001",
+    "id": "ember-cli-phonegap",
     "title": "Ember CLI & Phonegap",
     "created": "09/Jul/2014",
     "updated": "",
@@ -25,7 +25,7 @@
     "published": true
   },
   {
-    "id": "00000000",
+    "id": "ember-cli-simple-auth-devise",
     "title": "Ember CLI & ember-simple-auth-devise",
     "created": "16/Jun/2014",
     "updated": "20/Oct/2014",

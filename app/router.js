@@ -12,9 +12,11 @@ Router.map(function() {
 
   this.route('post', {path: 'p/:post_id'});
 
-  this.route('posts', {path: 'articles'});
+  this.route('articles');
 
   this.route('route-error', {path: 'error/:status'});
+
+  this.route('article', {path: '/:article_id'});
 });
 
 export default Router;

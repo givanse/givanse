@@ -2,12 +2,6 @@
 
 set -e
 
-npm install -g grunt-cli
-npm install -g ember-precompile
-
-npm install
-bower install
-
 # syntax highlight
 cd bower_components/SyntaxHighlighter/
 npm install
