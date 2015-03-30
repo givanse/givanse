@@ -207,13 +207,22 @@ p {
   html { font-size: 16px; }
 }
 
-// https://github.com/alexgorbatrchev/SyntaxHighlighter/issues/167
+/* https://github.com/alexgorbatrchev/SyntaxHighlighter/issues/167 */
 div.syntaxhighlighter .container::before,
 div.syntaxhighlighter .container::after {
   content: none;
 }
 
-// Bootstrap overrides and customizations
+.avatar {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
+
+/* Bootstrap overrides and customizations */
 
 .panel-default > .panel-heading {
   color: @color-secondary-2-3; 
