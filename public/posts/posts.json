@@ -9,6 +9,14 @@
     "published": false
   },
   {
+    "id": "ember-i-choose-you",
+    "title": "Why I use Ember.js?",
+    "created": "31/03/2015",
+    "updated": "",
+    "description": "Putting aside technical aspects, what is good about Ember.js?",
+    "published": true 
+  },
+  {
     "id": "mvc-past-present-and-future",
     "title": "MVC past, present and future.",
     "created": "07/Aug/2014",
