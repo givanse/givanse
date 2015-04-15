@@ -2,10 +2,13 @@
 
 <h1>Articles</h1>
 
-{{#each page.articles}} 
-  {{#link-to url}}
+{{#each page.articlesList}} 
+  {{created}}    
+  {{updated}}    
+  <!--link-to checks for broken links and we are dynamically generating them-->
+  <a href="/{{filename}}">
     {{title}}
-  {{/link-to}}
+  </a>
   <br>
 {{/each}}
 
