@@ -1,13 +1,23 @@
 {{#layout}}
 
-<h1>
-  {{page.title}}
-</h1>
-{{page.created}}    
-{{page.updated}}    
+<article>
 
-{{#markdown}}
-  {{page.body}}
-{{/markdown}}
+  <header>
+    <h1>
+      {{page.title}}
+    </h1>
+    <time>{{page.created}}</time>
+    <time>{{page.updated}}</time>    
+  </header>
+
+  {{#markdown}}
+    {{page.body}}
+  {{/markdown}}
+
+  <footer>
+  </footer>
+
+</article>
+
 
 {{/layout}}
