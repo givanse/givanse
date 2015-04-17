@@ -12,6 +12,15 @@
     "broccoli-taco": "0.0.7"
   },
   "devDependencies": {
+    "bootstrap": "^3.3.4",
+    "broccoli-concat": "0.0.13",
+    "broccoli-csslint": "^0.1.2",
+    "broccoli-env": "0.0.1",
+    "broccoli-htmlmin": "^2.0.0",
+    "broccoli-merge-trees": "^0.2.1",
+    "broccoli-more-css": "^0.1.0",
+    "broccoli-static-compiler": "^0.2.1",
+    "broccoli-uncss": "^1.4.0",
     "handlebars": "^3.0.0",
     "marked": "^0.3.3"
   }

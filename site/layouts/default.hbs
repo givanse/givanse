@@ -4,14 +4,19 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="givanse@gmail.com">
+
     <title>
       {{site.title}}
       {{#if page.title}}
         | {{page.title}}
       {{/if}}
     </title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/ico" href="/favicon.ico"/>
+
+    <link href="/vendor.css" rel="stylesheet" />
     {{css-tags}}
   </head>
 
@@ -20,7 +25,9 @@
       {{>nav}}
     </nav>
 
-    {{{yield}}}
+    <div class="container">
+      {{{yield}}}
+    </div>
    
     <footer>
     </footer>
