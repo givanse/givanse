@@ -4,6 +4,7 @@ set -e
 
 ghpages=../givanse-gh-pages/
 
+rm -rv dist/
 BROCCOLI_TACO_ENV=production broccoli-taco build dist/
 
 cp -vR dist/* $ghpages
