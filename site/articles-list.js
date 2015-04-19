@@ -1,5 +1,12 @@
 module.exports = [
   {
+    filename: 'broccolijs-from-scratch',
+    title: 'Broccoli.js from scratch',
+    created: '19/Apr/2015',
+    updated: '',
+    description: 'Build a website from scratch with Broccoli.js'
+  },
+  {
     filename: 'ember-i-choose-you',
     title: 'Why I use Ember.js?',
     created: '31/Mar/2015',
