@@ -17,20 +17,36 @@
     <link rel="shortcut icon" type="image/ico" href="/favicon.ico"/>
 
     <link href="/vendor.css" rel="stylesheet" />
+    <link href="/app.css" rel="stylesheet" />
     {{css-tags}}
   </head>
 
   <body>
-    <nav>
-      {{>nav}}
-    </nav>
+    <header class="header container">
+      <div class="row header_0">
+        <nav class="row_max_w menu">
+          {{#link-to 'articles'}}
+            articles
+          {{/link-to}}
+          {{#link-to 'about'}}
+            about
+          {{/link-to}}
+        </nav>
+      </div>
+      <div class="row header_1"></div>
+      <div class="row header_2"></div>
+    </header>
 
-    <div class="container">
-      {{{yield}}}
+    <div class="layout">
+      <div class="container">
+        <div class="header_placeholder" class="row"></div>
+        {{{yield}}}
+      </div>
+     
+      <div class="sticky_footer_push"></div>
     </div>
-   
-    <footer>
-    </footer>
+
+    <div class="sticky_footer"></div>
 
     {{javascript-tags}}
   </body>

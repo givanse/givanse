@@ -1,12 +1,17 @@
 var concatenate = require('broccoli-concat');
 var mergeTrees  = require('broccoli-merge-trees');
-var funnel   = require('broccoli-funnel');
+var funnel = require('broccoli-funnel');
 var uglifyCss = require('broccoli-more-css');
 var htmlMin = require('broccoli-htmlmin');
 var cssLint = require('broccoli-csslint');
 var uncss = require('broccoli-uncss');
 var env = require('broccoli-env').getEnv();
+var compileLess = require('broccoli-less-single');
 var root = '.';
+
+var appCss = compileLess(root, 'site/css/app.less',
+                               '/app.css');
+appCss = cssLint(appCss);
 
 /*******************************************************************************
  * CSS
@@ -17,10 +22,6 @@ var vendorCss = concatenate(root, {
                   outputFile : '/vendor.css'
                 });
 
-//TODO: lint app css
-//appCss = cssLint(appCss);
-
-//TODO: uncss
 /*
 var uncssOptions = { html: ['./index.html'],
                      ignore: [// navbar
@@ -49,6 +50,7 @@ if ( env === 'production' ) {
     //TODO: http://stackoverflow.com/questions/27640161
     //vendorCss = mergeTrees([vendorCss, appCss]);
     vendorCss = uglifyCss(vendorCss, {radical: false});
+    appCss = uglifyCss(appCss, {radical: false});
 
     //TODO: minify HTML
     //appHtml = htmlMin(appHtml, {
@@ -60,4 +62,4 @@ var Site = require('broccoli-taco');
 var site = new Site();
 var appTree = site.toTree();
 
-module.exports = mergeTrees([appTree, vendorCss, fontelloFonts]);
+module.exports = mergeTrees([appTree, vendorCss, appCss, fontelloFonts]);
