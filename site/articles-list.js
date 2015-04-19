@@ -1,7 +1,4 @@
-var path = require('path');
-var fs = require('fs');
-
-var articles = [
+module.exports = [
   {
     filename: 'ember-i-choose-you',
     title: 'Why I use Ember.js?',
@@ -31,10 +28,3 @@ var articles = [
     description: 'Authenticate to a Rails/Devise server from an Ember CLI app.'
   }
 ];
-
-articles.forEach(function(article) {
-  var filePath = 'site/articles-bodies/' + article.filename + '.md'; 
-  article.body = fs.readFileSync(filePath).toString();
-});
-
-module.exports = articles;

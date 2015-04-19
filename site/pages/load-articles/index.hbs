@@ -2,36 +2,40 @@
 
 <article>
 
-  <div class="row row_max_w">
+  <header>
+    <div class="row row_max_w">
+      <div class="col-xs-12">
+        <h1>{{page.title}}</h1>
+      </div>
+    </div>
+
+    <div class="row row_max_w">
+      <div class="col-xs-6">
+        {{#if page.updated}}<s>{{/if}}
+          <time class='post_date'>{{page.created}}</time>
+        {{#if page.updated}}</s>{{/if}}
+        <br>
+
+        <time class='post_date'>{{page.updated}}</time>
+        <br>
+      </div>
+
+      <div class="col-xs-6 text-right">
+      </div>
+    </div>
+
+    <br>
+  </header>
+
+  <section class="row row_max_w">
     <div class="col-xs-12">
-      <h1>{{page.title}}</h1>
+      <p>
+        {{page.description}}
+      </p>
+
+      {{{markdown page.filename}}}
     </div>
-  </div>
-
-  <div class="row row_max_w">
-    <div class="col-xs-6">
-      {{#if page.updated}}<s>{{/if}}
-        <time class='post_date'>{{page.created}}</time>
-      {{#if page.updated}}</s>{{/if}}
-      <br>
-
-      <time class='post_date'>{{page.updated}}</time>
-      <br>
-    </div>
-
-    <div class="col-xs-6 text-right">
-    </div>
-  </div>
-  <br>
-
-  <div class="row row_max_w">
-    <div class="col-xs-12">
-      {{#markdown}}
-        {{page.body}}
-      {{/markdown}}
-    </div>
-  </div>
-
+  </section>
 
   <footer>
     <hr>
@@ -57,6 +61,5 @@
   </footer>
 
 </article>
-
 
 {{/layout}}

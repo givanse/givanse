@@ -1,23 +1,16 @@
-<h2>Creating two projects</h2>
+## Creating two projects
 
 Create an Ember project and inside create the Phonegap project.
 
-<div class="panel panel-default">
-  <div class="panel-heading">
-    >_
-  </div>
-  <div class="panel-body">
-    <pre class="brush: bash">
-      # Ember
-      ember new cool-app
-      cd cool-app/
-      ember build --environment='production'
+```bash 
+# Ember
+ember new cool-app
+cd cool-app/
+ember build --environment='production'
 
-      # Phonegap
-      phonegap create phonegap/ com.companyname.cool-app cool-app
-    </pre>
-  </div>
-</div>
+# Phonegap
+phonegap create phonegap/ com.companyname.cool-app cool-app
+```
 
 <p>If you want to debug the Ember app within Phonegap, remove the `--environment` flag, it will default to "development".</p>
 
@@ -30,9 +23,9 @@ Create an Ember project and inside create the Phonegap project.
     cool-app>_
   </div>
   <div class="panel-body">
-    <pre class="brush: bash">
+    <code class="brush: bash">
       cp -vR dist/assets/ phonegap/www/
-    </pre>
+    </code>
   </div>
 </div>
 
@@ -42,7 +35,7 @@ Create an Ember project and inside create the Phonegap project.
     cool-app/phonegap/www/index.html
   </div>
   <div class="panel-body">
-    <pre class="brush: diff">
+    <code class="brush: diff">
       -&lt;link rel="stylesheet" type="text/css" href="css/index.css" />
       +&lt;link rel="stylesheet" href="assets/vendor-d41d8cd98f00b204e9800998ecf8427e.css">
       +&lt;link rel="stylesheet" href="assets/cool-app-de3c495d5da3bffcdc865aaa60f76ab3.css">
@@ -59,7 +52,7 @@ Create an Ember project and inside create the Phonegap project.
       +&lt;script src="assets/cool-app-201c7a50ebb6db2e54e2d5bc2b255762.js">&lt;/script>
       &lt;script type="text/javascript" src="cordova.js">&lt;/script>
       &lt;script type="text/javascript" src="js/index.js">&lt;/script>
-    </pre>
+    </code>
   </div>
 </div>
 
@@ -72,7 +65,7 @@ The statements were copied from dist/index.html.
     cool-app/phonegap/www/js/index.js
   </div>
   <div class="panel-body">
-    <pre class="brush: diff">
+    <code class="brush: diff">
       - var parentElement = document.getElementById(id);
       - var listeningElement = parentElement.querySelector('.listening');
       - var receivedElement = parentElement.querySelector('.received');
@@ -84,7 +77,7 @@ The statements were copied from dist/index.html.
       + window.CoolAppENV = {"environment":"production","baseURL":"/","locationType":"auto","EmberENV":{"FEATURES":{}},"APP":{}};
       + window.EmberENV = window.CoolAppENV.EmberENV;
       + window.CoolApp = require('cool-app/app')['default'].create(CoolAppENV.APP);
-</pre>
+</code>
   </div>
 </div>
 
@@ -98,10 +91,10 @@ We have to delete <b>baseURL</b> and change <b>locationType</b> to "none".
     cool-app/phonegap/www/js/index.js
   </div>
   <div class="panel-body">
-    <pre class="brush: diff">
+    <code class="brush: diff">
       - window.CoolAppENV = {"environment":"production","baseURL":"/","locationType":"auto","EmberENV":{"FEATURES":{}},"APP":{}};
       + window.CoolAppENV = {"environment":"production","locationType":"none","EmberENV":{"FEATURES":{}},"APP":{}};
-    </pre>
+    </code>
   </div>
 </div>
 
@@ -117,10 +110,10 @@ You'll have to do that or connect an actual device, depending on how you want to
     cool-app>_
   </div>
   <div class="panel-body">
-    <pre class="brush: bash">
+    <code class="brush: bash">
       cd phonegap/
       phonegap run android
-    </pre>
+    </code>
   </div>
 </div>
 
