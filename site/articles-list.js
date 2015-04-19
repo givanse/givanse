@@ -7,7 +7,7 @@ var articles = [
     title: 'Why I use Ember.js?',
     created: '31/Mar/2015',
     updated: '',
-    description: 'Putting asfilenamee technical aspects, what is good about Ember.js?'
+    description: 'Putting aside technical aspects, what is good about Ember.js?'
   },
   {
     filename: 'mvc-past-present-and-future',
@@ -21,7 +21,7 @@ var articles = [
     title: 'Ember CLI & Phonegap',
     created: '09/Jul/2014',
     updated: '',
-    description: 'Place an Ember CLI app insfilenamee Phonegap.'
+    description: 'Place an Ember CLI app inside Phonegap.'
   },
   {
     filename: 'ember-cli-simple-auth-devise',
@@ -33,8 +33,7 @@ var articles = [
 ];
 
 articles.forEach(function(article) {
-  var fileName = article.filename + '.md';
-  var filePath = 'site/articles-bodies/' + fileName; 
+  var filePath = 'site/articles-bodies/' + article.filename + '.md'; 
   article.body = fs.readFileSync(filePath).toString();
 });
 

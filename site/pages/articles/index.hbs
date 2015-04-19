@@ -1,15 +1,44 @@
 {{#layout}}
 
-<h1>Articles</h1>
-
 {{#each page.articlesList}} 
-  {{created}}    
-  {{updated}}    
-  <!--link-to checks for broken links and we are dynamically generating them-->
-  <a href="/{{filename}}">
-    {{title}}
-  </a>
-  <br>
+
+  <div class="row post">
+    <div class="hidden-xs col-sm-1 col-md-2 col-lg-2">
+    </div>
+
+    <div class="col-xs-4 col-sm-3 col-md-2">
+      {{#if updated}}
+        <s>
+      {{/if}}
+        <time class="post_date">{{created}}</time>
+      {{#if updated}}
+        </s>
+      {{/if}}
+    </div>
+
+    <div class="col-xs-8 col-sm-7">
+      <!--link-to checks for broken links and we are dynamically generating them-->
+      <a href="/{{filename}}">
+        {{title}}
+      </a>
+    </div>
+  </div>
+
+  <div class="row post">
+    <div class="hidden-xs col-sm-1 col-md-2 col-lg-2">
+    </div>
+
+    <div class="col-xs-4 col-sm-3 col-md-2">
+      <time class="post_date">{{updated}}</time>
+    </div>
+
+    <div class="col-xs-8 col-sm-7">
+      <summary class="post_description">{{description}}</summary>
+    </div>
+  </div>
+
+  <hr>
+
 {{/each}}
 
 {{/layout}}
