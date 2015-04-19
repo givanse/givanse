@@ -2,19 +2,58 @@
 
 <article>
 
-  <header>
-    <h1>
-      {{page.title}}
-    </h1>
-    <time>{{page.created}}</time>
-    <time>{{page.updated}}</time>    
-  </header>
+  <div class="row row_max_w">
+    <div class="col-xs-12">
+      <h1>{{page.title}}</h1>
+    </div>
+  </div>
 
-  {{#markdown}}
-    {{page.body}}
-  {{/markdown}}
+  <div class="row row_max_w">
+    <div class="col-xs-6">
+      {{#if page.updated}}<s>{{/if}}
+        <time class='post_date'>{{page.created}}</time>
+      {{#if page.updated}}</s>{{/if}}
+      <br>
+
+      <time class='post_date'>{{page.updated}}</time>
+      <br>
+    </div>
+
+    <div class="col-xs-6 text-right">
+    </div>
+  </div>
+  <br>
+
+  <div class="row row_max_w">
+    <div class="col-xs-12">
+      {{#markdown}}
+        {{page.body}}
+      {{/markdown}}
+    </div>
+  </div>
+
 
   <footer>
+    <hr>
+
+    <div class="row row_max_w">
+      <div class="col-xs-8 col-sm-10 text-right">
+        <abbr title="Gast&oacute;n Iv&aacute;n Silva Echegaray">Gast&oacute;n I. Silva</abbr><br>
+        <a href="https://twitter.com/givanse" target="_blank">@givanse</a>
+      </div>
+
+      <div class="col-xs-4 col-sm-2">
+        <img src="/static/img/givanse.png" class="img-responsive avatar">
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row row_max_w">
+      <div class="col-xs-12">
+        \{{disqus-comments identifier=id}}
+      </div>
+    </div>
   </footer>
 
 </article>
