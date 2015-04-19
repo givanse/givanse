@@ -1,12 +1,12 @@
-var concatenate = require('broccoli-concat'),
-    mergeTrees  = require('broccoli-merge-trees'),
-    pickFiles   = require('broccoli-static-compiler'),
-    uglifyCss = require('broccoli-more-css'),
-    htmlMin = require('broccoli-htmlmin'),
-    cssLint = require('broccoli-csslint'),
-    uncss = require('broccoli-uncss'),
-    env = require('broccoli-env').getEnv(),
-    root = '.';
+var concatenate = require('broccoli-concat');
+var mergeTrees  = require('broccoli-merge-trees');
+var funnel   = require('broccoli-funnel');
+var uglifyCss = require('broccoli-more-css');
+var htmlMin = require('broccoli-htmlmin');
+var cssLint = require('broccoli-csslint');
+var uncss = require('broccoli-uncss');
+var env = require('broccoli-env').getEnv();
+var root = '.';
 
 /*******************************************************************************
  * CSS
@@ -34,19 +34,9 @@ appCss = uncss(appCss, uncssOptions);
 */
 
 /*******************************************************************************
- * IMAGES 
- ******************************************************************************/
-var appImg = pickFiles(root, {
-  srcDir  : 'assets/img/',
-  files   : ['**/*.png'],
-  destDir : '/static/img'
-});
-
-/*******************************************************************************
  * FONTS 
  ******************************************************************************/
-var fFonts = pickFiles(root, {
-  srcDir  : 'assets/fontello/font',
+var fontelloFonts = funnel('assets/fontello/font/', {
   files   : ['fontello.woff',
              'fontello.ttf'],
   destDir : '/font'
@@ -68,6 +58,6 @@ if ( env === 'production' ) {
 
 var Site = require('broccoli-taco');
 var site = new Site();
+var appTree = site.toTree();
 
-// merge HTML, JavaScript and CSS trees into a single tree and export it
-module.exports = mergeTrees([site.toTree(), vendorCss, fFonts, appImg]);
+module.exports = mergeTrees([appTree, vendorCss, fontelloFonts]);
