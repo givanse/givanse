@@ -19,7 +19,7 @@ appCss = cssLint(appCss);
 var vendorCss = concatenate(root, {
                   inputFiles : ['node_modules/bootstrap/dist/css/bootstrap.css',
                                 'assets/fontello/css/fontello.css',
-                                'node_modules/highlight.js/styles/solarized_light.css'],
+                                'node_modules/highlight.js/styles/mono-blue.css'],
                   outputFile : '/vendor.css'
                 });
 
