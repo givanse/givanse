@@ -1,6 +1,6 @@
 <div class="row row_max_w">
   <div class="col-xs-12">
-    <img class="img-responsive" alt="controller tower" src="/site/img/control_tower.jpg">
+    <img class="img-responsive" alt="controller tower" src="/static/img/control_tower.jpg">
   </div>
 </div>
 
@@ -13,7 +13,7 @@
   So, where the confusion comes from?
 </p>
 
-<h2>Misconception</h2>
+## Misconception
 
 <p>
   In many cases undergraduates of a 
@@ -47,7 +47,7 @@
   against the wall because not everything is tied as you read it was supposed to be.
 </p>
 
-<h2>Classic MVC</h2>
+## Classic MVC
 
 <p>
   MVC was first described by Trygve Reenskaug with Smalltalk-79; later, the pattern was described in
@@ -80,7 +80,7 @@
 </p>
 
 <p class="text-center">
-  <img class="img-responsive" alt="MVC by Krasner and Pope" src="img/mvc_krasner_pope.png">
+  <img class="img-responsive" alt="MVC by Krasner and Pope" src="/static/img/mvc_krasner_pope.png">
   <small>MVC by Krasner and Pope, the triangle diagram.</small>
 </p>
 
@@ -110,7 +110,7 @@
   </footer>
 </blockquote>
 
-<h2>Context</h2>
+## Context
 
 <p>
   A key point, that is not mentioned often enough, is that:
@@ -128,7 +128,7 @@
   It uses what we'll call server side MVC, more about that will follow below.
 </p>
 
-<h2>MVC Family Rundown</h2>
+## MVC Family Rundown
 
 <p>
   The purpose of the information below is to show design patterns
@@ -173,7 +173,7 @@
   But don't feel overwhelmed, they all have a lot in common, so it is easy to learn about them.
 </p>
 
-<h2>Server MVC</h2>
+## Server MVC
 
 <p>
   This variation of the pattern was the one that actually made popular MVC, mainly through Rails and Struts.
@@ -202,7 +202,7 @@
   how it contributes to the cloudiness of the slogan: MVC.
 </p>
 
-<h2>Client MVC</h2>
+## Client MVC
 <p>
   Modern web applications have evolved to be huge projects with lots of functionality in the client side.
   We need to add, remove or hide elements from the DOM; trigger animations; validate and process data etc.
@@ -231,7 +231,7 @@
   you'll end up being part of a holy war.
 </p>
 
-<h2>Server MVC vs Client MVC?</h2>
+## Server MVC vs Client MVC?
 
 <blockquote>    
   Should I use MVC in the client or will I be fine just using it in the server?
@@ -251,7 +251,7 @@
   And that is a topic of long discussion, that in my opinion, doesn't have a clear cut answer.
 </p>
 
-<h2>Be Ready</h2>
+## Be Ready
 
 <p>
   Just recently a new pattern has been proposed, 
@@ -282,7 +282,7 @@
   Sooner than later, I hope, we'll be coming up with new designs tailored to new needs.
 </p>
 
-<h2>Conclusion</h2>
+## Conclusion
 
 <p>
   MVC is not an off-the-shelf design pattern that you can apply directly to a project.

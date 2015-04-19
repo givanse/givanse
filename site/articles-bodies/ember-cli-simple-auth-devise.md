@@ -12,659 +12,433 @@
     ember-cli-simple-auth-devise</a> repository for the most up to date code.
 </p>
 
-<br>
-
 Tools needed:
-<div class="panel panel-default">
-  <div class="panel-heading">
-    >_ 
-  </div>
-  <div class="panel-body">
-    <pre class="brush: bash">
-      ember -v
-      version: 0.1.1
-      node: 0.10.29
-      npm: 2.1.2
-      # ember-simple-auth 0.6.7
 
-      rails -v
-      Rails 4.0.2
-    </pre>
-  </div>
-</div>
+```bash
+ember -v
+version: 0.1.1
+node: 0.10.29
+npm: 2.1.2
+# ember-simple-auth 0.6.7
+
+rails -v
+Rails 4.0.2
+```
 
 First step, create a project folder:
-<div class="panel panel-default">
-  <div class="panel-heading">
-    >_ 
-  </div>
-  <div class="panel-body">
-    <pre class="brush: bash">
-      mkdir ember-cli-simple-auth-devise
-      cd ember-cli-simple-auth-devise
-    </pre>
-  </div>
-</div>
 
-<h2>Backend</h2>
+    mkdir ember-cli-simple-auth-devise
+    cd ember-cli-simple-auth-devise
 
-  <h3>Rails and Devise</h3>
+## Backend
 
-    <p>Create a Rails project that uses Devise.</p>
+### Rails and Devise
+
+<p>Create a Rails project that uses Devise.</p>
  
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        ember-cli-simple-auth-devise>_
-      </div>
-      <div class="panel-body">
-        <pre class="brush: bash">
-          rails new my-backend
-          cd my-backend
+    rails new my-backend
+    cd my-backend
 
-          # Basic Devise install
-          echo "gem 'devise'" >> Gemfile
-          bundle install
-          rails generate devise:install
-          rails generate devise User
-        </pre>
-      </div>
-    </div> 
+    # Basic Devise install
+    echo "gem 'devise'" >> Gemfile
+    bundle install
+    rails generate devise:install
+    rails generate devise User
 
-  <h3>Configure Devise</h3>
+### Configure Devise
 
-    <p>
-    Devise dropped token support, so we are adding it back to our backend.
-    We will also add a controller that will handle Ember Simple Auth requests.
-    </p>
+<p>
+Devise dropped token support, so we are adding it back to our backend.
+We will also add a controller that will handle Ember Simple Auth requests.
+</p>
 
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        my-backend>_
-      </div>
-      <div class="panel-body">
-        <pre class="brush: bash">
-          rails generate migration add_authentication_token_to_users \
-                                   authentication_token:string
-          rake db:migrate
+    rails generate migration add_authentication_token_to_users \
+                             authentication_token:string
+    rake db:migrate
 
-          rails generate controller sessions
-        </pre>
-      </div> 
-    </div> 
+    rails generate controller sessions
 
-    <p>Auto-generate an authentication token on model creation.</p>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        my-backend/app/models/user.rb
-      </div>
-      <div class="panel-body">
-        <pre class="brush: ruby">
-          class User < ActiveRecord::Base
-            before_save :ensure_authentication_token
+<p>Auto-generate an authentication token on model creation.</p>
 
-            # leave the devise line
-            # devise :database_authenticatable etc.
+    # my-backend/app/models/user.rb
+    class User < ActiveRecord::Base
+      before_save :ensure_authentication_token
 
-            def ensure_authentication_token
-              if authentication_token.blank?
-                self.authentication_token = generate_authentication_token
-              end
-            end
+      # leave the devise line
+      # devise :database_authenticatable etc.
 
-            private
+      def ensure_authentication_token
+        if authentication_token.blank?
+          self.authentication_token = generate_authentication_token
+        end
+      end
 
-              def generate_authentication_token
-                loop do
-                  token = Devise.friendly_token
-                  break token unless User.where(authentication_token: token).first
-                end
-              end
+      private
+
+        def generate_authentication_token
+          loop do
+            token = Devise.friendly_token
+            break token unless User.where(authentication_token: token).first
           end
-        </pre>
-      </div>
-    </div>
+        end
+    end
 
-    <p>Enable Devise to respond to JSON requests.</p>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        my-backend/app/controllers/sessions_controller.rb
-      </div>
-      <div class="panel-body">
-        <pre class="brush: ruby">
-          # Note that we are extending 
-          # from: Devise::SessionsController
-          class SessionsController < Devise::SessionsController
-            def create
-              respond_to do |format|
-                format.html { super }
-                format.json do
-                  self.resource = warden.authenticate!(auth_options)
-                  sign_in(resource_name, resource)
-                  data = {
-                    user_token: self.resource.authentication_token,
-                    user_email: self.resource.email
-                  }
-                  render json: data, status: 201
-                end
-              end
-            end
+<p>Enable Devise to respond to JSON requests.</p>
+
+    # my-backend/app/controllers/sessions_controller.rb
+    # Note that we are extending 
+    # from: Devise::SessionsController
+    class SessionsController < Devise::SessionsController
+      def create
+        respond_to do |format|
+          format.html { super }
+          format.json do
+            self.resource = warden.authenticate!(auth_options)
+            sign_in(resource_name, resource)
+            data = {
+              user_token: self.resource.authentication_token,
+              user_email: self.resource.email
+            }
+            render json: data, status: 201
           end
-        </pre>
-      </div>
-    </div>
+        end
+      end
+    end
 
-    <p>Use the controller that we just made in the previous step.</p>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        my-backend/config/routes.rb
-      </div>
-      <div class="panel-body">
-        <pre class="brush: ruby">
-          #replace this line
-          #devise_for :users
-          devise_for :users, controllers: { sessions: 'sessions' }
-        </pre>
-      </div>
-    </div>
+<p>Use the controller that we just made in the previous step.</p>
 
-    <p>Authenticate users with their email and authentication token.</p>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        my-backend/app/controllers/application_controller.rb
-      </div>
-      <div class="panel-body">
-        <pre class="brush: ruby">
-          class ApplicationController < ActionController::Base
-            before_filter :authenticate_user_from_token!
+    # my-backend/config/routes.rb
+    #replace this line
+    #devise_for :users
+    devise_for :users, controllers: { sessions: 'sessions' }
 
-            # leave the line:
-            # protect_from_forgery
+<p>Authenticate users with their email and authentication token.</p>
 
-            private
+    # my-backend/app/controllers/application_controller.rb
+    class ApplicationController < ActionController::Base
+      before_filter :authenticate_user_from_token!
 
-              def authenticate_user_from_token!
-                authenticate_with_http_token do |token, options|
-                user_email = options[:user_email].presence
-                user       = user_email && User.find_by_email(user_email)
+      # leave the line:
+      # protect_from_forgery
 
-                if user && Devise.secure_compare(user.authentication_token, token)
-                  sign_in user, store: false
-                end
-              end
-            end
+      private
+
+        def authenticate_user_from_token!
+          authenticate_with_http_token do |token, options|
+          user_email = options[:user_email].presence
+          user       = user_email && User.find_by_email(user_email)
+
+          if user && Devise.secure_compare(user.authentication_token, token)
+            sign_in user, store: false
           end
-        </pre>
-      </div>
-    </div>
+        end
+      end
+    end
 
-  <h3>Disable sessions and cookies</h3>    
+### Disable sessions and cookies
 
-    <p>
-      When using Ember Simple Auth with a Devise backend, it doesn't make sense to
-      keep the server side session active as it will send cookies to the client 
-      which are actually redundant when using the authentication token mechanism.
-    </p>
-    <p>
-      We will disable completely creating sessions. 
-      If for some reason you have to keep the session, there are other options, you can read about them here:
-      <a href="https://github.com/simplabs/ember-simple-auth/issues/201" taget="_blank">
-        ember-simple-auth#201</a>.
-    </p>
+<p>
+  When using Ember Simple Auth with a Devise backend, it doesn't make sense to
+  keep the server side session active as it will send cookies to the client 
+  which are actually redundant when using the authentication token mechanism.
+</p>
+<p>
+  We will disable completely creating sessions. 
+  If for some reason you have to keep the session, there are other options, you can read about them here:
+  <a href="https://github.com/simplabs/ember-simple-auth/issues/201" taget="_blank">
+    ember-simple-auth#201</a>.
+</p>
 
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        my-backend/config/initializers/session_store.rb
-      </div>
-      <div class="panel-body">
-        <pre class="brush: ruby">
-          Rails.application.config.session_store :disabled
-        </pre>
-      </div>
-    </div>
+    # my-backend/config/initializers/session_store.rb
+    Rails.application.config.session_store :disabled
 
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        my-backend/app/controllers/application_controller.rb
-      </div>
-      <div class="panel-body">
-        <pre class="brush: ruby">
-          protect_from_forgery with: :null_session
-        </pre>
-      </div>
-    </div>
+and
 
-  <h3>Dummy data</h3>
+    #my-backend/app/controllers/application_controller.rb
+    protect_from_forgery with: :null_session
 
-    <p>We will register two users to the database, so we can test logging-in later.</p>
+### Dummy data
 
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        my-backend/db/seeds.rb
-      </div>
-      <div class="panel-body">
-        <pre class="brush: ruby">
-          User.create([
-            {email: 'green@mail.com',
-             password: '12345678', password_confirmation: '12345678'},
-            {email: 'pink@mail.com',
-             password: '12345678', password_confirmation: '12345678'}
-          ]) 
-        </pre>
-      </div>
-    </div>
+<p>We will register two users to the database, so we can test logging-in later.</p>
+
+    # my-backend/db/seeds.rb
+    User.create([
+      {email: 'green@mail.com',
+       password: '12345678', password_confirmation: '12345678'},
+      {email: 'pink@mail.com',
+       password: '12345678', password_confirmation: '12345678'}
+    ]) 
     
-    <p>Load the data and start the server.</p>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        my-backend>_
-      </div>
-      <div class="panel-body">
-        <pre class="brush: bash">
-          rake db:seed
-          rails server
-        </pre>
-      </div>
-    </div>
+<p>Load the data and start the server.</p>
 
-<h2>Frontend</h2>
+    # my-backend/
+    rake db:seed
+    rails server
 
-  <h3>Ember CLI</h3>
+## Frontend
 
-    <p>
-    Create a very simple Ember application with links to three pages:
-    </p>
-    <ul>
-      <li>
-        index
-      </li>
-      <li>
-        protected
-      </li>
-      <li>
-        login
-      </li>
-    </ul>
+### Ember CLI
 
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        ember-cli-simple-auth-devise>_
-      </div>
-      <div class="panel-body">
-        <pre class="brush: bash">
-          ember new my-frontend
-          cd my-frontend
+<p>
+Create a very simple Ember application with links to three pages:
+</p>
 
-          ember generate route application
-          ember generate route protected
-          ember generate route login
-          ember generate controller login
-          ember generate template index
+<ul>
+  <li>
+    index
+  </li>
+  <li>
+    protected
+  </li>
+  <li>
+    login
+  </li>
+</ul>
 
-          echo "landing page" > app/templates/index.hbs
-          echo "this is a protected page" > app/templates/protected.hbs
-        </pre>
-      </div>
-    </div>
+    # ember-cli-simple-auth-devise>_
+    ember new my-frontend
+    cd my-frontend
 
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        my-frontend/app/templates/application.hbs
-      </div>
-      <div class="panel-body">
-        <pre class="brush: js">
-          &lt;h2 id='title'>Frontend&lt;/h2>
+    ember generate route application
+    ember generate route protected
+    ember generate route login
+    ember generate controller login
+    ember generate template index
 
-          \{{#link-to 'index'}}Home\{{/link-to}}
-          \{{#link-to 'protected'}}Protected\{{/link-to}}
+    echo "landing page" > app/templates/index.hbs
+    echo "this is a protected page" > app/templates/protected.hbs
 
-          &lt;hr>
-          \{{outlet}}
-        </pre>
-      </div>
-    </div>
+then in `my-frontend/app/templates/application.hbs`
 
-  You may test the app.
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      my-frontend>_
-    </div>
-    <div class="panel-body">
-      <pre class="brush: bash">
-        ember server
-        # visit http://0.0.0.0:4200
-      </pre>
-    </div>
-  </div>
+```handlebars
+<h2 id='title'>Frontend</h2>
 
-  <h3>Ember Simple Auth</h3>
+{{#link-to 'index'}}Home{{/link-to}}
+{{#link-to 'protected'}}Protected{{/link-to}}
 
-    <h4>Install</h4>
+<hr>
+{{outlet}}
+```
 
-    <p>We will be using Ember Simple Auth packaged as an ember cli addon.</p>
+You may test the app.
 
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        my-frontend>_
-      </div>
-      <div class="panel-body">
-        <pre class="brush: bash">
-          npm install --save-dev ember-cli-simple-auth
-          npm install --save-dev ember-cli-simple-auth-devise
-          ember generate ember-cli-simple-auth
-          ember generate ember-cli-simple-auth-devise
-        </pre>
-      </div>
-    </div>
+    # my-frontend/
+    ember server
+    # visit http://0.0.0.0:4200
 
-    <div class="panel panel-default">   
-      <div class="panel-heading">   
-        my-frontend/config/environment.js     
-      </div>    
-      <div class="panel-body">  
-        <pre class="brush: js">   
-          module.exports = function(environment) {  
-            ENV['simple-auth'] = {    
-              authorizer: 'simple-auth-authorizer:devise'   
-            };    
-          }     
-        </pre>
-      </div>
-    </div>
+### Ember Simple Auth
 
-    <h4>Edit routes</h4>
+#### Install
 
-    <p>We will use the route mixins provided by Ember Simple Auth.</p>
+<p>We will be using Ember Simple Auth packaged as an ember cli addon.</p>
 
-    <p>The ApplicationRouteMixin provides the authenticate and invalidate actions.</p>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        my-frontend/app/routes/application.js
-      </div>
-      <div class="panel-body">
-          <pre class="brush: js">
-            import Ember from 'ember';
-            import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin';
+    # my-frontend/
+    npm install --save-dev ember-cli-simple-auth
+    npm install --save-dev ember-cli-simple-auth-devise
+    ember generate ember-cli-simple-auth
+    ember generate ember-cli-simple-auth-devise
 
-            export default Ember.Route.extend(ApplicationRouteMixin);
-          </pre>
-      </div>
-    </div>
+in `my-frontend/config/environment.js`     
 
-    <p>The AuthenticatedRouteMixin makes a route available only to logged in users.</p>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        my-frontend/app/routes/protected.js
-      </div>
-      <div class="panel-body">
-          <pre class="brush: js">
-            import Ember from 'ember';
-            import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin';
+    module.exports = function(environment) {  
+      ENV['simple-auth'] = {    
+        authorizer: 'simple-auth-authorizer:devise'   
+      };    
+    }     
 
-            export default Ember.Route.extend(AuthenticatedRouteMixin);
-          </pre>
-      </div>
-    </div>
+#### Edit routes
 
-    <h4>Edit controllers</h4>
+<p>We will use the route mixins provided by Ember Simple Auth.</p>
 
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        my-frontend/app/controllers/login.js
-      </div>
-      <div class="panel-body">
-          <pre class="brush: js">
-            import Ember from 'ember';
-            import LoginControllerMixin from 'simple-auth/mixins/login-controller-mixin';
+<p>The ApplicationRouteMixin provides the authenticate and invalidate actions.</p>
 
-            export default Ember.Controller.extend(LoginControllerMixin, {
-              authenticator: 'simple-auth-authenticator:devise'
-            });
-          </pre>
-      </div>
-    </div>
+    // my-frontend/app/routes/application.js
+    import Ember from 'ember';
+    import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin';
 
-    <h4>Templates and Ember Simple Auth helpers</h4>
+    export default Ember.Route.extend(ApplicationRouteMixin);
 
-  <div class="panel panel-default">
-    <div class="panel-heading">
-          my-frontend/app/template/application.hbs
-    </div>
-    <div class="panel-body">
-          <pre class="brush: js">
-            \{{#if session.isAuthenticated}}
-              &lt;button \{{ action 'invalidateSession' }}>Logout&lt;/button>
-            \{{else}}
-              \{{#link-to 'login'}}Login\{{/link-to}}
-            \{{/if}}
-            #&lt;hr>
-          </pre>
-      </div>
-    </div>
+<p>The AuthenticatedRouteMixin makes a route available only to logged in users.</p>
 
-  <div class="panel panel-default">
-    <div class="panel-heading">
-          my-frontend/app/templates/login.hbs
-    </div>
-    <div class="panel-body">
-          <pre class="brush: js">
-            &lt;form \{{action 'authenticate' on='submit'}}>
-              &lt;label for='identification'>Login&lt;/label>
-              \{{input id='identification' placeholder='Enter Login'
-                       value=identification}}
-              &lt;label for='password'>Password&lt;/label>
-              \{{input id='password' placeholder='Enter Password'
-                       type='password' value=password}}
-              &lt;button type='submit'>Login&lt;/button>
-            &lt;/form>
-          </pre>
-    </div>
-  </div>
+    // my-frontend/app/routes/protected.js
+    import Ember from 'ember';
+    import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin';
 
-  <h3>Try it out</h3>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        my-frontend>_
-      </div>
-      <div class="panel-body">
-        <pre class="brush: bash">
-          ember server --proxy http://0.0.0.0:3000
-          # Visit http://0.0.0.0:4200
+    export default Ember.Route.extend(AuthenticatedRouteMixin);
 
-          # Don't forget to have the rails server running too.
-        </pre>
-      </div>
-    </div>
+#### Edit controllers
 
-    <p>
-    That is all, logging-in should be working now.
-    </p>
+    // my-frontend/app/controllers/login.js
+    import Ember from 'ember';
+    import LoginControllerMixin from 'simple-auth/mixins/login-controller-mixin';
+
+    export default Ember.Controller.extend(LoginControllerMixin, {
+      authenticator: 'simple-auth-authenticator:devise'
+    });
+
+#### Templates and Ember Simple Auth helpers
+
+`my-frontend/app/template/application.hbs`
+
+    {{#if session.isAuthenticated}}
+      <button {{ action 'invalidateSession' }}>Logout</button>
+    {{else}}
+      {{#link-to 'login'}}Login{{/link-to}}
+    {{/if}}
+
+`my-frontend/app/templates/login.hbs`
+
+    <form {{action 'authenticate' on='submit'}}>
+      <label for='identification'>Login</label>
+      {{input id='identification' placeholder='Enter Login'
+               value=identification}}
+      <label for='password'>Password</label>
+      {{input id='password' placeholder='Enter Password'
+               type='password' value=password}}
+      <button type='submit'>Login</button>
+    </form>
+
+### Try it out
+
+    # my-frontend/
+    ember server --proxy http://0.0.0.0:3000
+    # Visit http://0.0.0.0:4200
+
+    # Don't forget to have the rails server running too.
+
+<p>
+  That is all, logging-in should be working now.
+</p>
 
 <br>
 <br>
 <br>
 
-<h2>Errors</h2>
+## Errors
 
-  <p>This are errors that, if you followed all the instructions, should not be appearing.</p>
+<p>This are errors that, if you followed all the instructions, should not be appearing.</p>
 
-  <h3>Error 422 - Unprocessable Entity</h3>
+### Error 422 - Unprocessable Entity
 
-    In the console you get a 422 error accompanied by a rails server error:
-    <blockquote>
-      <p>
-        POST http://localhost:4200/token 422 (Unprocessable Entity)
-      </p>
+In the console you get a 422 error accompanied by a rails server error:
 
-      <p>
-        Can't verify CSRF token authenticity
-        Completed 422 Unprocessable Entity in 29ms
-      </p>
-    </blockquote>
+<blockquote>
+  <p>
+    POST http://localhost:4200/token 422 (Unprocessable Entity)
+  </p>
 
-    <h4>Solution</h4>
+  <p>
+    Can't verify CSRF token authenticity
+    Completed 422 Unprocessable Entity in 29ms
+  </p>
+</blockquote>
 
-      ember-cli needs to keep track of the CSRF token, this can be solved with
-      <a href="https://github.com/abuiles/rails-csrf" target="_blank">
-      rails-csrf</a>. We will make changes to both the backend and the frontend.
+#### Solution
 
-      <h5>Rails</h5>
+ember-cli needs to keep track of the CSRF token, this can be solved with
+<a href="https://github.com/abuiles/rails-csrf" target="_blank">rails-csrf</a>.
+We will make changes to both the backend and the frontend.
 
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            my-backend>_
-          </div>
-          <div class="panel-body">
-            <pre class="brush: bash">
-              rails generate controller api/csrf
-            </pre>
-          </div>
-        </div>
+##### Rails
 
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            my-backend/app/controllers/api/csrf_controller.rb
-          </div>
-          <div class="panel-body">
-            <pre class="brush: bash">
-              # add an index action
-                def index
-                  render json: { request_forgery_protection_token => form_authenticity_token }.to_json
-              end
-            </pre>
-          </div>
-        </div>
+    # my-backend>_
+    rails generate controller api/csrf
 
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            my-backend/config/routes.rb
-          </div>
-          <div class="panel-body">
-            <pre class="brush: ruby">
-              # add a namespace
-              namespace :api do
-                get :csrf, to: 'csrf#index'
-              end
-            </pre>
-          </div>
-        </div>
+`my-backend/app/controllers/api/csrf_controller.rb`
 
-      <h5>Ember</h5>
+    # add an index action
+      def index
+        render json: { request_forgery_protection_token => form_authenticity_token }.to_json
+    end
 
-        Install rails-csrf
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            my-frontend>_
-          </div>
-          <div class="panel-body">
-            <pre class="brush: bash">
-              bower install rails-csrf#0.0.5 --save
-            </pre>
-          </div>
-        </div>
+`my-backend/config/routes.rb`
 
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            my-frontend/Brocfile
-          </div>
-          <div class="panel-body">
-            <pre class="brush: js">
-              app.import('vendor/rails-csrf/dist/named-amd/main.js', {
-                'rails-csrf': [
-                  'service'
-                ]
-              });
-            </pre>
-          </div>
-        </div>
+    # add a namespace
+    namespace :api do
+      get :csrf, to: 'csrf#index'
+    end
 
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            my-frontend/app/app.js
-          </div>
-          <div class="panel-body">
-            <pre class="brush: js">
-              // add this line before the one below
-              loadInitializers(App, 'rails-csrf');
+##### Ember
 
-              //export default App;
-            </pre>
-          </div>
-        </div>
+Install rails-csrf
 
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            my-frontend/app/routes/application.js
-          </div>
-          <div class="panel-body">
-            <pre class="brush: diff">
-              -export default Ember.Route.extend(ApplicationRouteMixin);
-              +export default Ember.Route.extend(ApplicationRouteMixin, {
-              +  beforeModel: function () {
-              +    this._super.apply(this, arguments);
-              +    return this.csrf.fetchToken();
-              +  }
-              +});
-            </pre>
-          </div>
-        </div>
+    # my-frontend/
+    bower install rails-csrf#0.0.5 --save
 
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            my-frontend/config/environment.js
-          </div>
-          <div class="panel-body">
-            <pre class="brush: diff">
-              module.exports = function(environment) {
-                var ENV = {
-            +     railsCsrf: {
-            +       csrfURL: 'api/csrf'
-            +     }
-                };
-              };
-            </pre>
-          </div>
-        </div>
+`my-frontend/Brocfile.js`
 
-        Everything should be working now, start both servers.
+    app.import('vendor/rails-csrf/dist/named-amd/main.js', {
+      'rails-csrf': [
+        'service'
+      ]
+    });
 
-  <h3>Error 404</h3>
-    <pre class="brush: bash">
-      POST http://localhost:4200/token 404 (Not Found)
-      # chances are you didn't specify a proxy when starting the ember server
-    </pre>
+`my-frontend/app/app.js`
 
-  <h3>Error 500</h3>
-    <pre class="brush: bash">
-      POST http://localhost:4200/token 500 (Internal Server Error)
-      # chances are you specified the wrong proxy when starting the ember server
-    </pre>
+```diff
++ loadInitializers(App, 'rails-csrf');
+  export default App;
+```
 
-  <h3>Error 408 or 500 - Time out</h3>
-    In the console you get a 408 error:
-    <pre class="brush: js">
-      POST http://localhost:4200/token 408 (Request Time-out)
-    </pre>
-    Or a 500 error accompanied by an ember server error:
-    <pre class="brush: js">
-      POST http://localhost:4200/token 500 (Internal Server Error)
-    </pre>
-    <pre class="brush: bash">
-      Error: socket hang up
-        at createHangUpError
-    </pre>
+`my-frontend/app/routes/application.js`
 
-    <h4>Solution</h4>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          my-frontend/server/index.js
-        </div>
-        <div class="panel-body">
-          <pre class="brush: js">
-            //app.use(bodyParser());
-          </pre>
-        </div>
-      </div>
+```diff
+- export default Ember.Route.extend(ApplicationRouteMixin);
++ export default Ember.Route.extend(ApplicationRouteMixin, {
++   beforeModel: function () {
++     this._super.apply(this, arguments);
++     return this.csrf.fetchToken();
++   }
++ });
+```
 
-      This error appeared in previous versions of ember-cli, but no longer does.
-      To know more see
-      <a href="https://github.com/stefanpenner/ember-cli/issues/723" target="_blank">ember-cli#723</a>.<br>
+`my-frontend/config/environment.js`
+
+```diff
+  module.exports = function(environment) {
+    var ENV = {
++     railsCsrf: {
++       csrfURL: 'api/csrf'
++     }
+    };
+  };
+```
+
+Everything should be working now, start both servers.
+
+### Error 404
+
+    POST http://localhost:4200/token 404 (Not Found)
+    # chances are you didn't specify a proxy when starting the ember server
+
+### Error 500
+
+    POST http://localhost:4200/token 500 (Internal Server Error)
+    # chances are you specified the wrong proxy when starting the ember server
+
+### Error 408 or 500 - Time out
+
+In the console you get a 408 error:
+
+    POST http://localhost:4200/token 408 (Request Time-out)
+
+Or a 500 error accompanied by an ember server error:
+
+```js
+POST http://localhost:4200/token 500 (Internal Server Error)
+```
+
+```bash
+Error: socket hang up
+  at createHangUpError
+```
+
+#### Solution
+
+in `my-frontend/server/index.js`
+
+    //app.use(bodyParser());
+
+This error appeared in previous versions of ember-cli, but no longer does.
+To know more see
+<a href="https://github.com/stefanpenner/ember-cli/issues/723" target="_blank">ember-cli#723</a>.<br>
