@@ -21,8 +21,7 @@
 @links_color: @color-secondary-2-3;
 @header_footer_background_color: @color-primary-0;
 
-html, body,
-body > .ember-view {
+html, body {
   border-width: 0;
   height: 100%;
   margin: 0;
@@ -146,28 +145,39 @@ p {
   width: 100%;
 }
 
-.post {
+/* /articles */
+
+article,
+.article {
   line-height: 2rem;
 }
 
-.post a {
+article a,
+.article a {
   color: @color-secondary-1-4;
   font-weight: bold;
   background-color: @color-secondary-2-1;  
   text-decoration: none;
 }
 
-.post a:hover {
+article a:hover,
+.article a:hover {
   background-color: @color-secondary-2-2;  
 }
 
-.post_date {
+.article_date {
   color: @color-secondary-2-2;
 }
 
-.post_description {
+.article_description {
   display: inline-block;
 }
+
+.header_link {
+  background-color: transparent;  
+}
+
+/* /about */
 
 .about_label {
   color: @color-secondary-1-2;
@@ -200,12 +210,6 @@ p {
   html { font-size: 16px; }
 }
 
-/* https://github.com/alexgorbatrchev/SyntaxHighlighter/issues/167 */
-div.syntaxhighlighter .container::before,
-div.syntaxhighlighter .container::after {
-  content: none;
-}
-
 .avatar {
   -ms-transform: scaleX(-1);
   -moz-transform: scaleX(-1);
@@ -216,11 +220,9 @@ div.syntaxhighlighter .container::after {
   -ms-filter: "FlipH";
 }
 
-/* Bootstrap overrides and customizations */
-
-.panel-default > .panel-heading {
-  color: @color-secondary-2-3; 
-}
+/**
+  Bootstrap overrides and customizations
+*/
 
 blockquote {
   border-left-color: #bebebe;

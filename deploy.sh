@@ -11,7 +11,7 @@ distFolder='dist'
 rm -vf $ghpages'/*.css'
 rm -vf $ghpages'/*.js'
 
-cp -vR $distFolder'/*' $ghpages
+cp -vR $distFolder/* $ghpages
 
 cd $ghpages
 

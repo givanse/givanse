@@ -2,7 +2,7 @@
 
 {{#each page.articlesList}} 
 
-  <div class="row post">
+  <div class="row article">
     <div class="hidden-xs col-sm-1 col-md-2 col-lg-2">
     </div>
 
@@ -10,7 +10,7 @@
       {{#if updated}}
         <s>
       {{/if}}
-        <time class="post_date">{{created}}</time>
+        <time class="article_date">{{created}}</time>
       {{#if updated}}
         </s>
       {{/if}}
@@ -24,16 +24,16 @@
     </div>
   </div>
 
-  <div class="row post">
+  <div class="row article">
     <div class="hidden-xs col-sm-1 col-md-2 col-lg-2">
     </div>
 
     <div class="col-xs-4 col-sm-3 col-md-2">
-      <time class="post_date">{{updated}}</time>
+      <time class="article_date">{{updated}}</time>
     </div>
 
     <div class="col-xs-8 col-sm-7">
-      <summary class="post_description">{{description}}</summary>
+      <summary class="article_description">{{description}}</summary>
     </div>
   </div>
 

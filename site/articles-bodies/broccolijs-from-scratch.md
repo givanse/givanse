@@ -55,7 +55,7 @@ We will install a Broccoli plugin and use it to build the website.
 
     npm install --save-dev broccoli-funnel
 
-In `Brocfile.js`
+In `Brocfile.js` add:
 
 ```js
 var funnel = require('broccoli-funnel');
@@ -83,7 +83,7 @@ Two plugins will be installed:
     npm install --save-dev broccoli-concat
     npm install --save-dev broccoli-merge-trees
 
-We add the file `style.css`:
+We add the file `style.css` with:
 
 ```css
 body {
@@ -106,7 +106,7 @@ var styles = concat('.', {
 module.exports = mergeTrees([html, styles]);
 ```
 
-The final CSS file must be included in `index.html`
+The final CSS file must be included in `index.html`:
 
     <link rel="stylesheet" href="site.css">
 

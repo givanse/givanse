@@ -13,7 +13,7 @@ renderer.heading = function(text, level) {
   var escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
 
   return '<h' + level + ' id="'+escapedText+'" class="header_padding">' +
-           '<a name="' + escapedText + '" class="" href="#' + escapedText + '">'+
+           '<a class="header_link" name="' + escapedText + '" href="#' + escapedText + '">'+
              '<i class="icon-link"></i>' +
            '</a>' + text + 
          '</h' + level + '>';

@@ -26,12 +26,17 @@
     <header class="header container">
       <div class="row header_0">
         <nav class="row_max_w menu">
-          {{#link-to 'articles'}}
-            articles
-          {{/link-to}}
-          {{#link-to 'about'}}
-            about
-          {{/link-to}}
+          {{#if page.articles}}
+            {{#link-to 'articles' class='active'}}articles{{/link-to}}
+          {{else}}
+            {{#link-to 'articles'}}articles{{/link-to}}
+          {{/if}}
+
+          {{#if page.about}}
+            {{#link-to 'about' class='active'}}about{{/link-to}}
+          {{else}}
+            {{#link-to 'about'}}about{{/link-to}}
+          {{/if}}
         </nav>
       </div>
       <div class="row header_1"></div>
