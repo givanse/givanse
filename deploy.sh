@@ -4,15 +4,14 @@ set -e
 
 ghpages=../givanse-gh-pages
 
-distFolder='dist/'
+distFolder='dist'
 
-rm -rv $distFolder
-BROCCOLI_TACO_ENV=production broccoli-taco build $distFolder
+./build.sh
 
 rm -vf $ghpages'/*.css'
 rm -vf $ghpages'/*.js'
 
-cp -vR dist/* $ghpages
+cp -vR $distFolder'/*' $ghpages
 
 cd $ghpages
 

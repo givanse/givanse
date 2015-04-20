@@ -178,3 +178,9 @@ This time a server will be needed for us to see the changes:
 
 I used an old Node version because the command `broccoli serve` wouldn't work as I expected in 0.11 and 0.12,
 but `broccoli build` works just fine, which is what really matters.
+
+One trick to test your project from the `dist/` folder is to start a server from there:
+
+    cd dist/
+    python -m SimpleHTTPServer
+    # visit http://localhost:8000/
