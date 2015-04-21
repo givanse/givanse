@@ -1,5 +1,6 @@
-node_modules/
-dist/
-tmp/
-test/test-site/dist/
+/dist
+/node_modules
+/tmp
+/.sass-cache
+npm-debug.log
 assets/fontello/
