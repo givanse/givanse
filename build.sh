@@ -6,13 +6,12 @@ distFolder='dist'
 
 rm -rvf $distFolder
 
-BROCCOLI_ENV=production BROCCOLI_TACO_ENV=production broccoli-taco build $distFolder
+BROCCOLI_ENV=production
+BROCCOLI_TACO_ENV=production
+broccoli-taco build $distFolder
 
-# add "redirect"
-cd dist
-rm index.html
-ln -vs about/index.html index.html
-cd -
+# fake "redirect"
+cp -v $distFolder/about/index.html $distFolder
 
 echo -e '\nbuild complete'
 
