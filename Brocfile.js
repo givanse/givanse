@@ -9,6 +9,10 @@ var env = require('broccoli-env').getEnv();
 var compileLess = require('broccoli-less-single');
 var root = '.';
 
+var metaFiles = funnel(root, {
+  files   : ['robots.txt', 'sitemap.xml', 'favicon.ico']
+});
+
 var fontelloFonts = funnel('assets/fontello/font/', {
   files   : ['fontello.woff',
              'fontello.ttf'],
@@ -54,4 +58,4 @@ if ( env === 'production' ) {
   //});
 }
 
-module.exports = mergeTrees([appTree, vendorCss, appCss, fontelloFonts]);
+module.exports = mergeTrees([appTree, vendorCss, appCss, fontelloFonts, metaFiles]);

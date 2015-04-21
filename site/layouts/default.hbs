@@ -5,8 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-    <meta name="description" content=""/>
     <meta name="author" content="givanse@gmail.com">
+    <meta name="title" content="{{page.title}}"/>
+    <meta name="description" content="{{page.description}}"/>
+    <meta name="language" content="english">
 
     <title>
       {{#if page.title}}
@@ -42,10 +44,10 @@
             {{#link-to 'articles'}}articles{{/link-to}}
           {{/if}}
 
-          {{#if page.about}}
-            {{#link-to 'about' class='active'}}about{{/link-to}}
+          {{#if page.index}}
+            {{#link-to 'index' class='active'}}about{{/link-to}}
           {{else}}
-            {{#link-to 'about'}}about{{/link-to}}
+            {{#link-to 'index'}}about{{/link-to}}
           {{/if}}
         </nav>
       </div>
@@ -55,7 +57,7 @@
 
     <div class="layout">
       <div class="container">
-        <div class="header_placeholder" class="row"></div>
+        <div class="row header_placeholder"></div>
         {{{yield}}}
       </div>
      
