@@ -1,5 +1,13 @@
 module.exports = [
   {
+    filename: 'ember-and-sails-authentication-options',
+    title: 'Ember and Sails authentication options',
+    created: '15/May/2015',
+    updated: '',
+    description: 'What are the possible ways of authenticating an Ember app with a Sails backend?',
+    keywords: 'Ember.js, Sails.js, Sane Stack, Authentication'
+  },
+  {
     filename: 'broccolijs-from-scratch',
     title: 'Broccoli.js from scratch',
     created: '19/Apr/2015',
