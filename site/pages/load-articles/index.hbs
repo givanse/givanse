@@ -37,13 +37,14 @@
     </div>
   </section>
 
-  <footer>
-    <hr>
+  <br>
 
+  <footer>
     <div class="row row_max_w">
       <div class="col-xs-8 col-sm-10 text-right">
         <abbr title="Gast&oacute;n Iv&aacute;n Silva Echegaray">Gast&oacute;n I. Silva</abbr><br>
-        <a href="https://twitter.com/givanse" target="_blank">@givanse</a>
+        <a href="https://twitter.com/givanse" class="twitter-follow-button" data-show-count="false">Follow @givanse</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
       </div>
 
       <div class="col-xs-4 col-sm-2">
@@ -51,9 +52,16 @@
       </div>
     </div>
 
-    <hr>
-
     <div class="row row_max_w">
+      <br>
+      <hr>
+
+      <div class="col-xs-12">
+        {{>share-buttons}}
+      </div>
+
+      <hr class="clearfix">
+
       <div class="col-xs-12">
         {{{disqus-comments identifier=page.filename title=page.title}}}
       </div>

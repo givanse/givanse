@@ -6,7 +6,8 @@ module.exports = [
     created: '15/May/2015',
     updated: '',
     description: 'What are the possible ways of authenticating an Ember app with a Sails backend?',
-    keywords: 'Ember.js, Sails.js, Sane Stack, Authentication'
+    keywords: 'Ember.js, Sails.js, Sane Stack, Authentication',
+    hashtags: 'emberjs, sailsjs'
   },
   {
     url: '/broccolijs-from-scratch',
@@ -15,7 +16,8 @@ module.exports = [
     created: '19/Apr/2015',
     updated: '',
     description: 'Build a website from scratch with Broccoli.js',
-    keywords: 'Broccoli.js'
+    keywords: 'Broccoli.js',
+    hashtags: 'broccolijs'
   },
   {
     url: '/ember-i-choose-you',
@@ -24,7 +26,8 @@ module.exports = [
     created: '31/Mar/2015',
     updated: '',
     description: 'Putting aside technical aspects, what is good about Ember.js?',
-    keywords: 'Ember.js'
+    keywords: 'Ember.js',
+    hashtags: 'emberjs'
   },
   {
     url: '/mvc-past-present-and-future',
@@ -33,7 +36,8 @@ module.exports = [
     created: '07/Aug/2014',
     updated: '',
     description: 'Untangling MVC as popular jargon, a design pattern and a family of designs.',
-    keywords: 'MVC'
+    keywords: 'MVC',
+    hashtags: 'MVC'
   },
   {
     url: '/ember-cli-phonegap',
@@ -42,7 +46,8 @@ module.exports = [
     created: '09/Jul/2014',
     updated: '',
     description: 'Place an Ember CLI app inside Phonegap.',
-    keywords: 'Ember CLI, Phonegap'
+    keywords: 'Ember CLI, Phonegap',
+    hashtags: 'emberjs, phonegap'
   },
   {
     url: '/ember-cli-simple-auth-devise',
@@ -51,6 +56,7 @@ module.exports = [
     created: '16/Jun/2014',
     updated: '20/Oct/2014',
     description: 'Authenticate to a Rails/Devise server from an Ember CLI app.',
-    keywords: 'Ember CLI, Rails, Authentication'
+    keywords: 'Ember CLI, Rails, Authentication',
+    hashtags: 'emberjs, rails'
   }
 ];
