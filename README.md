@@ -1,5 +1,4 @@
    
-    npm install -g broccoli-taco 
-    npm install -g marked
-    npm install
+    nvm use 0.10
+    ./install-deps.sh
     broccoli-taco serve

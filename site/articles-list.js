@@ -1,5 +1,6 @@
 module.exports = [
   {
+    url: '/ember-and-sails-authentication-options',
     filename: 'ember-and-sails-authentication-options',
     title: 'Ember and Sails authentication options',
     created: '15/May/2015',
@@ -8,6 +9,7 @@ module.exports = [
     keywords: 'Ember.js, Sails.js, Sane Stack, Authentication'
   },
   {
+    url: '/broccolijs-from-scratch',
     filename: 'broccolijs-from-scratch',
     title: 'Broccoli.js from scratch',
     created: '19/Apr/2015',
@@ -16,6 +18,7 @@ module.exports = [
     keywords: 'Broccoli.js'
   },
   {
+    url: '/ember-i-choose-you',
     filename: 'ember-i-choose-you',
     title: 'Why I use Ember.js?',
     created: '31/Mar/2015',
@@ -24,6 +27,7 @@ module.exports = [
     keywords: 'Ember.js'
   },
   {
+    url: '/mvc-past-present-and-future',
     filename: 'mvc-past-present-and-future',
     title: 'MVC past, present and future.',
     created: '07/Aug/2014',
@@ -32,6 +36,7 @@ module.exports = [
     keywords: 'MVC'
   },
   {
+    url: '/ember-cli-phonegap',
     filename: 'ember-cli-phonegap',
     title: 'Ember CLI & Phonegap',
     created: '09/Jul/2014',
@@ -40,6 +45,7 @@ module.exports = [
     keywords: 'Ember CLI, Phonegap'
   },
   {
+    url: '/ember-cli-simple-auth-devise',
     filename: 'ember-cli-simple-auth-devise',
     title: 'Ember CLI & ember-simple-auth-devise',
     created: '16/Jun/2014',

@@ -10,7 +10,7 @@ var compileLess = require('broccoli-less-single');
 var root = '.';
 
 var metaFiles = funnel(root, {
-  files   : ['robots.txt', 'sitemap.xml', 'favicon.ico']
+  files   : ['robots.txt', 'favicon.ico']
 });
 
 var fontelloFonts = funnel('assets/fontello/font/', {
