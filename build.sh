@@ -10,5 +10,13 @@ BROCCOLI_ENV=production BROCCOLI_TACO_ENV=production broccoli-taco build $distFo
 
 echo -e '\nbuild complete'
 
+echo -e '\ngenerating sitemap'
+
+cd dist
+
+../node_modules/sitemap-static/index.js --prefix=http://givan.se/ . > sitemap.xml
+
+ls -l sitemap.xml
+
 exit
 #EOF

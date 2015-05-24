@@ -24,6 +24,7 @@
     "broccoli-more-css": "^0.1.0",
     "broccoli-uncss": "^1.4.0",
     "handlebars": "^3.0.0",
-    "marked": "^0.3.3"
+    "marked": "^0.3.3",
+    "site-map": "https://github.com/givanse/sitemap-static.git#feature"
   }
 }
