@@ -5,7 +5,7 @@ module.exports = [
     title: 'Ember and Sails authentication options',
     created: '15/May/2015',
     updated: '',
-    description: 'What are the possible ways of authenticating an Ember app with a Sails backend?',
+    description: 'What are the possible ways of authenticating an Ember app with a Sails backend? This is an overview of the current offer of tools and addons available for session and token based authentication.',
     keywords: 'Ember.js, Sails.js, Sane Stack, Authentication',
     hashtags: 'emberjs, sailsjs'
   },
@@ -15,7 +15,7 @@ module.exports = [
     title: 'Broccoli.js from scratch',
     created: '19/Apr/2015',
     updated: '',
-    description: 'Build a website from scratch with Broccoli.js',
+    description: 'In this guide we\'ll go through the Broccoli installation process and how to cosume a couple of plugins for web development tasks that every single web site needs.',
     keywords: 'Broccoli.js',
     hashtags: 'broccolijs'
   },
@@ -25,7 +25,7 @@ module.exports = [
     title: 'Why I use Ember.js?',
     created: '31/Mar/2015',
     updated: '',
-    description: 'Putting aside technical aspects, what is good about Ember.js?',
+    description: 'Ember is much more than a JavaScript Framework. A whole ecosystem has been born around it. So, putting aside technical aspects, what is good about Ember.js?',
     keywords: 'Ember.js',
     hashtags: 'emberjs'
   },
@@ -35,7 +35,7 @@ module.exports = [
     title: 'MVC past, present and future.',
     created: '07/Aug/2014',
     updated: '',
-    description: 'Untangling MVC as popular jargon, a design pattern and a family of designs.',
+    description: 'Untangling MVC as popular jargon, a design pattern and a family of designs. The terms model-view-controller suffer of semantic overload, mainly because they are not writen and then read under the same context.',
     keywords: 'MVC',
     hashtags: 'MVC'
   },
@@ -45,7 +45,7 @@ module.exports = [
     title: 'Ember CLI & Phonegap',
     created: '09/Jul/2014',
     updated: '',
-    description: 'Place an Ember CLI app inside Phonegap.',
+    description: 'Place an Ember CLI app, version 0.1.1 or lower, inside a Phonegap app.',
     keywords: 'Ember CLI, Phonegap',
     hashtags: 'emberjs, phonegap'
   },
@@ -55,7 +55,7 @@ module.exports = [
     title: 'Ember CLI & ember-simple-auth-devise',
     created: '16/Jun/2014',
     updated: '20/Oct/2014',
-    description: 'Authenticate to a Rails/Devise server from an Ember CLI app.',
+    description: 'Step by step guide that shows you how to authenticate to a Rails/Devise server from an Ember CLI app. We will build a Rails project and an Ember project from scratch.',
     keywords: 'Ember CLI, Rails, Authentication',
     hashtags: 'emberjs, rails'
   }

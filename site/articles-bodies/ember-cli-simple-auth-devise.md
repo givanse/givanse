@@ -1,6 +1,5 @@
 <p>
-  We will build a Rails project and an Ember project from scratch. The backend
-  will manage authentication with the gem <a href="https://github.com/plataformatec/devise" target="_blank">Devise</a>. The frontend will
+  The backend will manage authentication with the gem <a href="https://github.com/plataformatec/devise" target="_blank">Devise</a>. The frontend will
   be able to `login`, to the Rails backend, using the library 
   <a href="https://github.com/simplabs/ember-simple-auth/tree/master/packages/ember-simple-auth-devise" target="_blank">
   Ember Simple Auth</a> (ESA) with its Devise extension.
