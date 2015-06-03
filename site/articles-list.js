@@ -1,5 +1,15 @@
 module.exports = [
   {
+    url: '/sane-auth-example',
+    filename: 'sane-auth-example',
+    title: 'Sane-Auth example',
+    created: '03/Jun/2015',
+    updated: '',
+    description: 'Authenticate an Ember app with a Sails API using sane-auth. This setup is based on JSON Web Token (JWT) and OAuth2.',
+    keywords: 'Ember.js, Sails.js, Sane Stack, Authentication, JWT, OAuth2',
+    hashtags: 'emberjs, sailsjs'
+  },
+  {
     url: '/ember-and-sails-authentication-options',
     filename: 'ember-and-sails-authentication-options',
     title: 'Ember and Sails authentication options',

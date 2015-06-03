@@ -37,7 +37,8 @@
 ## Developed by product developers
 <p>
   The framework is developed and maintained by people that are actually making a living out of it.
-  Most of the people behind the project work as freelancers, consultants or at companies that sell products based on Ember. This means that features and changes are done based on the needs of applications that are being used on a daily basis. 
+  Most of the people behind the project work as freelancers, consultants or at companies that sell products based on Ember.
+  This means that features and changes are done based on the needs of applications that are being used on a daily basis. 
 </p>
 <p>
   There isn't a single large corporation trying to steer the wheel, changes happen fast and with a focus on increasing productivity and quality overall.
@@ -46,9 +47,10 @@
 ## Push the web forward
 <p>
   There is a big effort to make available modern technologies and techniques. There is a heavy bet on ES6, ES7 and web components. The sooner we start using them, the sooner will make mistakes and learn from them. 
-<p>
+</p>
 </p>
   The work done with Ember is not only about improving the framework, but also about helping shape the future of the web.
+  You can read more about this in [The Extensible Web Manifesto](https://extensiblewebmanifesto.org).
 </p>
 
 ## Standards
