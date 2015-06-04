@@ -7,7 +7,8 @@ module.exports = [
     updated: '',
     description: 'Authenticate an Ember app with a Sails API using sane-auth. This setup is based on JSON Web Token (JWT) and OAuth2.',
     keywords: 'Ember.js, Sails.js, Sane Stack, Authentication, JWT, OAuth2',
-    hashtags: 'emberjs, sailsjs'
+    hashtags: 'emberjs, sailsjs',
+    thumb: '/static/img/givanse.jpeg'
   },
   {
     url: '/ember-and-sails-authentication-options',
@@ -17,7 +18,8 @@ module.exports = [
     updated: '',
     description: 'What are the possible ways of authenticating an Ember app with a Sails backend? This is an overview of the current offer of tools and addons available for session and token based authentication.',
     keywords: 'Ember.js, Sails.js, Sane Stack, Authentication',
-    hashtags: 'emberjs, sailsjs'
+    hashtags: 'emberjs, sailsjs',
+    thumb: '/static/img/givanse.jpeg'
   },
   {
     url: '/broccolijs-from-scratch',
@@ -27,7 +29,8 @@ module.exports = [
     updated: '',
     description: 'In this guide we\'ll go through the Broccoli installation process and how to cosume a couple of plugins for web development tasks that every single web site needs.',
     keywords: 'Broccoli.js',
-    hashtags: 'broccolijs'
+    hashtags: 'broccolijs',
+    thumb: '/static/img/givanse.jpeg'
   },
   {
     url: '/ember-i-choose-you',
@@ -37,7 +40,8 @@ module.exports = [
     updated: '',
     description: 'Ember is much more than a JavaScript Framework. A whole ecosystem has been born around it. So, putting aside technical aspects, what is good about Ember.js?',
     keywords: 'Ember.js',
-    hashtags: 'emberjs'
+    hashtags: 'emberjs',
+    thumb: '/static/img/givanse.jpeg'
   },
   {
     url: '/mvc-past-present-and-future',
@@ -47,7 +51,8 @@ module.exports = [
     updated: '',
     description: 'Untangling MVC as popular jargon, a design pattern and a family of designs. The terms model-view-controller suffer of semantic overload, mainly because they are not writen and then read under the same context.',
     keywords: 'MVC',
-    hashtags: 'MVC'
+    hashtags: 'MVC',
+    thumb: '/static/img/control_tower.jpg'
   },
   {
     url: '/ember-cli-phonegap',
@@ -57,7 +62,8 @@ module.exports = [
     updated: '',
     description: 'Place an Ember CLI app, version 0.1.1 or lower, inside a Phonegap app.',
     keywords: 'Ember CLI, Phonegap',
-    hashtags: 'emberjs, phonegap'
+    hashtags: 'emberjs, phonegap',
+    thumb: '/static/img/givanse.jpeg'
   },
   {
     url: '/ember-cli-simple-auth-devise',
@@ -67,6 +73,7 @@ module.exports = [
     updated: '20/Oct/2014',
     description: 'Step by step guide that shows you how to authenticate to a Rails/Devise server from an Ember CLI app. We will build a Rails project and an Ember project from scratch.',
     keywords: 'Ember CLI, Rails, Authentication',
-    hashtags: 'emberjs, rails'
+    hashtags: 'emberjs, rails',
+    thumb: '/static/img/givanse.jpeg'
   }
 ];
