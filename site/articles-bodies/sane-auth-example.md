@@ -1,4 +1,7 @@
 
+This combination is what has worked best for me, but there are many other options,
+you can read about those here: [Ember and Sails authentication options](http://givan.se/ember-and-sails-authentication-options).
+
 ## Tools
 
 First of all, you need to install Node.
@@ -80,4 +83,3 @@ If you want extra security you'll have to implement your own process for token i
 ## Yo Dawg
 
 There is no magic, since both frameworks have strong conventions its relatively easy to automatically generate stuff for them. Composability is giving us all this goodness. We have an addon that installs and configures other addons.
-

@@ -34,6 +34,9 @@ Under the hood its using `express-jwt` + ESA + OAuth2.
 This package is a **machinepack**, that is the name given to NPM modules that comply to a standarized interface described in
 [node-machine.org](http://node-machine.org/)
 
+You'll find a usage example and a more detailed explanation of how it works in
+[Sane-Auth example](http://givan.se/sane-auth-example).
+
 # TL;DR
 
 If you are working with Sails and Ember, the assumption is that your backend works as a RESTful API, all you need is one of these:
