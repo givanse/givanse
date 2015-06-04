@@ -8,7 +8,7 @@ module.exports = [
     description: 'Authenticate an Ember app with a Sails API using sane-auth. This setup is based on JSON Web Token (JWT) and OAuth2.',
     keywords: 'Ember.js, Sails.js, Sane Stack, Authentication, JWT, OAuth2',
     hashtags: 'emberjs, sailsjs',
-    thumb: '/static/img/givanse.jpeg'
+    thumb: '/static/img/sails-ember-th.png'
   },
   {
     url: '/ember-and-sails-authentication-options',
@@ -19,7 +19,7 @@ module.exports = [
     description: 'What are the possible ways of authenticating an Ember app with a Sails backend? This is an overview of the current offer of tools and addons available for session and token based authentication.',
     keywords: 'Ember.js, Sails.js, Sane Stack, Authentication',
     hashtags: 'emberjs, sailsjs',
-    thumb: '/static/img/givanse.jpeg'
+    thumb: '/static/img/sails-ember-th.png'
   },
   {
     url: '/broccolijs-from-scratch',
