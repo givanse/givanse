@@ -1,5 +1,16 @@
 module.exports = [
   {
+    url: '/ember-podcasts-list',
+    filename: 'ember-podcasts-list',
+    title: 'Ember podcasts list',
+    created: '08/Jun/2015',
+    updated: '',
+    description: '',
+    keywords: 'Ember.js',
+    hashtags: 'emberjs',
+    thumb: '/static/img/.png'
+  },
+  {
     url: '/sane-auth-example',
     filename: 'sane-auth-example',
     title: 'Sane-Auth example',
