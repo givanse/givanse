@@ -1,5 +1,17 @@
 module.exports = [
   {
+    url: '/do-not-sudo-npm',
+    filename: 'do-not-sudo-npm',
+    title: 'Do not sudo npm',
+    created: '10/Jun/2015',
+    updated: '',
+    description: 'We\'ll go through the reasons why using root privileges with npm is not recommended. Avoid common pitfalls and learn to properly install Node and npm.',
+    keywords: 'Ember.js',
+    hashtags: 'emberjs',
+    thumb: '/static/img/sudo.jpg',
+    draft: true
+  },
+  {
     url: '/ember-podcasts-list',
     filename: 'ember-podcasts-list',
     title: 'Ember podcasts list',
@@ -8,7 +20,8 @@ module.exports = [
     description: '',
     keywords: 'Ember.js',
     hashtags: 'emberjs',
-    thumb: '/static/img/.png'
+    thumb: '/static/img/.png',
+    draft: true
   },
   {
     url: '/sane-auth-example',
@@ -19,7 +32,7 @@ module.exports = [
     description: 'Authenticate an Ember app with a Sails API using sane-auth. This setup is based on JSON Web Token (JWT) and OAuth2.',
     keywords: 'Ember.js, Sails.js, Sane Stack, Authentication, JWT, OAuth2',
     hashtags: 'emberjs, sailsjs',
-    thumb: '/static/img/sails-ember-th.png'
+    thumb: '/static/img/sails-ember-th.jpg'
   },
   {
     url: '/ember-and-sails-authentication-options',
@@ -30,7 +43,7 @@ module.exports = [
     description: 'What are the possible ways of authenticating an Ember app with a Sails backend? This is an overview of the current offer of tools and addons available for session and token based authentication.',
     keywords: 'Ember.js, Sails.js, Sane Stack, Authentication',
     hashtags: 'emberjs, sailsjs',
-    thumb: '/static/img/sails-ember-th.png'
+    thumb: '/static/img/sails-ember-th.jpg'
   },
   {
     url: '/broccolijs-from-scratch',

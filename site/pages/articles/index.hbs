@@ -2,42 +2,47 @@
 
 {{#each page.articlesList}} 
 
-  <div class="row article">
-    <div class="hidden-xs col-sm-1 col-md-2 col-lg-2">
+  {{#if draft}}
+
+  {{else}}
+    <div class="row article">
+      <div class="hidden-xs col-sm-1 col-md-2 col-lg-2">
+      </div>
+
+      <div class="col-xs-4 col-sm-3 col-md-2">
+        {{#if updated}}
+          <s>
+        {{/if}}
+          <time class="article_date">{{created}}</time>
+        {{#if updated}}
+          </s>
+        {{/if}}
+      </div>
+
+      <div class="col-xs-8 col-sm-7">
+        <!--link-to checks for broken links and we are dynamically generating them-->
+        <a href="/{{filename}}">
+          {{title}}
+        </a>
+      </div>
     </div>
 
-    <div class="col-xs-4 col-sm-3 col-md-2">
-      {{#if updated}}
-        <s>
-      {{/if}}
-        <time class="article_date">{{created}}</time>
-      {{#if updated}}
-        </s>
-      {{/if}}
+    <div class="row article">
+      <div class="hidden-xs col-sm-1 col-md-2 col-lg-2">
+      </div>
+
+      <div class="col-xs-4 col-sm-3 col-md-2">
+        <time class="article_date">{{updated}}</time>
+      </div>
+
+      <div class="col-xs-8 col-sm-7">
+        <summary class="article_description">{{description}}</summary>
+        <hr>
+      </div>
+
     </div>
 
-    <div class="col-xs-8 col-sm-7">
-      <!--link-to checks for broken links and we are dynamically generating them-->
-      <a href="/{{filename}}">
-        {{title}}
-      </a>
-    </div>
-  </div>
-
-  <div class="row article">
-    <div class="hidden-xs col-sm-1 col-md-2 col-lg-2">
-    </div>
-
-    <div class="col-xs-4 col-sm-3 col-md-2">
-      <time class="article_date">{{updated}}</time>
-    </div>
-
-    <div class="col-xs-8 col-sm-7">
-      <summary class="article_description">{{description}}</summary>
-      <hr>
-    </div>
-
-  </div>
+  {{/if}}
 
 {{/each}}
 
