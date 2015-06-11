@@ -12,7 +12,7 @@ var renderer = new marked.Renderer();
 renderer.heading = function(text, level) {
   var escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
 
-  return '<h' + level + ' id="'+escapedText+'" class="header_padding">' +
+  return '<h' + level + ' id="'+escapedText+'">' +
            '<a class="header_link" name="' + escapedText + '" href="#' + escapedText + '">'+
              '<i class="icon-link"></i>' +
            '</a>' + text + 
