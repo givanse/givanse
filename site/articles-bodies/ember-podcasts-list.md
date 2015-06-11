@@ -22,11 +22,20 @@ It goes through one of the biggest changes that Ember has gone, so definitely a 
 [Dan McClain](https://twitter.com/_danmcclain) and
 [Robert Jackson](https://twitter.com/rwjblue).
 
+short weekly talks that span 5 to 20 minutes.
+
 ## Ember Hot Seat
 
 This podcast seems to have ceased activity, June 2014 is the date of their last episode.
 You'll still find 17 tracks in their SoundCloud page:
 [Ember Hot Seat](https://soundcloud.com/emberhotseat).
+
+In each episode, Devaris Brown ([@devarispbrown](https://twitter.com/devarispbrown))
+chats with a personality of the Ember community.
+
+[Ember Hot Seat Episode 017: Jo Liss](https://soundcloud.com/emberhotseat/ember-hot-seat-episode-017-jo-liss)
+
+Jo Liss is the author of Broccoli.js, the build tool that Ember CLI uses to put everything together.
 
 ## Other podcasts 
 
