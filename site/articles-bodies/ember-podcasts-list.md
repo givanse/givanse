@@ -1,41 +1,52 @@
 
 ## Ember weekend
 
-[Ember weekend](https://emberweekend.com/) is sponsored by Hashrocket, a Rails consultancy,
-hosted by
-[Chase McCarthy](https://twitter.com/code0100fun) and
-[Jonathan Jackson](https://twitter.com/rondale_sc). 
+[Ember weekend](https://emberweekend.com/) is sponsored by Hashrocket, a Rails consultancy.
+It is hosted by
+Chase McCarthy ([@code0100fun](https://twitter.com/code0100fun)) and
+Jonathan Jackson ([@rondale_sc](https://twitter.com/rondale_sc)),
+both developers at Hashrocket. 
+Topics discussed are news, features, events and tools being used to do Ember development. 
+
 
 ## Frontside the Podcast
 
 [Frontside the Podcast](https://frontsidethepodcast.simplecast.fm/)
-is done by The Frontside, an Austin-based software studio, hosted by
-[Charles Lowell](https://twitter.com/cowboyd) and
-[Brandon Hays](https://twitter.com/tehviking).
+is done by The Frontside, an Austin-based software studio.
+It is hosted by
+Charles Lowell ([@cowboyd](https://twitter.com/cowboyd)) and
+Brandon Hays ([@tehviking](https://twitter.com/tehviking)).
 
-Check [Ember-Metal, HTMLbars, and the death of script tags](https://frontsidethepodcast.simplecast.fm/13)
-It goes through one of the biggest changes that Ember has gone, so definitely a good listen.
+> It's like hanging out at The Frontside software studio.
+
+C. Lowell is The Frontside founder;
+B. Hays is a marketer turned programmer, working at The Frontside too.
+
+Check the episode [Ember-Metal, HTMLbars, and the death of script tags](https://frontsidethepodcast.simplecast.fm/13),
+it goes through one of the biggest changes that Ember has gone, so definitely a good listen.
 
 ## Ember Land
 
-[Ember Land](http://ember.land/) by Dockyard, an Ember consultancy, hosted by
-[Dan McClain](https://twitter.com/_danmcclain) and
-[Robert Jackson](https://twitter.com/rwjblue).
+[Ember Land](http://ember.land/) by Dockyard, an Ember consultancy,
+is a weekly podcast where the hosts,
+Dan McClain ([@_danmcclain](https://twitter.com/_danmcclain)) and
+Robert Jackson ([@rwjblue](https://twitter.com/rwjblue)),
+chat about the latest Ember features and news.
+The conversations are short and concise, spanning from 5 to 20 minutes.
 
-short weekly talks that span 5 to 20 minutes.
+D. McClain is a partner and developer at Dockyard; 
+R. Jackson, also a Dockyard developer, is an Ember core team member.
+
 
 ## Ember Hot Seat
 
 This podcast seems to have ceased activity, June 2014 is the date of their last episode.
-You'll still find 17 tracks in their SoundCloud page:
+However, you'll still find 17 tracks in their SoundCloud page:
 [Ember Hot Seat](https://soundcloud.com/emberhotseat).
 
 In each episode, Devaris Brown ([@devarispbrown](https://twitter.com/devarispbrown))
-chats with a personality of the Ember community.
+chats with influential members of the Ember community and digs into what they have been working on.
 
-[Ember Hot Seat Episode 017: Jo Liss](https://soundcloud.com/emberhotseat/ember-hot-seat-episode-017-jo-liss)
-
-Jo Liss is the author of Broccoli.js, the build tool that Ember CLI uses to put everything together.
 
 ## Other podcasts 
 
@@ -94,4 +105,3 @@ with Tom Dale. (23 April 2015)
  * Ember Data makes it easy to interoperate with any back end.
  * A promise represents a value that you don't have right now, but that you'll have in the future.
  * Ember CLI is about bringing convention over configuration to build tools.
-
