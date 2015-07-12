@@ -14,14 +14,13 @@ module.exports = [
   {
     url: '/ember-podcasts-list',
     filename: 'ember-podcasts-list',
-    title: 'Ember podcasts list',
-    created: '08/Jun/2015',
+    title: 'A list of Ember podcasts',
+    created: '11/Jun/2015',
     updated: '',
-    description: '',
-    keywords: 'Ember.js',
-    hashtags: 'emberjs',
-    thumb: '/static/img/.png',
-    draft: true
+    description: 'Have a quick overview of the four Ember podcasts that are out there and a small list of selected Ember episodes.',
+    keywords: 'Ember.js, Podcast, Ember news, Ember tooling',
+    hashtags: 'emberjs, podcast',
+    thumb: '/static/img/podcast.jpg'
   },
   {
     url: '/sane-auth-example',
