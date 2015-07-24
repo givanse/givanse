@@ -1,15 +1,25 @@
 module.exports = [
   {
+    url: '/centos-nginx-rails-mysql-ember',
+    filename: 'centos-nginx-rails-mysql-ember',
+    title: 'CentOS Nginx Rails MySQL Ember',
+    created: '23/Jun/2015',
+    updated: '',
+    description: 'Setup a Rails and MySQL backend with an Ember frontend in a CentOS box using Nginx.',
+    keywords: 'CentOS, Nginx, Rails, MySQL, Ember, Ruby',
+    hashtags: 'nginx, emberjs, rails',
+    thumb: '/static/img/givanse.jpeg'
+  },
+  {
     url: '/do-not-sudo-npm',
     filename: 'do-not-sudo-npm',
     title: 'Do not sudo npm',
-    created: '10/Jun/2015',
+    created: '11/Jun/2015',
     updated: '',
-    description: 'We\'ll go through the reasons why using root privileges with npm is not recommended. Avoid common pitfalls and learn to properly install Node and npm.',
-    keywords: 'Ember.js',
-    hashtags: 'emberjs',
-    thumb: '/static/img/sudo.jpg',
-    draft: true
+    description: 'Using root privileges with npm is not recommended, we\'ll go through the reasons. Avoid common pitfalls and learn the options for a proper installation of npm.',
+    keywords: 'Ember.js, Node.js, npm, package manager, root privileges, sudo, security',
+    hashtags: 'npm, security',
+    thumb: '/static/img/sudo.jpg'
   },
   {
     url: '/ember-podcasts-list',
