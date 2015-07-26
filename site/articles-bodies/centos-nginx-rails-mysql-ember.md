@@ -36,7 +36,7 @@ sudo yum install git gcc make openssl-devel readline-devel
 
 Once we have `git`, we'll install [rbenv](https://github.com/sstephenson/rbenv).
 If you don't want to install git in the server,
-you'll be fine if you just manually download a tar and extract it to the path shown below.
+you'll be fine if you just manually download a tar and extract it to the paths shown below.
 
 ```bash
 # rbenv
@@ -53,13 +53,16 @@ Actually install ruby:
 
 ```bash
 CONFIGURE_OPTS="--disable-install-rdoc" rbenv install 2.2.2
-# set the ruby version for the user account
+```
+
+Set the default ruby version for the user account
+```bash
 rbenv global 2.2.2
 ```
 
 ## Rails
 
-We'll define a config for the ruby gems that will disable the installation of gem's documentation.
+Before installing any gems we'll set a configuration that will disable the installation of gem's documentation.
 The assumption is that we are working with an actual server, so we don't need any of those files.
 We also gain a bump on speed and reduced memory usage during installation, helpful for small servers.
 
@@ -89,7 +92,7 @@ rake db:migrate
 ```
 
 And start the app. There are many ways of doing this (webrick, unicorn, etc).
-Just remember the port number where the app is running, we'll use it later.
+Just remember the port number where the app is running, we'll use it in the Nginx configuration.
 
 ## Nginx
 
@@ -99,9 +102,6 @@ we'll use it to configure a new repository and then install Nginx from there.
 ```bash
 sudo yum install nginx-release-centos-6-0.el6.ngx.noarch.rpm
 sudo yum install nginx
-# verify
-nginx -v
-nginx version: nginx/1.8.0
 ```
 
 Configure the routes for the rails and ember app,
@@ -173,8 +173,8 @@ server {
 }
 ```
 
-I left out many of the settings for both files because those will vary a lot
-between servers and applications. I show what is essential for the routing of
+Many of the settings for both files were left out because those will vary a lot
+between applications. I show what is essential for the routing of
 rails and ember requests.
 
 Time to reload Nginx with the new configuration.
@@ -201,6 +201,6 @@ If you stumble in the logs with something like:
 failed (13: Permission denied)
 ```
 
-You might want to check if `SELinux` is not getting in the way.
+You might want to check if `SELinux` is getting in the way.
 It is known that there are certain scenarios where SELinux will block Nginx
 if an explicit policy is not configured.
