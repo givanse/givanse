@@ -1,9 +1,20 @@
 module.exports = [
   {
+    url: '/where-is-the-ember-community',
+    filename: 'where-is-the-ember-community',
+    title: 'Where is the Ember community?',
+    created: '28/Jul/2015',
+    updated: '',
+    description: '',
+    keywords: 'Ember, IRC, forum, podcast, newsletter',
+    hashtags: 'emberjs, community',
+    thumb: '/static/img/ember-community.jpg'
+  },
+  {
     url: '/centos-nginx-rails-mysql-ember',
     filename: 'centos-nginx-rails-mysql-ember',
     title: 'CentOS Nginx Rails MySQL Ember',
-    created: '23/Jun/2015',
+    created: '23/Jul/2015',
     updated: '',
     description: 'Setup a Rails and MySQL backend with an Ember frontend in a CentOS box using Nginx.',
     keywords: 'CentOS, Nginx, Rails, MySQL, Ember, Ruby',
@@ -70,7 +81,7 @@ module.exports = [
     filename: 'ember-i-choose-you',
     title: 'Why I use Ember.js?',
     created: '31/Mar/2015',
-    updated: '',
+    updated: '28/Jul/2015',
     description: 'Ember is much more than a JavaScript Framework. A whole ecosystem has been born around it. So, putting aside technical aspects, what is good about Ember.js?',
     keywords: 'Ember.js',
     hashtags: 'emberjs',

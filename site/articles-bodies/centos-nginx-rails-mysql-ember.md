@@ -3,7 +3,7 @@ This guide was written using CentOS 6.5
 
 ## MySQL
 
-First will install MySQL and prepare it to be manipulated by rails with rake tasks.
+First we'll install MySQL and prepare it to be manipulated by rails with rake tasks.
 
 ```bash
 sudo yum install mysql mysql-server mysql-devel

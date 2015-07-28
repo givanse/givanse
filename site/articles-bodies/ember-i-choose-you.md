@@ -65,3 +65,27 @@ Upgrading your projects from one version to another won't take more than a day, 
 
   Once you start poking at others projects, may you need to customize or improve a project, you'll realize that thanks to the standards and conventions you almost won't need documentation. You'll be able to just get-it and start working with 3rd party code bases. 
 
+## Tooling
+
+https://github.com/emberjs/ember-inspector
+https://github.com/emberjs/data
+
+built with testing in mind and
+https://github.com/rwjblue/ember-qunit
+
+### Ember CLI
+
+http://www.ember-cli.com/
+testing
+https://github.com/samselikoff/ember-cli-mirage
+blueprints
+live reload
+
+#### Broccoli
+fast rebuilds
+assets pipeline
+
+#### Addons
+
+Easily share code across projects and teams.
+http://www.emberaddons.com/
