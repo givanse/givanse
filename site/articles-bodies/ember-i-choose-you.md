@@ -11,9 +11,10 @@ So, this are the reasons:
 ## Community
 
   The community is very active and there are new features and tools everyday.
-  If you need help you can get it at StackOverflow, IRC, Github, Discourse and Slack.
+  If you need help you can get it at StackOverflow, IRC, Github and Slack.
   There are tons of meetups around the world and if you can't assist to one, many of them are being recorded and uploaded to YouTube.
 
+  To find out more about the community check: [Where is the Ember community?](http://givan.se/where-is-the-ember-community/).
 
 ## Stability without stagnation
 
@@ -67,25 +68,40 @@ Upgrading your projects from one version to another won't take more than a day, 
 
 ## Tooling
 
-https://github.com/emberjs/ember-inspector
-https://github.com/emberjs/data
+This is an aspect of Ember where other frameworks simply can't compete.
+You have access to tools like:
 
-built with testing in mind and
-https://github.com/rwjblue/ember-qunit
+ * [Ember inspector](https://github.com/emberjs/ember-inspector)
+
+A Chrome and Firefox addon for easy debugging of Ember apps.
+
+ * [Ember data](https://github.com/emberjs/data)
+
+A persistance layer that allows you to easily communicate with any source of information.
+
+ * [Ember qunit](https://github.com/rwjblue/ember-qunit)
+
+Ember is built with testing in mind, its designed to have a good testing story.
 
 ### Ember CLI
 
-http://www.ember-cli.com/
-testing
-https://github.com/samselikoff/ember-cli-mirage
-blueprints
-live reload
+[Ember CLI](http://www.ember-cli.com/) is the recommended tool for Ember development,
+is not mandatory, but almost everybody uses it.
+It puts together several node modules and integrates them nicely so you can hit
+the ground running when starting a new Ember app.
 
-#### Broccoli
-fast rebuilds
-assets pipeline
+Its built with Broccoli.js at its core, that is the build tool that will 
+concatenate and minify your files, its your assets pipeline.
+It provides fast rebuilds and live reloads.
 
 #### Addons
 
-Easily share code across projects and teams.
-http://www.emberaddons.com/
+By using Ember CLI you also get access to the addons system that allows us to 
+easily share code across projects and teams.
+You can find and leverage a bunch of code at
+[emberaddons.com](http://www.emberaddons.com/).
+
+Although this last section was a bit technical, what it shows is that the community
+doesn't stop at having a good framework.
+
+We all care about making the life of the developers easier.
