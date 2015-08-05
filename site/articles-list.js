@@ -19,7 +19,7 @@ module.exports = [
     description: 'Setup a Rails and MySQL backend with an Ember frontend in a CentOS box using Nginx.',
     keywords: 'CentOS, Nginx, Rails, MySQL, Ember, Ruby',
     hashtags: 'nginx, emberjs, rails',
-    thumb: '/static/img/givanse.jpeg'
+    thumb: '/static/img/encom-os12.jpg'
   },
   {
     url: '/do-not-sudo-npm',
@@ -74,7 +74,7 @@ module.exports = [
     description: 'In this guide we\'ll go through the Broccoli installation process and how to cosume a couple of plugins for web development tasks that every single web site needs.',
     keywords: 'Broccoli.js',
     hashtags: 'broccolijs',
-    thumb: '/static/img/givanse.jpeg'
+    thumb: '/static/img/encom-os12.jpg'
   },
   {
     url: '/ember-i-choose-you',
@@ -107,7 +107,7 @@ module.exports = [
     description: 'Place an Ember CLI app, version 0.1.1 or lower, inside a Phonegap app.',
     keywords: 'Ember CLI, Phonegap',
     hashtags: 'emberjs, phonegap',
-    thumb: '/static/img/givanse.jpeg'
+    thumb: '/static/img/encom-os12.jpg'
   },
   {
     url: '/ember-cli-simple-auth-devise',
@@ -118,6 +118,6 @@ module.exports = [
     description: 'Step by step guide that shows you how to authenticate to a Rails/Devise server from an Ember CLI app. We will build a Rails project and an Ember project from scratch.',
     keywords: 'Ember CLI, Rails, Authentication',
     hashtags: 'emberjs, rails',
-    thumb: '/static/img/givanse.jpeg'
+    thumb: '/static/img/encom-os12.jpg'
   }
 ];
