@@ -3,45 +3,70 @@
 {{#each page.articlesList}} 
 
   {{#if draft}}
-
+    <!-- do not list drafts -->
   {{else}}
     <div class="row article">
-      <div class="hidden-xs col-sm-1 col-md-2 col-lg-2">
+
+      <!-- thumb-xs -->
+      <div class="col-xs-offset-1 col-xs-10 visible-xs">
+        <a href="/{{filename}}">
+          <img class="img-responsive center-block thumb" src="{{thumb}}">
+        </a>
       </div>
 
-      <div class="col-xs-4 col-sm-3 col-md-2">
-        {{#if updated}}
-          <s>
-        {{/if}}
-          <time class="article_date">{{created}}</time>
-        {{#if updated}}
-          </s>
-        {{/if}}
-      </div>
-
-      <div class="col-xs-8 col-sm-7">
+      <!-- title-xs -->
+      <div class="visible-xs col-xs-12">
         <!--link-to checks for broken links and we are dynamically generating them-->
         <a href="/{{filename}}">
           {{title}}
         </a>
       </div>
-    </div>
 
-    <div class="row article">
-      <div class="hidden-xs col-sm-1 col-md-2 col-lg-2">
+      <!-- dates-xs -->
+      <div class="visible-xs col-xs-12">
+        {{#if updated}}
+          <time class="article_date">{{updated}}</time>,
+          <s>
+            <time class="article_date">{{created}}</time>
+          </s>
+        {{else}}
+          <time class="article_date">{{created}}</time>
+        {{/if}}
       </div>
 
-      <div class="col-xs-4 col-sm-3 col-md-2">
-        <time class="article_date">{{updated}}</time>
+      <!-- thumb-sm -->
+      <div class="hidden-xs col-sm-offset-1 col-sm-4 col-md-offset-2 col-md-3">
+        <a href="/{{filename}}">
+          <img class="img-responsive thumb" src="{{thumb}}">
+        </a>
       </div>
 
-      <div class="col-xs-8 col-sm-7">
-        <summary class="article_description">{{description}}</summary>
+      <div class="col-xs-12 col-sm-6 col-md-5">
+        <div class="hidden-xs">
+          <!--link-to checks for broken links and we are dynamically generating them-->
+          <a href="/{{filename}}">
+            {{title}}
+          </a>
+          <br>
+          {{#if updated}}
+            <time class="article_date">{{updated}}</time>,
+            <s>
+              <time class="article_date">{{created}}</time>
+            </s>
+          {{else}}
+            <time class="article_date">{{created}}</time>
+          {{/if}}
+        </div>
+        <!-- excerpt -->
+        <a href="/{{filename}}">
+          <summary class="article_description">{{description}}</summary>
+        </a>
+      </div>
+
+      <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
         <hr>
       </div>
-
-    </div>
-
+    </div><!-- row -->
   {{/if}}
 
 {{/each}}

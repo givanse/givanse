@@ -45,7 +45,7 @@ That is the place where you suggest and discuss new features or big changes for 
 The hashtag used for Ember tweets is [#emberjs](https://twitter.com/hashtag/emberjs),
 I know, big shock.
 
-There are some accounts that were create to track what is happening around Ember, check them out:
+There are some accounts that were created to track what is happening around Ember, check them out:
 
  * [@EmberSherpa](https://twitter.com/EmberSherpa)
  * [@emberflare_com](https://twitter.com/emberflare_com)
@@ -102,13 +102,7 @@ If you are looking for Ember gigs, check:
  * The [Ember jobs board](http://jobs.emberjs.com/).
  * [Stack Overflow careers](http://careers.stackoverflow.com/jobs/tag/ember.js)
 
-There are always opportunities for different types of work:
-
- * Contract
- * Full-Time
- * On-Site
- * Part-Time
- * Remote
+There are always opportunities for different types of work; contract, full-Time, remote etc.
 
 There are a lot of resources and hopefully this post gave you a good direction
 of where to go when dealing with Ember.
