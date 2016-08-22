@@ -5,6 +5,7 @@ set -e
 distFolder='dist'
 
 rm -rvf $distFolder
+rm -rvf tmp
 
 BROCCOLI_ENV=production BROCCOLI_TACO_ENV=production broccoli-taco build $distFolder
 

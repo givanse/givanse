@@ -20,7 +20,7 @@
     "broccoli-funnel": "^0.2.3",
     "broccoli-htmlmin": "^2.0.0",
     "broccoli-less-single": "^0.2.0",
-    "broccoli-merge-trees": "^0.2.1",
+    "broccoli-merge-trees": "0.2.1",
     "broccoli-more-css": "^0.1.0",
     "broccoli-uncss": "^1.4.0",
     "handlebars": "^3.0.0",
