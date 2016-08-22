@@ -52,16 +52,16 @@
     <header class="header container">
       <div class="row header_0">
         <nav class="row_max_w menu">
-          {{#if page.articles}}
-            {{#link-to 'articles' class='active'}}articles{{/link-to}}
+          {{#if page.index}}
+            {{#link-to 'index' class='active'}}articles{{/link-to}}
           {{else}}
-            {{#link-to 'articles'}}articles{{/link-to}}
+            {{#link-to 'index'}}articles{{/link-to}}
           {{/if}}
 
-          {{#if page.index}}
-            {{#link-to 'index' class='active'}}about{{/link-to}}
+          {{#if page.about}}
+            {{#link-to 'about' class='active'}}about{{/link-to}}
           {{else}}
-            {{#link-to 'index'}}about{{/link-to}}
+            {{#link-to 'about'}}about{{/link-to}}
           {{/if}}
         </nav>
       </div>

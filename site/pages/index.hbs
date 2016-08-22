@@ -1,50 +1,74 @@
 {{#layout}}
 
-<div class="row">
-  <div class="col-xs-12 col-sm-offset-2 col-sm-8">
-    <p>
-      My name is 
-      <abbr title="Gast&oacute;n Iv&aacute;n Silva Echegaray">Gast&oacute;n I. Silva</abbr> 
-      and I like to design and build all kinds of stuff.
-    </p>
-    <p>
-      I have a B.S. in Computer Science and in the past I've worked 
-      developing websites and optimizing queries.
-      In my spare time I contribute to open source projects.
-    </p>
-  </div>
-</div>
+{{#each page.articlesList}} 
 
-<div class="row text-center">
-    <a href="https://twitter.com/givanse" target="_blank" class="findme_at">
-      <i class="icon-twitter"></i></a>
-    <a href="http://stackoverflow.com/users/7852/givanse" target="_blank" class="findme_at">
-      <i class="icon-stackoverflow"></i></a>
-    <a href="https://github.com/givanse" target="_blank" class="findme_at">
-      <i class="icon-github"></i></a>
-    <br>
-    <br>
-    givanse@gmail.com
-</div>
+  {{#if draft}}
+    <!-- do not list drafts -->
+  {{else}}
+    <div class="row article">
 
-<br>
-<br>
+      <!-- thumb-xs -->
+      <div class="col-xs-offset-1 col-xs-10 visible-xs">
+        <a href="/{{filename}}">
+          <img class="img-responsive center-block thumb" src="{{thumb}}">
+        </a>
+      </div>
 
-<div class="row">
-  <div class="col-xs-offset-3 col-xs-6 col-sm-offset-5 col-sm-2">
-    <img src="/static/img/givanse.png" alt="Gastón's photo" class="img-responsive">
-  </div>
-</div>
+      <!-- title-xs -->
+      <div class="visible-xs col-xs-12">
+        <!--link-to checks for broken links and we are dynamically generating them-->
+        <a href="/{{filename}}">
+          {{title}}
+        </a>
+      </div>
 
-<br>
-<br>
+      <!-- dates-xs -->
+      <div class="visible-xs col-xs-12">
+        {{#if updated}}
+          <time class="article_date">{{updated}}</time>,
+          <s>
+            <time class="article_date">{{created}}</time>
+          </s>
+        {{else}}
+          <time class="article_date">{{created}}</time>
+        {{/if}}
+      </div>
 
-<div class="row">
-  <div class="col-xs-12 col-sm-offset-2 col-sm-8">
-    <p class="text-center">
-      built with <a href="http://broccoli-taco.com/" target="_blank">broccoli-taco</a> 
-    </p>
-  </div>
-</div>
+      <!-- thumb-sm -->
+      <div class="hidden-xs col-sm-offset-1 col-sm-4 col-md-offset-2 col-md-3">
+        <a href="/{{filename}}">
+          <img class="img-responsive thumb" src="{{thumb}}">
+        </a>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-5">
+        <div class="hidden-xs">
+          <!--link-to checks for broken links and we are dynamically generating them-->
+          <a href="/{{filename}}">
+            {{title}}
+          </a>
+          <br>
+          {{#if updated}}
+            <time class="article_date">{{updated}}</time>,
+            <s>
+              <time class="article_date">{{created}}</time>
+            </s>
+          {{else}}
+            <time class="article_date">{{created}}</time>
+          {{/if}}
+        </div>
+        <!-- excerpt -->
+        <a href="/{{filename}}">
+          <summary class="article_description">{{description}}</summary>
+        </a>
+      </div>
+
+      <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+        <hr>
+      </div>
+    </div><!-- row -->
+  {{/if}}
+
+{{/each}}
 
 {{/layout}}
