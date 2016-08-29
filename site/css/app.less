@@ -67,14 +67,9 @@ p {
 @menu_active_link_border_bottom_w: 0.5rem;
 @menu_total_h: @menu_link_line_height +
                @menu_active_link_border_bottom_w;
-@header_placeholder_total_h: @menu_total_h + 
-                             3rem; /* white space, functions as a margin */
 
 .header {
-  position: fixed;
-  top: 0;
   width: 100%;
-  z-index: 10000;
 }
 
 .header_0 {
@@ -123,7 +118,6 @@ p {
 }
 
 .header_placeholder {
-  height: @header_placeholder_total_h;
 }
 
 @footer_border_top_width: 1rem;
