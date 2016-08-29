@@ -7,18 +7,6 @@
   "ascent": 850,
   "glyphs": [
     {
-      "uid": "0f6a2573a7b6df911ed199bb63717e27",
-      "css": "github",
-      "code": 59395,
-      "src": "fontawesome"
-    },
-    {
-      "uid": "e1597911f34fea0a188ae51fe4a2d9a9",
-      "css": "stackoverflow",
-      "code": 59392,
-      "src": "fontawesome"
-    },
-    {
       "uid": "627abcdb627cb1789e009c08e2678ef9",
       "css": "twitter",
       "code": 59393,
@@ -29,6 +17,12 @@
       "css": "link",
       "code": 59394,
       "src": "mfglabs"
+    },
+    {
+      "uid": "ccc2329632396dc096bb638d4b46fb98",
+      "css": "email",
+      "code": 61664,
+      "src": "fontawesome"
     }
   ]
 }
