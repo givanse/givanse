@@ -14,7 +14,8 @@ var metaFiles = funnel(root, {
 });
 
 var fontelloFonts = funnel('assets/fontello/font/', {
-  files   : ['fontello.woff',
+  files   : ['fontello.woff2',
+             'fontello.woff',
              'fontello.ttf'],
   destDir : '/font'
 });
