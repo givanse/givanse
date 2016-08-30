@@ -1,5 +1,16 @@
 module.exports = [
   {
+    url: '/broccolijs-from-scratch',
+    filename: 'broccolijs-from-scratch',
+    title: 'Broccoli.js from scratch',
+    created: '19/Apr/2015',
+    updated: '29/Aug/2016',
+    description: 'We\'ll install and configure Broccoli using a hello world website. Then we\'ll add a couple of Broccoli plugins for common tasks like loading assets and bundling CSS.',
+    keywords: 'Broccoli.js',
+    hashtags: 'broccolijs',
+    thumb: '/static/img/encom-os12.jpg'
+  },
+  {
     url: '/where-is-the-ember-community',
     filename: 'where-is-the-ember-community',
     title: 'Where is the Ember community?',
@@ -64,17 +75,6 @@ module.exports = [
     keywords: 'Ember.js, Sails.js, Sane Stack, Authentication',
     hashtags: 'emberjs, sailsjs',
     thumb: '/static/img/sails-ember-th.jpg'
-  },
-  {
-    url: '/broccolijs-from-scratch',
-    filename: 'broccolijs-from-scratch',
-    title: 'Broccoli.js from scratch',
-    created: '19/Apr/2015',
-    updated: '',
-    description: 'In this guide we\'ll go through the Broccoli installation process and how to cosume a couple of plugins for web development tasks that every single web site needs.',
-    keywords: 'Broccoli.js',
-    hashtags: 'broccolijs',
-    thumb: '/static/img/encom-os12.jpg'
   },
   {
     url: '/ember-i-choose-you',

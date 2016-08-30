@@ -4,32 +4,31 @@ All the code for this example can be found here:
 
 ## Requirements
 
-Install Node and npm.
+Install Node.
 
 ```
 node -v
-v0.10.38
-npm -v
-1.4.28
+v6.2.1
 
-```
-```
-npm install -g broccoli-cli
+npm -v
+3.9.3
 ```
 
 ## Project setup
 
-    mkdir broccolijs-from-scratch
-    cd broccolijs-from-scratch
-    npm init
+```
+mkdir broccolijs-from-scratch
+cd broccolijs-from-scratch
+npm init
+```
 
 Answer the questions and the result will be the file `package.json`.
 
 ## Install Broccoli
 
     # broccolijs-from-scratch/
+    npm install -g broccoli@1.0.0-beta.7
     npm install --save-dev broccoli
-    touch Brocfile.js
 
 Create an `index.html` file.
 
@@ -51,15 +50,17 @@ Create an `index.html` file.
 
 ### Config Broccoli
 
-We will install a Broccoli plugin and use it to build the website.
+We will install a Broccoli plugin that allows us to load files into
+Broccoli trees.
 
     npm install --save-dev broccoli-funnel
 
-In `Brocfile.js` add:
+Create the file `Brocfile.js` and add:
 
 ```js
 var funnel = require('broccoli-funnel');
 
+// the variable `html` now holds a Broccoli tree
 var html = funnel('.', {
   files   : ['index.html'],
   destDir : '/'
@@ -68,9 +69,11 @@ var html = funnel('.', {
 module.exports = html;
 ```
 
-Save and build
+Save the file and build the site:
 
-    broccoli build dist
+```
+broccoli build dist
+```
 
 Open in you browser the file `dist/index.html` and you'll see:
 
@@ -78,17 +81,21 @@ Open in you browser the file `dist/index.html` and you'll see:
 
 ## Adding Styles
 
-Two plugins will be installed:
+We'll install two Broccoli plugins:
 
-    npm install --save-dev broccoli-concat
-    npm install --save-dev broccoli-merge-trees
+```
+# concatenates the files in a Broccoli tree
+npm install --save-dev broccoli-concat
+
+# allows us to merge two Broccoli trees into one
+npm install --save-dev broccoli-merge-trees
+```
 
 We add the file `style.css` with:
 
 ```css
 body {
   margin: 30px;
-  border: 1px solid black;
 }
 ```
 
@@ -161,26 +168,9 @@ var fonts = funnel('fontello/font', {
 module.exports = mergeTrees([html, styles, fonts]);
 ```
 
-### Download Fontello files
-
-Use [fontello-config.json](https://raw.githubusercontent.com/givanse/broccolijs-from-scratch/master/fontello-config.json)
-to download the font files from [fontello.com](http://fontello.com/) and within the project folder:
-
-    unzip fontello-703c13a3.zip
-    mv fontello-703c13a3/ fontello
-
 This time a server will be needed for us to see the changes:
 
-    broccoli serve
-    # visit http://localhost:4200/
-
-## Final note
-
-I used an old Node version because the command `broccoli serve` wouldn't work as I expected in 0.11 and 0.12,
-but `broccoli build` works just fine, which is what really matters.
-
-One trick to test your project from the `dist/` folder is to start a server from there:
-
-    cd dist/
-    python -m SimpleHTTPServer
-    # visit http://localhost:8000/
+```
+broccoli serve
+# visit http://localhost:4200/
+```

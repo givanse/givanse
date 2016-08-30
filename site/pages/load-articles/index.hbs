@@ -14,16 +14,11 @@
 
     <div class="row row_max_w">
       <div class="col-xs-6">
+        <time class='post_date'>{{page.updated}}</time>
         {{#if page.updated}}<s>{{/if}}
           <time class='post_date'>{{page.created}}</time>
         {{#if page.updated}}</s>{{/if}}
         <br>
-
-        <time class='post_date'>{{page.updated}}</time>
-        <br>
-      </div>
-
-      <div class="col-xs-6 text-right">
       </div>
     </div>
   </header>
