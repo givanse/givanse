@@ -1,5 +1,16 @@
 module.exports = [
   {
+    url: '/when-ember-observer-should-be-used',
+    filename: 'when-ember-observer-should-be-used',
+    title: 'When Ember.observer should be used?',
+    created: '3/Oct/2016',
+    updated: '',
+    description: 'Lots of observers can be the source of hard to debug issues and they can have a big impact on the performance of your app. You should avoid them as much as possible.',
+    keywords: 'observer',
+    hashtags: 'emberjs',
+    thumb: '/static/img/encom-os12.jpg'
+  },
+  {
     url: '/broccolijs-from-scratch',
     filename: 'broccolijs-from-scratch',
     title: 'Broccoli.js from scratch',
