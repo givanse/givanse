@@ -2,6 +2,9 @@
   "name": "givanse",
   "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "build": "cd ~/code/givanse; rm -rf dist/; broccoli-taco build dist; cd dist; pyserver"
+  },
   "dependencies": {
     "broccoli-base64-css": "^0.0.4",
     "broccoli-browserify": "^0.1.0",
