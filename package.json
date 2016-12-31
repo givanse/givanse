@@ -2,8 +2,11 @@
   "name": "givanse",
   "version": "0.0.0",
   "private": true,
+  "engines" : {
+    "node": "~0.12.14"
+  },
   "scripts": {
-    "build": "cd ~/code/givanse; rm -rf dist/; broccoli-taco build dist; cd dist; pyserver"
+    "build-watch": "rm -rf dist/; broccoli-taco build dist; cd dist; pyserver"
   },
   "dependencies": {
     "broccoli-base64-css": "^0.0.4",
