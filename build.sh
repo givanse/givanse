@@ -7,8 +7,6 @@ distFolder='dist'
 rm -rvf $distFolder
 rm -rvf tmp
 
-npm install
-
 BROCCOLI_ENV=production BROCCOLI_TACO_ENV=production ./node_modules/.bin/broccoli-taco build $distFolder
 
 echo -e '\nbuild complete'
@@ -17,7 +15,7 @@ echo -e '\ngenerating sitemap'
 
 cd dist
 
-../node_modules/sitemap-static/index.js --prefix=http://givan.se/ . > sitemap.xml
+../node_modules/sitemap-static/index.js --prefix=https://givan.se/ . > sitemap.xml
 
 ls -l sitemap.xml
 

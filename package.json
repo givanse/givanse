@@ -5,7 +5,9 @@
   "engines" : {
     "node": "~0.12.14"
   },
+  "repository": "https://github.com/givanse/givanse",
   "scripts": {
+    "build": "./build.sh",
     "build-watch": "rm -rf dist/; broccoli-taco build dist; cd dist; pyserver"
   },
   "dependencies": {
