@@ -13,7 +13,10 @@ Build
 
 ```
 ENV=development ./build.sh
+npm run build-dev
+
 ENV=production ./build.sh
+npm run build
 ```
 
 
