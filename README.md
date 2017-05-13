@@ -12,3 +12,8 @@ Build
 ```
 ./build.sh
 ```
+
+
+```
+npm run build-serve
+```

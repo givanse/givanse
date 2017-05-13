@@ -1,5 +1,6 @@
 #!/bin/bash
 
-npm install -g broccoli-taco 
-npm install -g marked
-npm install
+yarn install -g broccoli-taco 
+yarn install -g marked
+yarn install http-server -g
+yarn install

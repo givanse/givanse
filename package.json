@@ -8,15 +8,15 @@
   "repository": "https://github.com/givanse/givanse",
   "scripts": {
     "build": "./build.sh",
-    "build-watch": "rm -rf dist/; broccoli-taco build dist; cd dist; pyserver"
+    "build-serve": "rm -rf dist/; broccoli-taco build dist && cd dist && http-server -p 8080"
   },
   "dependencies": {
-    "broccoli-base64-css": "^0.0.4",
+    "broccoli-base64-css": "^0.0.6",
     "broccoli-browserify": "^0.1.0",
-    "broccoli-clean-css": "^0.2.0",
+    "broccoli-clean-css": "^1.1.0",
     "broccoli-fingerprint": "0.0.4",
-    "broccoli-sass": "^0.2.1",
-    "broccoli-taco": "0.0.7",
+    "broccoli-sass": "^0.7.0",
+    "broccoli-taco": "0.0.8",
     "broccoli-uglify-js": "^0.1.3",
     "highlight.js": "^8.5.0"
   },

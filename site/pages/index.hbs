@@ -14,15 +14,6 @@
         </a>
         <br>
 
-        {{#if updated}}
-          <time class="article_date">{{updated}}</time>,
-          <s>
-            <time class="article_date">{{created}}</time>
-          </s>
-        {{else}}
-          <time class="article_date">{{created}}</time>
-        {{/if}}
-
         <!-- excerpt -->
         <a href="/{{filename}}">
           <summary class="article_description">{{description}}</summary>
