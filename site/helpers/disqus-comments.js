@@ -1,6 +1,19 @@
 var Handlebars = require('handlebars');
 
+var PRODUCTION = 'production';
+
 module.exports = function(options) {
+
+  var env = process.env.BROCCOLI_TACO_ENV;
+  if (env !== PRODUCTION) {
+    console.info('env ', env);
+
+    var template =
+    "<div id=\"disqus_thread\">dev disqus placeholder</div>";
+    var compiledTemplate = Handlebars.compile(template);
+    return new Handlebars.SafeString( compiledTemplate() );
+  }
+
   var template =
   "<div id=\"disqus_thread\"></div>" +
   "<script>" +
@@ -21,5 +34,6 @@ module.exports = function(options) {
     identifier: options.hash.identifier,
     title: options.hash.title
   };
+
   return new Handlebars.SafeString( compiledTemplate(data) );
 };

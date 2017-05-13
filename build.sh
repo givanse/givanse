@@ -7,7 +7,7 @@ distFolder='dist'
 rm -rvf $distFolder
 rm -rvf tmp
 
-BROCCOLI_ENV=production BROCCOLI_TACO_ENV=production ./node_modules/.bin/broccoli-taco build $distFolder
+BROCCOLI_ENV=$ENV BROCCOLI_TACO_ENV=$ENV ./node_modules/.bin/broccoli-taco build $distFolder
 
 echo -e '\nbuild complete'
 

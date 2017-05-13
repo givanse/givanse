@@ -7,7 +7,7 @@
   },
   "repository": "https://github.com/givanse/givanse",
   "scripts": {
-    "build": "./build.sh",
+    "build": "ENV=production ./build.sh",
     "build-serve": "rm -rf dist/; broccoli-taco build dist && cd dist && http-server -p 8080"
   },
   "dependencies": {
