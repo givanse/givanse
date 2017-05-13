@@ -104,7 +104,7 @@ module.exports = [
     title: 'MVC past, present and future.',
     created: '07/Aug/2014',
     updated: '',
-    description: 'Untangling MVC as popular jargon, a design pattern and a family of designs. The terms model-view-controller suffer of semantic overload, mainly because they are not writen and then read under the same context.',
+    description: 'Let\'s untangle MVC as engineering jargon, a design pattern and a family of designs. The terms Model, View, and Controller suffer from semantic overload, mainly because they are not written and then read under the same context.',
     keywords: 'MVC',
     hashtags: 'MVC',
     thumb: '/static/img/control_tower.jpg'
