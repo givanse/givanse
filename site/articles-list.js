@@ -8,7 +8,7 @@ module.exports = [
     description: 'Tetris game theme based on League of Legends, without JQuery!',
     keywords: 'Tetris, League of Legends',
     hashtags: 'Tetris, LeagueOfLegends',
-    thumb: '/static/img/encom-os12.jpg'
+    thumb: '/static/img/tetris_lol_th.png'
   },
   {
     url: '/when-ember-observer-should-be-used',
