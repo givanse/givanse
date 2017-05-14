@@ -5,7 +5,7 @@ module.exports = [
     title: 'Tetris LoL',
     created: '13/May/2017',
     updated: '',
-    description: 'Tetris game theme based on League of Legends, withouth JQuery!',
+    description: 'Tetris game theme based on League of Legends, without JQuery!',
     keywords: 'Tetris, League of Legends',
     hashtags: 'Tetris, LeagueOfLegends',
     thumb: '/static/img/encom-os12.jpg'
