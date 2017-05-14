@@ -1,5 +1,16 @@
 module.exports = [
   {
+    url: '/tetris-lol',
+    filename: 'tetris-lol',
+    title: 'Tetris LoL',
+    created: '13/May/2017',
+    updated: '',
+    description: 'Tetris game theme based on League of Legends, withouth JQuery!',
+    keywords: 'Tetris, League of Legends',
+    hashtags: 'Tetris, LeagueOfLegends',
+    thumb: '/static/img/encom-os12.jpg'
+  },
+  {
     url: '/when-ember-observer-should-be-used',
     filename: 'when-ember-observer-should-be-used',
     title: 'When Ember.observer should be used?',
