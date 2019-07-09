@@ -1,5 +1,16 @@
 module.exports = [
   {
+    url: '/vscode-breakpoints',
+    filename: 'vscode-breakpoints',
+    title: 'VSCode breakpoints not working',
+    created: '09/Jul/2019',
+    updated: '',
+    description: 'VSCode breakpoints or debugger statements are not hit, why?',
+    keywords: 'VSCode, npm, debug',
+    hashtags: 'VSCode, npm',
+    thumb: ''
+  },
+  {
     url: '/tetris-lol',
     filename: 'tetris-lol',
     title: 'Tetris LoL',
