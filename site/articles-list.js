@@ -1,5 +1,16 @@
 module.exports = [
   {
+    url: '/how-to-add-tailwindcss-to-preact-cli',
+    filename: 'how-to-add-tailwindcss-to-preact-cli',
+    title: 'How to add Tailwind CSS to Preact CLI',
+    created: '31/Oct/2019',
+    updated: '',
+    description: '',
+    keywords: 'preact-cli, tailwindcss',
+    hashtags: 'Preact',
+    thumb: ''
+  },
+  {
     url: '/vscode-breakpoints',
     filename: 'vscode-breakpoints',
     title: 'VSCode breakpoints not working',
