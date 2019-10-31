@@ -32,7 +32,7 @@
     "broccoli-merge-trees": "0.2.1",
     "broccoli-more-css": "^0.1.0",
     "broccoli-uncss": "^1.4.0",
-    "handlebars": "^3.0.0",
+    "handlebars": "^4.5.1",
     "marked": "^0.3.3",
     "sitemap-static": "0.2.0"
   }
