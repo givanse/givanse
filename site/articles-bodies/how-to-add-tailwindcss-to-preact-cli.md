@@ -1,4 +1,9 @@
 
+The steps documented here were executed with the latest release of preact-cli:
+
+ - preact-cli 2.1.0
+ - preact 8.5.2
+
 Install Tailwind:
 
 ```
