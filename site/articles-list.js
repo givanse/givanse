@@ -5,7 +5,7 @@ module.exports = [
     title: 'How to add Tailwind CSS to Preact CLI',
     created: '31/Oct/2019',
     updated: '',
-    description: '',
+    description: 'Add Tailwind CSS to an existing Preact CLI application through PostCSS.',
     keywords: 'preact-cli, tailwindcss',
     hashtags: 'Preact',
     thumb: ''

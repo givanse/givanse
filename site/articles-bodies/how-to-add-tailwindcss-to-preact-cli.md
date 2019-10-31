@@ -1,4 +1,6 @@
 
+Install Tailwind:
+
 ```
 yarn add -D tailwindcss 
 ```
