@@ -2,6 +2,10 @@
   export let post;
 </script>
 
+<title>
+  {post.title}
+</title>
+
 <meta name="author" content="Gastón I. Silva">
 <meta name="title" content="{post.title}"/>
 <meta name="description" content="{post.description}"/>

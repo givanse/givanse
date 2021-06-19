@@ -36,21 +36,14 @@
 </script>
 
 <script lang="ts">
-  import { onMount } from 'svelte';
   import PostHeadMeta from '$lib/PostHeadMeta/index.svelte';
-  //import SharedButtons from '$lib/ShareButtons/index.svelte';
+  import ShareButtons from '$lib/ShareButtons/index.svelte';
   import DisqusComments from '$lib/DisqusComments/index.svelte';
 
   export let post;
-
-  let articleBody;
-
-  onMount(async () => {
-    articleBody.innerHTML += post.body;
-  });
 </script>
 
-<style src="../less/article.less"></style>
+<style src="../less/post.less"></style>
 
 <svelte:head>
   <PostHeadMeta post={post}></PostHeadMeta>
@@ -67,42 +60,36 @@
   </header>
 
   <section class="row row_max_w">
-    <div class="col-xs-12" bind:this={articleBody}>
+    <div class="col-xs-12">
       <p>
         {post.description}
       </p>
 
-      <!-- post.body will be inserted here -->
+      {@html post.body}
     </div>
   </section>
 
-  <br>
-
   <footer>
     <div class="row row_max_w">
-      <div class="col-xs-8 col-sm-10 text-right">
-        <abbr title="Gast&oacute;n Iv&aacute;n Silva Echegaray">Gast&oacute;n I. Silva</abbr><br>
-        <a href="https://twitter.com/givanse" class="twitter-follow-button" data-show-count="false">Follow @givanse</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-      </div>
-
-      <div class="col-xs-4 col-sm-2">
-        <img src="/givanse.png" class="img-responsive avatar">
+      <br>
+      <div class="col-xs-12 text-right">
+        <span class="share_on">share on:&nbsp;</span><ShareButtons post={post}></ShareButtons>
       </div>
     </div>
 
+    <hr class="row_max_w">
+
     <div class="row row_max_w">
-      <br>
-      <hr>
-
-      <div class="col-xs-12">
-        <!--SharedButtons></SharedButtons-->
-      </div>
-
-      <hr class="clearfix">
-
       <div class="col-xs-12">
         <DisqusComments slug={post.filename}></DisqusComments>
+      </div>
+      
+      <!-- svelte-ignore a11y-img-redundant-alt -->
+      <img src="/givanse.png" alt="Gastón's photo" class="img-responsive avatar">
+
+      <div class="text-center name">
+        <a href="https://twitter.com/givanse" class="twitter-follow-button" data-show-count="false">Follow @givanse</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
       </div>
     </div>
   </footer>
