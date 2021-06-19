@@ -1,0 +1,52 @@
+@import "../../less/colors.less";
+
+@menu_link_line_height: 3rem;
+@menu_active_link_border_bottom_w: 0.5rem;
+@menu_total_h: @menu_link_line_height +
+               @menu_active_link_border_bottom_w;
+
+.header_0 {
+  background-color: @header_footer_background_color;
+  height: @menu_total_h;
+}
+
+.header_1 {
+  background-color: @color-secondary-2-1;
+  // render bug, substract just a little so that the `active` border fits perfectly
+  height: @menu_active_link_border_bottom_w - 0.01rem;
+}
+
+.header_2 {
+  background-color: @color-secondary-1-1;
+  height: @menu_active_link_border_bottom_w * 0.60;
+}
+
+.header_0 .menu {
+  height: @menu_link_line_height; /* cut short */
+  padding-top: @menu_active_link_border_bottom_w;
+  text-align: right;
+}
+
+.menu a {
+  background-color: @color-secondary-1-1;
+  border: 0 solid @color-secondary-1-0;
+  color: @color-secondary-1-4;
+  display: inline-block;
+  font-weight: 700;
+  line-height: @menu_link_line_height;
+  margin-right: 2rem;
+  padding: 0 1rem;
+  text-decoration: none;
+}
+
+.menu a:visited {
+  color: @color-secondary-1-4;
+}
+
+.menu .active {
+  border-bottom-width: @menu_active_link_border_bottom_w;
+}
+
+.menu a:hover {
+  border-bottom-width: @menu_active_link_border_bottom_w;
+}
