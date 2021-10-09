@@ -1,7 +1,3 @@
-@import '../../assets/fontello/css/fontello.css';
-@import 'highlight.js/styles/mono-blue.css';
-@import 'bootstrap/dist/css/bootstrap.css';
-@import '@fontsource/fira-mono';
 @import './colors.less';
 
 /*
@@ -108,14 +104,10 @@ p {
   html { font-size: 16px; }
 }
 
-.avatar {
-  -ms-transform: scaleX(-1);
-  -moz-transform: scaleX(-1);
-  -o-transform: scaleX(-1);
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
-  filter: FlipH;
-  -ms-filter: "FlipH";
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
 }
 
 /**

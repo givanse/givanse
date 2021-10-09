@@ -1,6 +1,9 @@
 <script lang="ts">
 	import Header from '$lib/Header/index.svelte';
-	import '../less/app.less';
+	//import '../less/app.less';
+  //import '../../assets/fontello/css/fontello.css';
+  //import 'bootstrap/dist/css/bootstrap.css';
+  //import 'highlight.js/styles/mono-blue.css';
 </script>
 
 <Header />

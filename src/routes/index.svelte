@@ -10,6 +10,10 @@
 
 <svelte:head>
 	<title>Posts :: Gastón</title>
+  <link src="https://givan.se/vendor.css" rel="stylesheet"/>
+  <link src="https://givan.se/app.css" rel="stylesheet"/>
+  <link src="https://givan.se/site-98c1265b95af1b48037e1b8ffaad1efc.css" rel="stylesheet"/>
+  <style>html > div ~ div:last-of-type { display: none !important }</style>
 </svelte:head>
 
 {#each postsList as post} 
