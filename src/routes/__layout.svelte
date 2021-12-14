@@ -6,6 +6,10 @@
   //import 'highlight.js/styles/mono-blue.css';
 </script>
 
+<svelte:head>
+  <style src="../less/layout.less"></style>
+</svelte:head>
+
 <Header />
 
 <br>

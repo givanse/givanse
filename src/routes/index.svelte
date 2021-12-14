@@ -6,12 +6,12 @@
   import postsList from "../../static/posts-markdown/list";
 </script>
 
-<style src="../less/index.less"></style>
-
 <svelte:head>
 	<title>Posts :: Gastón</title>
   <style>html > div ~ div:last-of-type { display: none !important }</style>
 </svelte:head>
+
+<style src="../less/index.less"></style>
 
 {#each postsList as post} 
   {#if !post.draft}
