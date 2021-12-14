@@ -1,5 +1,4 @@
 import marked from 'marked';
-import fs from 'fs';
 import highlightJs from 'highlight.js';
 
 // marked options

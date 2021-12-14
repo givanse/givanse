@@ -10,9 +10,6 @@
 
 <svelte:head>
 	<title>Posts :: Gastón</title>
-  <link src="https://givan.se/vendor.css" rel="stylesheet"/>
-  <link src="https://givan.se/app.css" rel="stylesheet"/>
-  <link src="https://givan.se/site-98c1265b95af1b48037e1b8ffaad1efc.css" rel="stylesheet"/>
   <style>html > div ~ div:last-of-type { display: none !important }</style>
 </svelte:head>
 
@@ -23,6 +20,7 @@
       <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
         <a href="/{post.filename}">
           <span>{post.title}</span>
+          <br>
           <summary class="article_description">{post.description}</summary>
         </a>
 

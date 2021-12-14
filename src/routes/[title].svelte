@@ -39,6 +39,7 @@
   import PostHeadMeta from '$lib/PostHeadMeta/index.svelte';
   import ShareButtons from '$lib/ShareButtons/index.svelte';
   import DisqusComments from '$lib/DisqusComments/index.svelte';
+  import Footer from '$lib/Footer/index.svelte';
 
   export let post;
 </script>
@@ -93,5 +94,7 @@
       </div>
     </div>
   </footer>
+
+  <Footer></Footer>
 
 </article>
