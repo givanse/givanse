@@ -2,8 +2,6 @@
 	import { page } from '$app/stores';
 </script>
 
-<style src="../../less/header.less"></style>
-
 <header class="header container">
   <div class="row header_0">
     <nav class="row_max_w menu">

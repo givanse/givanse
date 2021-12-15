@@ -8,25 +8,23 @@
 
 <svelte:head>
 	<title>Posts :: Gastón</title>
-  <style>html > div ~ div:last-of-type { display: none !important }</style>
 </svelte:head>
 
-<style src="../less/index.less"></style>
+<div class="m-auto sm:w-full md:w-10/12 lg:w-8/12 xl:w-6/12 2xl:w-6/12">
+  {#each postsList as post}
+    {#if !post.draft}
 
-{#each postsList as post} 
-  {#if !post.draft}
-    <div class="row article">
-
-      <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
-        <a href="/{post.filename}">
+      <a href="/{post.filename}">
+        <div class="p-2">
           <span>{post.title}</span>
           <br>
-          <summary class="article_description">{post.description}</summary>
-        </a>
+          <div class="article_description">
+            {post.description}
+          </div>
+        </div>
+      </a>
+      <hr>
 
-        <hr>
-      </div>
-
-    </div>
-  {/if}
-{/each}
+    {/if}
+  {/each}
+</div>

@@ -1,10 +1,11 @@
 <script lang="ts">
+  import '../app.css';
 	import Header from '$lib/Header/index.svelte';
-	//import '../less/app.less';
   //import '../../assets/fontello/css/fontello.css';
   //import 'bootstrap/dist/css/bootstrap.css';
   //import 'highlight.js/styles/mono-blue.css';
 </script>
+
 
 <svelte:head>
   <style src="../less/layout.less"></style>
@@ -12,12 +13,8 @@
 
 <Header />
 
-<br>
-
-<main class="layout">
-  <div class="container">
-	  <slot />
-  </div>
+<main class="mt-8">
+  <slot />
   <div class="sticky_footer_push"></div>
 </main>
 
