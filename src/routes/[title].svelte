@@ -54,7 +54,11 @@
 <article>
 
   <header class="w-full mx-8">
-    <h1>{post.title}</h1>
+    <h1>
+      <a href="#title">
+        {post.title}
+      </a>
+    </h1>
   </header>
 
   <section class="w-full mx-8">

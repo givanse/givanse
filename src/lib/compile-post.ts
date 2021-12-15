@@ -13,7 +13,8 @@ renderer.heading = function(text, level) {
   return '<h' + level + ' id="'+escapedText+'">' +
            '<a class="header_link" name="' + escapedText + '" href="#' + escapedText + '">'+
              '<i class="icon-link"></i>' +
-           '</a>' + text + 
+             text +
+           '</a>' +
          '</h' + level + '>';
 };
 
