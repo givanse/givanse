@@ -11,7 +11,14 @@ const config = {
 		// hydrate the <div id="svelte"> element in src/app.html
 		target: '#svelte',
 		ssr: false,
-    adapter: adapter(), // currently the adapter does not take any options
+    adapter: adapter({
+      esbuild(default_options) {
+        // workaround
+        // https://github.com/sveltejs/kit/issues/3054
+        default_options.inject = [];
+        return default_options;
+      }
+    }),
 	}
 };
 
