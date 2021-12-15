@@ -2,13 +2,13 @@
   import '../app.css';
 	import Header from '$lib/Header/index.svelte';
   //import '../../assets/fontello/css/fontello.css';
-  //import 'bootstrap/dist/css/bootstrap.css';
-  //import 'highlight.js/styles/mono-blue.css';
 </script>
 
 
 <svelte:head>
   <style src="../less/layout.less"></style>
+  <style src="../less/header.less"></style>
+  <style src="../less/footer.less"></style>
 </svelte:head>
 
 <Header />

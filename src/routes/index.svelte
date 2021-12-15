@@ -7,7 +7,8 @@
 </script>
 
 <svelte:head>
-	<title>Posts :: Gastón</title>
+  <title>Posts :: Gastón</title>
+  <style src="../less/index.less"></style>
 </svelte:head>
 
 <div class="m-auto sm:w-full md:w-10/12 lg:w-8/12 xl:w-6/12 2xl:w-6/12">

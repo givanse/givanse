@@ -1,4 +1,6 @@
 <script context="module">
+  import 'highlight.js/styles/mono-blue.css';
+
   import postsList from "../../static/posts-markdown/list";
   import compilePost from "../lib/compile-post";
 
@@ -44,9 +46,8 @@
   export let post;
 </script>
 
-<style src="../less/post.less"></style>
-
 <svelte:head>
+  <style src="../less/post.less"></style>
   <PostHeadMeta post={post}></PostHeadMeta>
 </svelte:head>
 
