@@ -5,15 +5,13 @@
   export let post;
 </script>
 
-<footer>
-  <div class="w-full text-right mt-8 pr-8">
+<footer class="mt-16">
+  <div class="w-full text-right mt-8 px-8">
     <span class="share_on">share on:</span>
     <ShareButtons post={post}></ShareButtons>
   </div>
 
-  <hr>
-
-  <div class="w-full p-8">
+  <div class="w-full mt-32 p-8">
     <DisqusComments slug={post.filename}></DisqusComments>
   </div>
 

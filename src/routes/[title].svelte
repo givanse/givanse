@@ -46,7 +46,7 @@
 </script>
 
 <svelte:head>
-  <style src="../less/post.less"></style>
+  <style src="../less/[title].less"></style>
   <style src="../less/post-footer.less"></style>
   <PostHeadMeta post={post}></PostHeadMeta>
 </svelte:head>

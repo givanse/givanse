@@ -39,7 +39,9 @@
 <span bind:this={span}></span>
 
 <style>
-  :global(iframe#twitter-widget-1) {
+  :global(iframe#twitter-widget-0),
+  :global(.twitter-share-button .twitter-share-button-rendered .twitter-tweet-button) {
     vertical-align: bottom;
+    display: inline-block;
   }
 </style>

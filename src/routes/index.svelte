@@ -11,7 +11,7 @@
   <style src="../less/index.less"></style>
 </svelte:head>
 
-<div class="p-8 sm:w-full md:w-10/12 lg:w-8/12 xl:w-6/12 2xl:w-6/12">
+<div class="p-8 mx-auto sm:w-full md:w-10/12 lg:w-8/12 xl:w-6/12 2xl:w-6/12">
   {#each postsList as post}
     {#if !post.draft}
 
