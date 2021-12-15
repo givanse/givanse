@@ -5,15 +5,11 @@ module.exports = {
     purgeLayersByDefault: true,
     removeDeprecatedGapUtilities: true,
   },
-  purge: {
-    content: [
-      "./src/**/*.html",
-      "./src/**/*.svelte",
-    ],
-    //enabled: production, // disable purge in dev
-    enabled: false,
-  },
-  darkMode: false, // or 'media' or 'class'
+  content: [
+    "./src/**/*.{svelte,html}",
+  ],
+  //  enabled: production, // disable purge in dev
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {},
   },

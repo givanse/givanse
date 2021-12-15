@@ -17,7 +17,7 @@
 
       <a href="/{post.filename}">
         <div class="article">
-          <span class="c-primary-4 bg-secondary-2-1 bandaid-px-4 -bandaid-ml-4">
+          <span class="c-primary-4 bg-secondary-2-1 px-4 -ml-4">
             {post.title}
           </span>
 
@@ -31,12 +31,3 @@
     {/if}
   {/each}
 </div>
-
-<style>
-  .bandaid-px-4 {
-    padding: 0 1rem;
-  }
-  .-bandaid-ml-4 {
-    margin-left: -1rem;
-  }
-</style>
