@@ -1,21 +1,29 @@
 <script lang="ts">
   import '../app.css';
 	import Header from '$lib/Header/index.svelte';
-  //import '../../assets/fontello/css/fontello.css';
 </script>
 
 
 <svelte:head>
   <style src="../less/layout.less"></style>
-  <style src="../less/header.less"></style>
-  <style src="../less/footer.less"></style>
 </svelte:head>
 
 <Header />
 
 <main class="mt-8">
   <slot />
-  <div class="sticky_footer_push"></div>
 </main>
 
-<footer class="sticky_footer"></footer>
+<footer class="sticky_footer grid grid-cols-2">
+
+  <div class="text-left mt-8 pr-8">
+    <a sveltekit:prefetch href="/">Posts</a>
+  </div>
+
+  <div class="text-right mt-8 pr-8">
+    Gastón Silva
+    <br>
+    <a href="https://twitter.com/givanse" class="">@givanse</a>
+  </div>
+
+</footer>

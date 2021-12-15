@@ -11,15 +11,17 @@
   <style src="../less/index.less"></style>
 </svelte:head>
 
-<div class="m-auto sm:w-full md:w-10/12 lg:w-8/12 xl:w-6/12 2xl:w-6/12">
+<div class="p-8 sm:w-full md:w-10/12 lg:w-8/12 xl:w-6/12 2xl:w-6/12">
   {#each postsList as post}
     {#if !post.draft}
 
       <a href="/{post.filename}">
-        <div class="p-2">
-          <span>{post.title}</span>
-          <br>
-          <div class="article_description">
+        <div class="article">
+          <span class="c-primary-4 bg-secondary-2-1 bandaid-px-4 -bandaid-ml-4">
+            {post.title}
+          </span>
+
+          <div class="c-primary-3">
             {post.description}
           </div>
         </div>
@@ -29,3 +31,12 @@
     {/if}
   {/each}
 </div>
+
+<style>
+  .bandaid-px-4 {
+    padding: 0 1rem;
+  }
+  .-bandaid-ml-4 {
+    margin-left: -1rem;
+  }
+</style>

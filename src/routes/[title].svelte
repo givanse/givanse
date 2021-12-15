@@ -1,5 +1,6 @@
 <script context="module">
-  import 'highlight.js/styles/mono-blue.css';
+  import 'highlight.js/styles/stackoverflow-light.css';
+  import '../../assets/fontello/css/fontello.css';
 
   import postsList from "../../static/posts-markdown/list";
   import compilePost from "../lib/compile-post";
@@ -39,63 +40,31 @@
 
 <script lang="ts">
   import PostHeadMeta from '$lib/PostHeadMeta/index.svelte';
-  import ShareButtons from '$lib/ShareButtons/index.svelte';
-  import DisqusComments from '$lib/DisqusComments/index.svelte';
-  import Footer from '$lib/Footer/index.svelte';
+  import PostFooter from '$lib/PostFooter/index.svelte';
 
   export let post;
 </script>
 
 <svelte:head>
   <style src="../less/post.less"></style>
+  <style src="../less/post-footer.less"></style>
   <PostHeadMeta post={post}></PostHeadMeta>
 </svelte:head>
 
 <article>
 
-  <header>
-    <div class="row row_max_w">
-      <div class="col-xs-12">
-        <h1>{post.title}</h1>
-      </div>
-    </div>
+  <header class="w-full mx-8">
+    <h1>{post.title}</h1>
   </header>
 
-  <section class="row row_max_w">
-    <div class="col-xs-12">
-      <p>
-        {post.description}
-      </p>
+  <section class="w-full mx-8">
+    <p>
+      {post.description}
+    </p>
 
-      {@html post.body}
-    </div>
+    {@html post.body}
   </section>
 
-  <footer>
-    <div class="row row_max_w">
-      <br>
-      <div class="col-xs-12 text-right">
-        <span class="share_on">share on:&nbsp;</span><ShareButtons post={post}></ShareButtons>
-      </div>
-    </div>
-
-    <hr class="row_max_w">
-
-    <div class="row row_max_w">
-      <div class="col-xs-12">
-        <DisqusComments slug={post.filename}></DisqusComments>
-      </div>
-      
-      <!-- svelte-ignore a11y-img-redundant-alt -->
-      <img src="/givanse.png" alt="Gastón's photo" class="img-responsive avatar">
-
-      <div class="text-center name">
-        <a href="https://twitter.com/givanse" class="twitter-follow-button" data-show-count="false">Follow @givanse</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-      </div>
-    </div>
-  </footer>
-
-  <Footer></Footer>
+  <PostFooter post={post}></PostFooter>
 
 </article>

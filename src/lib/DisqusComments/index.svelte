@@ -24,4 +24,12 @@ if (!dev) {
 }
 </script>
 
-<div id="disqus_thread"></div>
+<div id="disqus_thread">
+  {#if dev}
+    <div class="text-center bg-gray-100 w-full p-32">
+      Disqus Comments Placeholder
+      <br>
+      (dev env)
+    </div>
+  {/if}
+</div>

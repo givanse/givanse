@@ -2,13 +2,13 @@
 	import { page } from '$app/stores';
 </script>
 
-<header class="header container">
-  <div class="row header_0">
-    <nav class="row_max_w menu">
+<header class="w-full">
+  <div class="header_0">
+    <nav class="w-full menu">
       <a sveltekit:prefetch href="/"
          class:active={$page.path === '/'}>Posts</a>
     </nav>
   </div>
-  <div class="row header_1"></div>
-  <div class="row header_2"></div>
+  <div class="w-full header_1"></div>
+  <div class="w-full header_2"></div>
 </header>
