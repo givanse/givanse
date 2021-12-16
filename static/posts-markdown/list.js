@@ -1,5 +1,26 @@
 export default [
   {
+    draft: true,
+    filename: 'brix-gb-blce-4000c-ubuntu-umbrel',
+    title: 'How to set up a bitcoin full node on a GB-BLCE-4000C',
+    created: '',
+    updated: '',
+    description: '',
+    keywords: 'Umbrel, Bitcoin, Mini-PC',
+    hashtags: 'Bitcoin, Full Node',
+    thumb: ''
+  },
+  {
+    filename: 'build-bitcoin-on-mac',
+    title: 'Build Bitcoin on Mac',
+    created: '16/Dec/2021',
+    updated: '',
+    description: '',
+    keywords: 'Bitcoin, Mac',
+    hashtags: 'bitcoin, compile',
+    thumb: ''
+  },
+  {
     external: true,
     url: 'https://www.leagueoflegends.com/en-us/news/dev/introducing-the-client-cleanup-campaign/',
     filename: '',
@@ -12,7 +33,6 @@ export default [
     thumb: ''
   },
   {
-    url: '/how-to-add-tailwindcss-to-preact-cli',
     filename: 'how-to-add-tailwindcss-to-preact-cli',
     title: 'How to add Tailwind CSS to Preact CLI',
     created: '31/Oct/2019',
@@ -23,7 +43,6 @@ export default [
     thumb: ''
   },
   {
-    url: '/vscode-breakpoints',
     filename: 'vscode-breakpoints',
     title: 'VSCode breakpoints not working',
     created: '09/Jul/2019',
@@ -34,7 +53,6 @@ export default [
     thumb: ''
   },
   {
-    url: '/tetris-lol',
     filename: 'tetris-lol',
     title: 'Tetris LoL',
     created: '13/May/2017',
@@ -45,7 +63,6 @@ export default [
     thumb: '/static/img/tetris_lol_th.png'
   },
   {
-    url: '/when-ember-observer-should-be-used',
     filename: 'when-ember-observer-should-be-used',
     title: 'When Ember.observer should be used?',
     created: '3/Oct/2016',
@@ -56,7 +73,6 @@ export default [
     thumb: '/static/img/encom-os12.jpg'
   },
   {
-    url: '/broccolijs-from-scratch',
     filename: 'broccolijs-from-scratch',
     title: 'Broccoli.js from scratch',
     created: '19/Apr/2015',
@@ -67,7 +83,6 @@ export default [
     thumb: '/static/img/encom-os12.jpg'
   },
   {
-    url: '/where-is-the-ember-community',
     filename: 'where-is-the-ember-community',
     title: 'Where is the Ember community?',
     created: '04/Aug/2015',
@@ -78,7 +93,6 @@ export default [
     thumb: '/static/img/ember-community.jpg'
   },
   {
-    url: '/centos-nginx-rails-mysql-ember',
     filename: 'centos-nginx-rails-mysql-ember',
     title: 'CentOS Nginx Rails MySQL Ember',
     created: '23/Jul/2015',
@@ -87,6 +101,16 @@ export default [
     keywords: 'CentOS, Nginx, Rails, MySQL, Ember, Ruby',
     hashtags: 'nginx, emberjs, rails',
     thumb: '/static/img/encom-os12.jpg'
+  },
+  {
+    filename: 'spree-quickstart',
+    title: 'Spree Quickstart',
+    created: '12/Jul/2015',
+    updated: '',
+    description: 'How to quickly get started with Spree on Rails.',
+    keywords: 'Rails, MySQL, Spree',
+    hashtags: 'spree, rails',
+    thumb: ''
   },
   {
     external: true,
@@ -101,7 +125,6 @@ export default [
     thumb: ''
   },
   {
-    url: '/do-not-sudo-npm',
     filename: 'do-not-sudo-npm',
     title: 'Do not sudo npm',
     created: '11/Jun/2015',
@@ -112,7 +135,6 @@ export default [
     thumb: '/static/img/sudo.jpg'
   },
   {
-    url: '/ember-podcasts-list',
     filename: 'ember-podcasts-list',
     title: 'A list of Ember podcasts',
     created: '11/Jun/2015',
@@ -123,7 +145,6 @@ export default [
     thumb: '/static/img/podcast.jpg'
   },
   {
-    url: '/sane-auth-example',
     filename: 'sane-auth-example',
     title: 'Sane-Auth example',
     created: '03/Jun/2015',
@@ -134,7 +155,6 @@ export default [
     thumb: '/static/img/sails-ember-th.jpg'
   },
   {
-    url: '/ember-and-sails-authentication-options',
     filename: 'ember-and-sails-authentication-options',
     title: 'Ember and Sails authentication options',
     created: '15/May/2015',
@@ -145,7 +165,6 @@ export default [
     thumb: '/static/img/sails-ember-th.jpg'
   },
   {
-    url: '/ember-i-choose-you',
     filename: 'ember-i-choose-you',
     title: 'Why I use Ember.js?',
     created: '31/Mar/2015',
@@ -156,7 +175,6 @@ export default [
     thumb: '/static/img/givanse.jpeg'
   },
   {
-    url: '/mvc-past-present-and-future',
     filename: 'mvc-past-present-and-future',
     title: 'MVC past, present and future.',
     created: '07/Aug/2014',
@@ -167,7 +185,6 @@ export default [
     thumb: '/static/img/control_tower.jpg'
   },
   {
-    url: '/ember-cli-phonegap',
     filename: 'ember-cli-phonegap',
     title: 'Ember CLI & Phonegap',
     created: '09/Jul/2014',
@@ -178,7 +195,6 @@ export default [
     thumb: '/static/img/encom-os12.jpg'
   },
   {
-    url: '/ember-cli-simple-auth-devise',
     filename: 'ember-cli-simple-auth-devise',
     title: 'Ember CLI & ember-simple-auth-devise',
     created: '16/Jun/2014',
