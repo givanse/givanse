@@ -7,7 +7,7 @@ export default [
     created: '02/Mar/2020',
     updated: '',
     description: "Over the next six months or so we'll ship a number of changes and improvements to the League client's backend infrastructure. To track our process, we'll be sharing specific targets for two main client performance metrics: client bootstrap time and champ select lock-in time.",
-    keywords: 'LoL, Performance, JavaScript',
+    keywords: 'LoL, Performance, UX',
     hashtags: 'LoL, Client',
     thumb: ''
   },
@@ -51,7 +51,7 @@ export default [
     created: '3/Oct/2016',
     updated: '',
     description: 'Lots of observers can be the source of hard to debug issues and they can have a big impact on the performance of your app. You should avoid them as much as possible.',
-    keywords: 'observer',
+    keywords: 'Ember, Observer',
     hashtags: 'emberjs',
     thumb: '/static/img/encom-os12.jpg'
   },
@@ -73,7 +73,7 @@ export default [
     created: '04/Aug/2015',
     updated: '',
     description: 'A collection of places and channels where embereños help each other.',
-    keywords: 'Ember, IRC, forum, podcast, newsletter, blog',
+    keywords: 'Ember, Community, Resources',
     hashtags: 'emberjs, community',
     thumb: '/static/img/ember-community.jpg'
   },
@@ -107,7 +107,7 @@ export default [
     created: '11/Jun/2015',
     updated: '',
     description: 'Using root privileges with npm is not recommended, we\'ll go through the reasons. Avoid common pitfalls and learn the options for a proper installation of npm.',
-    keywords: 'Ember.js, Node.js, npm, package manager, root privileges, sudo, security',
+    keywords: 'npm, sudo, security',
     hashtags: 'npm, security',
     thumb: '/static/img/sudo.jpg'
   },
@@ -163,7 +163,7 @@ export default [
     updated: '',
     description: 'Let\'s untangle MVC as engineering jargon, a design pattern and a family of designs. The terms Model, View, and Controller suffer from semantic overload, mainly because they are not written and then read under the same context.',
     keywords: 'MVC',
-    hashtags: 'MVC',
+    hashtags: 'MVC, Software Patterns, UI',
     thumb: '/static/img/control_tower.jpg'
   },
   {

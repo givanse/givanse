@@ -27,6 +27,9 @@
           <div class="c-primary-3">
             {post.description}
           </div>
+          <p class="text-right text-sm my-2 c-secondary-2-0">
+            {post.keywords}
+          </p>
         </div>
       </a>
       <hr>
