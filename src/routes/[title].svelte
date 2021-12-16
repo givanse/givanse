@@ -1,6 +1,5 @@
 <script context="module">
   import 'highlight.js/styles/stackoverflow-dark.css';
-  import '../../assets/fontello/css/fontello.css';
 
   import postsList from "../../static/posts-markdown/list";
   import compilePost from "../lib/compile-post";

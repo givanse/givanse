@@ -1,5 +1,17 @@
 export default [
   {
+    external: true,
+    url: 'https://www.leagueoflegends.com/en-us/news/dev/introducing-the-client-cleanup-campaign/',
+    filename: '',
+    title: 'Introducing the client cleanup campaign',
+    created: '02/Mar/2020',
+    updated: '',
+    description: "Over the next six months or so we'll ship a number of changes and improvements to the League client's backend infrastructure. To track our process, we'll be sharing specific targets for two main client performance metrics: client bootstrap time and champ select lock-in time.",
+    keywords: 'LoL, Performance, JavaScript',
+    hashtags: 'LoL, Client',
+    thumb: ''
+  },
+  {
     url: '/how-to-add-tailwindcss-to-preact-cli',
     filename: 'how-to-add-tailwindcss-to-preact-cli',
     title: 'How to add Tailwind CSS to Preact CLI',
@@ -75,6 +87,18 @@ export default [
     keywords: 'CentOS, Nginx, Rails, MySQL, Ember, Ruby',
     hashtags: 'nginx, emberjs, rails',
     thumb: '/static/img/encom-os12.jpg'
+  },
+  {
+    external: true,
+    url: 'https://hacks.mozilla.org/2015/06/es6-in-depth-babel-and-broccoli/',
+    filename: '',
+    title: 'ES6 In Depth: Using ES6 today with Babel and Broccoli',
+    created: '17/Jun/2015',
+    updated: '',
+    description: 'ES6 In Depth is a series on new features being added to the JavaScript programming language in the 6th Edition of the ECMAScript standard, ES6 for short.',
+    keywords: 'ES6, transpiler, ECMAScript, BroccoliJS',
+    hashtags: 'es6, broccolijs',
+    thumb: ''
   },
   {
     url: '/do-not-sudo-npm',

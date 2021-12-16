@@ -15,11 +15,14 @@
   {#each postsList as post}
     {#if !post.draft}
 
-      <a href="/{post.filename}">
+      <a href={post.url}>
         <div class="article">
           <span class="c-primary-4 bg-secondary-2-1 pl-4 pr-2 -ml-4">
             {post.title}
           </span>
+          {#if post.external}
+            <i class="icon-link-ext text-pale-gold text-2xl"></i>
+          {/if}
 
           <div class="c-primary-3">
             {post.description}
