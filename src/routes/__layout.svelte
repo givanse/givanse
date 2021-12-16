@@ -14,16 +14,20 @@
   <slot />
 </main>
 
-<footer class="sticky_footer grid grid-cols-2 px-16 c-secondary-2-1">
+<footer class="sticky_footer">
 
-  <div class="text-left mt-8 pr-8">
-    <a sveltekit:prefetch href="/" class="text-pale-gold">Posts</a>
-  </div>
+  <div class="grid grid-cols-2 w-post c-secondary-2-1">
 
-  <div class="text-right mt-8 pr-8">
-    Gastón Silva
-    <br>
-    <a href="https://twitter.com/givanse" class="text-pale-gold">@givanse</a>
+    <div class="text-left mt-8 pr-8">
+      <a sveltekit:prefetch href="/" class="text-pale-gold">Posts</a>
+    </div>
+
+    <div class="text-right mt-8 pr-8">
+      Gastón Silva
+      <br>
+      <a href="https://twitter.com/givanse" class="text-pale-gold">@givanse</a>
+    </div>
+
   </div>
 
 </footer>

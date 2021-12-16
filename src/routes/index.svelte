@@ -11,13 +11,13 @@
   <style src="../less/index.less"></style>
 </svelte:head>
 
-<div class="p-8 mx-auto sm:w-full md:w-10/12 lg:w-8/12 xl:w-6/12 2xl:w-6/12">
+<div class="mx-auto w-post">
   {#each postsList as post}
     {#if !post.draft}
 
       <a href="/{post.filename}">
         <div class="article">
-          <span class="c-primary-4 bg-secondary-2-1 px-4 -ml-4">
+          <span class="c-primary-4 bg-secondary-2-1 pl-4 pr-2 -ml-4">
             {post.title}
           </span>
 

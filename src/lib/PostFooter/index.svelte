@@ -14,30 +14,30 @@
   @import '../../less/colors.less';
 
   .share {
-    border-width: 0.3rem 0;
-    border-color: @color-secondary-1-1;
+    border-width: 1px 0;
+    border-color: @pale-gold;
   }
 </style>
 
-<footer class="mt-16">
-  <div class="share w-full mt-8 py-4 px-8 bg-secondary-2-1 grid grid-cols-2">
-    <div></div>
+<footer class="mt-24 w-post">
+  <div class="share mt-8 py-4 px-8 grid grid-cols-2">
+      <div></div>
 
-    <div class="">
-      <span class="c-secondary-2-2 text-sm lowercase">
-        <a href="#title" class="mr-1 c-secondary-2-0">
-          {descriptionShort}
-        </a>
-        <br>
-      </span>
+      <div>
+        <span class="c-secondary-2-2 text-sm lowercase">
+          <a href="#title" class="mr-1 c-secondary-2-0">
+            {descriptionShort}
+          </a>
+          <br>
+        </span>
 
-      <div class="text-right">
-        <ShareButtons post={post}></ShareButtons>
+        <div class="text-right">
+          <ShareButtons post={post}></ShareButtons>
+        </div>
       </div>
-    </div>
   </div>
 
-  <div class="w-full mt-32 p-8">
+  <div class="mt-20 p-8">
     <DisqusComments slug={post.filename}></DisqusComments>
   </div>
 

@@ -51,7 +51,7 @@
   <PostHeadMeta post={post}></PostHeadMeta>
 </svelte:head>
 
-<article class="mt-8 sm:mx-1.5 md:mx-16 lg:mx-32 xl:mx-64 2xl:mx-80">
+<article class="mt-8 w-post">
 
   <header class="">
     <h1>
