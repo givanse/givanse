@@ -20,21 +20,22 @@
 </style>
 
 <footer class="mt-24 w-post">
-  <div class="share mt-8 py-4 px-8 grid grid-cols-2">
-      <div></div>
+  <div class="share mt-8 py-4 px-8 grid sm:grid-cols-1 md:grid-cols-2">
+    <div>
+    </div>
 
-      <div>
-        <span class="c-secondary-2-2 text-sm lowercase">
-          <a href="#title" class="mr-1 c-secondary-2-0">
-            {descriptionShort}
-          </a>
-          <br>
-        </span>
+    <div class="md:col-span-1">
+      <span class="c-secondary-2-2 text-sm lowercase">
+        <a href="#title" class="mr-1 c-secondary-2-0">
+          {descriptionShort}
+        </a>
+        <br>
+      </span>
 
-        <div class="text-right">
-          <ShareButtons post={post}></ShareButtons>
-        </div>
+      <div class="text-right">
+        <ShareButtons post={post}></ShareButtons>
       </div>
+    </div>
   </div>
 
   <div class="mt-20 p-8">
