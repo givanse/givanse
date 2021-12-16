@@ -4,7 +4,7 @@
 
 <header class="w-full">
   <div class="header_0">
-    <nav class="w-full menu">
+    <nav class="menu sm:mx-1.5 md:mx-16 lg:mx-32 xl:mx-64 2xl:mx-80">
       <a sveltekit:prefetch href="/"
          class:active={$page.path === '/'}>Posts</a>
     </nav>

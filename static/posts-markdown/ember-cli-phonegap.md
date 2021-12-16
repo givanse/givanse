@@ -65,8 +65,10 @@ We have to delete <b>baseURL</b> and change <b>locationType</b> to "none".
 
 in `cool-app/phonegap/www/js/index.js`
 
-    - window.CoolAppENV = {"environment":"production","baseURL":"/","locationType":"auto","EmberENV":{"FEATURES":{}},"APP":{}};
-    + window.CoolAppENV = {"environment":"production","locationType":"none","EmberENV":{"FEATURES":{}},"APP":{}};
+```js
+- window.CoolAppENV = {"environment":"production","baseURL":"/","locationType":"auto","EmberENV":{"FEATURES":{}},"APP":{}};
++ window.CoolAppENV = {"environment":"production","locationType":"none","EmberENV":{"FEATURES":{}},"APP":{}};
+```
 
 ## Testing it
 

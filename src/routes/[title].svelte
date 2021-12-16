@@ -1,5 +1,5 @@
 <script context="module">
-  import 'highlight.js/styles/stackoverflow-light.css';
+  import 'highlight.js/styles/stackoverflow-dark.css';
   import '../../assets/fontello/css/fontello.css';
 
   import postsList from "../../static/posts-markdown/list";
@@ -51,9 +51,9 @@
   <PostHeadMeta post={post}></PostHeadMeta>
 </svelte:head>
 
-<article>
+<article class="mt-8 sm:mx-1.5 md:mx-16 lg:mx-32 xl:mx-64 2xl:mx-80">
 
-  <header class="w-full mx-8">
+  <header class="">
     <h1>
       <a href="#title">
         {post.title}
@@ -61,7 +61,7 @@
     </h1>
   </header>
 
-  <section class="w-full mx-8">
+  <section class="w-full">
     <p>
       {post.description}
     </p>
@@ -69,6 +69,6 @@
     {@html post.body}
   </section>
 
-  <PostFooter post={post}></PostFooter>
-
 </article>
+
+<PostFooter post={post}></PostFooter>

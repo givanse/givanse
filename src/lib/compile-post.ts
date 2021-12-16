@@ -2,7 +2,7 @@ import marked from 'marked';
 import highlightJs from 'highlight.js';
 
 // marked options
-const highlight = function(code) {
+function highlight(code) {
   return highlightJs.highlightAuto(code).value;
 };
 
@@ -19,8 +19,8 @@ renderer.heading = function(text, level) {
 };
 
 marked.setOptions({
-  highlight: highlight, 
-  renderer: renderer
+  highlight,
+  renderer,
 });
 
 export default function compilePost(input: string) {
