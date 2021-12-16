@@ -12,4 +12,9 @@
 	export let title;
 </script>
 
-<h1>{title}</h1>
+<div class="w-post text-center pt-48 pb-80 h-96">
+  <h1>{title}</h1>
+  <p>
+    ¯\_(ツ)_/¯
+  </p>
+</div>
