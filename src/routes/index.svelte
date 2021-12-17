@@ -4,23 +4,24 @@
 </svelte:head>
 
 <script context="module" lang="ts">
-  import rawPostsList from "../../static/posts-markdown/list";
+  import postsList from "../../static/posts-markdown/list";
   import PostsListItem from "$lib/PostsListItem/index.svelte";
   import { dev } from "$app/env";
 
   export const prerender = true;
 
-  let postsList = rawPostsList.map(function(post) {
+  for (let i = 0; i < postsList.length; i++) {
+    const post = postsList[i];
+
     if (!dev && post.draft) {
-      return;
+      postsList.splice(i--, 1);
     }
 
     if (!post.external) {
       post.url = '/' + post.filename;
     }
+  }
 
-    return post;
-  });
 </script>
 
 <div class="mx-auto w-post">

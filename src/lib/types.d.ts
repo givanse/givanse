@@ -5,3 +5,8 @@
 export interface Locals {
 	userid: string;
 }
+
+export interface Post {
+  draft: boolean;
+  external: boolean;
+}

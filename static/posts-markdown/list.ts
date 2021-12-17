@@ -1,4 +1,15 @@
-export default [
+const postsList: Array<Post> = [
+  {
+    draft: true,
+    filename: 'build-bitcoin-on-mac',
+    title: 'Build Bitcoin on Mac',
+    created: '16/Dec/2021',
+    updated: '',
+    description: '',
+    keywords: 'Bitcoin, Compile, Mac',
+    hashtags: 'bitcoin, compile',
+    thumb: ''
+  },
   {
     draft: true,
     filename: 'brix-gb-blce-4000c-ubuntu-umbrel',
@@ -8,16 +19,6 @@ export default [
     description: '',
     keywords: 'Umbrel, Bitcoin, Mini-PC',
     hashtags: 'Bitcoin, Full Node',
-    thumb: ''
-  },
-  {
-    filename: 'build-bitcoin-on-mac',
-    title: 'Build Bitcoin on Mac',
-    created: '16/Dec/2021',
-    updated: '',
-    description: '',
-    keywords: 'Bitcoin, Mac',
-    hashtags: 'bitcoin, compile',
     thumb: ''
   },
   {
@@ -205,3 +206,5 @@ export default [
     thumb: '/static/img/encom-os12.jpg'
   }
 ];
+
+export default postsList;

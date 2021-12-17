@@ -8,32 +8,27 @@
   function getDomain(url: string): string {
     return url.match(/^https?:\/\/[a-zA-Z0-9-.]*/)[0];
   }
-
-  function loading(event: PointerEvent) {
-    let a: HTMLElement = event.target;
-    while (a.constructor.name !== 'HTMLAnchorElement') {
-      a = a.parentElement;
-    }
-
-    a.innerHTML = 'spinner';
-  }
 </script>
 
 <a href={post.url}
    class="block relative"
    on:click={() => isLoading = true}>
+
   <div class="article {isLoading ? 'opacity-10' : ''}">
+
     <span class="c-primary-4 bg-secondary-2-1 pl-4 pr-2 -ml-4">
       {post.title}
     </span>
+
     {#if post.external}
       <i class="icon-link-ext text-pale-gold text-2xl"
-          title={getDomain(post.url)}></i>
+         title={getDomain(post.url)}></i>
     {/if}
 
     <div class="c-primary-3">
       {post.description}
     </div>
+
     <p class="text-right text-sm my-2 c-primary-2">
       {post.keywords}
     </p>
