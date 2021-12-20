@@ -1,6 +1,17 @@
 const postsList: Array<Post> = [
   {
     draft: true,
+    filename: '',
+    title: '',
+    created: '',
+    updated: '',
+    description: '',
+    keywords: 'GlimmerJS, STL Viewer, 3D',
+    hashtags: '',
+    thumb: ''
+  },
+  {
+    draft: true,
     filename: 'build-bitcoin-on-mac',
     title: 'Build Bitcoin on Mac',
     created: '16/Dec/2021',
@@ -11,13 +22,12 @@ const postsList: Array<Post> = [
     thumb: ''
   },
   {
-    draft: true,
-    filename: 'brix-gb-blce-4000c-ubuntu-umbrel',
-    title: 'How to set up a bitcoin full node on a GB-BLCE-4000C',
-    created: '',
+    filename: 'umbrel-ubuntu',
+    title: 'How to set up an Umbrel node on Ubuntu',
+    created: '19/Dec/2021',
     updated: '',
-    description: '',
-    keywords: 'Umbrel, Bitcoin, Mini-PC',
+    description: 'Guide to setting up a Bitcoin full node and lightning node with Umbrel on Ubuntu.',
+    keywords: 'Umbrel, Ubuntu, Bitcoin',
     hashtags: 'Bitcoin, Full Node',
     thumb: ''
   },

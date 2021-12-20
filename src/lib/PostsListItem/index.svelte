@@ -23,6 +23,10 @@
     {#if post.external}
       <i class="icon-link-ext text-pale-gold text-2xl"
          title={getDomain(post.url)}></i>
+      <br>
+      <span class="text-xs">
+        {getDomain(post.url)}
+      </span>
     {/if}
 
     <div class="c-primary-3">
