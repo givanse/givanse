@@ -1,8 +1,8 @@
 const postsList: Array<Post> = [
   {
     draft: true,
-    filename: '',
-    title: '',
+    fileName: '',
+    title: 'STL Viewer and GlimmerJS example',
     created: '',
     updated: '',
     description: '',
@@ -12,7 +12,7 @@ const postsList: Array<Post> = [
   },
   {
     draft: true,
-    filename: 'build-bitcoin-on-mac',
+    fileName: 'build-bitcoin-on-mac',
     title: 'Build Bitcoin on Mac',
     created: '16/Dec/2021',
     updated: '',
@@ -22,7 +22,7 @@ const postsList: Array<Post> = [
     thumb: ''
   },
   {
-    filename: 'umbrel-ubuntu',
+    fileName: 'umbrel-ubuntu',
     title: 'How to set up an Umbrel node on Ubuntu',
     created: '19/Dec/2021',
     updated: '',
@@ -34,7 +34,7 @@ const postsList: Array<Post> = [
   {
     external: true,
     url: 'https://www.leagueoflegends.com/en-us/news/dev/introducing-the-client-cleanup-campaign/',
-    filename: '',
+    fileName: '',
     title: 'Introducing the client cleanup campaign',
     created: '02/Mar/2020',
     updated: '',
@@ -44,7 +44,7 @@ const postsList: Array<Post> = [
     thumb: ''
   },
   {
-    filename: 'how-to-add-tailwindcss-to-preact-cli',
+    fileName: 'how-to-add-tailwindcss-to-preact-cli',
     title: 'How to add Tailwind CSS to Preact CLI',
     created: '31/Oct/2019',
     updated: '',
@@ -54,7 +54,7 @@ const postsList: Array<Post> = [
     thumb: ''
   },
   {
-    filename: 'vscode-breakpoints',
+    fileName: 'vscode-breakpoints',
     title: 'VSCode breakpoints not working',
     created: '09/Jul/2019',
     updated: '',
@@ -64,7 +64,7 @@ const postsList: Array<Post> = [
     thumb: ''
   },
   {
-    filename: 'tetris-lol',
+    fileName: 'tetris-lol',
     title: 'Tetris LoL',
     created: '13/May/2017',
     updated: '',
@@ -74,7 +74,7 @@ const postsList: Array<Post> = [
     thumb: '/static/img/tetris_lol_th.png'
   },
   {
-    filename: 'when-ember-observer-should-be-used',
+    fileName: 'when-ember-observer-should-be-used',
     title: 'When Ember.observer should be used?',
     created: '3/Oct/2016',
     updated: '',
@@ -84,7 +84,7 @@ const postsList: Array<Post> = [
     thumb: '/static/img/encom-os12.jpg'
   },
   {
-    filename: 'broccolijs-from-scratch',
+    fileName: 'broccolijs-from-scratch',
     title: 'Broccoli.js from scratch',
     created: '19/Apr/2015',
     updated: '29/Aug/2016',
@@ -94,7 +94,7 @@ const postsList: Array<Post> = [
     thumb: '/static/img/encom-os12.jpg'
   },
   {
-    filename: 'where-is-the-ember-community',
+    fileName: 'where-is-the-ember-community',
     title: 'Where is the Ember community?',
     created: '04/Aug/2015',
     updated: '',
@@ -104,7 +104,7 @@ const postsList: Array<Post> = [
     thumb: '/static/img/ember-community.jpg'
   },
   {
-    filename: 'centos-nginx-rails-mysql-ember',
+    fileName: 'centos-nginx-rails-mysql-ember',
     title: 'CentOS Nginx Rails MySQL Ember',
     created: '23/Jul/2015',
     updated: '',
@@ -114,7 +114,7 @@ const postsList: Array<Post> = [
     thumb: '/static/img/encom-os12.jpg'
   },
   {
-    filename: 'spree-quickstart',
+    fileName: 'spree-quickstart',
     title: 'Spree Quickstart',
     created: '12/Jul/2015',
     updated: '',
@@ -126,7 +126,7 @@ const postsList: Array<Post> = [
   {
     external: true,
     url: 'https://hacks.mozilla.org/2015/06/es6-in-depth-babel-and-broccoli/',
-    filename: '',
+    fileName: '',
     title: 'ES6 In Depth: Using ES6 today with Babel and Broccoli',
     created: '17/Jun/2015',
     updated: '',
@@ -136,7 +136,7 @@ const postsList: Array<Post> = [
     thumb: ''
   },
   {
-    filename: 'do-not-sudo-npm',
+    fileName: 'do-not-sudo-npm',
     title: 'Do not sudo npm',
     created: '11/Jun/2015',
     updated: '',
@@ -146,7 +146,7 @@ const postsList: Array<Post> = [
     thumb: '/static/img/sudo.jpg'
   },
   {
-    filename: 'ember-podcasts-list',
+    fileName: 'ember-podcasts-list',
     title: 'A list of Ember podcasts',
     created: '11/Jun/2015',
     updated: '',
@@ -156,7 +156,7 @@ const postsList: Array<Post> = [
     thumb: '/static/img/podcast.jpg'
   },
   {
-    filename: 'sane-auth-example',
+    fileName: 'sane-auth-example',
     title: 'Sane-Auth example',
     created: '03/Jun/2015',
     updated: '',
@@ -166,7 +166,7 @@ const postsList: Array<Post> = [
     thumb: '/static/img/sails-ember-th.jpg'
   },
   {
-    filename: 'ember-and-sails-authentication-options',
+    fileName: 'ember-and-sails-authentication-options',
     title: 'Ember and Sails authentication options',
     created: '15/May/2015',
     updated: '',
@@ -176,7 +176,7 @@ const postsList: Array<Post> = [
     thumb: '/static/img/sails-ember-th.jpg'
   },
   {
-    filename: 'ember-i-choose-you',
+    fileName: 'ember-i-choose-you',
     title: 'Why I use Ember.js?',
     created: '31/Mar/2015',
     updated: '04/Aug/2015',
@@ -186,7 +186,7 @@ const postsList: Array<Post> = [
     thumb: '/static/img/givanse.jpeg'
   },
   {
-    filename: 'mvc-past-present-and-future',
+    fileName: 'mvc-past-present-and-future',
     title: 'MVC past, present and future.',
     created: '07/Aug/2014',
     updated: '',
@@ -196,7 +196,7 @@ const postsList: Array<Post> = [
     thumb: '/static/img/control_tower.jpg'
   },
   {
-    filename: 'ember-cli-phonegap',
+    fileName: 'ember-cli-phonegap',
     title: 'Ember CLI & Phonegap',
     created: '09/Jul/2014',
     updated: '',
@@ -206,7 +206,7 @@ const postsList: Array<Post> = [
     thumb: '/static/img/encom-os12.jpg'
   },
   {
-    filename: 'ember-cli-simple-auth-devise',
+    fileName: 'ember-cli-simple-auth-devise',
     title: 'Ember CLI & ember-simple-auth-devise',
     created: '16/Jun/2014',
     updated: '20/Oct/2014',

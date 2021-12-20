@@ -7,15 +7,22 @@
   /**
 	 * @type {import('@sveltejs/kit').Load}
 	 */
-	export async function load({ page, fetch, session, context }) {
+	export async function load({ page, fetch/*, session, context */}) {
     const {title} = page.params;
-    const url = '/posts-markdown/' + title + '.md';
+    const fileName = title
+    const url = '/posts-markdown/' + fileName + '.md';
 		const res = await fetch(url);
 
-    let post = postsList.filter(function(item) {
-      return item.url === '/' + title;
-    });
-    post = post.length ? post [0] : null;
+    const post = postsList.filter(function(item) {
+      return item.fileName === fileName;
+    })[0];
+
+    if (!post) {
+      return {
+        status: 500,
+        error: new Error(`Could not find post: ${title}`)
+      };
+    }
 
 		if (res.ok) {
 			const result = {
@@ -31,7 +38,7 @@
 
 		return {
 			status: res.status,
-			error: new Error(`Could not load ${title}`)
+			error: new Error(`Could not load ${title}. \n${res.message}`)
 		};
 	}
 

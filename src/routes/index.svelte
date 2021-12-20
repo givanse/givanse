@@ -18,7 +18,7 @@
     }
 
     if (!post.external) {
-      post.url = '/' + post.filename;
+      post.url = '/' + post.fileName;
     }
   }
 

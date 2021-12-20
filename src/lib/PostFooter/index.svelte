@@ -5,9 +5,10 @@
   export let post;
 
   const length = 80;
-  const descriptionShort = post.description.length > length - 10 ? 
-                           post.description.substring(0, 80) + '...' :
-                           post.description;
+  let descriptionShort = post.description;
+  if (post.description && post.description.length > length - 10) {
+    descriptionShort = post.description.substring(0, length) + '...';
+  }
 </script>
 
 <style lang="less">
