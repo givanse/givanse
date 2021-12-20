@@ -16,7 +16,7 @@ Once you are logged in as the `umbrel` user in your new Ubuntu system, execute t
 From `/home/umbrel`:
 ```bash
 wget https://raw.githubusercontent.com/givanse/umbrel-ubuntu/master/install-umbrel.sh
-chmod ./install-umbrel.sh
+chmod u+x ./install-umbrel.sh
 ./install-umbrel.sh
 ```
 
