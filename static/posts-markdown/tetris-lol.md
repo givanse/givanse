@@ -12,7 +12,7 @@ Check it out,
 Some time later, I wondered if anyone else had done the same thing and I did a few searches in Github and Google to see if any `tetris LoL JS` results would turn up. I didn't find any other repositories or fiddles, but I found this little gem:
 
 <a href="http://forums.euw.leagueoflegends.com/board/showthread.php?t=855731" target="_blank">
-  <img src="/static/img/mr_polite-why_tetris.png" style="width: 100%;"/>
+  <img src="/img/mr_polite-why_tetris.png" style="width: 100%;"/>
 </a>
 
 

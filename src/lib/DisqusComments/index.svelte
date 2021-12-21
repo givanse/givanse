@@ -1,9 +1,13 @@
 <script lang="ts">
-import { dev } from "$app/env";
+import { dev, browser, prerendering } from "$app/env";
 
 export let slug;
 
 function loadDisqus() {  
+  if (dev || !browser || prerendering) {
+    return;
+  }
+
   /**
     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
@@ -19,9 +23,7 @@ function loadDisqus() {
   })();
 }
 
-if (!dev) {
-  loadDisqus();
-}
+loadDisqus();
 </script>
 
 <div id="disqus_thread">

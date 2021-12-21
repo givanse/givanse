@@ -1,10 +1,16 @@
 <script lang="ts">
   import {onMount} from "svelte";
+  import { dev, browser, prerendering } from '$app/env';
+
   export let post;
 
   let span;
 
   onMount(function() {
+    if (dev || !browser || prerendering) {
+      return;
+    }
+
     // linkedin
     /**
      * script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script
@@ -21,10 +27,10 @@
     script.setAttribute('data-counter', 'right');
     script.setAttribute('type', 'IN/Share');
     span.parentElement.appendChild(script);
-  });
 
-  // twitter
-  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+    // twitter
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+  });
 
 </script>
 

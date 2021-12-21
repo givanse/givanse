@@ -1,6 +1,6 @@
 <div class="row row_max_w">
   <div class="col-xs-12">
-    <img class="img-responsive" alt="controller tower" src="/static/img/control_tower.jpg">
+    <img class="img-responsive" alt="controller tower" src="/img/control_tower.jpg">
   </div>
 </div>
 
@@ -68,7 +68,7 @@
 </p>
 
 <p class="text-center">
-  <img class="img-responsive" alt="MVC by Krasner and Pope" src="/static/img/mvc_krasner_pope.png">
+  <img class="img-responsive" alt="MVC by Krasner and Pope" src="/img/mvc_krasner_pope.png">
   <small>MVC by Krasner and Pope, the triangle diagram.</small>
 </p>
 

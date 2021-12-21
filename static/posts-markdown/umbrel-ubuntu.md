@@ -3,7 +3,7 @@
 
 For the storage configuration, use the entire disk.
 
-![entire disk](img/entire-disk.jpeg)
+![entire disk](/img/entire-disk.jpeg)
 
 When you install Ubuntu, you'll want to use `umbrel` as the user name. Later on, a handful of scripts will depend on being located under `/home/umbrel`.
 
