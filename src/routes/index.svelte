@@ -4,7 +4,7 @@
 </svelte:head>
 
 <script context="module" lang="ts">
-  import postsList from "../../static/posts-markdown/list";
+  import postsList from "../posts-list";
   import PostsListItem from "$lib/PostsListItem/index.svelte";
   import { dev } from "$app/env";
 

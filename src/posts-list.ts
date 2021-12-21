@@ -29,7 +29,7 @@ const postsList: Array<Post> = [
     description: 'Guide to setting up a Bitcoin full node and lightning node with Umbrel on Ubuntu.',
     keywords: 'Umbrel, Ubuntu, Bitcoin',
     hashtags: 'Bitcoin, Full Node',
-    thumb: ''
+    thumb: '/img/umbrel-ubuntu.jpg'
   },
   {
     external: true,
@@ -71,7 +71,7 @@ const postsList: Array<Post> = [
     description: 'Tetris game theme based on League of Legends, without JQuery!',
     keywords: 'Tetris, League of Legends',
     hashtags: 'Tetris, LeagueOfLegends',
-    thumb: '/static/img/tetris_lol_th.png'
+    thumb: '/img/tetris_lol_th.png'
   },
   {
     fileName: 'when-ember-observer-should-be-used',
@@ -81,7 +81,7 @@ const postsList: Array<Post> = [
     description: 'Lots of observers can be the source of hard to debug issues and they can have a big impact on the performance of your app. You should avoid them as much as possible.',
     keywords: 'Ember, Observer',
     hashtags: 'emberjs',
-    thumb: '/static/img/encom-os12.jpg'
+    thumb: '/img/encom-os12.jpg'
   },
   {
     fileName: 'broccolijs-from-scratch',
@@ -91,7 +91,7 @@ const postsList: Array<Post> = [
     description: 'We\'ll install and configure Broccoli using a hello world website. Then we\'ll add a couple of Broccoli plugins for common tasks like loading assets and bundling CSS.',
     keywords: 'Broccoli.js',
     hashtags: 'broccolijs',
-    thumb: '/static/img/encom-os12.jpg'
+    thumb: '/img/encom-os12.jpg'
   },
   {
     fileName: 'where-is-the-ember-community',
@@ -101,7 +101,7 @@ const postsList: Array<Post> = [
     description: 'A collection of places and channels where embereños help each other.',
     keywords: 'Ember, Community, Resources',
     hashtags: 'emberjs, community',
-    thumb: '/static/img/ember-community.jpg'
+    thumb: '/img/ember-community.jpg'
   },
   {
     fileName: 'centos-nginx-rails-mysql-ember',
@@ -111,7 +111,7 @@ const postsList: Array<Post> = [
     description: 'Setup a Rails and MySQL backend with an Ember frontend in a CentOS box using Nginx.',
     keywords: 'CentOS, Nginx, Rails, MySQL, Ember, Ruby',
     hashtags: 'nginx, emberjs, rails',
-    thumb: '/static/img/encom-os12.jpg'
+    thumb: '/img/encom-os12.jpg'
   },
   {
     fileName: 'spree-quickstart',
@@ -143,7 +143,7 @@ const postsList: Array<Post> = [
     description: 'Using root privileges with npm is not recommended, we\'ll go through the reasons. Avoid common pitfalls and learn the options for a proper installation of npm.',
     keywords: 'npm, sudo, security',
     hashtags: 'npm, security',
-    thumb: '/static/img/sudo.jpg'
+    thumb: '/img/sudo.jpg'
   },
   {
     fileName: 'ember-podcasts-list',
@@ -153,7 +153,7 @@ const postsList: Array<Post> = [
     description: 'Have a quick overview of the four Ember podcasts that are out there and a small list of selected Ember episodes.',
     keywords: 'Ember.js, Podcast, Ember news, Ember tooling',
     hashtags: 'emberjs, podcast',
-    thumb: '/static/img/podcast.jpg'
+    thumb: '/img/podcast.jpg'
   },
   {
     fileName: 'sane-auth-example',
@@ -163,7 +163,7 @@ const postsList: Array<Post> = [
     description: 'Authenticate an Ember app with a Sails API using sane-auth. This setup is based on JSON Web Token (JWT) and OAuth2.',
     keywords: 'Ember.js, Sails.js, Sane Stack, Authentication, JWT, OAuth2',
     hashtags: 'emberjs, sailsjs',
-    thumb: '/static/img/sails-ember-th.jpg'
+    thumb: '/img/sails-ember-th.jpg'
   },
   {
     fileName: 'ember-and-sails-authentication-options',
@@ -173,7 +173,7 @@ const postsList: Array<Post> = [
     description: 'What are the possible ways of authenticating an Ember app with a Sails backend? This is an overview of the current offer of tools and addons available for session and token based authentication.',
     keywords: 'Ember.js, Sails.js, Sane Stack, Authentication',
     hashtags: 'emberjs, sailsjs',
-    thumb: '/static/img/sails-ember-th.jpg'
+    thumb: '/img/sails-ember-th.jpg'
   },
   {
     fileName: 'ember-i-choose-you',
@@ -183,7 +183,7 @@ const postsList: Array<Post> = [
     description: 'Ember is much more than a JavaScript Framework. A whole ecosystem has been born around it. So, putting aside technical aspects, what is good about Ember.js?',
     keywords: 'Ember.js',
     hashtags: 'emberjs',
-    thumb: '/static/img/givanse.jpeg'
+    thumb: '/img/givanse.jpeg'
   },
   {
     fileName: 'mvc-past-present-and-future',
@@ -193,7 +193,7 @@ const postsList: Array<Post> = [
     description: 'Let\'s untangle MVC as engineering jargon, a design pattern and a family of designs. The terms Model, View, and Controller suffer from semantic overload, mainly because they are not written and then read under the same context.',
     keywords: 'MVC',
     hashtags: 'MVC, Software Patterns, UI',
-    thumb: '/static/img/control_tower.jpg'
+    thumb: '/img/control_tower.jpg'
   },
   {
     fileName: 'ember-cli-phonegap',
@@ -203,7 +203,7 @@ const postsList: Array<Post> = [
     description: 'Place an Ember CLI app, version 0.1.1 or lower, inside a Phonegap app.',
     keywords: 'Ember CLI, Phonegap',
     hashtags: 'emberjs, phonegap',
-    thumb: '/static/img/encom-os12.jpg'
+    thumb: '/img/encom-os12.jpg'
   },
   {
     fileName: 'ember-cli-simple-auth-devise',
@@ -213,7 +213,7 @@ const postsList: Array<Post> = [
     description: 'Step by step guide that shows you how to authenticate to a Rails/Devise server from an Ember CLI app. We will build a Rails project and an Ember project from scratch.',
     keywords: 'Ember CLI, Rails, Authentication',
     hashtags: 'emberjs, rails',
-    thumb: '/static/img/encom-os12.jpg'
+    thumb: '/img/encom-os12.jpg'
   }
 ];
 
