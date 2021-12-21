@@ -1,3 +1,9 @@
+<svelte:head>
+  <style src="../less/layout.less"></style>
+  <style src="../less/[slug].less"></style>
+  <PostHeadMeta post={post}></PostHeadMeta>
+</svelte:head>
+
 <script context="module">
   import 'highlight.js/styles/stackoverflow-dark.css';
 
@@ -8,8 +14,8 @@
 	 * @type {import('@sveltejs/kit').Load}
 	 */
 	export async function load({ page, fetch/*, session, context */}) {
-    const {title} = page.params;
-    const fileName = title
+    const {slug} = page.params;
+    const fileName = slug; 
     const url = '/posts-markdown/' + fileName + '.md';
 		const res = await fetch(url);
 
@@ -20,7 +26,7 @@
     if (!post) {
       return {
         status: 500,
-        error: new Error(`Could not find post: ${title}`)
+        error: new Error(`Could not find post: ${fileName}`)
       };
     }
 
@@ -38,7 +44,7 @@
 
 		return {
 			status: res.status,
-			error: new Error(`Could not load ${title}. \n${res.message}`)
+			error: new Error(`Could not load ${fileName}. \n${res.message}`)
 		};
 	}
 
@@ -50,12 +56,6 @@
 
   export let post;
 </script>
-
-<svelte:head>
-  <style src="../less/[title].less"></style>
-  <style src="../less/post-footer.less"></style>
-  <PostHeadMeta post={post}></PostHeadMeta>
-</svelte:head>
 
 <article class="mt-8 w-post">
 

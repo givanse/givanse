@@ -1,13 +1,12 @@
-<script lang="ts">
-  import '../app.css';
-  import '../../assets/fontello/css/fontello.css';
-	import Header from '$lib/Header/index.svelte';
-</script>
-
-
 <svelte:head>
   <style src="../less/layout.less"></style>
 </svelte:head>
+
+<script lang="ts">
+  import '../app.css';
+  import '../vendors/fontello/css/fontello.css';
+	import Header from '$lib/Header/index.svelte';
+</script>
 
 <Header />
 
