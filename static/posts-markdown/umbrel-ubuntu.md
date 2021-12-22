@@ -3,11 +3,15 @@
 
 For the storage configuration, use the entire disk.
 
-![entire disk](/img/entire-disk.jpeg)
+<div class="post-img"> 
+  <img src="/img/entire-disk.jpeg" alt="entire disk">
+</div>
 
 When you install Ubuntu, you'll want to use `umbrel` as the user name. Later on, a handful of scripts will depend on being located under `/home/umbrel`.
 
-![select umbrel as the user](/img/user-umbrel.jpeg)
+<div class="post-img"> 
+  <img src="/img/user-umbrel.jpeg" alt="select umbrel as the user">
+</div>
 
 ## Install Umbrel
 

@@ -1,4 +1,5 @@
 @import '../less/colors.less';
+@import '../less/colors-classes.less';
 @import '../less/post-footer.less';
 
 .icon-link {
@@ -8,4 +9,19 @@
 
 .icon-link::before {
   margin: 0 0.5rem;
+}
+
+.thumb-background {
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  background-size: contain;
+}
+
+.post-img {
+  background-color: @color-secondary-2-1;
+  border-radius: 7px;
+}
+.post-img > img {
+  margin: auto;
 }
