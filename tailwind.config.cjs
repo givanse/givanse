@@ -8,7 +8,7 @@ module.exports = {
   content: [
     "./src/**/*.{svelte,html}",
   ],
-  //  enabled: production, // disable purge in dev
+  enabled: production, // disable purge in dev
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {},

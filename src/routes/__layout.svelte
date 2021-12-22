@@ -3,8 +3,6 @@
 </svelte:head>
 
 <script lang="ts">
-  import '../app.css';
-  import '../vendors/fontello/css/fontello.css';
 	import Header from '$lib/Header/index.svelte';
   import { dev, browser, prerendering } from '$app/env';
 
