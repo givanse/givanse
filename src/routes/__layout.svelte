@@ -24,8 +24,14 @@
 
     <div class="text-right mt-8 pr-8">
       Gastón Silva
-      <br>
-      <a href="https://twitter.com/givanse" class="text-pale-gold">@givanse</a>
+      <div class="text-2xl">
+        <a href="https://twitter.com/givanse" class="text-pale-gold" title="twitter">
+          <icon class="icon-twitter"></icon>
+        </a>
+        <a href="https://github.com/givanse" class="text-pale-gold" title="github">
+          <icon class="icon-github-circled"></icon>
+        </a>
+      </div>
     </div>
 
   </div>

@@ -24,7 +24,7 @@
 
 </script>
 
-<div class="mx-auto w-post">
+<div class="w-post">
   {#each postsList as post}
     <PostsListItem post={post}></PostsListItem>
     <hr>
