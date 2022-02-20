@@ -16,10 +16,6 @@
     if (!dev && post.draft) {
       postsList.splice(i--, 1);
     }
-
-    if (!post.external) {
-      post.url = '/' + post.fileName;
-    }
   }
 
 </script>

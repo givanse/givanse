@@ -1,7 +1,11 @@
 <script lang="ts">
   import Spinner from "$lib/Spinner/index.svelte";
 
-  export let post;
+  export let post: Post;
+
+  $: href = post.external ?
+            post.externalUrl :
+            "/" + post.fileName;
 
   let isLoading = false;
 
@@ -10,7 +14,7 @@
   }
 </script>
 
-<a href={post.url}
+<a href={href}
    class="block relative"
    on:click={() => isLoading = true}>
 
@@ -22,10 +26,10 @@
 
     {#if post.external}
       <i class="icon-link-ext text-pale-gold text-2xl"
-         title={getDomain(post.url)}></i>
+         title={getDomain(post.externalUrl)}></i>
       <br>
       <span class="text-xs">
-        {getDomain(post.url)}
+        {getDomain(post.externalUrl)}
       </span>
     {/if}
 

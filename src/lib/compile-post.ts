@@ -2,12 +2,12 @@ import marked from 'marked';
 import highlightJs from 'highlight.js';
 
 // marked options
-function highlight(code) {
+function highlight(code: string): string {
   return highlightJs.highlightAuto(code).value;
 };
 
 const renderer = new marked.Renderer();
-renderer.heading = function(text, level) {
+renderer.heading = function(text: string, level: string): string {
   const escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
 
   return '<h' + level + ' id="'+escapedText+'">' +
@@ -23,6 +23,7 @@ marked.setOptions({
   renderer,
 });
 
-export default function compilePost(input: string) {
+export default function compilePost(input: string): string {
+  // @ts-ignore
   return marked(input.trim());
 }

@@ -17,7 +17,6 @@
     const {slug} = page.params;
     const fileName = slug; 
     const url = '/posts-markdown/' + fileName + '.md';
-		const res = await fetch(url);
 
     const post = postsList.filter(function(item) {
       return item.fileName === fileName;
@@ -30,16 +29,18 @@
       };
     }
 
+		const res = await fetch(url);
+
 		if (res.ok) {
 			const result = {
 				props: {
           post,
 				}
 			};
-      return res.text().then(function(text) {
-        result.props.post.body = compilePost(text);
-        return result;
-      });
+
+      result.props.post.body = await res.text().then(compilePost);
+
+      return result;
 		}
 
 		return {
@@ -54,7 +55,7 @@
   import PostHeadMeta from '$lib/PostHeadMeta/index.svelte';
   import PostFooter from '$lib/PostFooter/index.svelte';
 
-  export let post;
+  export let post: Post;
 </script>
 
 <article class="mt-8 w-post">

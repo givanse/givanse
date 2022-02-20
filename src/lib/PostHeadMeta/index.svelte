@@ -1,5 +1,6 @@
 <script lang="ts">
-  export let post;
+  export let post: Post;
+  $: dataUrl = `https://givan.se/${post.fileName}`;
 </script>
 
 <title>
@@ -12,7 +13,7 @@
 <meta name="keywords" content="{post.keywords}"/>
 
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://givan.se{post.url}/">
+<meta property="og:url" content="{dataUrl}">
 <meta property="og:title" content="{post.title}">
 <meta property="og:site_name" content="givanse">
 <meta property="og:description" content="{post.description}">
@@ -22,5 +23,5 @@
 <meta name="twitter:creator" content="@givanse"/>
 <meta name="twitter:title" content="{post.title}"/>
 <meta name="twitter:description" content="{post.description}"/>
-<meta name="twitter:url" content="https://givan.se{post.url}/"/>
+<meta name="twitter:url" content="{dataUrl}"/>
 <meta name="twitter:image" content="https://givan.se{post.thumb}"/>

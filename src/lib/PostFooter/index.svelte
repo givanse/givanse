@@ -1,8 +1,8 @@
-<script>
+<script lang="ts">
   import ShareButtons from '$lib/ShareButtons/index.svelte';
   import DisqusComments from '$lib/DisqusComments/index.svelte';
 
-  export let post;
+  export let post: Post;
 
   const length = 80;
   let descriptionShort = post.description;
@@ -40,7 +40,7 @@
   </div>
 
   <div class="mt-20 p-8">
-    <DisqusComments slug={post.filename}></DisqusComments>
+    <DisqusComments slug={post.fileName}></DisqusComments>
   </div>
 
 </footer>

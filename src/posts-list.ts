@@ -18,7 +18,7 @@ const postsList: Array<Post> = [
     description: 'How to download, build, test and deploy Bitcoin on macOS 12.2.1 (Monterey).',
     keywords: 'Bitcoin, Compile, Mac',
     hashtags: 'bitcoin,compile',
-    thumb: 'https://github.com/bitcoin/bitcoin/blob/7fcf53f7b4524572d1d0c9a5fdc388e87eb02416/src/qt/res/icons/bitcoin.png'
+    thumb: '/img/bitcoin.png'
   },
   {
     fileName: 'umbrel-ubuntu',
@@ -32,7 +32,7 @@ const postsList: Array<Post> = [
   },
   {
     external: true,
-    url: 'https://www.leagueoflegends.com/en-us/news/dev/introducing-the-client-cleanup-campaign/',
+    externalUrl: 'https://www.leagueoflegends.com/en-us/news/dev/introducing-the-client-cleanup-campaign/',
     fileName: '',
     title: 'Introducing the client cleanup campaign',
     created: '02/Mar/2020',
@@ -124,7 +124,7 @@ const postsList: Array<Post> = [
   },
   {
     external: true,
-    url: 'https://hacks.mozilla.org/2015/06/es6-in-depth-babel-and-broccoli/',
+    externalUrl: 'https://hacks.mozilla.org/2015/06/es6-in-depth-babel-and-broccoli/',
     fileName: '',
     title: 'ES6 In Depth: Using ES6 today with Babel and Broccoli',
     created: '17/Jun/2015',

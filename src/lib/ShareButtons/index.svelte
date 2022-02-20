@@ -2,9 +2,9 @@
   import {onMount} from "svelte";
   import { dev, browser, prerendering } from '$app/env';
 
-  export let post;
+  export let post: Post;
 
-  let span;
+  let span: HTMLSpanElement;
 
   $: dataUrl = `https://givan.se/${post.fileName}`;
 
@@ -16,7 +16,7 @@
     // linkedin
     /**
      * script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script
-     * script type="IN/Share" data-url="http://givan.se{post.url}" data-counter="right"></script
+     * script type="IN/Share" data-url="{dataUrl}" data-counter="right"></script
      */
     let script = document.createElement("script");
     script.setAttribute("src", "//platform.linkedin.com/in.js");
@@ -25,12 +25,13 @@
     span.parentElement.appendChild(script);
 
     script = document.createElement("script");
-    script.setAttribute('data-url', `http://givan.se${post.url}`);
+    script.setAttribute('data-url', dataUrl);
     script.setAttribute('data-counter', 'right');
     script.setAttribute('type', 'IN/Share');
     span.parentElement.appendChild(script);
 
     // twitter
+    // @ts-ignore
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
   });
 

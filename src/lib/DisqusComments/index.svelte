@@ -1,7 +1,7 @@
 <script lang="ts">
 import { dev, browser, prerendering } from "$app/env";
 
-export let slug;
+export let slug: string;
 
 function loadDisqus() {  
   if (dev || !browser || prerendering) {
@@ -18,7 +18,7 @@ function loadDisqus() {
   (function() { // DON'T EDIT BELOW THIS LINE
   var d = document, s = d.createElement('script');
   s.src = 'https://givanse.disqus.com/embed.js';
-  s.setAttribute('data-timestamp', +new Date());
+  s.setAttribute('data-timestamp', ''+new Date());
   (d.head || d.body).appendChild(s);
   })();
 }
