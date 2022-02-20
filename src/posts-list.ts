@@ -11,12 +11,11 @@ const postsList: Array<Post> = [
     thumb: ''
   },
   {
-    draft: true,
-    fileName: 'build-bitcoin-on-mac',
-    title: 'Build Bitcoin on Mac',
-    created: '16/Dec/2021',
+    fileName: 'build-test-deploy-bitcoin-on-monterey',
+    title: 'Build, test and deploy Bitcoin on Mac',
+    created: '19/Feb/2022',
     updated: '',
-    description: '',
+    description: 'How to download, build, test and deploy Bitcoin on macOS 12.2.1 (Monterey).',
     keywords: 'Bitcoin, Compile, Mac',
     hashtags: 'bitcoin, compile',
     thumb: ''

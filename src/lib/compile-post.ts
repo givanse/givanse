@@ -24,6 +24,5 @@ marked.setOptions({
 });
 
 export default function compilePost(input: string) {
-  //const input = fs.readFileSync(filePath).toString();
   return marked(input.trim());
 }
