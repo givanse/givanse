@@ -6,6 +6,8 @@
 
   let span;
 
+  $: dataUrl = `https://givan.se/${post.fileName}`;
+
   onMount(function() {
     if (dev || !browser || prerendering) {
       return;
@@ -37,7 +39,7 @@
 <!-- twitter -->
 <a href="https://twitter.com/share"
    class="twitter-share-button"
-   data-url="http://givan.se{post.url}"
+   data-url="{dataUrl}"
    data-text="{post.title}"
    data-via="givanse"
    data-hashtags="{post.hashtags}">Tweet</a>

@@ -17,8 +17,8 @@ const postsList: Array<Post> = [
     updated: '',
     description: 'How to download, build, test and deploy Bitcoin on macOS 12.2.1 (Monterey).',
     keywords: 'Bitcoin, Compile, Mac',
-    hashtags: 'bitcoin, compile',
-    thumb: ''
+    hashtags: 'bitcoin,compile',
+    thumb: 'https://github.com/bitcoin/bitcoin/blob/7fcf53f7b4524572d1d0c9a5fdc388e87eb02416/src/qt/res/icons/bitcoin.png'
   },
   {
     fileName: 'umbrel-ubuntu',
@@ -27,7 +27,7 @@ const postsList: Array<Post> = [
     updated: '',
     description: 'Guide to setting up a Bitcoin full node and lightning node with Umbrel on Ubuntu.',
     keywords: 'Umbrel, Ubuntu, Bitcoin',
-    hashtags: 'Bitcoin, Full Node',
+    hashtags: 'Bitcoin,Full Node',
     thumb: '/img/umbrel-ubuntu.jpg'
   },
   {
@@ -39,7 +39,7 @@ const postsList: Array<Post> = [
     updated: '',
     description: "Over the next six months or so we'll ship a number of changes and improvements to the League client's backend infrastructure. To track our process, we'll be sharing specific targets for two main client performance metrics: client bootstrap time and champ select lock-in time.",
     keywords: 'LoL, Performance, UX',
-    hashtags: 'LoL, Client',
+    hashtags: 'LoL,Client',
     thumb: ''
   },
   {
@@ -59,7 +59,7 @@ const postsList: Array<Post> = [
     updated: '',
     description: 'VSCode breakpoints or debugger statements are not hit, why?',
     keywords: 'VSCode, npm, debug',
-    hashtags: 'VSCode, npm',
+    hashtags: 'VSCode,npm',
     thumb: ''
   },
   {
@@ -69,7 +69,7 @@ const postsList: Array<Post> = [
     updated: '',
     description: 'Tetris game theme based on League of Legends, without JQuery!',
     keywords: 'Tetris, League of Legends',
-    hashtags: 'Tetris, LeagueOfLegends',
+    hashtags: 'Tetris,LeagueOfLegends',
     thumb: '/img/tetris_lol_th.png'
   },
   {
@@ -99,7 +99,7 @@ const postsList: Array<Post> = [
     updated: '',
     description: 'A collection of places and channels where embereños help each other.',
     keywords: 'Ember, Community, Resources',
-    hashtags: 'emberjs, community',
+    hashtags: 'emberjs,community',
     thumb: '/img/ember-community.jpg'
   },
   {
