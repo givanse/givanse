@@ -38,7 +38,7 @@
     </div>
 
     <p class="text-right text-sm my-2 c-primary-2">
-      {post.keywords}
+      {post.hashtags}
     </p>
   </div>
 

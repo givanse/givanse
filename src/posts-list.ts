@@ -11,6 +11,16 @@ const postsList: Array<Post> = [
     thumb: ''
   },
   {
+    fileName: 'generate-bitcoin-line-coverage-reports',
+    title: 'Generate Bitcoin line coverage reports',
+    created: '26/Feb/2022',
+    updated: '',
+    description: 'A tutorial on how to generate the Bitcoin line coverage reports.',
+    keywords: 'bitcoin development, bitcoin testing, tests line coverage, unit tests, regression tests, software quality',
+    hashtags: 'BitcoinDev,Tests',
+    thumb: '/img/lcov-bitcoin-no-extended-no-legacy-wallet-w-logo.jpg'
+  },
+  {
     fileName: 'build-test-deploy-bitcoin-on-monterey',
     title: 'Build, test and deploy Bitcoin on Mac',
     created: '19/Feb/2022',
