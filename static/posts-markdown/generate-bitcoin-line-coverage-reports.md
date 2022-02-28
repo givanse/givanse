@@ -163,28 +163,9 @@ You can open the report like this:
 open total.coverage/index.html
 ```
 
-# Errors journal
+## Errors journal
 
-I ran into these errors when messing with the commands in this guide and recorded the workarounds I used. In hindsight, whenever any one of these showed up, I probably should have just wiped everything with `make clean`.
-
-## GCDA file: corrupt arc tag 
-
-> cannot merge previous GCDA file: corrupt arc tag 
-
-```
-profiling: /Users/givanse/code/bitcoin/src/wallet/rpc/libbitcoin_wallet_a-wallet.gcda: cannot merge previous GCDA file: corrupt arc tag (0x4be0bdf8)
-profiling: /Users/givanse/code/bitcoin/src/wallet/rpc/libbitcoin_wallet_a-wallet.gcda: cannot merge previous GCDA file: corrupt arc tag (0x00000000)
-profiling: /Users/givanse/code/bitcoin/src/wallet/rpc/libbitcoin_wallet_a-wallet.gcda: cannot merge previous GCDA file: corrupt arc tag (0xe56576c3)
-profiling: /Users/givanse/code/bitcoin/src/wallet/rpc/libbitcoin_wallet_a-wallet.gcda: cannot merge previous GCDA file: corrupt arc tag (0x01000000)
-```
-
-Delete them all, and start over.
-
-```bash
-find . -name "*.gcda" -delete
-```
-
-## test_bitcoin-qt segmentation fault 
+### test_bitcoin-qt segmentation fault 
 
 ```
 ../build-aux/test-driver: line 112: 51934 Segmentation fault: 11  "$@" >> "$log_file" 2>&1
@@ -225,7 +206,7 @@ So I just deleted them.
 find . -name "*.gcda" -delete
 ```
 
-## missing cov_tool_wrapper.sh
+### missing cov_tool_wrapper.sh
 
 ```bash
 Capturing coverage data from /Users/givanse/code/bitcoin/src

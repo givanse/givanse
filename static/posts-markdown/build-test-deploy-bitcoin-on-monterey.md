@@ -183,11 +183,11 @@ If you want to stop it:
 
 And done, you have succesfully downloaded, built, test and ran Bitcoin ;D
 
-# Errors
+## Errors journal
 
 I ran into these issues while writing this guide, hopefully you won't.
 
-## Python 3.6.12 wasn't installing correctly on Monterey
+### Python 3.6.12 wasn't installing correctly on Monterey
 
 ```
 pyenv install 3.6.12
@@ -204,7 +204,7 @@ BUILD FAILED (OS X 12.1 using python-build 20180424)
 The Bitcoin project expects Python 3.6.12, but installing on macOS 11 and above is not straighforward (see [pyenv/pyenv#1737](https://github.com/pyenv/pyenv/issues/1737#issuecomment-794592631)).
 There are some workarounds that seem to work for some. But there's no need to bother, install a new version of Python.
 
-## Python wasn't installing correctly on Catalina
+### Python wasn't installing correctly on Catalina
 
 I ran into this problem when I was still on Catalina. So, maybe this is fixed now. The error was:
 
@@ -232,7 +232,7 @@ brew link python
 Linking /usr/local/Cellar/python/3.7.6_1... 5 symlinks created
 ```
 
-## Deploy failed due to missing ds_store
+### Deploy failed due to missing ds_store
 
 ```
 ./build-aux/install-sh -c -d Bitcoin-Qt.app/Contents/MacOS
@@ -261,9 +261,9 @@ brew uninstall python@3.9 cairo gdk-pixbuf glib gobject-introspection graphviz h
 ./configure
 ```
 
-## Functional tests failures
+### Functional tests failures
 
-### wallet_create_tx.py failed
+#### wallet_create_tx.py failed
 
 The tests failed when I ran them like this:
 

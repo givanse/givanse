@@ -25,3 +25,31 @@
 .post-img > img {
   margin: auto;
 }
+
+.post-toc {
+  margin: auto;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  border: 0 solid #ebebeb; 
+  border-width: 0 13px;
+  padding: 2rem 0;
+}
+
+ol {
+  list-style: upper-roman;
+  padding-left: 4.2rem;
+  font-family: monospace;
+}
+
+ol li::marker,
+ol li::before {
+  font-size: 0.9rem;
+  color: @color-secondary-2-2;
+}
+
+ol li {
+  color: @color-primary-3; 
+  font-size: 1.1rem;
+  text-decoration: underline;
+  text-decoration-color: @color-secondary-2-2;
+}

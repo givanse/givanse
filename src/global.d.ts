@@ -25,14 +25,20 @@ interface Post {
 declare module 'marked' {
 
   class Renderer {
-    heading: (text: string, level: string) => string;
+    heading: (text: string, level: number, raw: string, slugger: Slugger) => string;
+
+    // Not part of Marked API
+    toc: any;
+    appendToToc: (tocItem: TocItem, level: number) => void;
+    getTocString: () => string;
   }
 
   function Renderer(): Renderer;
 
   interface MarkedOptions {
     highlight: (code: string) => string,
-    renderer: Renderer
+    renderer: Renderer,
+    gfm: boolean,
   }
 
   function setOptions(options: MarkedOptions): void;
