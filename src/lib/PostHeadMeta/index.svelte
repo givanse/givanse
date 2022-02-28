@@ -10,7 +10,6 @@
 <meta name="author" content="Gastón I. Silva">
 <meta name="title" content="{post.title}"/>
 <meta name="description" content="{post.description}"/>
-<meta name="keywords" content="{post.keywords}"/>
 
 <meta property="og:type" content="article">
 <meta property="og:url" content="{dataUrl}">

@@ -11,8 +11,7 @@ interface Post {
   description: string;
   created: string;
   updated: string;
-  keywords: string; // meta keywords
-  hashtags: string; // social media hash tags
+  hashtags: string;
   thumb: string;
 
   /**
