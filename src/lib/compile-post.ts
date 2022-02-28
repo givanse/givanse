@@ -14,6 +14,10 @@ interface TocItem {
 type TocItemList = Array<TocItem | Array<TocItem>>;
 
 function tocToString(toc: TocItemList): string {
+  if (!toc || !toc.length) {
+    return '';
+  }
+
   let str = '<ol>';
 
   for (let i = 0; i < toc.length; i++) {
@@ -88,12 +92,14 @@ export default function compilePost(input: string): string {
   // @ts-ignore
   let post = marked(input.trim());
 
-  post = '<div class="post-toc">' +
-         renderer.getTocString() +
-         '</div>' +
-         post;
-
+  const toc = renderer.getTocString();
   renderer.toc = [];
+
+  if (!toc) {
+    return post;
+  }
+
+  post = '<div class="post-toc">' + toc + '</div>' + post;
 
   return post;
 }
