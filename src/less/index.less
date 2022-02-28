@@ -1,4 +1,23 @@
-.article {
-  line-height: 2rem;
-  font-weight: bold;
+@import '../less/colors.less';
+
+a.post-list-item {
+  display: block;
+  position: relative;
+
+  .article {
+    line-height: 2rem;
+    font-weight: bold;
+
+    .title {
+      @apply pl-6 pr-2 py-1 -ml-6;
+      color: @color-primary-4;
+      background-color: @color-secondary-2-1;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .description {
+      color: @color-primary-3;
+      font-family: monospace;
+    }
+  }
 }

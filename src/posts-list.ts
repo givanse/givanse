@@ -107,7 +107,7 @@ const postsList: Array<Post> = [
     created: '23/Jul/2015',
     updated: '',
     description: 'Setup a Rails and MySQL backend with an Ember frontend in a CentOS box using Nginx.',
-    hashtags: 'nginx, emberjs, rails',
+    hashtags: 'nginx,emberjs,rails',
     thumb: '/img/encom-os12.jpg'
   },
   {
@@ -127,7 +127,7 @@ const postsList: Array<Post> = [
     created: '17/Jun/2015',
     updated: '',
     description: 'ES6 In Depth is a series on new features being added to the JavaScript programming language in the 6th Edition of the ECMAScript standard, ES6 for short.',
-    hashtags: 'es6, broccolijs',
+    hashtags: 'es6,broccolijs',
     thumb: ''
   },
   {
@@ -136,7 +136,7 @@ const postsList: Array<Post> = [
     created: '11/Jun/2015',
     updated: '',
     description: 'Using root privileges with npm is not recommended, we\'ll go through the reasons. Avoid common pitfalls and learn the options for a proper installation of npm.',
-    hashtags: 'npm, security',
+    hashtags: 'npm,security',
     thumb: '/img/sudo.jpg'
   },
   {
@@ -145,7 +145,7 @@ const postsList: Array<Post> = [
     created: '11/Jun/2015',
     updated: '',
     description: 'Have a quick overview of the four Ember podcasts that are out there and a small list of selected Ember episodes.',
-    hashtags: 'emberjs, podcast',
+    hashtags: 'emberjs,podcast',
     thumb: '/img/podcast.jpg'
   },
   {
@@ -154,7 +154,7 @@ const postsList: Array<Post> = [
     created: '03/Jun/2015',
     updated: '',
     description: 'Authenticate an Ember app with a Sails API using sane-auth. This setup is based on JSON Web Token (JWT) and OAuth2.',
-    hashtags: 'emberjs, sailsjs',
+    hashtags: 'emberjs,sailsjs',
     thumb: '/img/sails-ember-th.jpg'
   },
   {
@@ -163,7 +163,7 @@ const postsList: Array<Post> = [
     created: '15/May/2015',
     updated: '',
     description: 'What are the possible ways of authenticating an Ember app with a Sails backend? This is an overview of the current offer of tools and addons available for session and token based authentication.',
-    hashtags: 'emberjs, sailsjs',
+    hashtags: 'emberjs,sailsjs',
     thumb: '/img/sails-ember-th.jpg'
   },
   {
@@ -181,7 +181,7 @@ const postsList: Array<Post> = [
     created: '07/Aug/2014',
     updated: '',
     description: 'Let\'s untangle MVC as engineering jargon, a design pattern and a family of designs. The terms Model, View, and Controller suffer from semantic overload, mainly because they are not written and then read under the same context.',
-    hashtags: 'MVC, Software Patterns, UI',
+    hashtags: 'MVC,UIDev',
     thumb: '/img/control_tower.jpg'
   },
   {
@@ -190,7 +190,7 @@ const postsList: Array<Post> = [
     created: '09/Jul/2014',
     updated: '',
     description: 'Place an Ember CLI app, version 0.1.1 or lower, inside a Phonegap app.',
-    hashtags: 'emberjs, phonegap',
+    hashtags: 'emberjs,phonegap',
     thumb: '/img/encom-os12.jpg'
   },
   {
@@ -199,7 +199,7 @@ const postsList: Array<Post> = [
     created: '16/Jun/2014',
     updated: '20/Oct/2014',
     description: 'Step by step guide that shows you how to authenticate to a Rails/Devise server from an Ember CLI app. We will build a Rails project and an Ember project from scratch.',
-    hashtags: 'emberjs, rails',
+    hashtags: 'emberjs,rails',
     thumb: '/img/encom-os12.jpg'
   }
 ];

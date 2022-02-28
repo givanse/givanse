@@ -1,3 +1,7 @@
+<svelte:head>
+  <style src="../less/index.less"></style>
+</svelte:head>
+
 <script lang="ts">
   import Spinner from "$lib/Spinner/index.svelte";
 
@@ -7,6 +11,17 @@
             post.externalUrl :
             "/" + post.fileName;
 
+  $: hashtagsList = post.hashtags
+    .split(',')
+    .map(function(string) {
+      if (!string) {
+        return;
+      }
+
+      return '#' + string;
+    })
+    .join(' ');
+
   let isLoading = false;
 
   function getDomain(url: string): string {
@@ -15,12 +30,12 @@
 </script>
 
 <a href={href}
-   class="block relative"
+   class="post-list-item"
    on:click={() => isLoading = true}>
 
   <div class="article {isLoading ? 'opacity-10' : ''}">
 
-    <span class="c-primary-4 bg-secondary-2-1 pl-4 pr-2 -ml-4">
+    <span class="title">
       {post.title}
     </span>
 
@@ -33,12 +48,12 @@
       </span>
     {/if}
 
-    <div class="c-primary-3">
+    <div class="description">
       {post.description}
     </div>
 
     <p class="text-right text-sm my-2 c-primary-2">
-      {post.hashtags}
+      {hashtagsList}
     </p>
   </div>
 
