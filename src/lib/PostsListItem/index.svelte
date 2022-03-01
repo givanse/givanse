@@ -33,9 +33,9 @@
    class="post-list-item"
    on:click={() => isLoading = true}>
 
-  <div class="article {isLoading ? 'opacity-10' : ''}">
+  <div class="article {isLoading ? 'opacity-10' : ''}" itemprop="post">
 
-    <span class="title">
+    <span class="title" itemprop="title">
       {post.title}
     </span>
 
@@ -48,7 +48,7 @@
       </span>
     {/if}
 
-    <div class="description">
+    <div class="description" itemprop="description">
       {post.description}
     </div>
 

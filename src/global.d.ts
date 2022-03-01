@@ -9,9 +9,9 @@ interface Post {
   fileName: string;
   title: string;
   description: string;
-  created: string;
-  updated: string;
-  hashtags: string;
+  created?: string;
+  updated?: string;
+  hashtags?: string;
   thumb: string;
 
   /**

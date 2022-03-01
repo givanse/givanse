@@ -1,6 +1,6 @@
 <script lang="ts">
   export let post: Post;
-  $: dataUrl = `https://givan.se/${post.fileName}`;
+  $: canonicalUrl = `https://givan.se/${post.fileName}`;
 </script>
 
 <title>
@@ -12,7 +12,7 @@
 <meta name="description" content="{post.description}"/>
 
 <meta property="og:type" content="article">
-<meta property="og:url" content="{dataUrl}">
+<meta property="og:url" content="{canonicalUrl}">
 <meta property="og:title" content="{post.title}">
 <meta property="og:site_name" content="givanse">
 <meta property="og:description" content="{post.description}">
@@ -22,5 +22,7 @@
 <meta name="twitter:creator" content="@givanse"/>
 <meta name="twitter:title" content="{post.title}"/>
 <meta name="twitter:description" content="{post.description}"/>
-<meta name="twitter:url" content="{dataUrl}"/>
+<meta name="twitter:url" content="{canonicalUrl}"/>
 <meta name="twitter:image" content="https://givan.se{post.thumb}"/>
+
+<link rel="canonical" href={canonicalUrl}>
