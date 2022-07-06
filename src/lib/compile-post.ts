@@ -1,4 +1,4 @@
-import marked from 'marked';
+import { Renderer, setOptions, parse } from 'marked';
 import highlightJs from 'highlight.js';
 
 // marked options
@@ -46,7 +46,7 @@ function getLastArray(arr: TocItemList): TocItemList {
   return lastItem;
 }
 
-marked.Renderer.prototype.appendToToc = function(tocItem: TocItem, level: number): void {
+Renderer.prototype.appendToToc = function(tocItem: TocItem, level: number): void {
   if (level === 1) {
     this.toc.push(tocItem);
     return;
@@ -60,13 +60,13 @@ marked.Renderer.prototype.appendToToc = function(tocItem: TocItem, level: number
   lastArray.push(tocItem);
 }
 
-marked.Renderer.prototype.getTocString = function(): string {
+Renderer.prototype.getTocString = function(): string {
   return tocToString(this.toc);
 }
 
-marked.Renderer.prototype.toc = [];
+Renderer.prototype.toc = [];
 
-const renderer = new marked.Renderer();
+const renderer = new Renderer();
 
 renderer.heading = function(text: string, level: number, raw: string, slugger: Slugger): string {
   const slug = slugger.slug(text);
@@ -82,7 +82,7 @@ renderer.heading = function(text: string, level: number, raw: string, slugger: S
          '</h' + level + '>';
 };
 
-marked.setOptions({
+setOptions({
   highlight,
   renderer,
   gfm: true,
@@ -90,7 +90,7 @@ marked.setOptions({
 
 export default function compilePost(input: string): string {
   // @ts-ignore
-  let post = marked(input.trim());
+  let post = parse(input.trim());
 
   const toc = renderer.getTocString();
   renderer.toc = [];
