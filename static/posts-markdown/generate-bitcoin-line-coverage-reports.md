@@ -20,7 +20,7 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 ./configure \
   --enable-lcov \
   --enable-lcov-branch-coverage \
-  --enable-extended-functional-tests \
+  --without-bdb \
   CC=clang CXX=clang++
 ```
 

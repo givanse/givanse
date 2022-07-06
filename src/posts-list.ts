@@ -10,6 +10,15 @@ const postsList: Array<Post> = [
     thumb: ''
   },
   {
+    fileName: 'connecting-whirlpool-to-a-samourai-server-on-umbrel',
+    title: 'Connecting Whirlpool to a Samourai Dojo on Umbrel',
+    created: '06/Jul/2022',
+    updated: '',
+    description: 'This was meant to be a post on using Whirlpool with Umbrel, but it became a troubleshooting Whirlpool on Umbrel guide.',
+    hashtags: 'Umbrel,Whirlpool,Samourai',
+    thumb: '/img/bitcoin.png'
+  },
+  {
     fileName: 'generate-bitcoin-line-coverage-reports',
     title: 'Generate Bitcoin line coverage reports',
     created: '26/Feb/2022',
