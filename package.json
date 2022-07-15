@@ -23,7 +23,7 @@
     "less": "^4.1.1",
     "marked": "^4.0.10",
     "postcss": "^8.4.5",
-    "svelte": "^3.44.3",
+    "svelte": "3.49.0",
     "svelte-check": "^2.0.0",
     "svelte-preprocess": "^4.0.0",
     "svelte-sitemap": "^2.3.0",
@@ -34,5 +34,9 @@
   "type": "module",
   "engines": {
     "node": ">= 16.*"
+  },
+  "dependencies": {
+    "minimist": "1.2.8",
+    "vite": "4.2.1"
   }
 }
