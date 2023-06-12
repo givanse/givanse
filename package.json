@@ -37,6 +37,6 @@
   },
   "dependencies": {
     "minimist": "1.2.8",
-    "vite": "4.2.1"
+    "vite": "2.9.16"
   }
 }
