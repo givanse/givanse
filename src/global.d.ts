@@ -21,6 +21,12 @@ interface Post {
   body?: string;
 }
 
+interface AboutItem {
+  iconCssClassName: string;
+  title: string;
+  href: string;
+}
+
 declare module 'marked' {
 
   class Renderer {
