@@ -47,22 +47,22 @@
 
 <div class="about text-center">
 
-  <table class="mt-8 pr-8">
+  <table class="mt-8 pr-8 text-center">
+
+    <AboutItem item={stackoverflow}>
+      Top StackOverflow contributor, now turned ChatGPT wordsmith.
+    </AboutItem>
 
     <AboutItem item={twitter}>
-      Analyzing the World's Chessboard from My Armchair | GeoPolitics | Macro | Financial Literacy &#x1F30D; &#x1F4B9;
+      Analyzing the World's Chessboard from My Armchair.
     </AboutItem>
 
     <AboutItem item={github}>
-      Where Good Ideas Rest in Peace and Ambition Gets a Reality Check &#x26B0;&#xFE0F; &#x1F319;
-    </AboutItem>
-
-    <AboutItem item={stackoverflow}>
-      Back in my day, we solved problems before AI could blink an LED. Top StackOverflow contributor, now turned ChatGPT wordsmith &#x1F58B;&#xFE0F; &#x1F680;
+      Where Good Ideas Rest in Peace and Ambition Gets a Reality Check.
     </AboutItem>
 
     <AboutItem item={linkedin}>
-      Let's connect on LinkedIn for the mutual likes, not InMails. Excited to ignore messages while celebrating our achievements together! &#x1F3C5; &#x1F496;
+      Let's connect, excited to ignore InMails while celebrating our achievements together!
     </AboutItem>
 
     <tr class="text-center">

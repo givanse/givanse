@@ -1,12 +1,13 @@
 const postsList: Array<Post> = [
   {
-    draft: true,
+    external: true,
+    externalUrl: 'https://www.leagueoflegends.com/en-us/news/dev/tft-treasure-realms-a-new-portal-to-personalization/',
     fileName: '',
-    title: 'STL Viewer and GlimmerJS example',
-    created: '',
+    title: 'TFT Treasure Realms - A new portal to personalization!',
+    created: '04/May/2023',
     updated: '',
-    description: '',
-    hashtags: '',
+    description: "Out with the Egg, in with the new. Learn everything you need to know about TFT’s new loot system: Treasure Realms!",
+    hashtags: 'LoLClient,TFT',
     thumb: ''
   },
   {
@@ -84,6 +85,17 @@ const postsList: Array<Post> = [
     thumb: '/img/tetris_lol_th.png'
   },
   {
+    external: true,
+    externalUrl: 'https://nexus.leagueoflegends.com/en-us/2016/12/ask-riot-the-future-of-the-client-update/',
+    fileName: '',
+    title: 'The Future Of The Client Update',
+    created: '22/Dec/2016',
+    updated: '',
+    description: "In this very special edition of Ask Riot, we’re talking exclusively about the updated League of Legends client—and what happens next for the old one.",
+    hashtags: 'LoLClient',
+    thumb: ''
+  },
+  {
     fileName: 'when-ember-observer-should-be-used',
     title: 'When Ember.observer should be used?',
     created: '3/Oct/2016',
@@ -91,6 +103,17 @@ const postsList: Array<Post> = [
     description: 'Lots of observers can be the source of hard to debug issues and they can have a big impact on the performance of your app. You should avoid them as much as possible.',
     hashtags: 'emberjs',
     thumb: '/img/encom-os12.jpg'
+  },
+  {
+    external: true,
+    externalUrl: 'https://technology.riotgames.com/news/architecture-league-client-update',
+    fileName: '',
+    title: 'The Architecture Of The League Client Update',
+    created: '16/May/2016',
+    updated: '',
+    description: "We're in the latter stages of re-engineering the League of Legends client. We're calling this the League client update.",
+    hashtags: 'LoLClient',
+    thumb: ''
   },
   {
     fileName: 'broccolijs-from-scratch',

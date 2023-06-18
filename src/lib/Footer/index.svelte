@@ -21,11 +21,8 @@
         <a href="https://twitter.com/givanse" class="text-pale-gold" title="twitter">
           <icon class="icon-twitter"></icon>
         </a>
-        <a href="https://github.com/givanse" class="text-pale-gold" title="github">
-          <icon class="icon-github-circled"></icon>
-        </a>
-        <a href="https://stackoverflow.com/users/7852/givanse" class="text-pale-gold " title="stackoverflow" style="font-size: 1.4rem;">
-          <icon class="icon-stackoverflow"></icon>
+        <a href="https://www.linkedin.com/in/givanse" class="text-pale-gold" title="linkedin">
+          <icon class="icon-linkedin"></icon>
         </a>
       </div>
     </div>

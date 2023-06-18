@@ -9,8 +9,9 @@
     <a href={item.href} class="text-pale-gold" title={item.title}>
       <icon class={item.iconCssClassName}></icon>
     </a>
-  </td>
-  <td>
+
+    <br />
+
     <slot />
   </td>
 </tr>
