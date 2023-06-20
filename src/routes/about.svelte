@@ -47,10 +47,12 @@
 
 <div class="about text-center">
 
-  <table class="mt-8 pr-8 text-center">
+  <table>
 
     <AboutItem item={stackoverflow}>
-      Top StackOverflow contributor, now turned ChatGPT wordsmith.
+      Top StackOverflow contributor,
+      <br />
+      now turned ChatGPT wordsmith.
     </AboutItem>
 
     <AboutItem item={twitter}>
@@ -58,11 +60,15 @@
     </AboutItem>
 
     <AboutItem item={github}>
-      Where Good Ideas Rest in Peace and Ambition Gets a Reality Check.
+      Where Good Ideas Rest in Peace and
+      <br />
+      Ambition Gets a Reality Check.
     </AboutItem>
 
     <AboutItem item={linkedin}>
-      Let's connect, excited to ignore InMails while celebrating our achievements together!
+      Let's connect, excited to ignore InMails while
+      <br />
+      celebrating our achievements together!
     </AboutItem>
 
     <tr class="text-center">
