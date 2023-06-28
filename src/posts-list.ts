@@ -1,5 +1,15 @@
 const postsList: Array<Post> = [
   {
+    draft: true,
+    fileName: 'chatgpt-prompt-tips',
+    title: 'ChatGPT Prompt Tips',
+    created: '29/Jun/2023',
+    updated: '',
+    description: '',
+    hashtags: 'ChatGPT,AI',
+    thumb: '/img/skynet.png'
+  },
+  {
     fileName: 'bitcoin-fields-of-study',
     title: 'Bitcoin Fields of Study',
     created: '28/Jun/2023',
