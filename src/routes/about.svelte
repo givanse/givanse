@@ -56,7 +56,9 @@
     </AboutItem>
 
     <AboutItem item={twitter}>
-      Analyzing the World's Chessboard from My Armchair.
+      Analyzing the World's Chessboard
+      <br />
+      from My Armchair.
     </AboutItem>
 
     <AboutItem item={github}>

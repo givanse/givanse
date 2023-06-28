@@ -1,5 +1,14 @@
 const postsList: Array<Post> = [
   {
+    fileName: 'bitcoin-fields-of-study',
+    title: 'Bitcoin Fields of Study',
+    created: '28/Jun/2023',
+    updated: '',
+    description: 'An introduction to key concepts and branches of knowledge surrounding Bitcoin.',
+    hashtags: 'Bitcoin,Money',
+    thumb: '/img/bitcoin.png'
+  },
+  {
     external: true,
     externalUrl: 'https://www.leagueoflegends.com/en-us/news/dev/tft-treasure-realms-a-new-portal-to-personalization/',
     fileName: '',

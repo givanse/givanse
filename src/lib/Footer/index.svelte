@@ -7,7 +7,9 @@
   <div class="grid grid-cols-2 w-post c-secondary-2-1">
 
     <div class="text-left mt-8 pr-8">
-      <a sveltekit:prefetch href="/" class="text-pale-gold">Posts</a>
+      <a sveltekit:prefetch href="/" class="text-pale-gold underline">
+        Posts
+      </a>
     </div>
 
     <div class="text-right mt-8 pr-8">
