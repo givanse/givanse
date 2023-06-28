@@ -14,7 +14,7 @@ const postsList: Array<Post> = [
     title: 'Bitcoin Fields of Study',
     created: '28/Jun/2023',
     updated: '',
-    description: 'An introduction to key concepts and branches of knowledge surrounding Bitcoin.',
+    description: 'Navigating-Bitcoin: A Gentle Introduction to its Fields of Study and Key Concepts.',
     hashtags: 'Bitcoin,Money',
     thumb: '/img/bitcoin.png'
   },
