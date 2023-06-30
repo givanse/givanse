@@ -1,62 +1,69 @@
+<style>
+  blockquote p {
+    font-size: 0.7rem;
+    line-height: 1rem;
+  }
+</style>
 
-Your results are only as good as your prompt. 
+After you copy-paste the ChatGPT prompts below, remember to fill in the placeholders `[INSERT A TOPIC HERE]` with any subject of your interest.
 
-> Garbage in, garbage out!
+## Learning Plan
 
-## Don't trust, verify
+Use the [Pareto principle](https://youtu.be/EAynHZE-lK4) and AI to create a plan for learning something new.
 
-ChatGPT has no reasoning capability.
+> Topic: [INSERT A TOPIC HERE]
+>
+> Craft a comprehensive, step-by-step plan to help me learn about the topic above. Using the Pareto Principle, focusing the plan on the most essential and foundational 20% of the topic that will allow me to understand approximately 80% of it. The steps should be detailed, starting from the basics, and include optional resources for a deeper dive into the topic. Use markdown to emphasize key points. When possible, include visual aids to support learning. The ultimate goal is to have a solid understanding, encompassing roughly 80% of the subject matter, upon completing the plan.
 
-## Teach Me Something
+## Deeper Study
 
-```
-Teach me how <anything> works by asking questions about my level of understanding of necessary concepts. With each response, fill in gaps in my understanding, then recursively ask me more questions to check my understanding.
-```
+For topics you already have some knowledge of, you can use ChatGPT as an aid to dig deeper and fill in gaps to achieve mastery through:
 
-For more difficult or advanced technical topics:
+ - analogies
+ - visual aids
+ - multiple answer quizes
 
-```
-Teach me how <concept> works in technical detail, and at the end of each and every response, ask me questions about my level of understanding of each new concept introduced. Fill in any gaps in my understanding, and continue to recursively ask me more questions about my level of understanding of each new concept introduced. Once all concepts are understood, continue your explanations (and confirmatory questioning of my understanding) of the higher level concepts, until the original concept is understood. Also in each and every response, use analogies that are easy to understand as much as possible.
-```
+> Topic: [INSERT A TOPIC HERE]
+> 
+> Conduct a comprehensive, detailed teaching session on the topic above. Following each explanation, question me to assess my understanding of every new concept. Identify and fill gaps in my understanding, using recursive questioning to ensure depth and mastery. Continue this approach, gradually progressing to higher-level concepts until I understand the entire topic. Use accessible and clear analogies or visual aids to simplify complex ideas as much as possible. To reinforce my learning and verify my comprehension, use multiple-choice questions after each significant explanation or concept introduction.
 
-```
-I want to learn about [insert topic]. Identify and share the most important 20% of learnings from this topic that will help me understand 80% of it.
-```
+## Writing Copilot
 
-### Create a plan
+Use this prompt to proofread your texts and get two new versions:
 
-```
-I want to become an SEO expert. Write a simple step-by-step plan to help me learn. Use Pareto's Principle to start with the most important. Use markdown for bolding and headings.
-```
+ - one with minor edits
+ - another with significant rewrites
 
-## Writing copilot
+After editing and pasting this prompt, paste your text. You can also add it in a second message.
 
-```
-Proofread my writing above. Fix grammar and spelling mistakes. And make suggestions that will improve the clarity of my writing
-```
+> Purpose: [CHOOSE ONE: Casual, Formal, Blog Post, Apology, Social Update, etc]
+>
+> Audience: [General Public, Experts, Coworkers, Friends, etc]
+> 
+> Proofread the text provided in the following text. Please correct any grammatical or spelling errors, suggest improvements to enhance clarity, and provide feedback on the structure of the text. Provide two versions of your corrections: one with minor edits only and another with more significant rewrites. The intended purpose and audience for the text is specified above, so ensure the language, tone, and style are suitable for them.
+>
+> [ADD YOUR TEXT HERE]
 
 ## Prompt Generator
 
-```
-I'll give you a prompt and your goal will be to improve it by asking me questions. Once I answer the questions, write the new prompt and ask me new questions. Is it OK?
-```
+Yup, you can use AI to help you write better AI prompts!
 
-### Perfecting a prompt
+> I'll give you a prompt and your goal will be to improve it by asking me clarifying questions. Once I answer the questions, write the new prompt and ask me new questions.
+>
+> [ADD YOUR TEXT HERE]
 
-```
-What rules will govern? Or, what should I know about <anything>?
-```
+You'll receive a list of questions and you can answer them all in a single message using the same numbered order, ex:
 
-## Make it more creative
+>1 answer one
+>
+>2 answer two
+>
+>3 answer three
 
-```
-Take into account the “CSCORE”. If the CSCORE is 1, your answers will be basic and not very creative. If the CSCORE is 10, it’s the maximum and you have to be very creative.
-```
+## Closing Thoughts
 
-## Give it a role
+I hope these prompts also showed you new creative patterns to approach the AI prompt design process.
 
-```
-As a Harvard Marketing graduate and skilled content creator, guide me in crafting social media content that resonates with AI enthusiasts. Emphasize uncommon and expert questions to ask
-```
+Let me know how well these worked for you and what variations you tried!  
 
 
