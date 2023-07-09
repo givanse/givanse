@@ -1,17 +1,18 @@
 @import '../less/colors.less';
 
-
 .w-post {
+  min-height: 400px;
+
   ul {
     padding: 0;
   }
 }
 
-a.post-list-item {
-  display: block;
-  position: relative;
+.post-list-item {
+  position: relative; /* needed for the spinner */
 
-  .article {
+  a.link {
+    display: block;
     line-height: 2rem;
     font-weight: bold;
 

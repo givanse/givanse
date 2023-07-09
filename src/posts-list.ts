@@ -34,7 +34,7 @@ const postsList: Array<Post> = [
     created: '06/Jul/2022',
     updated: '',
     description: 'A guide for troubleshooting connection issues with Whirlpool on Umbrel.',
-    hashtags: 'Umbrel,Whirlpool,Samourai',
+    hashtags: 'Bitcoin,Whirlpool',
     thumb: '/img/bitcoin.png'
   },
   {
@@ -43,7 +43,7 @@ const postsList: Array<Post> = [
     created: '26/Feb/2022',
     updated: '',
     description: 'A tutorial on how to generate Bitcoin line coverage reports.',
-    hashtags: 'BitcoinDev',
+    hashtags: 'Bitcoin, BitcoinDev',
     thumb: '/img/lcov-bitcoin-no-extended-no-legacy-wallet-w-logo.jpg'
   },
   {
@@ -52,7 +52,7 @@ const postsList: Array<Post> = [
     created: '19/Feb/2022',
     updated: '',
     description: 'How to download, build, test and deploy Bitcoin on macOS 12.2.1 (Monterey).',
-    hashtags: 'BitcoinDev',
+    hashtags: 'Bitcoin, BitcoinDev',
     thumb: '/img/bitcoin.png'
   },
   {
@@ -72,7 +72,7 @@ const postsList: Array<Post> = [
     created: '02/Mar/2020',
     updated: '',
     description: "Over the next six months or so we'll ship a number of changes and improvements to the League client's backend infrastructure. To track our process, we'll be sharing specific targets for two main client performance metrics: client bootstrap time and champ select lock-in time.",
-    hashtags: 'LoLClient',
+    hashtags: 'LoLClient, LeagueOfLegends',
     thumb: ''
   },
   {
@@ -81,7 +81,7 @@ const postsList: Array<Post> = [
     created: '31/Oct/2019',
     updated: '',
     description: 'Add Tailwind CSS to an existing Preact CLI application through PostCSS.',
-    hashtags: 'Preact',
+    hashtags: 'WebDev,Preact',
     thumb: ''
   },
   {
@@ -110,7 +110,7 @@ const postsList: Array<Post> = [
     created: '22/Dec/2016',
     updated: '',
     description: "In this very special edition of Ask Riot, we’re talking exclusively about the updated League of Legends client—and what happens next for the old one.",
-    hashtags: 'LoLClient',
+    hashtags: 'LoLClient, LeagueOfLegends',
     thumb: ''
   },
   {
@@ -119,7 +119,7 @@ const postsList: Array<Post> = [
     created: '3/Oct/2016',
     updated: '',
     description: 'Lots of observers can be the source of hard to debug issues and they can have a big impact on the performance of your app. You should avoid them as much as possible.',
-    hashtags: 'emberjs',
+    hashtags: 'webdev, emberjs',
     thumb: '/img/encom-os12.jpg'
   },
   {
@@ -130,7 +130,7 @@ const postsList: Array<Post> = [
     created: '16/May/2016',
     updated: '',
     description: "We're in the latter stages of re-engineering the League of Legends client. We're calling this the League client update.",
-    hashtags: 'LoLClient',
+    hashtags: 'LoLClient, LeagueOfLegends',
     thumb: ''
   },
   {
@@ -139,7 +139,7 @@ const postsList: Array<Post> = [
     created: '19/Apr/2015',
     updated: '29/Aug/2016',
     description: 'We\'ll install and configure Broccoli using a hello world website. Then we\'ll add a couple of Broccoli plugins for common tasks like loading assets and bundling CSS.',
-    hashtags: 'broccolijs',
+    hashtags: 'webdev, broccolijs',
     thumb: '/img/encom-os12.jpg'
   },
   {
@@ -148,7 +148,7 @@ const postsList: Array<Post> = [
     created: '04/Aug/2015',
     updated: '',
     description: 'A collection of places and channels where embereños help each other.',
-    hashtags: 'emberjs,community',
+    hashtags: 'webdev,emberjs',
     thumb: '/img/ember-community.jpg'
   },
   {
@@ -157,7 +157,7 @@ const postsList: Array<Post> = [
     created: '23/Jul/2015',
     updated: '',
     description: 'Setup a Rails and MySQL backend with an Ember frontend in a CentOS box using Nginx.',
-    hashtags: 'nginx,emberjs,rails',
+    hashtags: 'webdev,emberjs,rails',
     thumb: '/img/encom-os12.jpg'
   },
   {
@@ -166,7 +166,7 @@ const postsList: Array<Post> = [
     created: '12/Jul/2015',
     updated: '',
     description: 'How to quickly get started with Spree on Rails.',
-    hashtags: 'spree, rails',
+    hashtags: 'webdev, rails',
     thumb: ''
   },
   {
@@ -177,7 +177,7 @@ const postsList: Array<Post> = [
     created: '17/Jun/2015',
     updated: '',
     description: 'ES6 In Depth is a series on new features being added to the JavaScript programming language in the 6th Edition of the ECMAScript standard, ES6 for short.',
-    hashtags: 'es6,broccolijs',
+    hashtags: 'webdev,es6,broccolijs',
     thumb: ''
   },
   {
@@ -186,7 +186,7 @@ const postsList: Array<Post> = [
     created: '11/Jun/2015',
     updated: '',
     description: 'Using root privileges with npm is not recommended, we\'ll go through the reasons. Avoid common pitfalls and learn the options for a proper installation of npm.',
-    hashtags: 'npm,security',
+    hashtags: 'webdev,node',
     thumb: '/img/sudo.jpg'
   },
   {

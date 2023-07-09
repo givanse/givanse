@@ -1,9 +1,8 @@
-<svelte:head>
-  <style src="../less/index.less"></style>
-</svelte:head>
-
 <script lang="ts">
   import Spinner from "$lib/Spinner/index.svelte";
+  import { createEventDispatcher } from 'svelte';
+
+  const dispatch = createEventDispatcher();
 
   export let post: Post;
 
@@ -11,29 +10,26 @@
             post.externalUrl :
             "/" + post.fileName;
 
-  $: hashtagsList = post.hashtags
-    .split(',')
-    .map(function(string) {
-      if (!string) {
-        return;
-      }
-
-      return '#' + string;
-    })
-    .join(' ');
+  $: hashtagsList = post.hashtags.split(',');
 
   let isLoading = false;
 
   function getDomain(url: string): string {
     return url.match(/^https?:\/\/[a-zA-Z0-9-.]*/)[0];
   }
+
+  function updateFilterTag(tag) {
+    dispatch('message', {
+			tag: tag,
+		});
+  }
 </script>
 
-<a href={href}
-   class="post-list-item"
-   on:click={() => isLoading = true}>
+<div class="post-list-item" itemprop="post">
 
-  <div class="article {isLoading ? 'opacity-10' : ''}" itemprop="post">
+  <a href={href}
+     class="link {isLoading ? 'opacity-10' : ''}"
+     on:click={() => isLoading = true}>
 
     <span class="title" itemprop="title">
       {post.title}
@@ -51,15 +47,23 @@
     <div class="description" itemprop="description">
       {post.description}
     </div>
+  </a>
 
-    <p class="text-right text-sm my-2 c-primary-2">
-      {hashtagsList}
-    </p>
-  </div>
+  <p class="text-right text-sm my-2 c-primary-2">
+    {#each hashtagsList as hashtag}
+      #<a href='/?h={hashtag.trim()}'
+          on:click={() => updateFilterTag(hashtag)}
+          class="underline inline">
+        {hashtag}
+      </a>
+      &nbsp;
+    {/each}
+  </p>
 
   {#if isLoading}
     <div class="absolute inset-1/2">
       <Spinner></Spinner>
     </div>
   {/if}
-</a>
+
+</div>
