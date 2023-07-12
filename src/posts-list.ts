@@ -94,6 +94,17 @@ const postsList: Array<Post> = [
     thumb: ''
   },
   {
+    external: true,
+    externalUrl: 'https://github.com/mochajs/mocha/pull/3669',
+    fileName: '',
+    title: 'Mocha bugfix: set allowUncaught on hooks',
+    created: '12/Jan/2019',
+    updated: '',
+    description: 'Bug: When passing `--allow-uncaught`, uncaught exceptions thrown inside hooks are not surfaced.',
+    hashtags: 'WebDev,OpenSource',
+    thumb: ''
+  },
+  {
     fileName: 'tetris-lol',
     title: 'Tetris LoL',
     created: '13/May/2017',
@@ -104,6 +115,17 @@ const postsList: Array<Post> = [
   },
   {
     external: true,
+    externalUrl: 'https://github.com/emberjs/ember.js/pull/14751',
+    fileName: '',
+    title: 'Deprecate Ember.K',
+    created: '23/Dec/2016',
+    updated: '',
+    description: "Ember.K was an utility function to avoid boilerplace code and limit the creation of function instances in Ember's internals.",
+    hashtags: 'EmberJS,OpenSource',
+    thumb: ''
+  },
+  {
+    external: true,
     externalUrl: 'https://nexus.leagueoflegends.com/en-us/2016/12/ask-riot-the-future-of-the-client-update/',
     fileName: '',
     title: 'The Future Of The Client Update',
@@ -111,6 +133,17 @@ const postsList: Array<Post> = [
     updated: '',
     description: "In this very special edition of Ask Riot, we’re talking exclusively about the updated League of Legends client—and what happens next for the old one.",
     hashtags: 'LoLClient, LeagueOfLegends',
+    thumb: ''
+  },
+  {
+    external: true,
+    externalUrl: 'https://github.com/emberjs/rfcs/issues/174',
+    fileName: '',
+    title: "Deprecate `Ember.on` for component's lifecycle events.",
+    created: '25/Oct/2016',
+    updated: '',
+    description: "An RFC to propose the deprecation of Ember's `.on` API.",
+    hashtags: 'EmberJS,OpenSource',
     thumb: ''
   },
   {
