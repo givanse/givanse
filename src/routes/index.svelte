@@ -40,7 +40,7 @@
   let filteredPosts = postsList;
   $: if (tag) {
     filteredPosts = postsList.filter(p => {
-      return tag.test(p.hashtags);
+      return tag.test(p.hashtags.toLocaleLowerCase());
     });
   } else {
     filteredPosts = postsList;
@@ -53,6 +53,7 @@
 
   function updatePostsList(str) {
     if (str) {
+      str = str.toLocaleLowerCase();
       tag = new RegExp(str);
       return;
     }
@@ -60,7 +61,7 @@
     const params = new URLSearchParams(window.location.search);
     const h = params.get("h");
     if (h) {
-      tag = new RegExp(h);
+      tag = new RegExp(h.toLocaleLowerCase());
       return;
     }
 

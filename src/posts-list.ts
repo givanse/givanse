@@ -152,7 +152,7 @@ const postsList: Array<Post> = [
     created: '3/Oct/2016',
     updated: '',
     description: 'Lots of observers can be the source of hard to debug issues and they can have a big impact on the performance of your app. You should avoid them as much as possible.',
-    hashtags: 'webdev, emberjs',
+    hashtags: 'EmberJS,webdev',
     thumb: '/img/encom-os12.jpg'
   },
   {
