@@ -6,6 +6,7 @@
   import {onMount} from "svelte";
   import { dev, browser, prerendering } from '$app/env';
 	import Header from '$lib/Header/index.svelte';
+	import Footer from '$lib/Footer/index.svelte';
 
   onMount(function() {
     if (dev || !browser || prerendering) {
@@ -21,6 +22,8 @@
 
 <Header />
 
-<main class="w-full mt-8">
+<main class="w-full">
   <slot />
 </main>
+
+<Footer />

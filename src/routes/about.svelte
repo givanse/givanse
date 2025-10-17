@@ -47,38 +47,37 @@
 
 <div class="about text-center">
 
-  <table>
+  <span class="name">
+    Gastón Silva
+  </span>
+
+  <p>
+    I am a software engineer with experience in various industries such as digital agencies, enterprise databases and video games. I've spent a meaningful amount of time working on each of the different phases and components of a software project, from code design and system architecture to developer tools and test automation. This background provides me with a strong understanding of the software development life cycle.
+  </p>
+
+  <div class="icons">
 
     <AboutItem item={stackoverflow}>
       Top StackOverflow contributor,
-      <br />
       now turned ChatGPT wordsmith.
     </AboutItem>
 
     <AboutItem item={twitter}>
       Analyzing the World's Chessboard
-      <br />
       from My Armchair.
     </AboutItem>
 
     <AboutItem item={github}>
       Where Good Ideas Rest in Peace and
-      <br />
       Ambition Gets a Reality Check.
     </AboutItem>
 
     <AboutItem item={linkedin}>
       Let's connect, excited to ignore InMails while
-      <br />
       celebrating our achievements together!
     </AboutItem>
 
-    <tr class="text-center">
-      <td class="name" colspan="2">
-        Gastón Silva
-      </td>
-    </tr>
 
-  </table>
+  </div>
 
 </div>

@@ -5,12 +5,51 @@
   vertical-align: middle;
 }
 
-tr td {
-  padding: 0 1.2rem;
-  line-height: 2.5rem;
-  padding-top: 3rem;
+/* Each item has a max-width and grows to fill available space */
+div {
+  flex: 1 1 250px; /* grow, shrink, basis - starts at 250px, grows to fill space */
+  padding: 1rem;
+  border-radius: 8px;
+  box-sizing: border-box; /* Ensures padding doesn't add to width */
+  margin: auto;
+
+  a {
+    display: block;
+    width: 100%;
+  }
+
+  .text {
+    width: 100%;
+    text-align: center;
+  }
 }
 
-tr:first-child td {
-  padding-top: 0;
+@media screen and (min-width: 640px) {
+  div {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  div {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  div {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1280px) {
+  div {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1536px) {
+  div {
+    width: 25%;
+  }
 }

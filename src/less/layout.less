@@ -8,26 +8,14 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-	min-height: 100vh;
-	margin: 0;
-	background: linear-gradient(
-		180deg,
-    #f0f0f0 80%,
-    90%,
-    #cdcdcd 95%
-	);
-}
-
 html, body {
   border-width: 0;
   margin: 0;
+	margin: 0;
   padding: 0;
 }
 
 body {
-  /*background-color: #fff;
-  */
   font-family: system-ui;
   color: @color-secondary-1-4;
   font-size: 1.1rem;
@@ -131,9 +119,28 @@ ul {
 @footer_total_h: @footer_border_top_width +
                  @footer_height;
 
-.layout {
-  margin-bottom: -@footer_total_h;
-  min-height: 100%;
+#svelte {
+  display: grid;
+  height: 100vh;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: "header" "main" "footer";
+
+  header {
+    grid-area: header;
+  }
+
+  main {
+    grid-area: main;
+    padding-top: 2rem;
+    background: linear-gradient(180deg, #f0f0f0 50%, #cdcdcd 80%);
+    background-repeat: no-repeat;  /* Prevent tiling */
+    background-size: 100% 100%;    /* Stretch to fill container */
+    background-attachment: fixed;  /* Optional: keeps gradient fixed during scroll */
+  }
+
+  footer {
+    grid-area: footer;
+  }
 }
 
 .sticky_footer {
@@ -143,10 +150,10 @@ ul {
   border-width: 0;
   border-top-width: @footer_border_top_width;
   height: @footer_height;
-  margin-top: 7rem;
   width: 100%;
   padding-right: 0.5rem;
   padding-left: 0.5rem;
+  color: #FDD2C8;
 }
 
 .w-post {

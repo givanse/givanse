@@ -9,7 +9,6 @@
 
   import postsList from "../posts-list";
   import compilePost from "../lib/compile-post";
-	import Footer from '$lib/Footer/index.svelte';
 
   /**
 	 * @type {import('@sveltejs/kit').Load}
@@ -80,5 +79,3 @@
 </article>
 
 <PostFooter post={post}></PostFooter>
-
-<Footer />

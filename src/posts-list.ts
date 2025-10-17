@@ -1,5 +1,16 @@
 const postsList: Array<Post> = [
   {
+    external: true,
+    externalUrl: 'https://teamfighttactics.leagueoflegends.com/en-us/news/game-updates/ao-shins-ascent-overview/',
+    fileName: '',
+    title: 'Teamfight Tactics — Ao Shin’s Ascent',
+    created: '17/Sep/2023',
+    updated: '',
+    description: 'Led engineering for the around-game experience, defining architecture, guiding execution, and resolving complex UI challenges to deliver a cohesive cross-platform event.',
+    hashtags: 'LoLClient,TFT',
+    thumb: ''
+  },
+  {
     fileName: 'chatgpt-prompt-tips',
     title: 'ChatGPT Prompt Tips',
     created: '29/Jun/2023',

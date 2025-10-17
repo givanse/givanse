@@ -9,7 +9,6 @@
   import postsList from "../posts-list";
   import PostsListItem from "$lib/PostsListItem/index.svelte";
 	import PostHeadMeta from '$lib/PostHeadMeta/index.svelte';
-	import Footer from '$lib/Footer/index.svelte';
   import { dev } from "$app/env";
 
   export const prerender = true; //TODO: needed?
@@ -89,5 +88,3 @@
     {/each}
   </li>
 </ul>
-
-<Footer />

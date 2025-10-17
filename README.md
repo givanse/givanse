@@ -5,6 +5,7 @@ Everything you need to build a Svelte project, powered by [`create-svelte`](http
 ## Developing
 
 ```bash
+npm install yarn --global
 yarn install
 npm run dev
 
