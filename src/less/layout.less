@@ -3,6 +3,7 @@
 @import '../less/colors-classes.less';
 @import '../less/header.less';
 @import '../less/spinner.less';
+@import '../less/footer.less';
 
 @tailwind base;
 @tailwind components;
@@ -113,12 +114,6 @@ ul {
   list-style: circle;
 }
 
-@footer_border_top_width: 1rem;
-@footer_height: 10rem;
-@footer_margin_top: 1rem;
-@footer_total_h: @footer_border_top_width +
-                 @footer_height;
-
 #svelte {
   display: grid;
   height: 100vh;
@@ -141,19 +136,6 @@ ul {
   footer {
     grid-area: footer;
   }
-}
-
-.sticky_footer {
-  background-color: @header_footer_background_color;
-  border-color: @color-secondary-1-0;
-  border-style: solid;
-  border-width: 0;
-  border-top-width: @footer_border_top_width;
-  height: @footer_height;
-  width: 100%;
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
-  color: #FDD2C8;
 }
 
 .w-post {

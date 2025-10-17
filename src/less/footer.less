@@ -1,0 +1,38 @@
+@import '../less/colors.less';
+
+@footer_border_top_width: 1rem;
+@footer_height: 10rem;
+@footer_margin_top: 1rem;
+@footer_total_h: @footer_border_top_width +
+                 @footer_height;
+
+.sticky_footer {
+  background-color: @header_footer_background_color;
+  border-color: @color-secondary-1-0;
+  border-style: solid;
+  border-width: 0;
+  border-top-width: @footer_border_top_width;
+  height: @footer_height;
+  width: 100%;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  color: #FDD2C8;
+
+  .grid-wrapper {
+    width: 50%;
+    margin: auto;
+
+    .grid {
+      width: 100%;
+    }
+  }
+
+}
+
+@media screen and (max-width: 640px) {
+  .sticky_footer {
+    .grid-wrapper {
+      width: 100%;
+    }
+  }
+}

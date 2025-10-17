@@ -4,6 +4,8 @@
 
 <footer class="sticky_footer">
 
+  <div class="grid-wrapper">
+
   <div class="grid grid-cols-2">
 
     <div class="text-left mt-8 pr-8">
@@ -29,6 +31,7 @@
       </div>
     </div>
 
+    </div>
   </div>
 
 </footer>
