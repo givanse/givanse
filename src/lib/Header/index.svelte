@@ -5,10 +5,10 @@
 <header class="w-full">
   <div class="header_0">
     <nav class="menu w-post">
-      <a sveltekit:prefetch href="/"
+      <a href="/"
          class:active={$page.path === '/'}>Posts</a>
 
-      <a sveltekit:prefetch href="/about"
+      <a href="/about"
          class:active={$page.path === '/about'}>About</a>
     </nav>
   </div>

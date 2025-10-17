@@ -2,30 +2,49 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="language" content="english">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    %svelte.head%
-
-    <link rel="icon" href="/favicon.ico" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="language" content="english" />
+    
+    <!-- SvelteKit v2 placeholders -->
+    %sveltekit.head%
+    %sveltekit.assets%
+    
+    <!-- Favicon with SvelteKit assets -->
+    <link rel="icon" href="%sveltekit.assets%/favicon.ico" />
+    
+    <!-- Google Analytics (async script will be handled by SvelteKit) -->
+    <!-- Move to +layout.svelte or hooks.server.js for better control -->
+    
+    <style>
+      /* Global styles - will be extracted by Vite */
+      @font-face {
+        font-family: 'fontello';
+        font-weight: normal;
+        font-style: normal;
+        src: local('serif');
+        font-display: swap;
+      }
+      
+      /* Optional: Loading styles */
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: system-ui, -apple-system, sans-serif;
+      }
+    </style>
   </head>
-
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLM6R0K3T7"></script>
-
-  <style>
-    @font-face {
-      font-family: 'fontello';
-      font-weight: normal;
-      font-style: normal;
-      src: local('serif');
-      font-display: swap;
-    }
-  </style>
-
-  <body>
-    <div id="svelte">
-      %svelte.body%
-    </div>
+  <body data-sveltekit-preload-data="hover">
+    <!-- SvelteKit v2 body placeholder -->
+    <div style="display: contents">%sveltekit.body%</div>
+    
+    <!-- Google Tag Manager script -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLM6R0K3T7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PLM6R0K3T7');
+    </script>
   </body>
 </html>

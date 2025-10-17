@@ -1,28 +1,31 @@
-import preprocess from 'svelte-preprocess';
 import adapter from '@sveltejs/adapter-static';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import tailwindcss from 'tailwindcss';
 
-/** @type {import('@sveltejs/kit').Config} */
 const config = {
-  // Consult https://github.com/sveltejs/svelte-preprocess
-  // for more information about preprocessors
-  preprocess: preprocess({
+  preprocess: vitePreprocess({
     postcss: {
-      plugins: [
-        tailwindcss,
-      ]
-    }
+      plugins: [tailwindcss],
+    },
   }),
-
+ 
   kit: {
-    // hydrate the <div id="svelte"> element in src/app.html
-    target: '#svelte',
     adapter: adapter({
-      onError: ({ status, path, referrer, referenceType }) => {
-        console.warn(`${status} ${path}${referrer ? ` (${referenceType} from ${referrer})` : ''}`);
-      },
+      pages: 'build',
+      assets: 'build',
+      fallback: null,
+      precompress: false,
+      strict: true
+      // ❌ Removed: onError, csr, browser - not valid adapter options
     }),
+   
+    // ✅ Valid v2 alias config (single entry, no duplicates)
+    alias: {
+      $lib: 'src/lib',
+      $posts: 'static/posts-markdown' // For markdown files
+    }
   }
+  // ✅ Removed runes: false - let SvelteKit v2 handle properly
 };
 
 export default config;

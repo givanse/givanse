@@ -1,6 +1,6 @@
 <script lang="ts">
   import {onMount} from "svelte";
-  import { dev, browser, prerendering } from '$app/env';
+  import { browser, dev, building} from '$app/environment'; // ✅ v2 imports
 
   export let post: Post;
 
