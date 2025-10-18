@@ -4,12 +4,12 @@
 
 <style src="../../less/about-item.less"></style>
 
-<div>
-    <a href={item.href} class="text-pale-gold" title={item.title}>
-      <icon class={item.iconCssClassName}></icon>
-    </a>
+<div class="about-item">
+  <a href={item.href} class="text-pale-gold" title={item.title}>
+    <icon class={item.iconCssClassName}></icon>
+  </a>
 
-    <div class="text">
-      <slot />
-    </div>
+  <div class="text">
+    <slot />
+  </div>
 </div>

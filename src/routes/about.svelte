@@ -47,9 +47,9 @@
 
 <div class="about text-center">
 
-  <span class="name">
+  <h1 class="name">
     Gastón Silva
-  </span>
+  </h1>
 
   <p>
     I am a software engineer with experience in various industries such as digital agencies, enterprise databases and video games. I've spent a meaningful amount of time working on each of the different phases and components of a software project, from code design and system architecture to developer tools and test automation. This background provides me with a strong understanding of the software development life cycle.

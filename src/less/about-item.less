@@ -6,12 +6,9 @@
 }
 
 /* Each item has a max-width and grows to fill available space */
-div {
-  flex: 0 0 calc(33%); /* Shows max 4 items per row */
-  padding: 1rem;
-  border-radius: 8px;
-  box-sizing: border-box; /* Ensures padding doesn't add to width */
-  margin: auto;
+div.about-item {
+  width: 100%;
+  padding: 1rem 0;
 
   a {
     display: block;
@@ -25,9 +22,6 @@ div {
 }
 
 @media screen and (max-width: 430px) {
-  div {
-    flex: auto;
-  }
 }
 
 @media screen and (min-width: 640px) {
