@@ -29,6 +29,7 @@
 
   <a href={href}
      class="link {isLoading ? 'opacity-10' : ''}"
+     target="{post.externalUrl ? '_blank' : ''}"
      on:click={() => isLoading = true}>
 
     <span class="title" itemprop="title">

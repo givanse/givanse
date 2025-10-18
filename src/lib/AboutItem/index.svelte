@@ -5,7 +5,11 @@
 <style src="../../less/about-item.less"></style>
 
 <div class="about-item">
-  <a href={item.href} class="text-pale-gold" title={item.title}>
+  <a href={item.href}
+     class="text-pale-gold"
+     rel="me"
+     target="_blank"
+     title={item.title}>
     <icon class={item.iconCssClassName}></icon>
   </a>
 

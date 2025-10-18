@@ -40,9 +40,7 @@
 <style src="../less/about.less"></style>
 
 <svelte:head>
-	<title>
-    About :: Gastón
-  </title>
+  <link rel="canonical" href="https://givan.se/about">
 </svelte:head>
 
 <div class="about text-center">
