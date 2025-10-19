@@ -1,25 +1,25 @@
 [build]
   command = "npm run build"
   publish = "build"
- 
+
 [[headers]]
   for = "/img/*"
   [headers.values]
     X-Content-Type-Options = "nosniff"
-    Content-Security-Policy = "default-src 'none'; img-src 'self' data: https://c.disquscdn.com https://referrer.disqus.com https://static.licdn.com https://abs.twimg.com https://pbs.twimg.com https://ton.twimg.com; trusted-types default"
+    Content-Security-Policy = "default-src 'none'; img-src 'self' data: https://c.disquscdn.com https://referrer.disqus.com https://static.licdn.com https://abs.twimg.com https://pbs.twimg.com https://ton.twimg.com https://syndication.twitter.com; trusted-types default jSecure"
 
 [[headers]]
   for = "/_app/**"
   [headers.values]
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://givanse.disqus.com https://c.disquscdn.com https://platform.linkedin.com https://platform.twitter.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://c.disquscdn.com https://referrer.disqus.com https://static.licdn.com https://abs.twimg.com https://pbs.twimg.com https://ton.twimg.com; font-src 'self'; frame-src https://disqus.com https://platform.twitter.com https://syndication.twitter.com; connect-src 'self' https://www.google-analytics.com https://givanse.disqus.com https://links.services.disqus.com https://www.linkedin.com https://syndication.twitter.com; trusted-types default"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' https://givanse.disqus.com https://c.disquscdn.com https://platform.linkedin.com https://platform.twitter.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://c.disquscdn.com https://referrer.disqus.com https://static.licdn.com https://abs.twimg.com https://pbs.twimg.com https://ton.twimg.com https://syndication.twitter.com; font-src 'self'; frame-src https://disqus.com https://platform.twitter.com https://syndication.twitter.com; connect-src 'self' https://givanse.disqus.com https://links.services.disqus.com https://www.linkedin.com https://syndication.twitter.com; trusted-types default jSecure"
 
 [[headers]]
   for = "/*"
   [headers.values]
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://givanse.disqus.com https://c.disquscdn.com https://platform.linkedin.com https://platform.twitter.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://c.disquscdn.com https://referrer.disqus.com https://static.licdn.com https://abs.twimg.com https://pbs.twimg.com https://ton.twimg.com; font-src 'self'; frame-src https://disqus.com https://platform.twitter.com https://syndication.twitter.com; connect-src 'self' https://www.google-analytics.com https://givanse.disqus.com https://links.services.disqus.com https://www.linkedin.com https://syndication.twitter.com; trusted-types default"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' https://givanse.disqus.com https://c.disquscdn.com https://platform.linkedin.com https://platform.twitter.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://c.disquscdn.com https://referrer.disqus.com https://static.licdn.com https://abs.twimg.com https://pbs.twimg.com https://ton.twimg.com https://syndication.twitter.com; font-src 'self'; frame-src https://disqus.com https://platform.twitter.com https://syndication.twitter.com; connect-src 'self' https://givanse.disqus.com https://links.services.disqus.com https://www.linkedin.com https://syndication.twitter.com; trusted-types default jSecure"
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
