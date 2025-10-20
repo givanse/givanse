@@ -4,7 +4,7 @@ const postsList: Array<Post> = [
     externalUrl: 'https://teamfighttactics.leagueoflegends.com/en-us/news/game-updates/ao-shins-ascent-overview/',
     fileName: '',
     title: 'Teamfight Tactics PvE Event — Ao Shin’s Ascent',
-    created: '17/Sep/2023',
+    created: '17/Sep/2025',
     updated: '',
     description: 'Led engineering for the around-game experience, defining architecture, guiding execution, and resolving complex UI challenges to deliver a cohesive cross-platform event.',
     hashtags: 'LoLClient,TFT',

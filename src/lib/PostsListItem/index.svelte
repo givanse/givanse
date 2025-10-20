@@ -39,6 +39,9 @@
     {#if post.external}
       <i class="icon-link-ext text-pale-gold text-2xl"
          title={getDomain(post.externalUrl)}></i>
+    {/if}
+
+    {#if post.external}
       <br>
       <span class="text-xs">
         {getDomain(post.externalUrl)}
@@ -59,6 +62,15 @@
       </a>
       &nbsp;
     {/each}
+
+    <span class="date text-xs">
+      {#if post.updated}
+        {post.updated}
+      {:else}
+        {post.created}
+      {/if}
+    </span>
+
   </p>
 
   {#if isLoading}
