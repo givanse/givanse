@@ -18,7 +18,7 @@
   const twitter = {
     iconCssClassName: "icon-twitter",
     title: "twitter",
-    href: "https://twitter.com/givanse"
+    href: "https://twitter.com/gaston_this_is"
   };
   const github = {
     iconCssClassName: "icon-github-circled",
@@ -83,8 +83,8 @@
     </AboutItem>
 
     <AboutItem item={linkedin}>
-      Let's connect, excited to ignore InMails while
-      celebrating our achievements together!
+      Let's connect, excited to
+      celebrate our achievements together!
     </AboutItem>
 
 
