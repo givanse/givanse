@@ -22,7 +22,7 @@
     "highlight.js": "^11.0.1",
     "less": "^4.1.1",
     "marked": "^4.0.10",
-    "postcss": "^8.4.5",
+    "postcss": "^8.5.26",
     "svelte": "^3.44.3",
     "svelte-check": "^2.0.0",
     "svelte-preprocess": "^4.0.0",
