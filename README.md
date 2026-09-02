@@ -30,7 +30,7 @@ Site settings and publishes are **CLI only** (`netlify` / `netlify api`). `skip_
 
 ### How to ship https://givan.se
 
-Intentional production publish is **`netlify deploy --prod`** or a **build hook POST**. Not dashboard Trigger deploy, not `netlify deploy --trigger`.
+Intentional production publish is **`netlify deploy --prod`** or a **build hook POST**.
 
 ```bash
 # from a linked clone (site name givanse); builds then publishes production
