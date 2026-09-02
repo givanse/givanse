@@ -1,6 +1,6 @@
 # https://givan.se — Netlify site `givanse`. Production branch is `svelte`
-# (SvelteKit migration). Do not set `stop_builds` (blocks Trigger deploy and
-# build hooks). `skip_prs` is already true in the UI; keep it that way.
+# (SvelteKit migration). Do not set `stop_builds` (blocks `netlify deploy
+# --trigger`, `createSiteBuild`, and build hooks). `skip_prs` is already true.
 #
 # FLAG: `allowed_branches` used to list leftover `broccoli-taco`. It is already
 # `["svelte"]` via `netlify api updateSite`. Do not set it in the UI.
