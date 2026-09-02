@@ -1,10 +1,10 @@
 <script lang="ts">
-import { dev, browser, prerendering } from "$app/env";
+import { browser, dev, building } from '$app/environment';
 
 export let slug: string;
 
 function loadDisqus() {  
-  if (dev || !browser || prerendering) {
+  if (dev || !browser || building) {
     return;
   }
 

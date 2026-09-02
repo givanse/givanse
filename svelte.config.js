@@ -1,27 +1,23 @@
-import preprocess from 'svelte-preprocess';
 import adapter from '@sveltejs/adapter-static';
-import tailwindcss from 'tailwindcss';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-  // Consult https://github.com/sveltejs/svelte-preprocess
-  // for more information about preprocessors
-  preprocess: preprocess({
-    postcss: {
-      plugins: [
-        tailwindcss,
-      ]
-    }
-  }),
-
+  preprocess: vitePreprocess(),
   kit: {
-    // hydrate the <div id="svelte"> element in src/app.html
-    target: '#svelte',
     adapter: adapter({
-      onError: ({ status, path, referrer, referenceType }) => {
-        console.warn(`${status} ${path}${referrer ? ` (${referenceType} from ${referrer})` : ''}`);
-      },
+      pages: 'build',
+      assets: 'build',
+      fallback: null,
+      precompress: false,
+      strict: true
     }),
+    prerender: {
+      // Posts embed onion/JSON fragments that the crawler should not treat as routes
+      handleInvalidUrl: 'warn',
+      handleHttpError: 'warn',
+      handleMissingId: 'warn'
+    }
   }
 };
 
