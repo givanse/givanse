@@ -7,8 +7,8 @@
 #
 # Honor `[build].base`: the ignore command runs from the base directory (repo
 # root here; this site has no toml `base`). Diff from the git root so a leftover
-# UI base cannot make `git diff .` miss site files. Prefer `NETLIFY_REPO_PATH`
-# when Netlify sets it.
+# Base directory setting cannot make `git diff .` miss site files. Prefer
+# `NETLIFY_REPO_PATH` when Netlify sets it.
 #
 # README / this script / netlify.toml-only changes do not publish a new site
 # (no production deploy just to land toml). Header/CSP toml edits need
