@@ -1,6 +1,6 @@
 <script lang="ts">
   import {onMount} from "svelte";
-  import { dev, browser, prerendering } from '$app/env';
+  import { browser, dev, building} from '$app/environment'; // ✅ v2 imports
 
   export let post: Post;
 
@@ -9,7 +9,7 @@
   $: dataUrl = `https://givan.se/${post.fileName}`;
 
   onMount(function() {
-    if (dev || !browser || prerendering) {
+    if (dev || !browser || building) {
       return;
     }
 

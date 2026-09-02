@@ -1,8 +1,6 @@
 <script lang="ts">
-  export let item: AboutItem;
+  let { item, children }: { item: AboutItem; children: import('svelte').Snippet } = $props();
 </script>
-
-<style src="../../less/about-item.less"></style>
 
 <div class="about-item">
   <a href={item.href}
@@ -14,6 +12,10 @@
   </a>
 
   <div class="text">
-    <slot />
+    {@render children()}
   </div>
 </div>
+
+<style lang="less">
+  @import '../../less/about-item.less';
+</style>
