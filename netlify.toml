@@ -1,9 +1,31 @@
+# https://givan.se — Netlify site `givanse`. Production branch is `svelte`
+# (SvelteKit migration). Do not set `stop_builds` (blocks Trigger deploy and
+# build hooks). `skip_prs` is already true in the UI; keep it that way.
+#
+# Leftover UI: `allowed_branches` still lists `broccoli-taco` (not `svelte`).
+# Gastón should set Allowed branches to `svelte` and remove `broccoli-taco`:
+# Project configuration → Build & deploy → Continuous deployment / Branches.
+#
+# Production ignore is a path safety net (fail open). Deploy Previews always
+# skip. Build hooks ignore the ignore exit code and always build.
+
 [build]
   command = "npm run build"
   publish = "build"
+  # Path safety net if auto-prod remains. Exit 0 skips; fail open otherwise.
+  # Not `exit 0` — that would always-skip real `src/` / `static/` changes.
+  ignore = "bash ./scripts/netlify-ignore.sh"
 
 [build.environment]
   NODE_VERSION = "22"
+
+# Skip every Deploy Preview (~credits). Complements UI skip_prs = true.
+[context.deploy-preview]
+  ignore = "exit 0"
+
+# Leftover allowed_branches includes broccoli-taco. Do not branch-deploy it.
+[context.branch-deploy]
+  ignore = "exit 0"
 
 [[headers]]
   for = "/img/*"
