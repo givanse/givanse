@@ -26,34 +26,50 @@ The static output is written to `build/` (the Netlify publish directory). Previe
 
 All sites on this Netlify account share **300 credits/month**. A production deploy costs ~15 credits. Do not auto-ship every push to `svelte`. Do **not** burn a production deploy just to land `netlify.toml` or the ignore script.
 
+Gastón prefers the **Netlify CLI** (`netlify api` / `netlify deploy --trigger`) for site settings and publishes. Do not use the Netlify UI for Allowed branches or other build settings that the CLI can set.
+
 ### How to ship https://givan.se
 
-1. **Trigger deploy** (usual path)
-   - Open [Deploys](https://app.netlify.com/projects/givanse/deploys) for project `givanse`
-   - **Trigger deploy** → **Deploy site** (production branch `svelte`)
-2. **Build hook** (always builds; Netlify does not honor `ignore` for hooks)
-   - **Project configuration** → **Build & deploy** → **Continuous deployment** → **Build hooks**
-   - Add a hook on branch `svelte`, then `POST` the hook URL
+Linked git production build of `svelte` (same as Trigger deploy; does not upload the laptop working tree):
 
-There is no GitHub Actions `workflow_dispatch` deploy today.
+```bash
+# site name works as --site; or use the Project ID / NETLIFY_SITE_ID
+netlify deploy --trigger --prod --site givanse
+```
+
+Same via the API (empty POST = git build of the production branch):
+
+```bash
+netlify api createSiteBuild --data '{"site_id":"givanse"}'
+```
+
+**Build hook** (always builds; Netlify does not honor `ignore` for hooks):
+
+```bash
+# once: create a hook on svelte
+netlify api createSiteBuildHook --data '{"site_id":"givanse","body":{"title":"manual svelte","branch":"svelte"}}'
+# then, whenever you want a production deploy:
+curl -sS -X POST -d '{}' "$HOOK_URL"
+```
+
+`netlify deploy --prod` without `--trigger` uploads **local** files. Use `--trigger` (or `createSiteBuild` / a hook) unless you intend a CLI file deploy.
 
 ### Repo policy (`netlify.toml`)
 
-- **No Deploy Preview on every PR:** `[context.deploy-preview] ignore = "exit 0"`. UI **`skip_prs` is already true** — leave it on.
+- **No Deploy Preview on every PR:** `[context.deploy-preview] ignore = "exit 0"`. UI **`skip_prs` is already true** — leave it on. To keep it via CLI if it ever flips: `netlify api updateSite` with `build_settings.skip_prs = true`.
 - **Production path ignore (safety net):** `bash ./scripts/netlify-ignore.sh` skips when `src/`, `static/`, and SvelteKit/Vite config did not change. It **fails open** (runs the build) if `CACHED_COMMIT_REF` / `COMMIT_REF` are missing or git cannot tell. It **honors `[build].base`** by diffing from `NETLIFY_REPO_PATH` (or git toplevel) so a leftover UI base cannot always-skip real site paths.
-- **Do not set `stop_builds`.** That also blocks Trigger deploy and build hooks.
+- **Do not set `stop_builds`.** That also blocks `--trigger`, `createSiteBuild`, and build hooks.
 
-Merging README / ignore / toml-only changes should **not** publish a new production site. Header or CSP edits in `netlify.toml` still need a Trigger deploy or build hook to reach the CDN.
+Merging README / ignore / toml-only changes should **not** publish a new production site. Header or CSP edits in `netlify.toml` still need `--trigger`, `createSiteBuild`, or a build hook to reach the CDN.
 
-### FLAG: leftover `allowed_branches` is still `broccoli-taco`
+### FLAG: `allowed_branches` leftover (already fixed via CLI)
 
-Netlify `build_settings.repo_branch` is **`svelte`**, but **`allowed_branches` still includes leftover `broccoli-taco` (not `svelte`)**. That is stale from before the SvelteKit migration. This repo cannot change it.
+Netlify `repo_branch` is **`svelte`**. `allowed_branches` **used to** still list leftover **`broccoli-taco`** (not `svelte`) from before the SvelteKit migration. That list is **already** `["svelte"]` via `netlify api updateSite` (`broccoli-taco` removed). Do **not** change Allowed branches in the UI.
 
-**Gastón should set Allowed branches to `svelte` (and remove `broccoli-taco`) in the Netlify UI:**
+If it regresses:
 
-1. Open [Project configuration → Build & deploy](https://app.netlify.com/projects/givanse/configuration/deploys) for `givanse`
-2. **Continuous deployment** / **Branches** (Branches and deploy contexts → **Configure**)
-3. Set **Allowed branches** / branch deploys to **`svelte`** only (or **None** if production-on-`svelte` plus Trigger deploy is enough)
-4. **Remove `broccoli-taco`**
-5. Confirm **Deploy Previews** stay disabled (`skip_prs` already true)
-6. Leave **Stop builds** **off** (`stop_builds` must stay false)
+```bash
+netlify api updateSite --data '{"site_id":"givanse","body":{"build_settings":{"repo_branch":"svelte","allowed_branches":["svelte"]}}}'
+```
+
+`skip_prs` is already true. Leave **`stop_builds` false**.

@@ -2,9 +2,8 @@
 # (SvelteKit migration). Do not set `stop_builds` (blocks Trigger deploy and
 # build hooks). `skip_prs` is already true in the UI; keep it that way.
 #
-# Leftover UI: `allowed_branches` still lists `broccoli-taco` (not `svelte`).
-# Gastón should set Allowed branches to `svelte` and remove `broccoli-taco`:
-# Project configuration → Build & deploy → Continuous deployment / Branches.
+# FLAG: `allowed_branches` used to list leftover `broccoli-taco`. It is already
+# `["svelte"]` via `netlify api updateSite`. Do not set it in the UI.
 #
 # Production ignore is a path safety net (fail open). Deploy Previews always
 # skip. Build hooks ignore the ignore exit code and always build.
@@ -23,7 +22,7 @@
 [context.deploy-preview]
   ignore = "exit 0"
 
-# Leftover allowed_branches includes broccoli-taco. Do not branch-deploy it.
+# Extra credit guard if a non-svelte branch is added to allowed_branches later.
 [context.branch-deploy]
   ignore = "exit 0"
 
