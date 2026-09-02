@@ -11,8 +11,9 @@
 # when Netlify sets it.
 #
 # README / this script / netlify.toml-only changes do not publish a new site
-# (no production deploy just to land toml). Header/CSP toml edits need a
-# Trigger deploy or build hook — hooks ignore this exit code and always build.
+# (no production deploy just to land toml). Header/CSP toml edits need
+# `netlify deploy --trigger` / `createSiteBuild` / a build hook — hooks
+# ignore this exit code and always build.
 
 if [[ -n "${NETLIFY_REPO_PATH:-}" ]]; then
   if [[ ! -d "${NETLIFY_REPO_PATH}" ]]; then
