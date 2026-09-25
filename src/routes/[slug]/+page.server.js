@@ -8,7 +8,7 @@ export const prerender = true;
 
 export function entries() {
   return postsList
-    .filter((post) => post.fileName && post.fileName.trim() !== '')
+    .filter((post) => post.fileName && post.fileName.trim() !== '' && !post.draft)
     .map((post) => ({ slug: post.fileName.trim() }));
 }
 

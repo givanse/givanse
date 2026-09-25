@@ -40,6 +40,7 @@ const postsList: Array<Post> = [
     thumb: ''
   },
   {
+    draft: true,
     fileName: 'connecting-whirlpool-to-a-samourai-server-on-umbrel',
     title: 'Connecting Whirlpool to a Samourai Dojo on Umbrel',
     created: '06/Jul/2022',
