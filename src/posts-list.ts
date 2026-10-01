@@ -97,6 +97,17 @@ const postsList: Array<Post> = [
     thumb: ''
   },
   {
+    external: true,
+    externalUrl: 'https://bitcoin.givan.se',
+    fileName: '',
+    title: 'BTC Scarcity',
+    created: '04/Oct/2019',
+    updated: '',
+    description: 'Compare the value of money, gold and bitcoin against the wealth of the world.',
+    hashtags: 'Bitcoin,Money',
+    thumb: ''
+  },
+  {
     fileName: 'vscode-breakpoints',
     title: 'VSCode breakpoints not working',
     created: '09/Jul/2019',
